@@ -323,3 +323,10 @@ named-field validation in `internal/config/config.go`, dispatch and acquisition
 under `internal/fetcher/`, interruption-safe behavior, progress reporting, and
 focused tests. The method must be reusable across corpora and must produce one
 of the general formats above.
+
+## License
+
+The software, documentation, corpus configurations, and repository-authored
+manifests in this repository are licensed under the
+[Apache License 2.0](LICENSE). Downloaded corpus material remains governed by
+its own upstream licenses and is not relicensed by this project.

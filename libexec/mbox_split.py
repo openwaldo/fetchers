@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+# Copyright (c) 2026 OpenWALDO Project contributors
+# Copyright (c) 2026 CtrlIQ, Inc.
+# Copyright (c) 2026 Gregory M. Kurtzer
+# SPDX-License-Identifier: Apache-2.0
+
 import pathlib
 import sys
 
