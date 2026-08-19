@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "wikimedia",
     "title": "Wikimedia",
-    "description": "Articles and other text from Wikimedia projects, via the filtered Common Pile v0.1 release."
+    "description": "Articles and other text from Wikimedia projects, via the filtered Common Pile v0.1 release.",
+    "destination": "core/common-pile/wikimedia"
   },
   "sources": [
     {

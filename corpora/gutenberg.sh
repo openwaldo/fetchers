@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "gutenberg",
     "title": "Project Gutenberg",
-    "description": "Public-domain books transcribed and proofread by Project Gutenberg volunteers."
+    "description": "Public-domain books transcribed and proofread by Project Gutenberg volunteers.",
+    "destination": "core/books/gutenberg"
   },
   "sources": [
     {

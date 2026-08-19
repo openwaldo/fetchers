@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "doab",
     "title": "Directory of Open Access Books",
-    "description": "Open-access book text from the Directory of Open Access Books, via the filtered Common Pile v0.1 release."
+    "description": "Open-access book text from the Directory of Open Access Books, via the filtered Common Pile v0.1 release.",
+    "destination": "core/books/doab"
   },
   "sources": [
     {

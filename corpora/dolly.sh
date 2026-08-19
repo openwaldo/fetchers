@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "dolly",
     "title": "Databricks Dolly",
-    "description": "Human-written instruction and response pairs from Databricks employees, preserved as structured messages."
+    "description": "Human-written instruction and response pairs from Databricks employees, preserved as structured messages.",
+    "destination": "post-train/sft/dolly"
   },
   "sources": [
     {

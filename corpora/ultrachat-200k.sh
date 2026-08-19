@@ -17,7 +17,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "ultrachat-200k",
     "title": "UltraChat 200k SFT",
-    "description": "Curated multi-turn assistant conversations from the UltraChat 200k supervised fine-tuning split, preserved as structured messages."
+    "description": "Curated multi-turn assistant conversations from the UltraChat 200k supervised fine-tuning split, preserved as structured messages.",
+    "destination": "post-train/sft/ultrachat-200k"
   },
   "sources": [
     {

@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "biodiversity-heritage-library",
     "title": "Biodiversity Heritage Library",
-    "description": "Public-domain biodiversity books, journals, and archival documents from the filtered Common Pile release."
+    "description": "Public-domain biodiversity books, journals, and archival documents from the filtered Common Pile release.",
+    "destination": "core/common-pile/biodiversity-heritage-library"
   },
   "sources": [
     {

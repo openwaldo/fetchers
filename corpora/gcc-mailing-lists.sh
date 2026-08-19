@@ -16,7 +16,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "gcc-mailing-lists",
     "title": "GCC Development and Help Mailing Lists",
-    "description": "Calendar-year 2025 GCC development, patch review, and user-help messages from the official Sourceware public archives."
+    "description": "Calendar-year 2025 GCC development, patch review, and user-help messages from the official Sourceware public archives.",
+    "destination": "community/gcc-mailing-lists"
   },
   "sources": [
     {

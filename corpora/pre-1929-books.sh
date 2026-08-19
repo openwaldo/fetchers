@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "pre-1929-books",
     "title": "Pre-1929 Public Library Books",
-    "description": "Public-domain scans of books published before 1929 from the filtered Common Pile release."
+    "description": "Public-domain scans of books published before 1929 from the filtered Common Pile release.",
+    "destination": "core/common-pile/pre-1929-books"
   },
   "sources": [
     {

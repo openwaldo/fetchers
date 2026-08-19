@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "oasst2",
     "title": "OpenAssistant Conversations 2",
-    "description": "Human-written and ranked multi-turn assistant conversations from OpenAssistant release 2, preserved as structured messages."
+    "description": "Human-written and ranked multi-turn assistant conversations from OpenAssistant release 2, preserved as structured messages.",
+    "destination": "post-train/sft/oasst2"
   },
   "sources": [
     {

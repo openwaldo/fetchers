@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "tulu3",
     "title": "Tulu 3 SFT Mixture",
-    "description": "The pinned Tulu 3 supervised fine-tuning mixture preserved as structured messages with per-record source labels retained for downstream filtering."
+    "description": "The pinned Tulu 3 supervised fine-tuning mixture preserved as structured messages with per-record source labels retained for downstream filtering.",
+    "destination": "post-train/sft/tulu3"
   },
   "sources": [
     {

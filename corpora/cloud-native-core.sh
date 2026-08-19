@@ -17,7 +17,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "cloud-native-core",
     "title": "Cloud Native Core — Permissive",
-    "description": "Project-owned source from immutable Apache-licensed releases of etcd, Prometheus, and containerd."
+    "description": "Project-owned source from immutable Apache-licensed releases of etcd, Prometheus, and containerd.",
+    "destination": "code/cloud-native-core"
   },
   "sources": [
     {

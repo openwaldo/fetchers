@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "youtube",
     "title": "YouTube Transcripts",
-    "description": "Transcripts from Creative Commons-licensed YouTube videos, via the filtered Common Pile v0.1 release."
+    "description": "Transcripts from Creative Commons-licensed YouTube videos, via the filtered Common Pile v0.1 release.",
+    "destination": "core/common-pile/youtube"
   },
   "sources": [
     {

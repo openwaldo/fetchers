@@ -25,7 +25,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "linux-core-permissive",
     "title": "Linux Core — Permissive Alternatives and BSD",
-    "description": "Pinned permissively licensed libc, shell, userland, init/package tooling, and BSD base-system source selected without copyleft imported trees."
+    "description": "Pinned permissively licensed libc, shell, userland, init/package tooling, and BSD base-system source selected without copyleft imported trees.",
+    "destination": "code/linux-core-permissive"
   },
   "sources": [
     {

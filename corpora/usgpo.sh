@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "usgpo",
     "title": "US Government Publishing Office",
-    "description": "Publications of the United States Government Publishing Office, via the filtered Common Pile v0.1 release."
+    "description": "Publications of the United States Government Publishing Office, via the filtered Common Pile v0.1 release.",
+    "destination": "government/usgpo"
   },
   "sources": [
     {

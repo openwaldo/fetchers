@@ -18,7 +18,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "uk-hansard",
     "title": "UK Parliament Hansard",
-    "description": "Official reports of debates in the United Kingdom Parliament, via the filtered Common Pile v0.1 release."
+    "description": "Official reports of debates in the United Kingdom Parliament, via the filtered Common Pile v0.1 release.",
+    "destination": "government/uk-hansard"
   },
   "sources": [
     {

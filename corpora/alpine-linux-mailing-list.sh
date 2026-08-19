@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "alpine-linux-mailing-list",
     "title": "Alpine Linux Development Mailing List",
-    "description": "Canonicalized complete public Alpine Linux development-list archive from the official bulk mbox export."
+    "description": "Canonicalized complete public Alpine Linux development-list archive from the official bulk mbox export.",
+    "destination": "community/alpine-linux-mailing-list"
   },
   "sources": [
     {

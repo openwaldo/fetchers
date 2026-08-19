@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "linux-kernel-mailing-list",
     "title": "Linux Kernel Mailing List",
-    "description": "Calendar-year 2025 Linux kernel development messages from the official lore.kernel.org public archive."
+    "description": "Calendar-year 2025 Linux kernel development messages from the official lore.kernel.org public archive.",
+    "destination": "community/linux-kernel-mailing-list"
   },
   "sources": [
     {

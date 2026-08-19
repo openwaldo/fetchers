@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "library-of-congress",
     "title": "Library of Congress Books",
-    "description": "Public-domain Library of Congress book text from the filtered Common Pile release."
+    "description": "Public-domain Library of Congress book text from the filtered Common Pile release.",
+    "destination": "government/library-of-congress"
   },
   "sources": [
     {

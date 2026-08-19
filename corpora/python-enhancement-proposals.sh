@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "python-enhancement-proposals",
     "title": "Python Enhancement Proposals",
-    "description": "Technical specifications and rationale for Python language features, via the filtered Common Pile v0.1 release."
+    "description": "Technical specifications and rationale for Python language features, via the filtered Common Pile v0.1 release.",
+    "destination": "core/common-pile/python-enhancement-proposals"
   },
   "sources": [
     {

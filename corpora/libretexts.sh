@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "libretexts",
     "title": "LibreTexts",
-    "description": "Open textbook sections from LibreTexts, via the filtered Common Pile release."
+    "description": "Open textbook sections from LibreTexts, via the filtered Common Pile release.",
+    "destination": "core/common-pile/libretexts"
   },
   "sources": [
     {

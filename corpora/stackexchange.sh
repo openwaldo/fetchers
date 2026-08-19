@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "stackexchange",
     "title": "Stack Exchange",
-    "description": "Questions, answers, and community posts from Stack Exchange sites, via the filtered Common Pile v0.1 release."
+    "description": "Questions, answers, and community posts from Stack Exchange sites, via the filtered Common Pile v0.1 release.",
+    "destination": "core/common-pile/stackexchange"
   },
   "sources": [
     {

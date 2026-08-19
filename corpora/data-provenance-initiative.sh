@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "data-provenance-initiative",
     "title": "Data Provenance Initiative",
-    "description": "Openly licensed English and code datasets audited by the Data Provenance Initiative, via the filtered Common Pile release."
+    "description": "Openly licensed English and code datasets audited by the Data Provenance Initiative, via the filtered Common Pile release.",
+    "destination": "core/common-pile/data-provenance-initiative"
   },
   "sources": [
     {

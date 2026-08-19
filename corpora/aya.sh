@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "aya",
     "title": "Aya Dataset",
-    "description": "Multilingual human-written instruction and response pairs from the Aya project, preserved as structured messages."
+    "description": "Multilingual human-written instruction and response pairs from the Aya project, preserved as structured messages.",
+    "destination": "post-train/sft/aya"
   },
   "sources": [
     {

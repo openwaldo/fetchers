@@ -214,7 +214,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "permissive",
     "title": "Permissively Licensed Project Code",
-    "description": "Project-owned files from immutable open-source repository commits, with text, structured, and binary assets retained while common vendored, generated, dependency, fixture, and build-output trees are excluded."
+    "description": "Project-owned files from immutable open-source repository commits, with text, structured, and binary assets retained while common vendored, generated, dependency, fixture, and build-output trees are excluded.",
+    "destination": "code/permissive"
   },
   "sources": [
     {

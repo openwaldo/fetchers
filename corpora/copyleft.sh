@@ -148,7 +148,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "copyleft",
     "title": "Copyleft-Licensed Project Code",
-    "description": "Project-owned files from immutable open-source repository commits, with text, structured, and binary assets retained while common vendored, generated, dependency, fixture, and build-output trees are excluded."
+    "description": "Project-owned files from immutable open-source repository commits, with text, structured, and binary assets retained while common vendored, generated, dependency, fixture, and build-output trees are excluded.",
+    "destination": "code/copyleft"
   },
   "sources": [
     {

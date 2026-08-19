@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "uspto",
     "title": "United States Patents and Patent Applications",
-    "description": "United States patent grants and published patent applications from the filtered Common Pile release."
+    "description": "United States patent grants and published patent applications from the filtered Common Pile release.",
+    "destination": "government/uspto"
   },
   "sources": [
     {

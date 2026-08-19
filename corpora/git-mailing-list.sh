@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "git-mailing-list",
     "title": "Git Development Mailing List",
-    "description": "Calendar-year 2025 Git development and review messages from the official lore.kernel.org public archive."
+    "description": "Calendar-year 2025 Git development and review messages from the official lore.kernel.org public archive.",
+    "destination": "community/git-mailing-list"
   },
   "sources": [
     {

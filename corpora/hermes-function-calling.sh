@@ -16,7 +16,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "hermes-function-calling",
     "title": "Hermes Function Calling",
-    "description": "Structured multi-turn and single-turn function-calling conversations preserving tool definitions, calls, results, and final assistant responses."
+    "description": "Structured multi-turn and single-turn function-calling conversations preserving tool definitions, calls, results, and final assistant responses.",
+    "destination": "post-train/sft/hermes-function-calling"
   },
   "sources": [
     {

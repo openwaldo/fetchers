@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "qemu-devel-mailing-list",
     "title": "QEMU Development Mailing List",
-    "description": "Calendar-year 2025 QEMU development messages from the official lore.kernel.org public archive."
+    "description": "Calendar-year 2025 QEMU development messages from the official lore.kernel.org public archive.",
+    "destination": "community/qemu-devel-mailing-list"
   },
   "sources": [
     {

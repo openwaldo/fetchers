@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "pubmed",
     "title": "PubMed Central Open-Access Articles",
-    "description": "Openly licensed PubMed Central article text from the filtered Common Pile release."
+    "description": "Openly licensed PubMed Central article text from the filtered Common Pile release.",
+    "destination": "science/pubmed"
   },
   "sources": [
     {

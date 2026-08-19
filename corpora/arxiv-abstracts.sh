@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "arxiv-abstracts",
     "title": "ArXiv Abstracts",
-    "description": "Paper titles and abstracts from ArXiv metadata, via the filtered Common Pile release."
+    "description": "Paper titles and abstracts from ArXiv metadata, via the filtered Common Pile release.",
+    "destination": "science/arxiv-abstracts"
   },
   "sources": [
     {

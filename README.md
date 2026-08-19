@@ -73,7 +73,7 @@ fetcher reports the partial path and exits without cleaning it.
 raw-file inventory. It uses `kind: waldo-source-directory` and `schema: 1`.
 It records:
 
-- corpus identity and description;
+- corpus identity, description, and intended relative index destination;
 - each source's path beneath `raw/`, upstream identity, immutable revision,
   license and evidence, content description, and acquisition basis;
 - the generalized WALDO input profile required to interpret raw records;

@@ -17,7 +17,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "apache-mailing-lists",
     "title": "Apache Project Development Mailing Lists",
-    "description": "Checksum-pinned 2025 public development discussions for Apache HTTP Server, Subversion, and Commons."
+    "description": "Checksum-pinned 2025 public development discussions for Apache HTTP Server, Subversion, and Commons.",
+    "destination": "community/apache-mailing-lists"
   },
   "sources": [
     {

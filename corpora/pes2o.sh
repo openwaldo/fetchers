@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "pes2o",
     "title": "Open-Access Papers",
-    "description": "Full text of open-access scientific papers from peS2o, via the filtered Common Pile v0.1 release."
+    "description": "Full text of open-access scientific papers from peS2o, via the filtered Common Pile v0.1 release.",
+    "destination": "science/pes2o"
   },
   "sources": [
     {

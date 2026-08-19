@@ -16,7 +16,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "regulations",
     "title": "US Federal Rulemaking",
-    "description": "Documents from United States federal rulemaking proceedings, via the filtered Common Pile v0.1 release."
+    "description": "Documents from United States federal rulemaking proceedings, via the filtered Common Pile v0.1 release.",
+    "destination": "government/regulations"
   },
   "sources": [
     {

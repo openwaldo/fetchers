@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "helpsteer2",
     "title": "HelpSteer2 Scored Responses",
-    "description": "Human-rated prompt and response pairs preserved as structured messages with five response attributes; only responses rated 4 for helpfulness, correctness, and coherence are classified as main content for SFT."
+    "description": "Human-rated prompt and response pairs preserved as structured messages with five response attributes; only responses rated 4 for helpfulness, correctness, and coherence are classified as main content for SFT.",
+    "destination": "post-train/sft/helpsteer2"
   },
   "sources": [
     {

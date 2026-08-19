@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "caselaw",
     "title": "United States Caselaw",
-    "description": "Published decisions of United States federal and state courts, digitized by the Harvard Law School Library."
+    "description": "Published decisions of United States federal and state courts, digitized by the Harvard Law School Library.",
+    "destination": "law/caselaw"
   },
   "sources": [
     {

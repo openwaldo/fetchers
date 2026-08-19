@@ -17,7 +17,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "opensource-mailing-lists",
     "title": "Open Source Community Mailing Lists",
-    "description": "Checksum-pinned 2025 public discussions from the Beowulf and Open Source Initiative communities."
+    "description": "Checksum-pinned 2025 public discussions from the Beowulf and Open Source Initiative communities.",
+    "destination": "community/opensource-mailing-lists"
   },
   "sources": [
     {

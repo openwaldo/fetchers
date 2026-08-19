@@ -16,7 +16,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "plos",
     "title": "PLOS Articles",
-    "description": "Peer-reviewed research articles published by the Public Library of Science."
+    "description": "Peer-reviewed research articles published by the Public Library of Science.",
+    "destination": "science/plos"
   },
   "sources": [
     {

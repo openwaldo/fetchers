@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "wikiteam",
     "title": "WikiTeam Archives",
-    "description": "Text recovered from independently archived wikis, via the filtered Common Pile v0.1 release."
+    "description": "Text recovered from independently archived wikis, via the filtered Common Pile v0.1 release.",
+    "destination": "core/common-pile/wikiteam"
   },
   "sources": [
     {

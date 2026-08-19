@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "foodista",
     "title": "Foodista",
-    "description": "Community-contributed cooking and food articles from Foodista, via the filtered Common Pile v0.1 release."
+    "description": "Community-contributed cooking and food articles from Foodista, via the filtered Common Pile v0.1 release.",
+    "destination": "core/common-pile/foodista"
   },
   "sources": [
     {

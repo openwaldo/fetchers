@@ -17,7 +17,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "python-mailing-lists",
     "title": "Python Community Mailing Lists",
-    "description": "Checksum-pinned Python development, user, and learning-support discussions from official monthly HyperKitty mbox exports."
+    "description": "Checksum-pinned Python development, user, and learning-support discussions from official monthly HyperKitty mbox exports.",
+    "destination": "community/python-mailing-lists"
   },
   "sources": [
     {

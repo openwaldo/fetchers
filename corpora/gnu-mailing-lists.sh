@@ -17,7 +17,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "gnu-mailing-lists",
     "title": "GNU Development and User Mailing Lists",
-    "description": "Checksum-pinned calendar-year 2025 messages from three official GNU monthly raw-mbox archives."
+    "description": "Checksum-pinned calendar-year 2025 messages from three official GNU monthly raw-mbox archives.",
+    "destination": "community/gnu-mailing-lists"
   },
   "sources": [
     {

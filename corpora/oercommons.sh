@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "oercommons",
     "title": "OER Commons",
-    "description": "Open educational resources from OER Commons, via the filtered Common Pile release."
+    "description": "Open educational resources from OER Commons, via the filtered Common Pile release.",
+    "destination": "core/common-pile/oercommons"
   },
   "sources": [
     {

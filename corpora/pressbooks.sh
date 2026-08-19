@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "pressbooks",
     "title": "PressBooks",
-    "description": "Open-access book sections from PressBooks, via the filtered Common Pile release."
+    "description": "Open-access book sections from PressBooks, via the filtered Common Pile release.",
+    "destination": "core/common-pile/pressbooks"
   },
   "sources": [
     {

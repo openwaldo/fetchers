@@ -16,7 +16,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "glibc-mailing-lists",
     "title": "glibc Development and Help Mailing Lists",
-    "description": "Calendar-year 2025 glibc development, patch review, and user-help messages from the official Sourceware public archives."
+    "description": "Calendar-year 2025 glibc development, patch review, and user-help messages from the official Sourceware public archives.",
+    "destination": "community/glibc-mailing-lists"
   },
   "sources": [
     {

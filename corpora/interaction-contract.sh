@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "interaction-contract",
     "title": "OpenWALDO Interaction Contract v1",
-    "description": "OpenWALDO-maintained interaction corpus with 45,000 structured-message training examples across 21 portable conversation and tool-behavior categories."
+    "description": "OpenWALDO-maintained interaction corpus with 45,000 structured-message training examples across 21 portable conversation and tool-behavior categories.",
+    "destination": "post-train/sft/interaction-contract-v1"
   },
   "sources": [
     {

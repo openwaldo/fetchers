@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "public-domain-review",
     "title": "The Public Domain Review",
-    "description": "Essays on public-domain art, literature, and history from The Public Domain Review, via the filtered Common Pile v0.1 release."
+    "description": "Essays on public-domain art, literature, and history from The Public Domain Review, via the filtered Common Pile v0.1 release.",
+    "destination": "core/common-pile/public-domain-review"
   },
   "sources": [
     {

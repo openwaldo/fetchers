@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "news",
     "title": "Common Pile News",
-    "description": "Openly licensed news articles from seventeen publishers, via the filtered Common Pile release."
+    "description": "Openly licensed news articles from seventeen publishers, via the filtered Common Pile release.",
+    "destination": "core/common-pile/news"
   },
   "sources": [
     {

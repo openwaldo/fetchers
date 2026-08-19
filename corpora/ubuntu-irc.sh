@@ -17,7 +17,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "ubuntu-irc",
     "title": "Ubuntu IRC Logs",
-    "description": "Public Ubuntu community IRC conversations, via the filtered Common Pile v0.1 release."
+    "description": "Public Ubuntu community IRC conversations, via the filtered Common Pile v0.1 release.",
+    "destination": "core/common-pile/ubuntu-irc"
   },
   "sources": [
     {

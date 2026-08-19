@@ -15,7 +15,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "mathlib",
     "title": "Lean Mathlib",
-    "description": "Formalized definitions, theorems, and proofs from the Mathlib library for Lean 4, release v4.32.2."
+    "description": "Formalized definitions, theorems, and proofs from the Mathlib library for Lean 4, release v4.32.2.",
+    "destination": "math/mathlib"
   },
   "sources": [
     {

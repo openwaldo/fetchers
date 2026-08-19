@@ -36,7 +36,8 @@ fetcher_manifest <<'JSON'
   "corpus": {
     "id": "linux-core",
     "title": "Linux Core — Copyleft",
-    "description": "Pinned copyleft source for the Linux kernel and foundational GNU/Linux toolchain, boot, module, networking, filesystem, and process projects not already represented in code/copyleft."
+    "description": "Pinned copyleft source for the Linux kernel and foundational GNU/Linux toolchain, boot, module, networking, filesystem, and process projects not already represented in code/copyleft.",
+    "destination": "code/linux-core"
   },
   "sources": [
     {
