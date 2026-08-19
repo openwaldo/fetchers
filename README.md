@@ -81,6 +81,36 @@ Raw filenames have no semantic meaning. The fetcher derives safe, deterministic
 names from the response or assigns an artifact name. INI files do not specify
 output filenames.
 
+## Raw formats and ingestion profiles
+
+The manifest does not name a physical WALDO ingestor. WALDO probes each raw
+file's bytes and records the detected format in its immutable ingest plan. When
+a source has an `[input]` section, the fetcher copies that logical mapping into
+the source's `manifest.json` as `input`; WALDO uses it after detecting the
+physical container.
+
+Fetcher output intended for training must use one of these supported forms:
+
+| Raw form | Required `[input]` profile |
+| --- | --- |
+| UTF-8 text or Markdown | None, or `bounded-text` for configurable start/end removal. |
+| Unix mbox | None. |
+| JSON, exactly one object per file | `record-map`, `dialogue-pair`, `chat-messages`, or `ranked-conversation-tree`. |
+| JSONL, one object per line | `record-map`, `dialogue-pair`, `chat-messages`, or `ranked-conversation-tree`. |
+| Parquet, one record per row | `record-map`, `dialogue-pair`, or `chat-messages`. |
+| XML | `xml-record`. |
+
+Gzip and Zstandard compression are supported directly for JSONL and mbox.
+Top-level JSON arrays are not supported; publish those records as JSONL or
+Parquet instead. A ranked conversation tree must use JSON or JSONL, not
+Parquet.
+
+WALDO can preserve some other textual or binary inputs through raw-text or
+base64 fallback behavior, but corpus configurations must not rely on those
+fallbacks as usable training data. Add a general WALDO adapter or make the
+upstream fetch produce one of the supported raw forms instead; do not add a
+corpus-specific transformation to the fetcher.
+
 ## Minimal INI file
 
 ```ini
