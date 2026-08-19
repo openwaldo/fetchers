@@ -7,7 +7,8 @@ Each corpus is described by one reviewed INI file. The fetcher validates the
 entire configuration and available disk space before making a network request.
 
 ```sh
-fetcher corpora/linux-kernel-mailing-list.ini /path/to/handoff
+go build -o fetcher ./cmd/fetcher
+./fetcher corpora/linux-kernel-mailing-list.ini /path/to/handoff
 ```
 
 Ingestion is a separate operation:
@@ -185,6 +186,64 @@ Additional acquisition implementations follow the same rule: each has a named
 `fetcher` value and documented, named fields. Configurations never contain
 `ARG_1`, `ARG_2`, or other positional implementation details.
 
+### Hugging Face
+
+Required fields: `fetcher = huggingface`, the canonical dataset `url`, pinned
+40-character `revision`, selected `suffix`, and `estimated-size`. `prefix` is
+optional. The fetcher reads pinned dataset metadata and verifies each selected
+LFS SHA-256.
+
+### Public-inbox
+
+Required fields: `fetcher = public-inbox`, `url`, `base-url`, `list`, `year`,
+one or more repeated `epoch = NUMBER:COMMIT` values, and `estimated-size`.
+Pinned Git message blobs for the requested year are retained as raw RFC 822
+messages.
+
+### Monthly mbox
+
+Required fields: `fetcher = monthly-mbox`, `url`, `base-url`, `list`, `year`,
+`style` (`apache` or `gnu`), exactly twelve repeated `checksum` values in month
+order, and `estimated-size`.
+
+### HyperKitty
+
+Required fields: `fetcher = hyperkitty`, `url`, `base-url`, `list`, `manifest`,
+`manifest-sha256`, and `estimated-size`. The reviewed monthly manifest pins
+message counts and canonical verification hashes; downloaded gzip mbox files
+remain raw.
+
+### HTTP set
+
+Required fields: `fetcher = http-set`, `url`, one or more repeated
+`artifact = URL|NAME|SHA256` values, and `estimated-size`. This is for a fixed
+reviewed set of independently checksummed HTTP artifacts.
+
+### SourceHut list export
+
+Required fields: `fetcher = sourcehut`, the public list `url`, canonical
+`sha256`, and `estimated-size`. The raw whole-list mbox export is retained.
+
+### Gutenberg
+
+Required fields: `fetcher = gutenberg`, `url`, `selection`, and
+`estimated-size`. Optional fields are `count`, `language`, `ids`, and
+`exclude-ids`. Upstream book text remains raw; marker removal belongs to the
+manifest's general `bounded-text` profile.
+
+### CAP
+
+Required fields: `fetcher = cap`, `url`, `selection` or `reporters`, and
+`estimated-size`. `limit` is optional. Reporter volume archives are obtained
+from the pinned source and safely unpacked into their raw JSON records.
+
+### ZIP
+
+Required fields: `fetcher = zip`, `url = local:ARCHIVE`, `suffix`, and
+`estimated-size`. It operates on an archive acquired by an earlier fetch in
+the same source boundary, safely retains matching regular files, and removes
+the archive only after extraction succeeds.
+
 ## Input mappings
 
 Do not add an `[input]` section when WALDO can identify and interpret the raw
@@ -349,3 +408,14 @@ corpora/<corpus>.ini
 The Go program owns INI parsing, validation, acquisition, resumability, disk
 checks, safe filenames, and manifest generation. Corpus INI files contain only
 human-readable facts and named fetcher settings.
+
+## Tests
+
+```sh
+go test ./...
+./tests/e2e.sh
+```
+
+The end-to-end test uses a temporary localhost fixture and verifies a
+multi-source fetch containing gzip JSONL and gzip mbox through WALDO's
+canonical Parquet writer and a temporary file lookaside.

@@ -187,9 +187,62 @@ func validateFetch(section Section) error {
 		if section.One("revision") == "" {
 			return fmt.Errorf("git fetch %q requires revision", section.Name)
 		}
-	case "huggingface", "public-inbox", "monthly-mbox", "hyperkitty", "gutenberg", "cap", "zip", "sourcehut", "http-set":
+	case "huggingface":
+		if err := requireFetch(section, "revision", "suffix"); err != nil {
+			return err
+		}
+	case "public-inbox":
+		if err := requireFetch(section, "base-url", "list", "year"); err != nil {
+			return err
+		}
+		if len(section.Values["epoch"]) == 0 {
+			return fmt.Errorf("public-inbox fetch %q requires epoch", section.Name)
+		}
+	case "monthly-mbox":
+		if err := requireFetch(section, "base-url", "list", "year", "style"); err != nil {
+			return err
+		}
+		if len(section.Values["checksum"]) != 12 {
+			return fmt.Errorf("monthly-mbox fetch %q requires twelve checksums", section.Name)
+		}
+	case "hyperkitty":
+		if err := requireFetch(section, "base-url", "list", "manifest", "manifest-sha256"); err != nil {
+			return err
+		}
+	case "gutenberg":
+		if err := requireFetch(section, "selection"); err != nil {
+			return err
+		}
+	case "cap":
+		if section.One("selection") == "" && section.One("reporters") == "" {
+			return fmt.Errorf("cap fetch %q requires selection or reporters", section.Name)
+		}
+	case "zip":
+		if err := requireFetch(section, "suffix"); err != nil {
+			return err
+		}
+		if !strings.HasPrefix(section.One("url"), "local:") {
+			return fmt.Errorf("zip fetch %q URL must use local:", section.Name)
+		}
+	case "sourcehut":
+		if err := requireFetch(section, "sha256"); err != nil {
+			return err
+		}
+	case "http-set":
+		if len(section.Values["artifact"]) == 0 {
+			return fmt.Errorf("HTTP-set fetch %q requires artifact", section.Name)
+		}
 	default:
 		return fmt.Errorf("fetch %q uses unknown fetcher %q", section.Name, section.One("fetcher"))
+	}
+	return nil
+}
+
+func requireFetch(section Section, fields ...string) error {
+	for _, field := range fields {
+		if section.One(field) == "" {
+			return fmt.Errorf("%s fetch %q requires %s", section.One("fetcher"), section.Name, field)
+		}
 	}
 	return nil
 }
