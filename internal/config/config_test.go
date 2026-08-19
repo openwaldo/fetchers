@@ -24,6 +24,7 @@ url = https://example.test/source
 category = public-dataset
 license = CC0-1.0
 license-declaration = CC0 1.0
+language = en
 
 [fetch]
 fetcher = http
@@ -138,6 +139,7 @@ url = https://example.test/source
 category = public-dataset
 license = CC0-1.0
 license-declaration = CC0 1.0
+language = en
 copyrighted = yes
 
 [fetch]

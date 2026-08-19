@@ -591,7 +591,7 @@ func sourceManifest(cfg config.File, section config.Section) map[string]any {
 		}
 	}
 	content := compactMap(map[string]any{
-		"types": section.Values["content-type"], "languages": section.Values["language"], "from": section.One("content-from"), "to": section.One("content-to"), "selection": section.One("selection"),
+		"types": section.Values["content-type"], "languages": section.Values["language"], "programming_languages": section.Values["programming-language"], "from": section.One("content-from"), "to": section.One("content-to"), "selection": section.One("selection"),
 		"copyrighted": section.One("copyrighted"), "machine_generated": section.One("machine-generated"), "personal_data": section.One("personal-data"),
 	})
 	if len(content) > 0 {

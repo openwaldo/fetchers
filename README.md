@@ -109,7 +109,8 @@ Every INI requires one `[corpus]`, at least one `[source]`, at least one
 | `selection` | no | Exact subset or inclusion rule. |
 | `content-from`, `content-to` | no | Selected date range when known. |
 | `content-type` | no | Content type; repeat as needed. |
-| `language` | no | Known language; repeat as needed. |
+| `language` | yes | Human-language BCP 47 tag; repeat as needed. Use `mul` for known multilingual material or `und` when unknown. |
+| `programming-language` | no | Programming language present; repeat as needed. This is separate from human language. |
 | `copyrighted` | no | `yes`, `no`, or `unknown`. |
 | `machine-generated` | no | `yes`, `no`, or `unknown`. |
 | `personal-data` | no | `yes`, `no`, or `unknown`. |
@@ -155,9 +156,11 @@ Available methods and their additional fields are:
 For Git, `revision` is authoritative. If `ref` is present, it is used to find
 the commit and must resolve exactly to `revision`. Git output retains only
 non-empty, NUL-free UTF-8 regular files. Binary files, empty files, and
-symlinks are skipped. Use `content-type = source code` with `format = text` for
-source repositories; use a restrictive `pathspec` and structured input profile
-when intentionally selecting JSONL from a repository.
+symlinks are skipped. Use `content-type = source code`, declare the human
+language of comments/documentation with `language`, and list code languages
+with `programming-language`. Use `format = text` for source repositories; use a
+restrictive `pathspec` and structured input profile when intentionally selecting
+JSONL from a repository.
 
 SHA-256 values are 64 lowercase hexadecimal characters. Obtain them from
 upstream evidence when available. To calculate one for comparison:

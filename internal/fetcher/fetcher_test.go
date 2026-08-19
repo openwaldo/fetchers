@@ -83,6 +83,8 @@ url = https://example.test/source
 category = public-dataset
 license = CC0-1.0
 license-declaration = CC0 1.0
+language = en
+programming-language = Go
 
 [fetch]
 fetcher = http
@@ -122,6 +124,10 @@ format = text
 		t.Fatalf("manifest = %+v", manifest)
 	}
 	source := manifest["source"].(map[string]any)
+	contentMetadata := source["source"].(map[string]any)["content"].(map[string]any)
+	if contentMetadata["languages"].([]any)[0] != "en" || contentMetadata["programming_languages"].([]any)[0] != "Go" {
+		t.Fatalf("manifest languages = %+v", contentMetadata)
+	}
 	input := source["input"].(map[string]any)
 	if input["format"] != "text" {
 		t.Fatalf("manifest input = %+v", input)
@@ -144,6 +150,7 @@ url = https://example.test/source
 category = public-dataset
 license = CC0-1.0
 license-declaration = CC0 1.0
+language = en
 
 [fetch]
 fetcher = http

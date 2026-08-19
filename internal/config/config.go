@@ -15,10 +15,11 @@ import (
 )
 
 var (
-	sectionPattern = regexp.MustCompile(`^\[([a-z][a-z0-9-]*)(?:\s+"([a-z0-9._-]+)")?\]$`)
-	idPattern      = regexp.MustCompile(`^[a-z0-9][a-z0-9._-]*$`)
-	sha256Pattern  = regexp.MustCompile(`^[a-f0-9]{64}$`)
-	commitPattern  = regexp.MustCompile(`^[a-f0-9]{40}$`)
+	sectionPattern  = regexp.MustCompile(`^\[([a-z][a-z0-9-]*)(?:\s+"([a-z0-9._-]+)")?\]$`)
+	idPattern       = regexp.MustCompile(`^[a-z0-9][a-z0-9._-]*$`)
+	sha256Pattern   = regexp.MustCompile(`^[a-f0-9]{64}$`)
+	commitPattern   = regexp.MustCompile(`^[a-f0-9]{40}$`)
+	languagePattern = regexp.MustCompile(`^[A-Za-z]{2,8}(?:-[A-Za-z0-9]{1,8})*$`)
 )
 
 type File struct {
@@ -127,13 +128,21 @@ func (file File) Validate() error {
 		}
 		sources[id] = true
 		allowed := fields("name url category license license-declaration version license-url content-from content-to selection copyrighted machine-generated personal-data acquisition-basis")
-		lists := fields("content-type language")
+		lists := fields("content-type language programming-language")
 		if err := validateFields(source, allowed, lists); err != nil {
 			return err
 		}
 		for _, required := range []string{"name", "url", "category", "license", "license-declaration"} {
 			if source.One(required) == "" {
 				return fmt.Errorf("source %q requires %s", id, required)
+			}
+		}
+		if len(source.Values["language"]) == 0 {
+			return fmt.Errorf("source %q requires language (use a BCP 47 tag, mul for multilingual, or und if unknown)", id)
+		}
+		for _, language := range source.Values["language"] {
+			if !languagePattern.MatchString(language) {
+				return fmt.Errorf("source %q language %q is not a BCP 47 tag (use mul for multilingual or und if unknown)", id, language)
 			}
 		}
 		if !fields("public-dataset commercially-licensed private-third-party web-crawl user-data synthetic other")[source.One("category")] {
