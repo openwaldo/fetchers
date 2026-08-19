@@ -19,34 +19,32 @@ if fetcher_size_bytes nonsense >/dev/null 2>&1; then
 fi
 
 output=$temporary/output
-fetcher_begin "$output"
-fetcher_size 1B 1B
-printf 'hello\n' >"$FETCHER_RAW/example.txt"
-# The manifest specification is provided on standard input.
-# shellcheck disable=SC2119
-fetcher_manifest <<'JSON'
-{
-  "corpus": {
-    "id": "example",
-    "title": "Example corpus",
-    "description": "Offline manifest test."
-  },
-  "sources": [
-    {
-      "id": "example",
-      "path": "",
-      "license": "CC0-1.0",
-      "source": {
-        "name": "Example",
-        "url": "https://example.invalid/corpus",
-        "category": "public-dataset",
-        "license_evidence": {"declaration": "CC0-1.0"}
-      },
-      "input": {}
-    }
-  ]
-}
-JSON
+(
+  CORPUS_ID=example
+  CORPUS_TITLE='Example corpus'
+  CORPUS_DESCRIPTION='Offline manifest test.'
+  CORPUS_DESTINATION=tests/example
+  SOURCE_ID=example
+  SOURCE_PATH=
+  SOURCE_LICENSE=CC0-1.0
+  SOURCE_NAME=Example
+  SOURCE_URL=https://example.invalid/corpus
+  SOURCE_CATEGORY=public-dataset
+  SOURCE_LICENSE_DECLARATION=CC0-1.0
+  INPUT_TYPE=record-map
+  INPUT_TEXT_FIELDS=text
+  FETCHER_OUTPUT=$output
+  FETCHER_ARGUMENT_COUNT=1
+  FETCHER_SIZE=1B
+  FETCH_METHOD=download
+  FETCH_URL=https://example.invalid/corpus/example.jsonl
+  FETCH_PATH=example.jsonl
+  fetcher_config_validate
+  fetcher_begin "$FETCHER_OUTPUT"
+  fetcher_size 1B 1B
+  printf 'hello\n' >"$FETCHER_RAW/example.txt"
+  write_manifest
+)
 
 jq -e '
   .kind == "waldo-source-directory" and
@@ -72,7 +70,10 @@ fetcher_git source "file://$git_source" "$git_commit" "$git_commit" example.txt
 [ "$(cat "$git_output/raw/source/example.txt")" = 'raw git content' ] ||
   fail 'pinned Git export'
 
-if fetcher_begin one two >/dev/null 2>&1; then
+if FETCHER_VALIDATE_ONLY=1 "$repository/corpora/python-enhancement-proposals.sh" >/dev/null 2>&1; then
+  fail 'missing destination argument accepted'
+fi
+if FETCHER_VALIDATE_ONLY=1 "$repository/corpora/python-enhancement-proposals.sh" one two >/dev/null 2>&1; then
   fail 'extra destination argument accepted'
 fi
 

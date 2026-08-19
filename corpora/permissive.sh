@@ -1,7623 +1,5016 @@
 #!/bin/sh
 set -eu
 
+CORPUS_ID='permissive'
+CORPUS_TITLE='Permissively Licensed Project Code'
+CORPUS_DESCRIPTION='Project-owned files from immutable open-source repository commits, with text, structured, and binary assets retained while common vendored, generated, dependency, fixture, and build-output trees are excluded.'
+CORPUS_DESTINATION='code/permissive'
+
+SOURCE_COUNT='200'
+SOURCE_1_ID='freecodecamp-freecodecamp'
+SOURCE_1_PATH='freecodecamp-freecodecamp'
+SOURCE_1_LICENSE='BSD-3-Clause'
+SOURCE_1_NAME='freeCodeCamp/freeCodeCamp'
+SOURCE_1_VERSION='f67426be7505cdb3072c72b3d254888e2bbaacd6'
+SOURCE_1_URL='https://github.com/freeCodeCamp/freeCodeCamp'
+SOURCE_1_CATEGORY='public-dataset'
+SOURCE_1_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_1_LICENSE_URL='https://api.github.com/repos/freeCodeCamp/freeCodeCamp/license?ref=f67426be7505cdb3072c72b3d254888e2bbaacd6'
+SOURCE_1_CONTENT_TYPES='source code'
+SOURCE_1_LANGUAGES='TypeScript'
+SOURCE_1_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_1_COPYRIGHTED='yes'
+SOURCE_1_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_2_ID='react-react'
+SOURCE_2_PATH='react-react'
+SOURCE_2_LICENSE='MIT'
+SOURCE_2_NAME='react/react'
+SOURCE_2_VERSION='2042572329425f9ebf35ae6287ea5bab72b2c497'
+SOURCE_2_URL='https://github.com/react/react'
+SOURCE_2_CATEGORY='public-dataset'
+SOURCE_2_LICENSE_DECLARATION='MIT'
+SOURCE_2_LICENSE_URL='https://api.github.com/repos/react/react/license?ref=2042572329425f9ebf35ae6287ea5bab72b2c497'
+SOURCE_2_CONTENT_TYPES='source code'
+SOURCE_2_LANGUAGES='JavaScript'
+SOURCE_2_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_2_COPYRIGHTED='yes'
+SOURCE_2_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_3_ID='thealgorithms-python'
+SOURCE_3_PATH='thealgorithms-python'
+SOURCE_3_LICENSE='MIT'
+SOURCE_3_NAME='TheAlgorithms/Python'
+SOURCE_3_VERSION='f5988cc09713315817df6a7e327e258013a94440'
+SOURCE_3_URL='https://github.com/TheAlgorithms/Python'
+SOURCE_3_CATEGORY='public-dataset'
+SOURCE_3_LICENSE_DECLARATION='MIT'
+SOURCE_3_LICENSE_URL='https://api.github.com/repos/TheAlgorithms/Python/license?ref=f5988cc09713315817df6a7e327e258013a94440'
+SOURCE_3_CONTENT_TYPES='source code'
+SOURCE_3_LANGUAGES='Python'
+SOURCE_3_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_3_COPYRIGHTED='yes'
+SOURCE_3_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_4_ID='vuejs-vue'
+SOURCE_4_PATH='vuejs-vue'
+SOURCE_4_LICENSE='MIT'
+SOURCE_4_NAME='vuejs/vue'
+SOURCE_4_VERSION='9e88707940088cb1f4cd7dd210c9168a50dc347c'
+SOURCE_4_URL='https://github.com/vuejs/vue'
+SOURCE_4_CATEGORY='public-dataset'
+SOURCE_4_LICENSE_DECLARATION='MIT'
+SOURCE_4_LICENSE_URL='https://api.github.com/repos/vuejs/vue/license?ref=9e88707940088cb1f4cd7dd210c9168a50dc347c'
+SOURCE_4_CONTENT_TYPES='source code'
+SOURCE_4_LANGUAGES='TypeScript'
+SOURCE_4_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_4_COPYRIGHTED='yes'
+SOURCE_4_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_5_ID='trekhleb-javascript-algorithms'
+SOURCE_5_PATH='trekhleb-javascript-algorithms'
+SOURCE_5_LICENSE='MIT'
+SOURCE_5_NAME='trekhleb/javascript-algorithms'
+SOURCE_5_VERSION='85293e3e2b88f4d2ce330d956b139cf628aa1e82'
+SOURCE_5_URL='https://github.com/trekhleb/javascript-algorithms'
+SOURCE_5_CATEGORY='public-dataset'
+SOURCE_5_LICENSE_DECLARATION='MIT'
+SOURCE_5_LICENSE_URL='https://api.github.com/repos/trekhleb/javascript-algorithms/license?ref=85293e3e2b88f4d2ce330d956b139cf628aa1e82'
+SOURCE_5_CONTENT_TYPES='source code'
+SOURCE_5_LANGUAGES='JavaScript'
+SOURCE_5_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_5_COPYRIGHTED='yes'
+SOURCE_5_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_6_ID='ohmyzsh-ohmyzsh'
+SOURCE_6_PATH='ohmyzsh-ohmyzsh'
+SOURCE_6_LICENSE='MIT'
+SOURCE_6_NAME='ohmyzsh/ohmyzsh'
+SOURCE_6_VERSION='99aaf58d007f1378d1e0609bcd9baf8abbbaf327'
+SOURCE_6_URL='https://github.com/ohmyzsh/ohmyzsh'
+SOURCE_6_CATEGORY='public-dataset'
+SOURCE_6_LICENSE_DECLARATION='MIT'
+SOURCE_6_LICENSE_URL='https://api.github.com/repos/ohmyzsh/ohmyzsh/license?ref=99aaf58d007f1378d1e0609bcd9baf8abbbaf327'
+SOURCE_6_CONTENT_TYPES='source code'
+SOURCE_6_LANGUAGES='Shell'
+SOURCE_6_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_6_COPYRIGHTED='yes'
+SOURCE_6_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_7_ID='microsoft-vscode'
+SOURCE_7_PATH='microsoft-vscode'
+SOURCE_7_LICENSE='MIT'
+SOURCE_7_NAME='microsoft/vscode'
+SOURCE_7_VERSION='97f9937a4263a283f83868783cf93142d1389c16'
+SOURCE_7_URL='https://github.com/microsoft/vscode'
+SOURCE_7_CATEGORY='public-dataset'
+SOURCE_7_LICENSE_DECLARATION='MIT'
+SOURCE_7_LICENSE_URL='https://api.github.com/repos/microsoft/vscode/license?ref=97f9937a4263a283f83868783cf93142d1389c16'
+SOURCE_7_CONTENT_TYPES='source code'
+SOURCE_7_LANGUAGES='TypeScript'
+SOURCE_7_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_7_COPYRIGHTED='yes'
+SOURCE_7_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_8_ID='flutter-flutter'
+SOURCE_8_PATH='flutter-flutter'
+SOURCE_8_LICENSE='BSD-3-Clause'
+SOURCE_8_NAME='flutter/flutter'
+SOURCE_8_VERSION='bea08b59e4d67d3deefe621b669bbcda3b396fe3'
+SOURCE_8_URL='https://github.com/flutter/flutter'
+SOURCE_8_CATEGORY='public-dataset'
+SOURCE_8_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_8_LICENSE_URL='https://api.github.com/repos/flutter/flutter/license?ref=bea08b59e4d67d3deefe621b669bbcda3b396fe3'
+SOURCE_8_CONTENT_TYPES='source code'
+SOURCE_8_LANGUAGES='Dart'
+SOURCE_8_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_8_COPYRIGHTED='yes'
+SOURCE_8_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_9_ID='ollama-ollama'
+SOURCE_9_PATH='ollama-ollama'
+SOURCE_9_LICENSE='MIT'
+SOURCE_9_NAME='ollama/ollama'
+SOURCE_9_VERSION='b880b76c4308cd5a97cbef2ef86367d126d77f75'
+SOURCE_9_URL='https://github.com/ollama/ollama'
+SOURCE_9_CATEGORY='public-dataset'
+SOURCE_9_LICENSE_DECLARATION='MIT'
+SOURCE_9_LICENSE_URL='https://api.github.com/repos/ollama/ollama/license?ref=b880b76c4308cd5a97cbef2ef86367d126d77f75'
+SOURCE_9_CONTENT_TYPES='source code'
+SOURCE_9_LANGUAGES='Go'
+SOURCE_9_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_9_COPYRIGHTED='yes'
+SOURCE_9_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_10_ID='microsoft-markitdown'
+SOURCE_10_PATH='microsoft-markitdown'
+SOURCE_10_LICENSE='MIT'
+SOURCE_10_NAME='microsoft/markitdown'
+SOURCE_10_VERSION='fd239d5d2be43d9b68329730206b9312c7d5a388'
+SOURCE_10_URL='https://github.com/microsoft/markitdown'
+SOURCE_10_CATEGORY='public-dataset'
+SOURCE_10_LICENSE_DECLARATION='MIT'
+SOURCE_10_LICENSE_URL='https://api.github.com/repos/microsoft/markitdown/license?ref=fd239d5d2be43d9b68329730206b9312c7d5a388'
+SOURCE_10_CONTENT_TYPES='source code'
+SOURCE_10_LANGUAGES='Python'
+SOURCE_10_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_10_COPYRIGHTED='yes'
+SOURCE_10_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_11_ID='snailclimb-javaguide'
+SOURCE_11_PATH='snailclimb-javaguide'
+SOURCE_11_LICENSE='Apache-2.0'
+SOURCE_11_NAME='Snailclimb/JavaGuide'
+SOURCE_11_VERSION='11fb08483ac066ac9d6bdb0bcc80f761379d54d4'
+SOURCE_11_URL='https://github.com/Snailclimb/JavaGuide'
+SOURCE_11_CATEGORY='public-dataset'
+SOURCE_11_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_11_LICENSE_URL='https://api.github.com/repos/Snailclimb/JavaGuide/license?ref=11fb08483ac066ac9d6bdb0bcc80f761379d54d4'
+SOURCE_11_CONTENT_TYPES='source code'
+SOURCE_11_LANGUAGES='JavaScript'
+SOURCE_11_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_11_COPYRIGHTED='yes'
+SOURCE_11_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_12_ID='langflow-ai-langflow'
+SOURCE_12_PATH='langflow-ai-langflow'
+SOURCE_12_LICENSE='MIT'
+SOURCE_12_NAME='langflow-ai/langflow'
+SOURCE_12_VERSION='3325c4642c489bfc2e2f4c9f3c63a32961f9581f'
+SOURCE_12_URL='https://github.com/langflow-ai/langflow'
+SOURCE_12_CATEGORY='public-dataset'
+SOURCE_12_LICENSE_DECLARATION='MIT'
+SOURCE_12_LICENSE_URL='https://api.github.com/repos/langflow-ai/langflow/license?ref=3325c4642c489bfc2e2f4c9f3c63a32961f9581f'
+SOURCE_12_CONTENT_TYPES='source code'
+SOURCE_12_LANGUAGES='Python'
+SOURCE_12_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_12_COPYRIGHTED='yes'
+SOURCE_12_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_13_ID='genymobile-scrcpy'
+SOURCE_13_PATH='genymobile-scrcpy'
+SOURCE_13_LICENSE='Apache-2.0'
+SOURCE_13_NAME='Genymobile/scrcpy'
+SOURCE_13_VERSION='2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0'
+SOURCE_13_URL='https://github.com/Genymobile/scrcpy'
+SOURCE_13_CATEGORY='public-dataset'
+SOURCE_13_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_13_LICENSE_URL='https://api.github.com/repos/Genymobile/scrcpy/license?ref=2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0'
+SOURCE_13_CONTENT_TYPES='source code'
+SOURCE_13_LANGUAGES='C'
+SOURCE_13_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_13_COPYRIGHTED='yes'
+SOURCE_13_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_14_ID='langchain-ai-langchain'
+SOURCE_14_PATH='langchain-ai-langchain'
+SOURCE_14_LICENSE='MIT'
+SOURCE_14_NAME='langchain-ai/langchain'
+SOURCE_14_VERSION='d048fbe170573b6e7056b5ef5f78d8451e54abaf'
+SOURCE_14_URL='https://github.com/langchain-ai/langchain'
+SOURCE_14_CATEGORY='public-dataset'
+SOURCE_14_LICENSE_DECLARATION='MIT'
+SOURCE_14_LICENSE_URL='https://api.github.com/repos/langchain-ai/langchain/license?ref=d048fbe170573b6e7056b5ef5f78d8451e54abaf'
+SOURCE_14_CONTENT_TYPES='source code'
+SOURCE_14_LANGUAGES='Python'
+SOURCE_14_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_14_COPYRIGHTED='yes'
+SOURCE_14_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_15_ID='microsoft-powertoys'
+SOURCE_15_PATH='microsoft-powertoys'
+SOURCE_15_LICENSE='MIT'
+SOURCE_15_NAME='microsoft/PowerToys'
+SOURCE_15_VERSION='9e12b7a8eed2cb693d3e6b293cd601675e76a4b0'
+SOURCE_15_URL='https://github.com/microsoft/PowerToys'
+SOURCE_15_CATEGORY='public-dataset'
+SOURCE_15_LICENSE_DECLARATION='MIT'
+SOURCE_15_LICENSE_URL='https://api.github.com/repos/microsoft/PowerToys/license?ref=9e12b7a8eed2cb693d3e6b293cd601675e76a4b0'
+SOURCE_15_CONTENT_TYPES='source code'
+SOURCE_15_LANGUAGES='C'
+SOURCE_15_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_15_COPYRIGHTED='yes'
+SOURCE_15_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_16_ID='golang-go'
+SOURCE_16_PATH='golang-go'
+SOURCE_16_LICENSE='BSD-3-Clause'
+SOURCE_16_NAME='golang/go'
+SOURCE_16_VERSION='42a6439b1241906746e0a5d68ee6a6318813fa49'
+SOURCE_16_URL='https://github.com/golang/go'
+SOURCE_16_CATEGORY='public-dataset'
+SOURCE_16_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_16_LICENSE_URL='https://api.github.com/repos/golang/go/license?ref=42a6439b1241906746e0a5d68ee6a6318813fa49'
+SOURCE_16_CONTENT_TYPES='source code'
+SOURCE_16_LANGUAGES='Go'
+SOURCE_16_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_16_COPYRIGHTED='yes'
+SOURCE_16_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_17_ID='excalidraw-excalidraw'
+SOURCE_17_PATH='excalidraw-excalidraw'
+SOURCE_17_LICENSE='MIT'
+SOURCE_17_NAME='excalidraw/excalidraw'
+SOURCE_17_VERSION='cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58'
+SOURCE_17_URL='https://github.com/excalidraw/excalidraw'
+SOURCE_17_CATEGORY='public-dataset'
+SOURCE_17_LICENSE_DECLARATION='MIT'
+SOURCE_17_LICENSE_URL='https://api.github.com/repos/excalidraw/excalidraw/license?ref=cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58'
+SOURCE_17_CONTENT_TYPES='source code'
+SOURCE_17_LANGUAGES='TypeScript'
+SOURCE_17_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_17_COPYRIGHTED='yes'
+SOURCE_17_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_18_ID='react-react-native'
+SOURCE_18_PATH='react-react-native'
+SOURCE_18_LICENSE='MIT'
+SOURCE_18_NAME='react/react-native'
+SOURCE_18_VERSION='4bf9d4e9b079a3b77842727c68b82f55415898ac'
+SOURCE_18_URL='https://github.com/react/react-native'
+SOURCE_18_CATEGORY='public-dataset'
+SOURCE_18_LICENSE_DECLARATION='MIT'
+SOURCE_18_LICENSE_URL='https://api.github.com/repos/react/react-native/license?ref=4bf9d4e9b079a3b77842727c68b82f55415898ac'
+SOURCE_18_CONTENT_TYPES='source code'
+SOURCE_18_LANGUAGES='C++'
+SOURCE_18_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_18_COPYRIGHTED='yes'
+SOURCE_18_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_19_ID='kubernetes-kubernetes'
+SOURCE_19_PATH='kubernetes-kubernetes'
+SOURCE_19_LICENSE='Apache-2.0'
+SOURCE_19_NAME='kubernetes/kubernetes'
+SOURCE_19_VERSION='94c136764292cc5fac976c0de6587daaea56410f'
+SOURCE_19_URL='https://github.com/kubernetes/kubernetes'
+SOURCE_19_CATEGORY='public-dataset'
+SOURCE_19_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_19_LICENSE_URL='https://api.github.com/repos/kubernetes/kubernetes/license?ref=94c136764292cc5fac976c0de6587daaea56410f'
+SOURCE_19_CONTENT_TYPES='source code'
+SOURCE_19_LANGUAGES='Go'
+SOURCE_19_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_19_COPYRIGHTED='yes'
+SOURCE_19_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_20_ID='ggml-org-llama.cpp'
+SOURCE_20_PATH='ggml-org-llama.cpp'
+SOURCE_20_LICENSE='MIT'
+SOURCE_20_NAME='ggml-org/llama.cpp'
+SOURCE_20_VERSION='7ba604f1cb61cd14898138e9abc0b4ff2601f180'
+SOURCE_20_URL='https://github.com/ggml-org/llama.cpp'
+SOURCE_20_CATEGORY='public-dataset'
+SOURCE_20_LICENSE_DECLARATION='MIT'
+SOURCE_20_LICENSE_URL='https://api.github.com/repos/ggml-org/llama.cpp/license?ref=7ba604f1cb61cd14898138e9abc0b4ff2601f180'
+SOURCE_20_CONTENT_TYPES='source code'
+SOURCE_20_LANGUAGES='C++'
+SOURCE_20_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_20_COPYRIGHTED='yes'
+SOURCE_20_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_21_ID='electron-electron'
+SOURCE_21_PATH='electron-electron'
+SOURCE_21_LICENSE='MIT'
+SOURCE_21_NAME='electron/electron'
+SOURCE_21_VERSION='50b779bde5478548df30229d81dd1a12e3434c85'
+SOURCE_21_URL='https://github.com/electron/electron'
+SOURCE_21_CATEGORY='public-dataset'
+SOURCE_21_LICENSE_DECLARATION='MIT'
+SOURCE_21_LICENSE_URL='https://api.github.com/repos/electron/electron/license?ref=50b779bde5478548df30229d81dd1a12e3434c85'
+SOURCE_21_CONTENT_TYPES='source code'
+SOURCE_21_LANGUAGES='C++'
+SOURCE_21_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_21_COPYRIGHTED='yes'
+SOURCE_21_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_22_ID='shadcn-ui-ui'
+SOURCE_22_PATH='shadcn-ui-ui'
+SOURCE_22_LICENSE='MIT'
+SOURCE_22_NAME='shadcn-ui/ui'
+SOURCE_22_VERSION='6261bd89f72d794aea491482cc2acfd8dc3d63e2'
+SOURCE_22_URL='https://github.com/shadcn-ui/ui'
+SOURCE_22_CATEGORY='public-dataset'
+SOURCE_22_LICENSE_DECLARATION='MIT'
+SOURCE_22_LICENSE_URL='https://api.github.com/repos/shadcn-ui/ui/license?ref=6261bd89f72d794aea491482cc2acfd8dc3d63e2'
+SOURCE_22_CONTENT_TYPES='source code'
+SOURCE_22_LANGUAGES='TypeScript'
+SOURCE_22_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_22_COPYRIGHTED='yes'
+SOURCE_22_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_23_ID='rust-lang-rust'
+SOURCE_23_PATH='rust-lang-rust'
+SOURCE_23_LICENSE='Apache-2.0'
+SOURCE_23_NAME='rust-lang/rust'
+SOURCE_23_VERSION='4667d75565e47ba5df36c0df598c556b543e8624'
+SOURCE_23_URL='https://github.com/rust-lang/rust'
+SOURCE_23_CATEGORY='public-dataset'
+SOURCE_23_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_23_LICENSE_URL='https://api.github.com/repos/rust-lang/rust/license?ref=4667d75565e47ba5df36c0df598c556b543e8624'
+SOURCE_23_CONTENT_TYPES='source code'
+SOURCE_23_LANGUAGES='Rust'
+SOURCE_23_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_23_COPYRIGHTED='yes'
+SOURCE_23_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_24_ID='godotengine-godot'
+SOURCE_24_PATH='godotengine-godot'
+SOURCE_24_LICENSE='MIT'
+SOURCE_24_NAME='godotengine/godot'
+SOURCE_24_VERSION='4173760fdf6c2c722e82e08cb58e55f34c9efd80'
+SOURCE_24_URL='https://github.com/godotengine/godot'
+SOURCE_24_CATEGORY='public-dataset'
+SOURCE_24_LICENSE_DECLARATION='MIT'
+SOURCE_24_LICENSE_URL='https://api.github.com/repos/godotengine/godot/license?ref=4173760fdf6c2c722e82e08cb58e55f34c9efd80'
+SOURCE_24_CONTENT_TYPES='source code'
+SOURCE_24_LANGUAGES='C++'
+SOURCE_24_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_24_COPYRIGHTED='yes'
+SOURCE_24_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_25_ID='mrdoob-three.js'
+SOURCE_25_PATH='mrdoob-three.js'
+SOURCE_25_LICENSE='MIT'
+SOURCE_25_NAME='mrdoob/three.js'
+SOURCE_25_VERSION='98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac'
+SOURCE_25_URL='https://github.com/mrdoob/three.js'
+SOURCE_25_CATEGORY='public-dataset'
+SOURCE_25_LICENSE_DECLARATION='MIT'
+SOURCE_25_LICENSE_URL='https://api.github.com/repos/mrdoob/three.js/license?ref=98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac'
+SOURCE_25_CONTENT_TYPES='source code'
+SOURCE_25_LANGUAGES='JavaScript'
+SOURCE_25_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_25_COPYRIGHTED='yes'
+SOURCE_25_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_26_ID='tauri-apps-tauri'
+SOURCE_26_PATH='tauri-apps-tauri'
+SOURCE_26_LICENSE='Apache-2.0'
+SOURCE_26_NAME='tauri-apps/tauri'
+SOURCE_26_VERSION='34ec18ba5e1acabebd66ae79d6fc746f63d8eb96'
+SOURCE_26_URL='https://github.com/tauri-apps/tauri'
+SOURCE_26_CATEGORY='public-dataset'
+SOURCE_26_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_26_LICENSE_URL='https://api.github.com/repos/tauri-apps/tauri/license?ref=34ec18ba5e1acabebd66ae79d6fc746f63d8eb96'
+SOURCE_26_CONTENT_TYPES='source code'
+SOURCE_26_LANGUAGES='Rust'
+SOURCE_26_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_26_COPYRIGHTED='yes'
+SOURCE_26_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_27_ID='axios-axios'
+SOURCE_27_PATH='axios-axios'
+SOURCE_27_LICENSE='MIT'
+SOURCE_27_NAME='axios/axios'
+SOURCE_27_VERSION='f5e83e49ee32b1004db82dad2b14d1e273a99e07'
+SOURCE_27_URL='https://github.com/axios/axios'
+SOURCE_27_CATEGORY='public-dataset'
+SOURCE_27_LICENSE_DECLARATION='MIT'
+SOURCE_27_LICENSE_URL='https://api.github.com/repos/axios/axios/license?ref=f5e83e49ee32b1004db82dad2b14d1e273a99e07'
+SOURCE_27_CONTENT_TYPES='source code'
+SOURCE_27_LANGUAGES='JavaScript'
+SOURCE_27_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_27_COPYRIGHTED='yes'
+SOURCE_27_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_28_ID='fatedier-frp'
+SOURCE_28_PATH='fatedier-frp'
+SOURCE_28_LICENSE='Apache-2.0'
+SOURCE_28_NAME='fatedier/frp'
+SOURCE_28_VERSION='d1928f968938e4f1b3b72fd12d581342e57a5030'
+SOURCE_28_URL='https://github.com/fatedier/frp'
+SOURCE_28_CATEGORY='public-dataset'
+SOURCE_28_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_28_LICENSE_URL='https://api.github.com/repos/fatedier/frp/license?ref=d1928f968938e4f1b3b72fd12d581342e57a5030'
+SOURCE_28_CONTENT_TYPES='source code'
+SOURCE_28_LANGUAGES='Go'
+SOURCE_28_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_28_COPYRIGHTED='yes'
+SOURCE_28_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_29_ID='browser-use-browser-use'
+SOURCE_29_PATH='browser-use-browser-use'
+SOURCE_29_LICENSE='MIT'
+SOURCE_29_NAME='browser-use/browser-use'
+SOURCE_29_VERSION='32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4'
+SOURCE_29_URL='https://github.com/browser-use/browser-use'
+SOURCE_29_CATEGORY='public-dataset'
+SOURCE_29_LICENSE_DECLARATION='MIT'
+SOURCE_29_LICENSE_URL='https://api.github.com/repos/browser-use/browser-use/license?ref=32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4'
+SOURCE_29_CONTENT_TYPES='source code'
+SOURCE_29_LANGUAGES='Python'
+SOURCE_29_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_29_COPYRIGHTED='yes'
+SOURCE_29_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_30_ID='denoland-deno'
+SOURCE_30_PATH='denoland-deno'
+SOURCE_30_LICENSE='MIT'
+SOURCE_30_NAME='denoland/deno'
+SOURCE_30_VERSION='98dc759254a90b98f7bbb62ba5361e531d0db6a5'
+SOURCE_30_URL='https://github.com/denoland/deno'
+SOURCE_30_CATEGORY='public-dataset'
+SOURCE_30_LICENSE_DECLARATION='MIT'
+SOURCE_30_LICENSE_URL='https://api.github.com/repos/denoland/deno/license?ref=98dc759254a90b98f7bbb62ba5361e531d0db6a5'
+SOURCE_30_CONTENT_TYPES='source code'
+SOURCE_30_LANGUAGES='Rust'
+SOURCE_30_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_30_COPYRIGHTED='yes'
+SOURCE_30_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_31_ID='openai-whisper'
+SOURCE_31_PATH='openai-whisper'
+SOURCE_31_LICENSE='MIT'
+SOURCE_31_NAME='openai/whisper'
+SOURCE_31_VERSION='5f86d1d86363843179951550570367b37c5d6f78'
+SOURCE_31_URL='https://github.com/openai/whisper'
+SOURCE_31_CATEGORY='public-dataset'
+SOURCE_31_LICENSE_DECLARATION='MIT'
+SOURCE_31_LICENSE_URL='https://api.github.com/repos/openai/whisper/license?ref=5f86d1d86363843179951550570367b37c5d6f78'
+SOURCE_31_CONTENT_TYPES='source code'
+SOURCE_31_LANGUAGES='Python'
+SOURCE_31_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_31_COPYRIGHTED='yes'
+SOURCE_31_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_32_ID='microsoft-terminal'
+SOURCE_32_PATH='microsoft-terminal'
+SOURCE_32_LICENSE='MIT'
+SOURCE_32_NAME='microsoft/terminal'
+SOURCE_32_VERSION='b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a'
+SOURCE_32_URL='https://github.com/microsoft/terminal'
+SOURCE_32_CATEGORY='public-dataset'
+SOURCE_32_LICENSE_DECLARATION='MIT'
+SOURCE_32_LICENSE_URL='https://api.github.com/repos/microsoft/terminal/license?ref=b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a'
+SOURCE_32_CONTENT_TYPES='source code'
+SOURCE_32_LANGUAGES='C++'
+SOURCE_32_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_32_COPYRIGHTED='yes'
+SOURCE_32_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_33_ID='deepseek-ai-deepseek-v3'
+SOURCE_33_PATH='deepseek-ai-deepseek-v3'
+SOURCE_33_LICENSE='MIT'
+SOURCE_33_NAME='deepseek-ai/DeepSeek-V3'
+SOURCE_33_VERSION='9b4e9788e4a3a731f7567338ed15d3ec549ce03b'
+SOURCE_33_URL='https://github.com/deepseek-ai/DeepSeek-V3'
+SOURCE_33_CATEGORY='public-dataset'
+SOURCE_33_LICENSE_DECLARATION='MIT'
+SOURCE_33_LICENSE_URL='https://api.github.com/repos/deepseek-ai/DeepSeek-V3/license?ref=9b4e9788e4a3a731f7567338ed15d3ec549ce03b'
+SOURCE_33_CONTENT_TYPES='source code'
+SOURCE_33_LANGUAGES='Python'
+SOURCE_33_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_33_COPYRIGHTED='yes'
+SOURCE_33_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_34_ID='react-create-react-app'
+SOURCE_34_PATH='react-create-react-app'
+SOURCE_34_LICENSE='MIT'
+SOURCE_34_NAME='react/create-react-app'
+SOURCE_34_VERSION='6254386531d263688ccfa542d0e628fbc0de0b28'
+SOURCE_34_URL='https://github.com/react/create-react-app'
+SOURCE_34_CATEGORY='public-dataset'
+SOURCE_34_LICENSE_DECLARATION='MIT'
+SOURCE_34_LICENSE_URL='https://api.github.com/repos/react/create-react-app/license?ref=6254386531d263688ccfa542d0e628fbc0de0b28'
+SOURCE_34_CONTENT_TYPES='source code'
+SOURCE_34_LANGUAGES='JavaScript'
+SOURCE_34_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_34_COPYRIGHTED='yes'
+SOURCE_34_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_35_ID='harry0703-moneyprinterturbo'
+SOURCE_35_PATH='harry0703-moneyprinterturbo'
+SOURCE_35_LICENSE='MIT'
+SOURCE_35_NAME='harry0703/MoneyPrinterTurbo'
+SOURCE_35_VERSION='e14dea5578bb2154480b6bc436009eaa9987f0e3'
+SOURCE_35_URL='https://github.com/harry0703/MoneyPrinterTurbo'
+SOURCE_35_CATEGORY='public-dataset'
+SOURCE_35_LICENSE_DECLARATION='MIT'
+SOURCE_35_LICENSE_URL='https://api.github.com/repos/harry0703/MoneyPrinterTurbo/license?ref=e14dea5578bb2154480b6bc436009eaa9987f0e3'
+SOURCE_35_CONTENT_TYPES='source code'
+SOURCE_35_LANGUAGES='Python'
+SOURCE_35_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_35_COPYRIGHTED='yes'
+SOURCE_35_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_36_ID='fastapi-fastapi'
+SOURCE_36_PATH='fastapi-fastapi'
+SOURCE_36_LICENSE='MIT'
+SOURCE_36_NAME='fastapi/fastapi'
+SOURCE_36_VERSION='0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4'
+SOURCE_36_URL='https://github.com/fastapi/fastapi'
+SOURCE_36_CATEGORY='public-dataset'
+SOURCE_36_LICENSE_DECLARATION='MIT'
+SOURCE_36_LICENSE_URL='https://api.github.com/repos/fastapi/fastapi/license?ref=0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4'
+SOURCE_36_CONTENT_TYPES='source code'
+SOURCE_36_LANGUAGES='Python'
+SOURCE_36_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_36_COPYRIGHTED='yes'
+SOURCE_36_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_37_ID='angular-angular'
+SOURCE_37_PATH='angular-angular'
+SOURCE_37_LICENSE='MIT'
+SOURCE_37_NAME='angular/angular'
+SOURCE_37_VERSION='565dbb2fe5406f2a86d43a5b3c6993434b7124a7'
+SOURCE_37_URL='https://github.com/angular/angular'
+SOURCE_37_CATEGORY='public-dataset'
+SOURCE_37_LICENSE_DECLARATION='MIT'
+SOURCE_37_LICENSE_URL='https://api.github.com/repos/angular/angular/license?ref=565dbb2fe5406f2a86d43a5b3c6993434b7124a7'
+SOURCE_37_CONTENT_TYPES='source code'
+SOURCE_37_LANGUAGES='TypeScript'
+SOURCE_37_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_37_COPYRIGHTED='yes'
+SOURCE_37_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_38_ID='ant-design-ant-design'
+SOURCE_38_PATH='ant-design-ant-design'
+SOURCE_38_LICENSE='MIT'
+SOURCE_38_NAME='ant-design/ant-design'
+SOURCE_38_VERSION='41ba18cfc3d8a0f37ab89e143fed27d341f320d0'
+SOURCE_38_URL='https://github.com/ant-design/ant-design'
+SOURCE_38_CATEGORY='public-dataset'
+SOURCE_38_LICENSE_DECLARATION='MIT'
+SOURCE_38_LICENSE_URL='https://api.github.com/repos/ant-design/ant-design/license?ref=41ba18cfc3d8a0f37ab89e143fed27d341f320d0'
+SOURCE_38_CONTENT_TYPES='source code'
+SOURCE_38_LANGUAGES='TypeScript'
+SOURCE_38_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_38_COPYRIGHTED='yes'
+SOURCE_38_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_39_ID='mui-material-ui'
+SOURCE_39_PATH='mui-material-ui'
+SOURCE_39_LICENSE='MIT'
+SOURCE_39_NAME='mui/material-ui'
+SOURCE_39_VERSION='81e94061ca393d4eaf238e6f77c283b2edd9ef7e'
+SOURCE_39_URL='https://github.com/mui/material-ui'
+SOURCE_39_CATEGORY='public-dataset'
+SOURCE_39_LICENSE_DECLARATION='MIT'
+SOURCE_39_LICENSE_URL='https://api.github.com/repos/mui/material-ui/license?ref=81e94061ca393d4eaf238e6f77c283b2edd9ef7e'
+SOURCE_39_CONTENT_TYPES='source code'
+SOURCE_39_LANGUAGES='JavaScript'
+SOURCE_39_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_39_COPYRIGHTED='yes'
+SOURCE_39_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_40_ID='nvbn-thefuck'
+SOURCE_40_PATH='nvbn-thefuck'
+SOURCE_40_LICENSE='MIT'
+SOURCE_40_NAME='nvbn/thefuck'
+SOURCE_40_VERSION='c7e7e1d884d3bb241ea6448f72a989434c2a35ec'
+SOURCE_40_URL='https://github.com/nvbn/thefuck'
+SOURCE_40_CATEGORY='public-dataset'
+SOURCE_40_LICENSE_DECLARATION='MIT'
+SOURCE_40_LICENSE_URL='https://api.github.com/repos/nvbn/thefuck/license?ref=c7e7e1d884d3bb241ea6448f72a989434c2a35ec'
+SOURCE_40_CONTENT_TYPES='source code'
+SOURCE_40_LANGUAGES='Python'
+SOURCE_40_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_40_COPYRIGHTED='yes'
+SOURCE_40_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_41_ID='tailwindlabs-tailwindcss'
+SOURCE_41_PATH='tailwindlabs-tailwindcss'
+SOURCE_41_LICENSE='MIT'
+SOURCE_41_NAME='tailwindlabs/tailwindcss'
+SOURCE_41_VERSION='46df7ee2fc4ae822d414d35bbd48be024e5cb1c0'
+SOURCE_41_URL='https://github.com/tailwindlabs/tailwindcss'
+SOURCE_41_CATEGORY='public-dataset'
+SOURCE_41_LICENSE_DECLARATION='MIT'
+SOURCE_41_LICENSE_URL='https://api.github.com/repos/tailwindlabs/tailwindcss/license?ref=46df7ee2fc4ae822d414d35bbd48be024e5cb1c0'
+SOURCE_41_CONTENT_TYPES='source code'
+SOURCE_41_LANGUAGES='TypeScript'
+SOURCE_41_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_41_COPYRIGHTED='yes'
+SOURCE_41_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_42_ID='tauricresearch-tradingagents'
+SOURCE_42_PATH='tauricresearch-tradingagents'
+SOURCE_42_LICENSE='Apache-2.0'
+SOURCE_42_NAME='TauricResearch/TradingAgents'
+SOURCE_42_VERSION='a33fd4c0f134485a43553a2c23a63cb14adbd88f'
+SOURCE_42_URL='https://github.com/TauricResearch/TradingAgents'
+SOURCE_42_CATEGORY='public-dataset'
+SOURCE_42_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_42_LICENSE_URL='https://api.github.com/repos/TauricResearch/TradingAgents/license?ref=a33fd4c0f134485a43553a2c23a63cb14adbd88f'
+SOURCE_42_CONTENT_TYPES='source code'
+SOURCE_42_LANGUAGES='Python'
+SOURCE_42_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_42_COPYRIGHTED='yes'
+SOURCE_42_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_43_ID='puppeteer-puppeteer'
+SOURCE_43_PATH='puppeteer-puppeteer'
+SOURCE_43_LICENSE='Apache-2.0'
+SOURCE_43_NAME='puppeteer/puppeteer'
+SOURCE_43_VERSION='566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f'
+SOURCE_43_URL='https://github.com/puppeteer/puppeteer'
+SOURCE_43_CATEGORY='public-dataset'
+SOURCE_43_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_43_LICENSE_URL='https://api.github.com/repos/puppeteer/puppeteer/license?ref=566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f'
+SOURCE_43_CONTENT_TYPES='source code'
+SOURCE_43_LANGUAGES='TypeScript'
+SOURCE_43_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_43_COPYRIGHTED='yes'
+SOURCE_43_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_44_ID='nvm-sh-nvm'
+SOURCE_44_PATH='nvm-sh-nvm'
+SOURCE_44_LICENSE='MIT'
+SOURCE_44_NAME='nvm-sh/nvm'
+SOURCE_44_VERSION='65ded65d46c16481dbbe8e93f8ba9e6b35f20740'
+SOURCE_44_URL='https://github.com/nvm-sh/nvm'
+SOURCE_44_CATEGORY='public-dataset'
+SOURCE_44_LICENSE_DECLARATION='MIT'
+SOURCE_44_LICENSE_URL='https://api.github.com/repos/nvm-sh/nvm/license?ref=65ded65d46c16481dbbe8e93f8ba9e6b35f20740'
+SOURCE_44_CONTENT_TYPES='source code'
+SOURCE_44_LANGUAGES='Shell'
+SOURCE_44_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_44_COPYRIGHTED='yes'
+SOURCE_44_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_45_ID='microsoft-playwright'
+SOURCE_45_PATH='microsoft-playwright'
+SOURCE_45_LICENSE='Apache-2.0'
+SOURCE_45_NAME='microsoft/playwright'
+SOURCE_45_VERSION='c973356ee9e3906260f60da5e3e04442e069a0d4'
+SOURCE_45_URL='https://github.com/microsoft/playwright'
+SOURCE_45_CATEGORY='public-dataset'
+SOURCE_45_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_45_LICENSE_URL='https://api.github.com/repos/microsoft/playwright/license?ref=c973356ee9e3906260f60da5e3e04442e069a0d4'
+SOURCE_45_CONTENT_TYPES='source code'
+SOURCE_45_LANGUAGES='TypeScript'
+SOURCE_45_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_45_COPYRIGHTED='yes'
+SOURCE_45_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_46_ID='opencv-opencv'
+SOURCE_46_PATH='opencv-opencv'
+SOURCE_46_LICENSE='Apache-2.0'
+SOURCE_46_NAME='opencv/opencv'
+SOURCE_46_VERSION='77dfa297d08fdecdc509fc01ad92a2e9ec776a57'
+SOURCE_46_URL='https://github.com/opencv/opencv'
+SOURCE_46_CATEGORY='public-dataset'
+SOURCE_46_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_46_LICENSE_URL='https://api.github.com/repos/opencv/opencv/license?ref=77dfa297d08fdecdc509fc01ad92a2e9ec776a57'
+SOURCE_46_CONTENT_TYPES='source code'
+SOURCE_46_LANGUAGES='C++'
+SOURCE_46_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_46_COPYRIGHTED='yes'
+SOURCE_46_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_47_ID='panjiachen-vue-element-admin'
+SOURCE_47_PATH='panjiachen-vue-element-admin'
+SOURCE_47_LICENSE='MIT'
+SOURCE_47_NAME='PanJiaChen/vue-element-admin'
+SOURCE_47_VERSION='6858a9ad67483025f6a9432a926beb9327037be3'
+SOURCE_47_URL='https://github.com/PanJiaChen/vue-element-admin'
+SOURCE_47_CATEGORY='public-dataset'
+SOURCE_47_LICENSE_DECLARATION='MIT'
+SOURCE_47_LICENSE_URL='https://api.github.com/repos/PanJiaChen/vue-element-admin/license?ref=6858a9ad67483025f6a9432a926beb9327037be3'
+SOURCE_47_CONTENT_TYPES='source code'
+SOURCE_47_LANGUAGES='Vue'
+SOURCE_47_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_47_COPYRIGHTED='yes'
+SOURCE_47_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_48_ID='louislam-uptime-kuma'
+SOURCE_48_PATH='louislam-uptime-kuma'
+SOURCE_48_LICENSE='MIT'
+SOURCE_48_NAME='louislam/uptime-kuma'
+SOURCE_48_VERSION='77d1a0c57a37a4cf5657bb7b514b4e08d455928e'
+SOURCE_48_URL='https://github.com/louislam/uptime-kuma'
+SOURCE_48_CATEGORY='public-dataset'
+SOURCE_48_LICENSE_DECLARATION='MIT'
+SOURCE_48_LICENSE_URL='https://api.github.com/repos/louislam/uptime-kuma/license?ref=77d1a0c57a37a4cf5657bb7b514b4e08d455928e'
+SOURCE_48_CONTENT_TYPES='source code'
+SOURCE_48_LANGUAGES='JavaScript'
+SOURCE_48_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_48_COPYRIGHTED='yes'
+SOURCE_48_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_49_ID='bitcoin-bitcoin'
+SOURCE_49_PATH='bitcoin-bitcoin'
+SOURCE_49_LICENSE='MIT'
+SOURCE_49_NAME='bitcoin/bitcoin'
+SOURCE_49_VERSION='128456b62d5e38abea031f97f823d5b28aef9357'
+SOURCE_49_URL='https://github.com/bitcoin/bitcoin'
+SOURCE_49_CATEGORY='public-dataset'
+SOURCE_49_LICENSE_DECLARATION='MIT'
+SOURCE_49_LICENSE_URL='https://api.github.com/repos/bitcoin/bitcoin/license?ref=128456b62d5e38abea031f97f823d5b28aef9357'
+SOURCE_49_CONTENT_TYPES='source code'
+SOURCE_49_LANGUAGES='C++'
+SOURCE_49_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_49_COPYRIGHTED='yes'
+SOURCE_49_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_50_ID='home-assistant-core'
+SOURCE_50_PATH='home-assistant-core'
+SOURCE_50_LICENSE='Apache-2.0'
+SOURCE_50_NAME='home-assistant/core'
+SOURCE_50_VERSION='c369f973abfcfba865a745a1750c0fe887e98d60'
+SOURCE_50_URL='https://github.com/home-assistant/core'
+SOURCE_50_CATEGORY='public-dataset'
+SOURCE_50_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_50_LICENSE_URL='https://api.github.com/repos/home-assistant/core/license?ref=c369f973abfcfba865a745a1750c0fe887e98d60'
+SOURCE_50_CONTENT_TYPES='source code'
+SOURCE_50_LANGUAGES='Python'
+SOURCE_50_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_50_COPYRIGHTED='yes'
+SOURCE_50_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_51_ID='mermaid-js-mermaid'
+SOURCE_51_PATH='mermaid-js-mermaid'
+SOURCE_51_LICENSE='MIT'
+SOURCE_51_NAME='mermaid-js/mermaid'
+SOURCE_51_VERSION='3d521b1ee5fc9079fe0659e776a1b2cdc37174b1'
+SOURCE_51_URL='https://github.com/mermaid-js/mermaid'
+SOURCE_51_CATEGORY='public-dataset'
+SOURCE_51_LICENSE_DECLARATION='MIT'
+SOURCE_51_LICENSE_URL='https://api.github.com/repos/mermaid-js/mermaid/license?ref=3d521b1ee5fc9079fe0659e776a1b2cdc37174b1'
+SOURCE_51_CONTENT_TYPES='source code'
+SOURCE_51_LANGUAGES='TypeScript'
+SOURCE_51_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_51_COPYRIGHTED='yes'
+SOURCE_51_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_52_ID='gohugoio-hugo'
+SOURCE_52_PATH='gohugoio-hugo'
+SOURCE_52_LICENSE='Apache-2.0'
+SOURCE_52_NAME='gohugoio/hugo'
+SOURCE_52_VERSION='44da086082a1dff487f4e5639bb03a65d9dd1ade'
+SOURCE_52_URL='https://github.com/gohugoio/hugo'
+SOURCE_52_CATEGORY='public-dataset'
+SOURCE_52_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_52_LICENSE_URL='https://api.github.com/repos/gohugoio/hugo/license?ref=44da086082a1dff487f4e5639bb03a65d9dd1ade'
+SOURCE_52_CONTENT_TYPES='source code'
+SOURCE_52_LANGUAGES='Go'
+SOURCE_52_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_52_COPYRIGHTED='yes'
+SOURCE_52_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_53_ID='3b1b-manim'
+SOURCE_53_PATH='3b1b-manim'
+SOURCE_53_LICENSE='MIT'
+SOURCE_53_NAME='3b1b/manim'
+SOURCE_53_VERSION='01030ac5d23bc294ccb93cbfcda260f2d20dda62'
+SOURCE_53_URL='https://github.com/3b1b/manim'
+SOURCE_53_CATEGORY='public-dataset'
+SOURCE_53_LICENSE_DECLARATION='MIT'
+SOURCE_53_LICENSE_URL='https://api.github.com/repos/3b1b/manim/license?ref=01030ac5d23bc294ccb93cbfcda260f2d20dda62'
+SOURCE_53_CONTENT_TYPES='source code'
+SOURCE_53_LANGUAGES='Python'
+SOURCE_53_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_53_COPYRIGHTED='yes'
+SOURCE_53_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_54_ID='gin-gonic-gin'
+SOURCE_54_PATH='gin-gonic-gin'
+SOURCE_54_LICENSE='MIT'
+SOURCE_54_NAME='gin-gonic/gin'
+SOURCE_54_VERSION='34dac209ffb6ef85cc78c5d217bbb7ad001d68fd'
+SOURCE_54_URL='https://github.com/gin-gonic/gin'
+SOURCE_54_CATEGORY='public-dataset'
+SOURCE_54_LICENSE_DECLARATION='MIT'
+SOURCE_54_LICENSE_URL='https://api.github.com/repos/gin-gonic/gin/license?ref=34dac209ffb6ef85cc78c5d217bbb7ad001d68fd'
+SOURCE_54_CONTENT_TYPES='source code'
+SOURCE_54_LANGUAGES='Go'
+SOURCE_54_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_54_COPYRIGHTED='yes'
+SOURCE_54_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_55_ID='chatgptnextweb-nextchat'
+SOURCE_55_PATH='chatgptnextweb-nextchat'
+SOURCE_55_LICENSE='MIT'
+SOURCE_55_NAME='ChatGPTNextWeb/NextChat'
+SOURCE_55_VERSION='706a18b95b714ab29b2a4842d3b9ff4f887935d5'
+SOURCE_55_URL='https://github.com/ChatGPTNextWeb/NextChat'
+SOURCE_55_CATEGORY='public-dataset'
+SOURCE_55_LICENSE_DECLARATION='MIT'
+SOURCE_55_LICENSE_URL='https://api.github.com/repos/ChatGPTNextWeb/NextChat/license?ref=706a18b95b714ab29b2a4842d3b9ff4f887935d5'
+SOURCE_55_CONTENT_TYPES='source code'
+SOURCE_55_LANGUAGES='TypeScript'
+SOURCE_55_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_55_COPYRIGHTED='yes'
+SOURCE_55_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_56_ID='sherlock-project-sherlock'
+SOURCE_56_PATH='sherlock-project-sherlock'
+SOURCE_56_LICENSE='MIT'
+SOURCE_56_NAME='sherlock-project/sherlock'
+SOURCE_56_VERSION='9100f9d40a3274bd46f4ce903c5c6fee6f3745bc'
+SOURCE_56_URL='https://github.com/sherlock-project/sherlock'
+SOURCE_56_CATEGORY='public-dataset'
+SOURCE_56_LICENSE_DECLARATION='MIT'
+SOURCE_56_LICENSE_URL='https://api.github.com/repos/sherlock-project/sherlock/license?ref=9100f9d40a3274bd46f4ce903c5c6fee6f3745bc'
+SOURCE_56_CONTENT_TYPES='source code'
+SOURCE_56_LANGUAGES='Python'
+SOURCE_56_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_56_COPYRIGHTED='yes'
+SOURCE_56_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_57_ID='vllm-project-vllm'
+SOURCE_57_PATH='vllm-project-vllm'
+SOURCE_57_LICENSE='Apache-2.0'
+SOURCE_57_NAME='vllm-project/vllm'
+SOURCE_57_VERSION='cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7'
+SOURCE_57_URL='https://github.com/vllm-project/vllm'
+SOURCE_57_CATEGORY='public-dataset'
+SOURCE_57_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_57_LICENSE_URL='https://api.github.com/repos/vllm-project/vllm/license?ref=cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7'
+SOURCE_57_CONTENT_TYPES='source code'
+SOURCE_57_LANGUAGES='Python'
+SOURCE_57_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_57_COPYRIGHTED='yes'
+SOURCE_57_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_58_ID='astral-sh-uv'
+SOURCE_58_PATH='astral-sh-uv'
+SOURCE_58_LICENSE='Apache-2.0'
+SOURCE_58_NAME='astral-sh/uv'
+SOURCE_58_VERSION='dd0584d560a4693b5713a78be54304123ada3e77'
+SOURCE_58_URL='https://github.com/astral-sh/uv'
+SOURCE_58_CATEGORY='public-dataset'
+SOURCE_58_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_58_LICENSE_URL='https://api.github.com/repos/astral-sh/uv/license?ref=dd0584d560a4693b5713a78be54304123ada3e77'
+SOURCE_58_CONTENT_TYPES='source code'
+SOURCE_58_LANGUAGES='Rust'
+SOURCE_58_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_58_COPYRIGHTED='yes'
+SOURCE_58_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_59_ID='django-django'
+SOURCE_59_PATH='django-django'
+SOURCE_59_LICENSE='BSD-3-Clause'
+SOURCE_59_NAME='django/django'
+SOURCE_59_VERSION='c9eb16a87e60c305fb3651459639f647cce498db'
+SOURCE_59_URL='https://github.com/django/django'
+SOURCE_59_CATEGORY='public-dataset'
+SOURCE_59_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_59_LICENSE_URL='https://api.github.com/repos/django/django/license?ref=c9eb16a87e60c305fb3651459639f647cce498db'
+SOURCE_59_CONTENT_TYPES='source code'
+SOURCE_59_LANGUAGES='Python'
+SOURCE_59_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_59_COPYRIGHTED='yes'
+SOURCE_59_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_60_ID='sveltejs-svelte'
+SOURCE_60_PATH='sveltejs-svelte'
+SOURCE_60_LICENSE='MIT'
+SOURCE_60_NAME='sveltejs/svelte'
+SOURCE_60_VERSION='26786e92985842a6d563c67049a43bc5857bf792'
+SOURCE_60_URL='https://github.com/sveltejs/svelte'
+SOURCE_60_CATEGORY='public-dataset'
+SOURCE_60_LICENSE_DECLARATION='MIT'
+SOURCE_60_LICENSE_URL='https://api.github.com/repos/sveltejs/svelte/license?ref=26786e92985842a6d563c67049a43bc5857bf792'
+SOURCE_60_CONTENT_TYPES='source code'
+SOURCE_60_LANGUAGES='JavaScript'
+SOURCE_60_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_60_COPYRIGHTED='yes'
+SOURCE_60_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_61_ID='paddlepaddle-paddleocr'
+SOURCE_61_PATH='paddlepaddle-paddleocr'
+SOURCE_61_LICENSE='Apache-2.0'
+SOURCE_61_NAME='PaddlePaddle/PaddleOCR'
+SOURCE_61_VERSION='2661c7c0ef5c613e8f93c6e93b2e052399f0f854'
+SOURCE_61_URL='https://github.com/PaddlePaddle/PaddleOCR'
+SOURCE_61_CATEGORY='public-dataset'
+SOURCE_61_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_61_LICENSE_URL='https://api.github.com/repos/PaddlePaddle/PaddleOCR/license?ref=2661c7c0ef5c613e8f93c6e93b2e052399f0f854'
+SOURCE_61_CONTENT_TYPES='source code'
+SOURCE_61_LANGUAGES='Python'
+SOURCE_61_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_61_COPYRIGHTED='yes'
+SOURCE_61_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_62_ID='localsend-localsend'
+SOURCE_62_PATH='localsend-localsend'
+SOURCE_62_LICENSE='Apache-2.0'
+SOURCE_62_NAME='localsend/localsend'
+SOURCE_62_VERSION='ff2995c9523c5fae407f7d444d0986b2c6ae568e'
+SOURCE_62_URL='https://github.com/localsend/localsend'
+SOURCE_62_CATEGORY='public-dataset'
+SOURCE_62_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_62_LICENSE_URL='https://api.github.com/repos/localsend/localsend/license?ref=ff2995c9523c5fae407f7d444d0986b2c6ae568e'
+SOURCE_62_CONTENT_TYPES='source code'
+SOURCE_62_LANGUAGES='Dart'
+SOURCE_62_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_62_COPYRIGHTED='yes'
+SOURCE_62_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_63_ID='infiniflow-ragflow'
+SOURCE_63_PATH='infiniflow-ragflow'
+SOURCE_63_LICENSE='Apache-2.0'
+SOURCE_63_NAME='infiniflow/ragflow'
+SOURCE_63_VERSION='99110c2df0d4822bd819eda36e4d038c33391123'
+SOURCE_63_URL='https://github.com/infiniflow/ragflow'
+SOURCE_63_CATEGORY='public-dataset'
+SOURCE_63_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_63_LICENSE_URL='https://api.github.com/repos/infiniflow/ragflow/license?ref=99110c2df0d4822bd819eda36e4d038c33391123'
+SOURCE_63_CONTENT_TYPES='source code'
+SOURCE_63_LANGUAGES='Go'
+SOURCE_63_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_63_COPYRIGHTED='yes'
+SOURCE_63_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_64_ID='macrozheng-mall'
+SOURCE_64_PATH='macrozheng-mall'
+SOURCE_64_LICENSE='Apache-2.0'
+SOURCE_64_NAME='macrozheng/mall'
+SOURCE_64_VERSION='0504e86b1f1b6f1b8aa6a734d37a90fb67346be7'
+SOURCE_64_URL='https://github.com/macrozheng/mall'
+SOURCE_64_CATEGORY='public-dataset'
+SOURCE_64_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_64_LICENSE_URL='https://api.github.com/repos/macrozheng/mall/license?ref=0504e86b1f1b6f1b8aa6a734d37a90fb67346be7'
+SOURCE_64_CONTENT_TYPES='source code'
+SOURCE_64_LANGUAGES='Java'
+SOURCE_64_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_64_COPYRIGHTED='yes'
+SOURCE_64_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_65_ID='openhands-openhands'
+SOURCE_65_PATH='openhands-openhands'
+SOURCE_65_LICENSE='MIT'
+SOURCE_65_NAME='OpenHands/OpenHands'
+SOURCE_65_VERSION='4470813ce58f5ac384e3d367d34518e10106526b'
+SOURCE_65_URL='https://github.com/OpenHands/OpenHands'
+SOURCE_65_CATEGORY='public-dataset'
+SOURCE_65_LICENSE_DECLARATION='MIT'
+SOURCE_65_LICENSE_URL='https://api.github.com/repos/OpenHands/OpenHands/license?ref=4470813ce58f5ac384e3d367d34518e10106526b'
+SOURCE_65_CONTENT_TYPES='source code'
+SOURCE_65_LANGUAGES='TypeScript'
+SOURCE_65_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_65_COPYRIGHTED='yes'
+SOURCE_65_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_66_ID='junegunn-fzf'
+SOURCE_66_PATH='junegunn-fzf'
+SOURCE_66_LICENSE='MIT'
+SOURCE_66_NAME='junegunn/fzf'
+SOURCE_66_VERSION='715d26fa3949c9a0f1e41fcbda5440f3ac338e51'
+SOURCE_66_URL='https://github.com/junegunn/fzf'
+SOURCE_66_CATEGORY='public-dataset'
+SOURCE_66_LICENSE_DECLARATION='MIT'
+SOURCE_66_LICENSE_URL='https://api.github.com/repos/junegunn/fzf/license?ref=715d26fa3949c9a0f1e41fcbda5440f3ac338e51'
+SOURCE_66_CONTENT_TYPES='source code'
+SOURCE_66_LANGUAGES='Go'
+SOURCE_66_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_66_COPYRIGHTED='yes'
+SOURCE_66_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_67_ID='vitejs-vite'
+SOURCE_67_PATH='vitejs-vite'
+SOURCE_67_LICENSE='MIT'
+SOURCE_67_NAME='vitejs/vite'
+SOURCE_67_VERSION='57fea001d154e7dd8d5d74d3082731f1dcfd31be'
+SOURCE_67_URL='https://github.com/vitejs/vite'
+SOURCE_67_CATEGORY='public-dataset'
+SOURCE_67_LICENSE_DECLARATION='MIT'
+SOURCE_67_LICENSE_URL='https://api.github.com/repos/vitejs/vite/license?ref=57fea001d154e7dd8d5d74d3082731f1dcfd31be'
+SOURCE_67_CONTENT_TYPES='source code'
+SOURCE_67_LANGUAGES='TypeScript'
+SOURCE_67_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_67_COPYRIGHTED='yes'
+SOURCE_67_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_68_ID='spring-projects-spring-boot'
+SOURCE_68_PATH='spring-projects-spring-boot'
+SOURCE_68_LICENSE='Apache-2.0'
+SOURCE_68_NAME='spring-projects/spring-boot'
+SOURCE_68_VERSION='ee3c48d00ffa6efda14e730c02ba145dc15e0fe4'
+SOURCE_68_URL='https://github.com/spring-projects/spring-boot'
+SOURCE_68_CATEGORY='public-dataset'
+SOURCE_68_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_68_LICENSE_URL='https://api.github.com/repos/spring-projects/spring-boot/license?ref=ee3c48d00ffa6efda14e730c02ba145dc15e0fe4'
+SOURCE_68_CONTENT_TYPES='source code'
+SOURCE_68_LANGUAGES='Java'
+SOURCE_68_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_68_COPYRIGHTED='yes'
+SOURCE_68_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_69_ID='jesseduffield-lazygit'
+SOURCE_69_PATH='jesseduffield-lazygit'
+SOURCE_69_LICENSE='MIT'
+SOURCE_69_NAME='jesseduffield/lazygit'
+SOURCE_69_VERSION='ddceff696286811d2adc02e27bad1b275b9b1c75'
+SOURCE_69_URL='https://github.com/jesseduffield/lazygit'
+SOURCE_69_CATEGORY='public-dataset'
+SOURCE_69_LICENSE_DECLARATION='MIT'
+SOURCE_69_LICENSE_URL='https://api.github.com/repos/jesseduffield/lazygit/license?ref=ddceff696286811d2adc02e27bad1b275b9b1c75'
+SOURCE_69_CONTENT_TYPES='source code'
+SOURCE_69_LANGUAGES='Go'
+SOURCE_69_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_69_COPYRIGHTED='yes'
+SOURCE_69_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_70_ID='hoppscotch-hoppscotch'
+SOURCE_70_PATH='hoppscotch-hoppscotch'
+SOURCE_70_LICENSE='MIT'
+SOURCE_70_NAME='hoppscotch/hoppscotch'
+SOURCE_70_VERSION='1acb8a3a7581e4db32ba0d529170c4669a2e1053'
+SOURCE_70_URL='https://github.com/hoppscotch/hoppscotch'
+SOURCE_70_CATEGORY='public-dataset'
+SOURCE_70_LICENSE_DECLARATION='MIT'
+SOURCE_70_LICENSE_URL='https://api.github.com/repos/hoppscotch/hoppscotch/license?ref=1acb8a3a7581e4db32ba0d529170c4669a2e1053'
+SOURCE_70_CONTENT_TYPES='source code'
+SOURCE_70_LANGUAGES='TypeScript'
+SOURCE_70_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_70_COPYRIGHTED='yes'
+SOURCE_70_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_71_ID='anuraghazra-github-readme-stats'
+SOURCE_71_PATH='anuraghazra-github-readme-stats'
+SOURCE_71_LICENSE='MIT'
+SOURCE_71_NAME='anuraghazra/github-readme-stats'
+SOURCE_71_VERSION='54a7985aeefda00d5eadb55b80c17c7f976c37d2'
+SOURCE_71_URL='https://github.com/anuraghazra/github-readme-stats'
+SOURCE_71_CATEGORY='public-dataset'
+SOURCE_71_LICENSE_DECLARATION='MIT'
+SOURCE_71_LICENSE_URL='https://api.github.com/repos/anuraghazra/github-readme-stats/license?ref=54a7985aeefda00d5eadb55b80c17c7f976c37d2'
+SOURCE_71_CONTENT_TYPES='source code'
+SOURCE_71_LANGUAGES='JavaScript'
+SOURCE_71_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_71_COPYRIGHTED='yes'
+SOURCE_71_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_72_ID='d2l-ai-d2l-zh'
+SOURCE_72_PATH='d2l-ai-d2l-zh'
+SOURCE_72_LICENSE='Apache-2.0'
+SOURCE_72_NAME='d2l-ai/d2l-zh'
+SOURCE_72_VERSION='e6b18ccea71451a55fcd861d7b96fddf2587b09a'
+SOURCE_72_URL='https://github.com/d2l-ai/d2l-zh'
+SOURCE_72_CATEGORY='public-dataset'
+SOURCE_72_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_72_LICENSE_URL='https://api.github.com/repos/d2l-ai/d2l-zh/license?ref=e6b18ccea71451a55fcd861d7b96fddf2587b09a'
+SOURCE_72_CONTENT_TYPES='source code'
+SOURCE_72_LANGUAGES='Python'
+SOURCE_72_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_72_COPYRIGHTED='yes'
+SOURCE_72_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_73_ID='z4nzu-hackingtool'
+SOURCE_73_PATH='z4nzu-hackingtool'
+SOURCE_73_LICENSE='MIT'
+SOURCE_73_NAME='Z4nzu/hackingtool'
+SOURCE_73_VERSION='9b92b6156ddc5ff87bf0fa592d81c333a88d1c78'
+SOURCE_73_URL='https://github.com/Z4nzu/hackingtool'
+SOURCE_73_CATEGORY='public-dataset'
+SOURCE_73_LICENSE_DECLARATION='MIT'
+SOURCE_73_LICENSE_URL='https://api.github.com/repos/Z4nzu/hackingtool/license?ref=9b92b6156ddc5ff87bf0fa592d81c333a88d1c78'
+SOURCE_73_CONTENT_TYPES='source code'
+SOURCE_73_LANGUAGES='Python'
+SOURCE_73_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_73_COPYRIGHTED='yes'
+SOURCE_73_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_74_ID='coder-code-server'
+SOURCE_74_PATH='coder-code-server'
+SOURCE_74_LICENSE='MIT'
+SOURCE_74_NAME='coder/code-server'
+SOURCE_74_VERSION='313bf0359b4d391ba18f1fa131aad8a583bc2919'
+SOURCE_74_URL='https://github.com/coder/code-server'
+SOURCE_74_CATEGORY='public-dataset'
+SOURCE_74_LICENSE_DECLARATION='MIT'
+SOURCE_74_LICENSE_URL='https://api.github.com/repos/coder/code-server/license?ref=313bf0359b4d391ba18f1fa131aad8a583bc2919'
+SOURCE_74_CONTENT_TYPES='source code'
+SOURCE_74_LANGUAGES='TypeScript'
+SOURCE_74_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_74_COPYRIGHTED='yes'
+SOURCE_74_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_75_ID='nomic-ai-gpt4all'
+SOURCE_75_PATH='nomic-ai-gpt4all'
+SOURCE_75_LICENSE='MIT'
+SOURCE_75_NAME='nomic-ai/gpt4all'
+SOURCE_75_VERSION='b666d16db5aeab8b91aaf7963adcee9c643734d7'
+SOURCE_75_URL='https://github.com/nomic-ai/gpt4all'
+SOURCE_75_CATEGORY='public-dataset'
+SOURCE_75_LICENSE_DECLARATION='MIT'
+SOURCE_75_LICENSE_URL='https://api.github.com/repos/nomic-ai/gpt4all/license?ref=b666d16db5aeab8b91aaf7963adcee9c643734d7'
+SOURCE_75_CONTENT_TYPES='source code'
+SOURCE_75_LANGUAGES='C++'
+SOURCE_75_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_75_COPYRIGHTED='yes'
+SOURCE_75_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_76_ID='unclecode-crawl4ai'
+SOURCE_76_PATH='unclecode-crawl4ai'
+SOURCE_76_LICENSE='Apache-2.0'
+SOURCE_76_NAME='unclecode/crawl4ai'
+SOURCE_76_VERSION='7e801521428ee12509994d39151006f64055ebe3'
+SOURCE_76_URL='https://github.com/unclecode/crawl4ai'
+SOURCE_76_CATEGORY='public-dataset'
+SOURCE_76_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_76_LICENSE_URL='https://api.github.com/repos/unclecode/crawl4ai/license?ref=7e801521428ee12509994d39151006f64055ebe3'
+SOURCE_76_CONTENT_TYPES='source code'
+SOURCE_76_LANGUAGES='Python'
+SOURCE_76_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_76_COPYRIGHTED='yes'
+SOURCE_76_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_77_ID='nestjs-nest'
+SOURCE_77_PATH='nestjs-nest'
+SOURCE_77_LICENSE='MIT'
+SOURCE_77_NAME='nestjs/nest'
+SOURCE_77_VERSION='c3bc75c973813969aa676793e20a7cba12a9daf5'
+SOURCE_77_URL='https://github.com/nestjs/nest'
+SOURCE_77_CATEGORY='public-dataset'
+SOURCE_77_LICENSE_DECLARATION='MIT'
+SOURCE_77_LICENSE_URL='https://api.github.com/repos/nestjs/nest/license?ref=c3bc75c973813969aa676793e20a7cba12a9daf5'
+SOURCE_77_CONTENT_TYPES='source code'
+SOURCE_77_LANGUAGES='TypeScript'
+SOURCE_77_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_77_COPYRIGHTED='yes'
+SOURCE_77_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_78_ID='tesseract-ocr-tesseract'
+SOURCE_78_PATH='tesseract-ocr-tesseract'
+SOURCE_78_LICENSE='Apache-2.0'
+SOURCE_78_NAME='tesseract-ocr/tesseract'
+SOURCE_78_VERSION='64ed93b68c01f359d924fc1bfcf0d5931eb77211'
+SOURCE_78_URL='https://github.com/tesseract-ocr/tesseract'
+SOURCE_78_CATEGORY='public-dataset'
+SOURCE_78_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_78_LICENSE_URL='https://api.github.com/repos/tesseract-ocr/tesseract/license?ref=64ed93b68c01f359d924fc1bfcf0d5931eb77211'
+SOURCE_78_CONTENT_TYPES='source code'
+SOURCE_78_LANGUAGES='C++'
+SOURCE_78_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_78_COPYRIGHTED='yes'
+SOURCE_78_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_79_ID='typicode-json-server'
+SOURCE_79_PATH='typicode-json-server'
+SOURCE_79_LICENSE='MIT'
+SOURCE_79_NAME='typicode/json-server'
+SOURCE_79_VERSION='89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea'
+SOURCE_79_URL='https://github.com/typicode/json-server'
+SOURCE_79_CATEGORY='public-dataset'
+SOURCE_79_LICENSE_DECLARATION='MIT'
+SOURCE_79_LICENSE_URL='https://api.github.com/repos/typicode/json-server/license?ref=89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea'
+SOURCE_79_CONTENT_TYPES='source code'
+SOURCE_79_LANGUAGES='JavaScript'
+SOURCE_79_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_79_COPYRIGHTED='yes'
+SOURCE_79_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_80_ID='ocornut-imgui'
+SOURCE_80_PATH='ocornut-imgui'
+SOURCE_80_LICENSE='MIT'
+SOURCE_80_NAME='ocornut/imgui'
+SOURCE_80_VERSION='46d39d56febc2a00bdd2270dc88c8a13f2a0441a'
+SOURCE_80_URL='https://github.com/ocornut/imgui'
+SOURCE_80_CATEGORY='public-dataset'
+SOURCE_80_LICENSE_DECLARATION='MIT'
+SOURCE_80_LICENSE_URL='https://api.github.com/repos/ocornut/imgui/license?ref=46d39d56febc2a00bdd2270dc88c8a13f2a0441a'
+SOURCE_80_CONTENT_TYPES='source code'
+SOURCE_80_LANGUAGES='C++'
+SOURCE_80_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_80_COPYRIGHTED='yes'
+SOURCE_80_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_81_ID='caddyserver-caddy'
+SOURCE_81_PATH='caddyserver-caddy'
+SOURCE_81_LICENSE='Apache-2.0'
+SOURCE_81_NAME='caddyserver/caddy'
+SOURCE_81_VERSION='64b64c61ebc40ea37280b2baa1a7a492cc1156c5'
+SOURCE_81_URL='https://github.com/caddyserver/caddy'
+SOURCE_81_CATEGORY='public-dataset'
+SOURCE_81_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_81_LICENSE_URL='https://api.github.com/repos/caddyserver/caddy/license?ref=64b64c61ebc40ea37280b2baa1a7a492cc1156c5'
+SOURCE_81_CONTENT_TYPES='source code'
+SOURCE_81_LANGUAGES='Go'
+SOURCE_81_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_81_COPYRIGHTED='yes'
+SOURCE_81_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_82_ID='apache-superset'
+SOURCE_82_PATH='apache-superset'
+SOURCE_82_LICENSE='Apache-2.0'
+SOURCE_82_NAME='apache/superset'
+SOURCE_82_VERSION='3b164e4270860ac07223d4df1a60ca7b56312362'
+SOURCE_82_URL='https://github.com/apache/superset'
+SOURCE_82_CATEGORY='public-dataset'
+SOURCE_82_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_82_LICENSE_URL='https://api.github.com/repos/apache/superset/license?ref=3b164e4270860ac07223d4df1a60ca7b56312362'
+SOURCE_82_CONTENT_TYPES='source code'
+SOURCE_82_LANGUAGES='Python'
+SOURCE_82_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_82_COPYRIGHTED='yes'
+SOURCE_82_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_83_ID='hiyouga-llamafactory'
+SOURCE_83_PATH='hiyouga-llamafactory'
+SOURCE_83_LICENSE='Apache-2.0'
+SOURCE_83_NAME='hiyouga/LlamaFactory'
+SOURCE_83_VERSION='887b850813d80a8d893ec56703d5b3a0eec46de6'
+SOURCE_83_URL='https://github.com/hiyouga/LlamaFactory'
+SOURCE_83_CATEGORY='public-dataset'
+SOURCE_83_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_83_LICENSE_URL='https://api.github.com/repos/hiyouga/LlamaFactory/license?ref=887b850813d80a8d893ec56703d5b3a0eec46de6'
+SOURCE_83_CONTENT_TYPES='source code'
+SOURCE_83_LANGUAGES='Python'
+SOURCE_83_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_83_COPYRIGHTED='yes'
+SOURCE_83_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_84_ID='abi-screenshot-to-code'
+SOURCE_84_PATH='abi-screenshot-to-code'
+SOURCE_84_LICENSE='MIT'
+SOURCE_84_NAME='abi/screenshot-to-code'
+SOURCE_84_VERSION='d026163f586dfa8c5c10d28c36edd59a9d3b0e88'
+SOURCE_84_URL='https://github.com/abi/screenshot-to-code'
+SOURCE_84_CATEGORY='public-dataset'
+SOURCE_84_LICENSE_DECLARATION='MIT'
+SOURCE_84_LICENSE_URL='https://api.github.com/repos/abi/screenshot-to-code/license?ref=d026163f586dfa8c5c10d28c36edd59a9d3b0e88'
+SOURCE_84_CONTENT_TYPES='source code'
+SOURCE_84_LANGUAGES='Python'
+SOURCE_84_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_84_COPYRIGHTED='yes'
+SOURCE_84_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_85_ID='unionlabs-union'
+SOURCE_85_PATH='unionlabs-union'
+SOURCE_85_LICENSE='Apache-2.0'
+SOURCE_85_NAME='unionlabs/union'
+SOURCE_85_VERSION='031785bb6dc6b957c624e62bc64c184409c97d7b'
+SOURCE_85_URL='https://github.com/unionlabs/union'
+SOURCE_85_CATEGORY='public-dataset'
+SOURCE_85_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_85_LICENSE_URL='https://api.github.com/repos/unionlabs/union/license?ref=031785bb6dc6b957c624e62bc64c184409c97d7b'
+SOURCE_85_CONTENT_TYPES='source code'
+SOURCE_85_LANGUAGES='Rust'
+SOURCE_85_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_85_COPYRIGHTED='yes'
+SOURCE_85_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_86_ID='eugeny-tabby'
+SOURCE_86_PATH='eugeny-tabby'
+SOURCE_86_LICENSE='MIT'
+SOURCE_86_NAME='Eugeny/tabby'
+SOURCE_86_VERSION='14e2d60b9b6dee84a53c37f05eefeb803787de04'
+SOURCE_86_URL='https://github.com/Eugeny/tabby'
+SOURCE_86_CATEGORY='public-dataset'
+SOURCE_86_LICENSE_DECLARATION='MIT'
+SOURCE_86_LICENSE_URL='https://api.github.com/repos/Eugeny/tabby/license?ref=14e2d60b9b6dee84a53c37f05eefeb803787de04'
+SOURCE_86_CONTENT_TYPES='source code'
+SOURCE_86_LANGUAGES='TypeScript'
+SOURCE_86_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_86_COPYRIGHTED='yes'
+SOURCE_86_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_87_ID='d4vinci-scrapling'
+SOURCE_87_PATH='d4vinci-scrapling'
+SOURCE_87_LICENSE='BSD-3-Clause'
+SOURCE_87_NAME='D4Vinci/Scrapling'
+SOURCE_87_VERSION='39847bd2da41f8e089593f91016d81d3a4771e6f'
+SOURCE_87_URL='https://github.com/D4Vinci/Scrapling'
+SOURCE_87_CATEGORY='public-dataset'
+SOURCE_87_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_87_LICENSE_URL='https://api.github.com/repos/D4Vinci/Scrapling/license?ref=39847bd2da41f8e089593f91016d81d3a4771e6f'
+SOURCE_87_CONTENT_TYPES='source code'
+SOURCE_87_LANGUAGES='Python'
+SOURCE_87_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_87_COPYRIGHTED='yes'
+SOURCE_87_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_88_ID='pallets-flask'
+SOURCE_88_PATH='pallets-flask'
+SOURCE_88_LICENSE='BSD-3-Clause'
+SOURCE_88_NAME='pallets/flask'
+SOURCE_88_VERSION='6a2f545bfd8ed31e19066a299296917e034aca58'
+SOURCE_88_URL='https://github.com/pallets/flask'
+SOURCE_88_CATEGORY='public-dataset'
+SOURCE_88_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_88_LICENSE_URL='https://api.github.com/repos/pallets/flask/license?ref=6a2f545bfd8ed31e19066a299296917e034aca58'
+SOURCE_88_CONTENT_TYPES='source code'
+SOURCE_88_LANGUAGES='Python'
+SOURCE_88_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_88_COPYRIGHTED='yes'
+SOURCE_88_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_89_ID='nationalsecurityagency-ghidra'
+SOURCE_89_PATH='nationalsecurityagency-ghidra'
+SOURCE_89_LICENSE='Apache-2.0'
+SOURCE_89_NAME='NationalSecurityAgency/ghidra'
+SOURCE_89_VERSION='291d5c4e77735b0b4b40613d952ecdd157ef750b'
+SOURCE_89_URL='https://github.com/NationalSecurityAgency/ghidra'
+SOURCE_89_CATEGORY='public-dataset'
+SOURCE_89_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_89_LICENSE_URL='https://api.github.com/repos/NationalSecurityAgency/ghidra/license?ref=291d5c4e77735b0b4b40613d952ecdd157ef750b'
+SOURCE_89_CONTENT_TYPES='source code'
+SOURCE_89_LANGUAGES='Java'
+SOURCE_89_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_89_COPYRIGHTED='yes'
+SOURCE_89_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_90_ID='moby-moby'
+SOURCE_90_PATH='moby-moby'
+SOURCE_90_LICENSE='Apache-2.0'
+SOURCE_90_NAME='moby/moby'
+SOURCE_90_VERSION='e456107947c1d554ae1ad0645ed6e13978aa1c2d'
+SOURCE_90_URL='https://github.com/moby/moby'
+SOURCE_90_CATEGORY='public-dataset'
+SOURCE_90_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_90_LICENSE_URL='https://api.github.com/repos/moby/moby/license?ref=e456107947c1d554ae1ad0645ed6e13978aa1c2d'
+SOURCE_90_CONTENT_TYPES='source code'
+SOURCE_90_LANGUAGES='Go'
+SOURCE_90_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_90_COPYRIGHTED='yes'
+SOURCE_90_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_91_ID='swiftlang-swift'
+SOURCE_91_PATH='swiftlang-swift'
+SOURCE_91_LICENSE='Apache-2.0'
+SOURCE_91_NAME='swiftlang/swift'
+SOURCE_91_VERSION='e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7'
+SOURCE_91_URL='https://github.com/swiftlang/swift'
+SOURCE_91_CATEGORY='public-dataset'
+SOURCE_91_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_91_LICENSE_URL='https://api.github.com/repos/swiftlang/swift/license?ref=e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7'
+SOURCE_91_CONTENT_TYPES='source code'
+SOURCE_91_LANGUAGES='Swift'
+SOURCE_91_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_91_COPYRIGHTED='yes'
+SOURCE_91_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_92_ID='unslothai-unsloth'
+SOURCE_92_PATH='unslothai-unsloth'
+SOURCE_92_LICENSE='Apache-2.0'
+SOURCE_92_NAME='unslothai/unsloth'
+SOURCE_92_VERSION='2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5'
+SOURCE_92_URL='https://github.com/unslothai/unsloth'
+SOURCE_92_CATEGORY='public-dataset'
+SOURCE_92_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_92_LICENSE_URL='https://api.github.com/repos/unslothai/unsloth/license?ref=2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5'
+SOURCE_92_CONTENT_TYPES='source code'
+SOURCE_92_LANGUAGES='Python'
+SOURCE_92_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_92_COPYRIGHTED='yes'
+SOURCE_92_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_93_ID='openinterpreter-openinterpreter'
+SOURCE_93_PATH='openinterpreter-openinterpreter'
+SOURCE_93_LICENSE='Apache-2.0'
+SOURCE_93_NAME='openinterpreter/openinterpreter'
+SOURCE_93_VERSION='984acc698cd038885ecb0b82721402b01e11a5ad'
+SOURCE_93_URL='https://github.com/openinterpreter/openinterpreter'
+SOURCE_93_CATEGORY='public-dataset'
+SOURCE_93_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_93_LICENSE_URL='https://api.github.com/repos/openinterpreter/openinterpreter/license?ref=984acc698cd038885ecb0b82721402b01e11a5ad'
+SOURCE_93_CONTENT_TYPES='source code'
+SOURCE_93_LANGUAGES='Rust'
+SOURCE_93_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_93_COPYRIGHTED='yes'
+SOURCE_93_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_94_ID='apache-echarts'
+SOURCE_94_PATH='apache-echarts'
+SOURCE_94_LICENSE='Apache-2.0'
+SOURCE_94_NAME='apache/echarts'
+SOURCE_94_VERSION='30076aedcd7b7f65d8dd8e8d9ece46ce778133a3'
+SOURCE_94_URL='https://github.com/apache/echarts'
+SOURCE_94_CATEGORY='public-dataset'
+SOURCE_94_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_94_LICENSE_URL='https://api.github.com/repos/apache/echarts/license?ref=30076aedcd7b7f65d8dd8e8d9ece46ce778133a3'
+SOURCE_94_CONTENT_TYPES='source code'
+SOURCE_94_LANGUAGES='TypeScript'
+SOURCE_94_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_94_COPYRIGHTED='yes'
+SOURCE_94_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_95_ID='cline-cline'
+SOURCE_95_PATH='cline-cline'
+SOURCE_95_LICENSE='Apache-2.0'
+SOURCE_95_NAME='cline/cline'
+SOURCE_95_VERSION='45403900964a74aa5ae3683a0e61b535600b97e0'
+SOURCE_95_URL='https://github.com/cline/cline'
+SOURCE_95_CATEGORY='public-dataset'
+SOURCE_95_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_95_LICENSE_URL='https://api.github.com/repos/cline/cline/license?ref=45403900964a74aa5ae3683a0e61b535600b97e0'
+SOURCE_95_CONTENT_TYPES='source code'
+SOURCE_95_LANGUAGES='TypeScript'
+SOURCE_95_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_95_COPYRIGHTED='yes'
+SOURCE_95_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_96_ID='prometheus-prometheus'
+SOURCE_96_PATH='prometheus-prometheus'
+SOURCE_96_LICENSE='Apache-2.0'
+SOURCE_96_NAME='prometheus/prometheus'
+SOURCE_96_VERSION='5542b00b9d5933e29d7b597705c718b764bcc1cb'
+SOURCE_96_URL='https://github.com/prometheus/prometheus'
+SOURCE_96_CATEGORY='public-dataset'
+SOURCE_96_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_96_LICENSE_URL='https://api.github.com/repos/prometheus/prometheus/license?ref=5542b00b9d5933e29d7b597705c718b764bcc1cb'
+SOURCE_96_CONTENT_TYPES='source code'
+SOURCE_96_LANGUAGES='Go'
+SOURCE_96_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_96_COPYRIGHTED='yes'
+SOURCE_96_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_97_ID='alacritty-alacritty'
+SOURCE_97_PATH='alacritty-alacritty'
+SOURCE_97_LICENSE='Apache-2.0'
+SOURCE_97_NAME='alacritty/alacritty'
+SOURCE_97_VERSION='1b2b36a64e88068ad02c95fad00ee2fad31c00bf'
+SOURCE_97_URL='https://github.com/alacritty/alacritty'
+SOURCE_97_CATEGORY='public-dataset'
+SOURCE_97_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_97_LICENSE_URL='https://api.github.com/repos/alacritty/alacritty/license?ref=1b2b36a64e88068ad02c95fad00ee2fad31c00bf'
+SOURCE_97_CONTENT_TYPES='source code'
+SOURCE_97_LANGUAGES='Rust'
+SOURCE_97_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_97_COPYRIGHTED='yes'
+SOURCE_97_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_98_ID='ladybirdbrowser-ladybird'
+SOURCE_98_PATH='ladybirdbrowser-ladybird'
+SOURCE_98_LICENSE='BSD-2-Clause'
+SOURCE_98_NAME='LadybirdBrowser/ladybird'
+SOURCE_98_VERSION='8d225a329ee852510b4522e04d357c6fdd51d7f7'
+SOURCE_98_URL='https://github.com/LadybirdBrowser/ladybird'
+SOURCE_98_CATEGORY='public-dataset'
+SOURCE_98_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_98_LICENSE_URL='https://api.github.com/repos/LadybirdBrowser/ladybird/license?ref=8d225a329ee852510b4522e04d357c6fdd51d7f7'
+SOURCE_98_CONTENT_TYPES='source code'
+SOURCE_98_LANGUAGES='C++'
+SOURCE_98_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_98_COPYRIGHTED='yes'
+SOURCE_98_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_99_ID='scrapy-scrapy'
+SOURCE_99_PATH='scrapy-scrapy'
+SOURCE_99_LICENSE='BSD-3-Clause'
+SOURCE_99_NAME='scrapy/scrapy'
+SOURCE_99_VERSION='1bd839b57ddb614664a179b6213f49579bdfd3da'
+SOURCE_99_URL='https://github.com/scrapy/scrapy'
+SOURCE_99_CATEGORY='public-dataset'
+SOURCE_99_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_99_LICENSE_URL='https://api.github.com/repos/scrapy/scrapy/license?ref=1bd839b57ddb614664a179b6213f49579bdfd3da'
+SOURCE_99_CONTENT_TYPES='source code'
+SOURCE_99_LANGUAGES='Python'
+SOURCE_99_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_99_COPYRIGHTED='yes'
+SOURCE_99_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_100_ID='mem0ai-mem0'
+SOURCE_100_PATH='mem0ai-mem0'
+SOURCE_100_LICENSE='Apache-2.0'
+SOURCE_100_NAME='mem0ai/mem0'
+SOURCE_100_VERSION='4debc58a83377b18be81ae1e5969a300736b2fac'
+SOURCE_100_URL='https://github.com/mem0ai/mem0'
+SOURCE_100_CATEGORY='public-dataset'
+SOURCE_100_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_100_LICENSE_URL='https://api.github.com/repos/mem0ai/mem0/license?ref=4debc58a83377b18be81ae1e5969a300736b2fac'
+SOURCE_100_CONTENT_TYPES='source code'
+SOURCE_100_LANGUAGES='Python'
+SOURCE_100_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_100_COPYRIGHTED='yes'
+SOURCE_100_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_101_ID='jgraph-drawio-desktop'
+SOURCE_101_PATH='jgraph-drawio-desktop'
+SOURCE_101_LICENSE='Apache-2.0'
+SOURCE_101_NAME='jgraph/drawio-desktop'
+SOURCE_101_VERSION='403a2cb79f431db13a395f033b67eeebc1631754'
+SOURCE_101_URL='https://github.com/jgraph/drawio-desktop'
+SOURCE_101_CATEGORY='public-dataset'
+SOURCE_101_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_101_LICENSE_URL='https://api.github.com/repos/jgraph/drawio-desktop/license?ref=403a2cb79f431db13a395f033b67eeebc1631754'
+SOURCE_101_CONTENT_TYPES='source code'
+SOURCE_101_LANGUAGES='JavaScript'
+SOURCE_101_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_101_COPYRIGHTED='yes'
+SOURCE_101_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_102_ID='fuellabs-sway'
+SOURCE_102_PATH='fuellabs-sway'
+SOURCE_102_LICENSE='Apache-2.0'
+SOURCE_102_NAME='FuelLabs/sway'
+SOURCE_102_VERSION='91be236f71fbb541ee6639ef0d955b2b8cf0a658'
+SOURCE_102_URL='https://github.com/FuelLabs/sway'
+SOURCE_102_CATEGORY='public-dataset'
+SOURCE_102_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_102_LICENSE_URL='https://api.github.com/repos/FuelLabs/sway/license?ref=91be236f71fbb541ee6639ef0d955b2b8cf0a658'
+SOURCE_102_CONTENT_TYPES='source code'
+SOURCE_102_LANGUAGES='Rust'
+SOURCE_102_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_102_COPYRIGHTED='yes'
+SOURCE_102_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_103_ID='coollabsio-coolify'
+SOURCE_103_PATH='coollabsio-coolify'
+SOURCE_103_LICENSE='Apache-2.0'
+SOURCE_103_NAME='coollabsio/coolify'
+SOURCE_103_VERSION='940571e16f5a0e6c73cf56b4bb1184bed3d60623'
+SOURCE_103_URL='https://github.com/coollabsio/coolify'
+SOURCE_103_CATEGORY='public-dataset'
+SOURCE_103_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_103_LICENSE_URL='https://api.github.com/repos/coollabsio/coolify/license?ref=940571e16f5a0e6c73cf56b4bb1184bed3d60623'
+SOURCE_103_CONTENT_TYPES='source code'
+SOURCE_103_LANGUAGES='PHP'
+SOURCE_103_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_103_COPYRIGHTED='yes'
+SOURCE_103_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_104_ID='spring-projects-spring-framework'
+SOURCE_104_PATH='spring-projects-spring-framework'
+SOURCE_104_LICENSE='Apache-2.0'
+SOURCE_104_NAME='spring-projects/spring-framework'
+SOURCE_104_VERSION='da4b31c82b567a0531c6980b5172cba1fc7e6ed5'
+SOURCE_104_URL='https://github.com/spring-projects/spring-framework'
+SOURCE_104_CATEGORY='public-dataset'
+SOURCE_104_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_104_LICENSE_URL='https://api.github.com/repos/spring-projects/spring-framework/license?ref=da4b31c82b567a0531c6980b5172cba1fc7e6ed5'
+SOURCE_104_CONTENT_TYPES='source code'
+SOURCE_104_LANGUAGES='Java'
+SOURCE_104_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_104_COPYRIGHTED='yes'
+SOURCE_104_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_105_ID='sharkdp-bat'
+SOURCE_105_PATH='sharkdp-bat'
+SOURCE_105_LICENSE='Apache-2.0'
+SOURCE_105_NAME='sharkdp/bat'
+SOURCE_105_VERSION='2ba8db9c14e5794572f5ea338c2b90404c9769cb'
+SOURCE_105_URL='https://github.com/sharkdp/bat'
+SOURCE_105_CATEGORY='public-dataset'
+SOURCE_105_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_105_LICENSE_URL='https://api.github.com/repos/sharkdp/bat/license?ref=2ba8db9c14e5794572f5ea338c2b90404c9769cb'
+SOURCE_105_CONTENT_TYPES='source code'
+SOURCE_105_LANGUAGES='Rust'
+SOURCE_105_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_105_COPYRIGHTED='yes'
+SOURCE_105_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_106_ID='filosottile-mkcert'
+SOURCE_106_PATH='filosottile-mkcert'
+SOURCE_106_LICENSE='BSD-3-Clause'
+SOURCE_106_NAME='FiloSottile/mkcert'
+SOURCE_106_VERSION='1c1dc4ed27ed5936046b6398d39cab4d657a2d8e'
+SOURCE_106_URL='https://github.com/FiloSottile/mkcert'
+SOURCE_106_CATEGORY='public-dataset'
+SOURCE_106_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_106_LICENSE_URL='https://api.github.com/repos/FiloSottile/mkcert/license?ref=1c1dc4ed27ed5936046b6398d39cab4d657a2d8e'
+SOURCE_106_CONTENT_TYPES='source code'
+SOURCE_106_LANGUAGES='Go'
+SOURCE_106_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_106_COPYRIGHTED='yes'
+SOURCE_106_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_107_ID='appwrite-appwrite'
+SOURCE_107_PATH='appwrite-appwrite'
+SOURCE_107_LICENSE='BSD-3-Clause'
+SOURCE_107_NAME='appwrite/appwrite'
+SOURCE_107_VERSION='5d1e08464b2e5785cb21c1eef4604f904788fbb5'
+SOURCE_107_URL='https://github.com/appwrite/appwrite'
+SOURCE_107_CATEGORY='public-dataset'
+SOURCE_107_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_107_LICENSE_URL='https://api.github.com/repos/appwrite/appwrite/license?ref=5d1e08464b2e5785cb21c1eef4604f904788fbb5'
+SOURCE_107_CONTENT_TYPES='source code'
+SOURCE_107_LANGUAGES='TypeScript'
+SOURCE_107_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_107_COPYRIGHTED='yes'
+SOURCE_107_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_108_ID='typst-typst'
+SOURCE_108_PATH='typst-typst'
+SOURCE_108_LICENSE='Apache-2.0'
+SOURCE_108_NAME='typst/typst'
+SOURCE_108_VERSION='a51e028041cac426f97d34335bb01d8f1d8e5e8f'
+SOURCE_108_URL='https://github.com/typst/typst'
+SOURCE_108_CATEGORY='public-dataset'
+SOURCE_108_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_108_LICENSE_URL='https://api.github.com/repos/typst/typst/license?ref=a51e028041cac426f97d34335bb01d8f1d8e5e8f'
+SOURCE_108_CONTENT_TYPES='source code'
+SOURCE_108_LANGUAGES='Rust'
+SOURCE_108_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_108_COPYRIGHTED='yes'
+SOURCE_108_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_109_ID='jingyaogong-minimind'
+SOURCE_109_PATH='jingyaogong-minimind'
+SOURCE_109_LICENSE='Apache-2.0'
+SOURCE_109_NAME='jingyaogong/minimind'
+SOURCE_109_VERSION='393e387e9ad99f0f04c296e4c5e7353f4444629f'
+SOURCE_109_URL='https://github.com/jingyaogong/minimind'
+SOURCE_109_CATEGORY='public-dataset'
+SOURCE_109_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_109_LICENSE_URL='https://api.github.com/repos/jingyaogong/minimind/license?ref=393e387e9ad99f0f04c296e4c5e7353f4444629f'
+SOURCE_109_CONTENT_TYPES='source code'
+SOURCE_109_LANGUAGES='Python'
+SOURCE_109_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_109_COPYRIGHTED='yes'
+SOURCE_109_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_110_ID='psf-requests'
+SOURCE_110_PATH='psf-requests'
+SOURCE_110_LICENSE='Apache-2.0'
+SOURCE_110_NAME='psf/requests'
+SOURCE_110_VERSION='1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e'
+SOURCE_110_URL='https://github.com/psf/requests'
+SOURCE_110_CATEGORY='public-dataset'
+SOURCE_110_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_110_LICENSE_URL='https://api.github.com/repos/psf/requests/license?ref=1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e'
+SOURCE_110_CONTENT_TYPES='source code'
+SOURCE_110_LANGUAGES='Python'
+SOURCE_110_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_110_COPYRIGHTED='yes'
+SOURCE_110_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_111_ID='mozilla-pdf.js'
+SOURCE_111_PATH='mozilla-pdf.js'
+SOURCE_111_LICENSE='Apache-2.0'
+SOURCE_111_NAME='mozilla/pdf.js'
+SOURCE_111_VERSION='022e9588728346cde58088a9925120293af1c8f4'
+SOURCE_111_URL='https://github.com/mozilla/pdf.js'
+SOURCE_111_CATEGORY='public-dataset'
+SOURCE_111_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_111_LICENSE_URL='https://api.github.com/repos/mozilla/pdf.js/license?ref=022e9588728346cde58088a9925120293af1c8f4'
+SOURCE_111_CONTENT_TYPES='source code'
+SOURCE_111_LANGUAGES='JavaScript'
+SOURCE_111_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_111_COPYRIGHTED='yes'
+SOURCE_111_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_112_ID='lyswhut-lx-music-desktop'
+SOURCE_112_PATH='lyswhut-lx-music-desktop'
+SOURCE_112_LICENSE='Apache-2.0'
+SOURCE_112_NAME='lyswhut/lx-music-desktop'
+SOURCE_112_VERSION='9c364b482e5621a1d38b50e8610d2fb974457e6e'
+SOURCE_112_URL='https://github.com/lyswhut/lx-music-desktop'
+SOURCE_112_CATEGORY='public-dataset'
+SOURCE_112_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_112_LICENSE_URL='https://api.github.com/repos/lyswhut/lx-music-desktop/license?ref=9c364b482e5621a1d38b50e8610d2fb974457e6e'
+SOURCE_112_CONTENT_TYPES='source code'
+SOURCE_112_LANGUAGES='TypeScript'
+SOURCE_112_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_112_COPYRIGHTED='yes'
+SOURCE_112_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_113_ID='aaif-goose-goose'
+SOURCE_113_PATH='aaif-goose-goose'
+SOURCE_113_LICENSE='Apache-2.0'
+SOURCE_113_NAME='aaif-goose/goose'
+SOURCE_113_VERSION='064244e6bddf641876676f054a006b7da1da5182'
+SOURCE_113_URL='https://github.com/aaif-goose/goose'
+SOURCE_113_CATEGORY='public-dataset'
+SOURCE_113_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_113_LICENSE_URL='https://api.github.com/repos/aaif-goose/goose/license?ref=064244e6bddf641876676f054a006b7da1da5182'
+SOURCE_113_CONTENT_TYPES='source code'
+SOURCE_113_LANGUAGES='Rust'
+SOURCE_113_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_113_COPYRIGHTED='yes'
+SOURCE_113_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_114_ID='xai-org-grok-1'
+SOURCE_114_PATH='xai-org-grok-1'
+SOURCE_114_LICENSE='Apache-2.0'
+SOURCE_114_NAME='xai-org/grok-1'
+SOURCE_114_VERSION='7050ed204b8206bb8645c7b7bbef7252f79561b0'
+SOURCE_114_URL='https://github.com/xai-org/grok-1'
+SOURCE_114_CATEGORY='public-dataset'
+SOURCE_114_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_114_LICENSE_URL='https://api.github.com/repos/xai-org/grok-1/license?ref=7050ed204b8206bb8645c7b7bbef7252f79561b0'
+SOURCE_114_CONTENT_TYPES='source code'
+SOURCE_114_LANGUAGES='Python'
+SOURCE_114_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_114_COPYRIGHTED='yes'
+SOURCE_114_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_115_ID='etcd-io-etcd'
+SOURCE_115_PATH='etcd-io-etcd'
+SOURCE_115_LICENSE='Apache-2.0'
+SOURCE_115_NAME='etcd-io/etcd'
+SOURCE_115_VERSION='5b75ac62cf042a185e902530c25fd3d59c095232'
+SOURCE_115_URL='https://github.com/etcd-io/etcd'
+SOURCE_115_CATEGORY='public-dataset'
+SOURCE_115_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_115_LICENSE_URL='https://api.github.com/repos/etcd-io/etcd/license?ref=5b75ac62cf042a185e902530c25fd3d59c095232'
+SOURCE_115_CONTENT_TYPES='source code'
+SOURCE_115_LANGUAGES='Go'
+SOURCE_115_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_115_COPYRIGHTED='yes'
+SOURCE_115_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_116_ID='google-guava'
+SOURCE_116_PATH='google-guava'
+SOURCE_116_LICENSE='Apache-2.0'
+SOURCE_116_NAME='google/guava'
+SOURCE_116_VERSION='0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a'
+SOURCE_116_URL='https://github.com/google/guava'
+SOURCE_116_CATEGORY='public-dataset'
+SOURCE_116_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_116_LICENSE_URL='https://api.github.com/repos/google/guava/license?ref=0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a'
+SOURCE_116_CONTENT_TYPES='source code'
+SOURCE_116_LANGUAGES='Java'
+SOURCE_116_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_116_COPYRIGHTED='yes'
+SOURCE_116_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_117_ID='dbeaver-dbeaver'
+SOURCE_117_PATH='dbeaver-dbeaver'
+SOURCE_117_LICENSE='Apache-2.0'
+SOURCE_117_NAME='dbeaver/dbeaver'
+SOURCE_117_VERSION='b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0'
+SOURCE_117_URL='https://github.com/dbeaver/dbeaver'
+SOURCE_117_CATEGORY='public-dataset'
+SOURCE_117_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_117_LICENSE_URL='https://api.github.com/repos/dbeaver/dbeaver/license?ref=b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0'
+SOURCE_117_CONTENT_TYPES='source code'
+SOURCE_117_LANGUAGES='Java'
+SOURCE_117_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_117_COPYRIGHTED='yes'
+SOURCE_117_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_118_ID='skylot-jadx'
+SOURCE_118_PATH='skylot-jadx'
+SOURCE_118_LICENSE='Apache-2.0'
+SOURCE_118_NAME='skylot/jadx'
+SOURCE_118_VERSION='e738a26571d02919f01df40de93bc9a44dee4e18'
+SOURCE_118_URL='https://github.com/skylot/jadx'
+SOURCE_118_CATEGORY='public-dataset'
+SOURCE_118_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_118_LICENSE_URL='https://api.github.com/repos/skylot/jadx/license?ref=e738a26571d02919f01df40de93bc9a44dee4e18'
+SOURCE_118_CONTENT_TYPES='source code'
+SOURCE_118_LANGUAGES='Java'
+SOURCE_118_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_118_COPYRIGHTED='yes'
+SOURCE_118_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_119_ID='pandas-dev-pandas'
+SOURCE_119_PATH='pandas-dev-pandas'
+SOURCE_119_LICENSE='BSD-3-Clause'
+SOURCE_119_NAME='pandas-dev/pandas'
+SOURCE_119_VERSION='ff1d39bbdf4eda26de2285cf836104f9885b0826'
+SOURCE_119_URL='https://github.com/pandas-dev/pandas'
+SOURCE_119_CATEGORY='public-dataset'
+SOURCE_119_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_119_LICENSE_URL='https://api.github.com/repos/pandas-dev/pandas/license?ref=ff1d39bbdf4eda26de2285cf836104f9885b0826'
+SOURCE_119_CONTENT_TYPES='source code'
+SOURCE_119_LANGUAGES='Python'
+SOURCE_119_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_119_COPYRIGHTED='yes'
+SOURCE_119_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_120_ID='homebrew-brew'
+SOURCE_120_PATH='homebrew-brew'
+SOURCE_120_LICENSE='BSD-2-Clause'
+SOURCE_120_NAME='Homebrew/brew'
+SOURCE_120_VERSION='749b3557ccebae4ecd79f17aa2527d2f68acc739'
+SOURCE_120_URL='https://github.com/Homebrew/brew'
+SOURCE_120_CATEGORY='public-dataset'
+SOURCE_120_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_120_LICENSE_URL='https://api.github.com/repos/Homebrew/brew/license?ref=749b3557ccebae4ecd79f17aa2527d2f68acc739'
+SOURCE_120_CONTENT_TYPES='source code'
+SOURCE_120_LANGUAGES='Ruby'
+SOURCE_120_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_120_COPYRIGHTED='yes'
+SOURCE_120_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_121_ID='reactivex-rxjava'
+SOURCE_121_PATH='reactivex-rxjava'
+SOURCE_121_LICENSE='Apache-2.0'
+SOURCE_121_NAME='ReactiveX/RxJava'
+SOURCE_121_VERSION='8f7b841984133e2a3ba88630779af9e66248ff95'
+SOURCE_121_URL='https://github.com/ReactiveX/RxJava'
+SOURCE_121_CATEGORY='public-dataset'
+SOURCE_121_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_121_LICENSE_URL='https://api.github.com/repos/ReactiveX/RxJava/license?ref=8f7b841984133e2a3ba88630779af9e66248ff95'
+SOURCE_121_CONTENT_TYPES='source code'
+SOURCE_121_LANGUAGES='Java'
+SOURCE_121_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_121_COPYRIGHTED='yes'
+SOURCE_121_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_122_ID='aider-ai-aider'
+SOURCE_122_PATH='aider-ai-aider'
+SOURCE_122_LICENSE='Apache-2.0'
+SOURCE_122_NAME='Aider-AI/aider'
+SOURCE_122_VERSION='5dc9490bb35f9729ef2c95d00a19ccd30c26339c'
+SOURCE_122_URL='https://github.com/Aider-AI/aider'
+SOURCE_122_CATEGORY='public-dataset'
+SOURCE_122_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_122_LICENSE_URL='https://api.github.com/repos/Aider-AI/aider/license?ref=5dc9490bb35f9729ef2c95d00a19ccd30c26339c'
+SOURCE_122_CONTENT_TYPES='source code'
+SOURCE_122_LANGUAGES='Python'
+SOURCE_122_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_122_COPYRIGHTED='yes'
+SOURCE_122_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_123_ID='prisma-prisma'
+SOURCE_123_PATH='prisma-prisma'
+SOURCE_123_LICENSE='Apache-2.0'
+SOURCE_123_NAME='prisma/prisma'
+SOURCE_123_VERSION='d55cd02911b0c6675bedaad90cc0e2727d5787ce'
+SOURCE_123_URL='https://github.com/prisma/prisma'
+SOURCE_123_CATEGORY='public-dataset'
+SOURCE_123_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_123_LICENSE_URL='https://api.github.com/repos/prisma/prisma/license?ref=d55cd02911b0c6675bedaad90cc0e2727d5787ce'
+SOURCE_123_CONTENT_TYPES='source code'
+SOURCE_123_LANGUAGES='TypeScript'
+SOURCE_123_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_123_COPYRIGHTED='yes'
+SOURCE_123_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_124_ID='bevyengine-bevy'
+SOURCE_124_PATH='bevyengine-bevy'
+SOURCE_124_LICENSE='Apache-2.0'
+SOURCE_124_NAME='bevyengine/bevy'
+SOURCE_124_VERSION='e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59'
+SOURCE_124_URL='https://github.com/bevyengine/bevy'
+SOURCE_124_CATEGORY='public-dataset'
+SOURCE_124_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_124_LICENSE_URL='https://api.github.com/repos/bevyengine/bevy/license?ref=e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59'
+SOURCE_124_CONTENT_TYPES='source code'
+SOURCE_124_LANGUAGES='Rust'
+SOURCE_124_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_124_COPYRIGHTED='yes'
+SOURCE_124_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_125_ID='slab-quill'
+SOURCE_125_PATH='slab-quill'
+SOURCE_125_LICENSE='BSD-3-Clause'
+SOURCE_125_NAME='slab/quill'
+SOURCE_125_VERSION='539cbffd0a13b18e9c65eb84dd35e6596e403158'
+SOURCE_125_URL='https://github.com/slab/quill'
+SOURCE_125_CATEGORY='public-dataset'
+SOURCE_125_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_125_LICENSE_URL='https://api.github.com/repos/slab/quill/license?ref=539cbffd0a13b18e9c65eb84dd35e6596e403158'
+SOURCE_125_CONTENT_TYPES='source code'
+SOURCE_125_LANGUAGES='TypeScript'
+SOURCE_125_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_125_COPYRIGHTED='yes'
+SOURCE_125_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_126_ID='lysine-dev-okhttp'
+SOURCE_126_PATH='lysine-dev-okhttp'
+SOURCE_126_LICENSE='Apache-2.0'
+SOURCE_126_NAME='lysine-dev/okhttp'
+SOURCE_126_VERSION='fc9a83dd580f06c52beea5207ffca1a7d99df24e'
+SOURCE_126_URL='https://github.com/lysine-dev/okhttp'
+SOURCE_126_CATEGORY='public-dataset'
+SOURCE_126_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_126_LICENSE_URL='https://api.github.com/repos/lysine-dev/okhttp/license?ref=fc9a83dd580f06c52beea5207ffca1a7d99df24e'
+SOURCE_126_CONTENT_TYPES='source code'
+SOURCE_126_LANGUAGES='Kotlin'
+SOURCE_126_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_126_COPYRIGHTED='yes'
+SOURCE_126_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_127_ID='exo-explore-exo'
+SOURCE_127_PATH='exo-explore-exo'
+SOURCE_127_LICENSE='Apache-2.0'
+SOURCE_127_NAME='exo-explore/exo'
+SOURCE_127_VERSION='b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa'
+SOURCE_127_URL='https://github.com/exo-explore/exo'
+SOURCE_127_CATEGORY='public-dataset'
+SOURCE_127_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_127_LICENSE_URL='https://api.github.com/repos/exo-explore/exo/license?ref=b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa'
+SOURCE_127_CONTENT_TYPES='source code'
+SOURCE_127_LANGUAGES='Python'
+SOURCE_127_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_127_COPYRIGHTED='yes'
+SOURCE_127_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_128_ID='apache-airflow'
+SOURCE_128_PATH='apache-airflow'
+SOURCE_128_LICENSE='Apache-2.0'
+SOURCE_128_NAME='apache/airflow'
+SOURCE_128_VERSION='1f529f3837ab5e38ddd27ea355a7fbfddd392573'
+SOURCE_128_URL='https://github.com/apache/airflow'
+SOURCE_128_CATEGORY='public-dataset'
+SOURCE_128_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_128_LICENSE_URL='https://api.github.com/repos/apache/airflow/license?ref=1f529f3837ab5e38ddd27ea355a7fbfddd392573'
+SOURCE_128_CONTENT_TYPES='source code'
+SOURCE_128_LANGUAGES='Python'
+SOURCE_128_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_128_COPYRIGHTED='yes'
+SOURCE_128_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_129_ID='android-architecture-samples'
+SOURCE_129_PATH='android-architecture-samples'
+SOURCE_129_LICENSE='Apache-2.0'
+SOURCE_129_NAME='android/architecture-samples'
+SOURCE_129_VERSION='ee66e1526b84c026615df032c705842b7d2a521f'
+SOURCE_129_URL='https://github.com/android/architecture-samples'
+SOURCE_129_CATEGORY='public-dataset'
+SOURCE_129_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_129_LICENSE_URL='https://api.github.com/repos/android/architecture-samples/license?ref=ee66e1526b84c026615df032c705842b7d2a521f'
+SOURCE_129_CONTENT_TYPES='source code'
+SOURCE_129_LANGUAGES='Kotlin'
+SOURCE_129_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_129_COPYRIGHTED='yes'
+SOURCE_129_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_130_ID='google-zx'
+SOURCE_130_PATH='google-zx'
+SOURCE_130_LICENSE='Apache-2.0'
+SOURCE_130_NAME='google/zx'
+SOURCE_130_VERSION='00a2c484e219c2e84bfc3a199febf7fbce2cfbf4'
+SOURCE_130_URL='https://github.com/google/zx'
+SOURCE_130_CATEGORY='public-dataset'
+SOURCE_130_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_130_LICENSE_URL='https://api.github.com/repos/google/zx/license?ref=00a2c484e219c2e84bfc3a199febf7fbce2cfbf4'
+SOURCE_130_CONTENT_TYPES='source code'
+SOURCE_130_LANGUAGES='JavaScript'
+SOURCE_130_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_130_COPYRIGHTED='yes'
+SOURCE_130_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_131_ID='milvus-io-milvus'
+SOURCE_131_PATH='milvus-io-milvus'
+SOURCE_131_LICENSE='Apache-2.0'
+SOURCE_131_NAME='milvus-io/milvus'
+SOURCE_131_VERSION='025d2e3e75d38f4edd8d5b8536d514e777a47559'
+SOURCE_131_URL='https://github.com/milvus-io/milvus'
+SOURCE_131_CATEGORY='public-dataset'
+SOURCE_131_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_131_LICENSE_URL='https://api.github.com/repos/milvus-io/milvus/license?ref=025d2e3e75d38f4edd8d5b8536d514e777a47559'
+SOURCE_131_CONTENT_TYPES='source code'
+SOURCE_131_LANGUAGES='Go'
+SOURCE_131_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_131_COPYRIGHTED='yes'
+SOURCE_131_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_132_ID='streamlit-streamlit'
+SOURCE_132_PATH='streamlit-streamlit'
+SOURCE_132_LICENSE='Apache-2.0'
+SOURCE_132_NAME='streamlit/streamlit'
+SOURCE_132_VERSION='97eada51b426a81884955906d75407d1270545f9'
+SOURCE_132_URL='https://github.com/streamlit/streamlit'
+SOURCE_132_CATEGORY='public-dataset'
+SOURCE_132_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_132_LICENSE_URL='https://api.github.com/repos/streamlit/streamlit/license?ref=97eada51b426a81884955906d75407d1270545f9'
+SOURCE_132_CONTENT_TYPES='source code'
+SOURCE_132_LANGUAGES='Python'
+SOURCE_132_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_132_COPYRIGHTED='yes'
+SOURCE_132_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_133_ID='leaflet-leaflet'
+SOURCE_133_PATH='leaflet-leaflet'
+SOURCE_133_LICENSE='BSD-2-Clause'
+SOURCE_133_NAME='Leaflet/Leaflet'
+SOURCE_133_VERSION='c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9'
+SOURCE_133_URL='https://github.com/Leaflet/Leaflet'
+SOURCE_133_CATEGORY='public-dataset'
+SOURCE_133_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_133_LICENSE_URL='https://api.github.com/repos/Leaflet/Leaflet/license?ref=c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9'
+SOURCE_133_CONTENT_TYPES='source code'
+SOURCE_133_LANGUAGES='JavaScript'
+SOURCE_133_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_133_COPYRIGHTED='yes'
+SOURCE_133_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_134_ID='grpc-grpc'
+SOURCE_134_PATH='grpc-grpc'
+SOURCE_134_LICENSE='Apache-2.0'
+SOURCE_134_NAME='grpc/grpc'
+SOURCE_134_VERSION='b6449efc3e9968eb022a2cf7a043b4317adde589'
+SOURCE_134_URL='https://github.com/grpc/grpc'
+SOURCE_134_CATEGORY='public-dataset'
+SOURCE_134_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_134_LICENSE_URL='https://api.github.com/repos/grpc/grpc/license?ref=b6449efc3e9968eb022a2cf7a043b4317adde589'
+SOURCE_134_CONTENT_TYPES='source code'
+SOURCE_134_LANGUAGES='C++'
+SOURCE_134_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_134_COPYRIGHTED='yes'
+SOURCE_134_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_135_ID='spf13-cobra'
+SOURCE_135_PATH='spf13-cobra'
+SOURCE_135_LICENSE='Apache-2.0'
+SOURCE_135_NAME='spf13/cobra'
+SOURCE_135_VERSION='adbc8813901bba65827259daa8e22ff94ec1f30e'
+SOURCE_135_URL='https://github.com/spf13/cobra'
+SOURCE_135_CATEGORY='public-dataset'
+SOURCE_135_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_135_LICENSE_URL='https://api.github.com/repos/spf13/cobra/license?ref=adbc8813901bba65827259daa8e22ff94ec1f30e'
+SOURCE_135_CONTENT_TYPES='source code'
+SOURCE_135_LANGUAGES='Go'
+SOURCE_135_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_135_COPYRIGHTED='yes'
+SOURCE_135_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_136_ID='aykutsarac-jsoncrack.com'
+SOURCE_136_PATH='aykutsarac-jsoncrack.com'
+SOURCE_136_LICENSE='Apache-2.0'
+SOURCE_136_NAME='AykutSarac/jsoncrack.com'
+SOURCE_136_VERSION='3c9af69e23c635356293b6b28cf4cd0af10d1059'
+SOURCE_136_URL='https://github.com/AykutSarac/jsoncrack.com'
+SOURCE_136_CATEGORY='public-dataset'
+SOURCE_136_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_136_LICENSE_URL='https://api.github.com/repos/AykutSarac/jsoncrack.com/license?ref=3c9af69e23c635356293b6b28cf4cd0af10d1059'
+SOURCE_136_CONTENT_TYPES='source code'
+SOURCE_136_LANGUAGES='TypeScript'
+SOURCE_136_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_136_COPYRIGHTED='yes'
+SOURCE_136_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_137_ID='sharkdp-fd'
+SOURCE_137_PATH='sharkdp-fd'
+SOURCE_137_LICENSE='Apache-2.0'
+SOURCE_137_NAME='sharkdp/fd'
+SOURCE_137_VERSION='0f1f9676dcf7bc5af814469a74a0d878449cde80'
+SOURCE_137_URL='https://github.com/sharkdp/fd'
+SOURCE_137_CATEGORY='public-dataset'
+SOURCE_137_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_137_LICENSE_URL='https://api.github.com/repos/sharkdp/fd/license?ref=0f1f9676dcf7bc5af814469a74a0d878449cde80'
+SOURCE_137_CONTENT_TYPES='source code'
+SOURCE_137_LANGUAGES='Rust'
+SOURCE_137_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_137_COPYRIGHTED='yes'
+SOURCE_137_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_138_ID='kong-kong'
+SOURCE_138_PATH='kong-kong'
+SOURCE_138_LICENSE='Apache-2.0'
+SOURCE_138_NAME='Kong/kong'
+SOURCE_138_VERSION='fa9c3b695af72668f135cb17bbb84a8b4dc511d2'
+SOURCE_138_URL='https://github.com/Kong/kong'
+SOURCE_138_CATEGORY='public-dataset'
+SOURCE_138_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_138_LICENSE_URL='https://api.github.com/repos/Kong/kong/license?ref=fa9c3b695af72668f135cb17bbb84a8b4dc511d2'
+SOURCE_138_CONTENT_TYPES='source code'
+SOURCE_138_LANGUAGES='Lua'
+SOURCE_138_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_138_COPYRIGHTED='yes'
+SOURCE_138_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_139_ID='lysine-dev-retrofit'
+SOURCE_139_PATH='lysine-dev-retrofit'
+SOURCE_139_LICENSE='Apache-2.0'
+SOURCE_139_NAME='lysine-dev/retrofit'
+SOURCE_139_VERSION='d0b112dad073b7fe49c953ebc46ff1b424cb1e51'
+SOURCE_139_URL='https://github.com/lysine-dev/retrofit'
+SOURCE_139_CATEGORY='public-dataset'
+SOURCE_139_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_139_LICENSE_URL='https://api.github.com/repos/lysine-dev/retrofit/license?ref=d0b112dad073b7fe49c953ebc46ff1b424cb1e51'
+SOURCE_139_CONTENT_TYPES='source code'
+SOURCE_139_LANGUAGES='Java'
+SOURCE_139_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_139_COPYRIGHTED='yes'
+SOURCE_139_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_140_ID='apache-spark'
+SOURCE_140_PATH='apache-spark'
+SOURCE_140_LICENSE='Apache-2.0'
+SOURCE_140_NAME='apache/spark'
+SOURCE_140_VERSION='f896d8d0d40a859f0c40ef99dac3fb2bba5035e7'
+SOURCE_140_URL='https://github.com/apache/spark'
+SOURCE_140_CATEGORY='public-dataset'
+SOURCE_140_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_140_LICENSE_URL='https://api.github.com/repos/apache/spark/license?ref=f896d8d0d40a859f0c40ef99dac3fb2bba5035e7'
+SOURCE_140_CONTENT_TYPES='source code'
+SOURCE_140_LANGUAGES='Scala'
+SOURCE_140_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_140_COPYRIGHTED='yes'
+SOURCE_140_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_141_ID='ray-project-ray'
+SOURCE_141_PATH='ray-project-ray'
+SOURCE_141_LICENSE='Apache-2.0'
+SOURCE_141_NAME='ray-project/ray'
+SOURCE_141_VERSION='12436ea75080433a9134cfa362b3dbb98fe9e73f'
+SOURCE_141_URL='https://github.com/ray-project/ray'
+SOURCE_141_CATEGORY='public-dataset'
+SOURCE_141_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_141_LICENSE_URL='https://api.github.com/repos/ray-project/ray/license?ref=12436ea75080433a9134cfa362b3dbb98fe9e73f'
+SOURCE_141_CONTENT_TYPES='source code'
+SOURCE_141_LANGUAGES='Python'
+SOURCE_141_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_141_COPYRIGHTED='yes'
+SOURCE_141_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_142_ID='juspay-hyperswitch'
+SOURCE_142_PATH='juspay-hyperswitch'
+SOURCE_142_LICENSE='Apache-2.0'
+SOURCE_142_NAME='juspay/hyperswitch'
+SOURCE_142_VERSION='77c45d76b2b70a5b127d11a6b6755d2793b021f9'
+SOURCE_142_URL='https://github.com/juspay/hyperswitch'
+SOURCE_142_CATEGORY='public-dataset'
+SOURCE_142_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_142_LICENSE_URL='https://api.github.com/repos/juspay/hyperswitch/license?ref=77c45d76b2b70a5b127d11a6b6755d2793b021f9'
+SOURCE_142_CONTENT_TYPES='source code'
+SOURCE_142_LANGUAGES='Rust'
+SOURCE_142_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_142_COPYRIGHTED='yes'
+SOURCE_142_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_143_ID='fuellabs-fuels-rs'
+SOURCE_143_PATH='fuellabs-fuels-rs'
+SOURCE_143_LICENSE='Apache-2.0'
+SOURCE_143_NAME='FuelLabs/fuels-rs'
+SOURCE_143_VERSION='d9a250a51818dda64bfeb5ef7cc19cf27bdcd623'
+SOURCE_143_URL='https://github.com/FuelLabs/fuels-rs'
+SOURCE_143_CATEGORY='public-dataset'
+SOURCE_143_LICENSE_DECLARATION='Apache-2.0'
+SOURCE_143_LICENSE_URL='https://api.github.com/repos/FuelLabs/fuels-rs/license?ref=d9a250a51818dda64bfeb5ef7cc19cf27bdcd623'
+SOURCE_143_CONTENT_TYPES='source code'
+SOURCE_143_LANGUAGES='Rust'
+SOURCE_143_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_143_COPYRIGHTED='yes'
+SOURCE_143_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_144_ID='juanfont-headscale'
+SOURCE_144_PATH='juanfont-headscale'
+SOURCE_144_LICENSE='BSD-3-Clause'
+SOURCE_144_NAME='juanfont/headscale'
+SOURCE_144_VERSION='565fd254d06c4c7f9a8cad1714a43445c79ba420'
+SOURCE_144_URL='https://github.com/juanfont/headscale'
+SOURCE_144_CATEGORY='public-dataset'
+SOURCE_144_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_144_LICENSE_URL='https://api.github.com/repos/juanfont/headscale/license?ref=565fd254d06c4c7f9a8cad1714a43445c79ba420'
+SOURCE_144_CONTENT_TYPES='source code'
+SOURCE_144_LANGUAGES='Go'
+SOURCE_144_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_144_COPYRIGHTED='yes'
+SOURCE_144_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_145_ID='php-php-src'
+SOURCE_145_PATH='php-php-src'
+SOURCE_145_LICENSE='BSD-3-Clause'
+SOURCE_145_NAME='php/php-src'
+SOURCE_145_VERSION='b9b44872d72dc66bcea72232a2bc79a3b63a0c3b'
+SOURCE_145_URL='https://github.com/php/php-src'
+SOURCE_145_CATEGORY='public-dataset'
+SOURCE_145_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_145_LICENSE_URL='https://api.github.com/repos/php/php-src/license?ref=b9b44872d72dc66bcea72232a2bc79a3b63a0c3b'
+SOURCE_145_CONTENT_TYPES='source code'
+SOURCE_145_LANGUAGES='C'
+SOURCE_145_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_145_COPYRIGHTED='yes'
+SOURCE_145_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_146_ID='google-leveldb'
+SOURCE_146_PATH='google-leveldb'
+SOURCE_146_LICENSE='BSD-3-Clause'
+SOURCE_146_NAME='google/leveldb'
+SOURCE_146_VERSION='7ee830d02b623e8ffe0b95d59a74db1e58da04c5'
+SOURCE_146_URL='https://github.com/google/leveldb'
+SOURCE_146_CATEGORY='public-dataset'
+SOURCE_146_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_146_LICENSE_URL='https://api.github.com/repos/google/leveldb/license?ref=7ee830d02b623e8ffe0b95d59a74db1e58da04c5'
+SOURCE_146_CONTENT_TYPES='source code'
+SOURCE_146_LANGUAGES='C++'
+SOURCE_146_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_146_COPYRIGHTED='yes'
+SOURCE_146_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_147_ID='google-googletest'
+SOURCE_147_PATH='google-googletest'
+SOURCE_147_LICENSE='BSD-3-Clause'
+SOURCE_147_NAME='google/googletest'
+SOURCE_147_VERSION='d89aac5f0dd4021198d903d39de16f896726de21'
+SOURCE_147_URL='https://github.com/google/googletest'
+SOURCE_147_CATEGORY='public-dataset'
+SOURCE_147_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_147_LICENSE_URL='https://api.github.com/repos/google/googletest/license?ref=d89aac5f0dd4021198d903d39de16f896726de21'
+SOURCE_147_CONTENT_TYPES='source code'
+SOURCE_147_LANGUAGES='C++'
+SOURCE_147_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_147_COPYRIGHTED='yes'
+SOURCE_147_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_148_ID='httpie-cli'
+SOURCE_148_PATH='httpie-cli'
+SOURCE_148_LICENSE='BSD-3-Clause'
+SOURCE_148_NAME='httpie/cli'
+SOURCE_148_VERSION='5b604c37c6c67e18e7c3e9aee6c88a8c22b98345'
+SOURCE_148_URL='https://github.com/httpie/cli'
+SOURCE_148_CATEGORY='public-dataset'
+SOURCE_148_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_148_LICENSE_URL='https://api.github.com/repos/httpie/cli/license?ref=5b604c37c6c67e18e7c3e9aee6c88a8c22b98345'
+SOURCE_148_CONTENT_TYPES='source code'
+SOURCE_148_LANGUAGES='Python'
+SOURCE_148_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_148_COPYRIGHTED='yes'
+SOURCE_148_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_149_ID='hyprwm-hyprland'
+SOURCE_149_PATH='hyprwm-hyprland'
+SOURCE_149_LICENSE='BSD-3-Clause'
+SOURCE_149_NAME='hyprwm/Hyprland'
+SOURCE_149_VERSION='5dee44a72476be67789f64e6c6bffae0df28c53a'
+SOURCE_149_URL='https://github.com/hyprwm/Hyprland'
+SOURCE_149_CATEGORY='public-dataset'
+SOURCE_149_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_149_LICENSE_URL='https://api.github.com/repos/hyprwm/Hyprland/license?ref=5dee44a72476be67789f64e6c6bffae0df28c53a'
+SOURCE_149_CONTENT_TYPES='source code'
+SOURCE_149_LANGUAGES='C++'
+SOURCE_149_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_149_COPYRIGHTED='yes'
+SOURCE_149_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_150_ID='xinntao-real-esrgan'
+SOURCE_150_PATH='xinntao-real-esrgan'
+SOURCE_150_LICENSE='BSD-3-Clause'
+SOURCE_150_NAME='xinntao/Real-ESRGAN'
+SOURCE_150_VERSION='a4abfb2979a7bbff3f69f58f58ae324608821e27'
+SOURCE_150_URL='https://github.com/xinntao/Real-ESRGAN'
+SOURCE_150_CATEGORY='public-dataset'
+SOURCE_150_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_150_LICENSE_URL='https://api.github.com/repos/xinntao/Real-ESRGAN/license?ref=a4abfb2979a7bbff3f69f58f58ae324608821e27'
+SOURCE_150_CONTENT_TYPES='source code'
+SOURCE_150_LANGUAGES='Python'
+SOURCE_150_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_150_COPYRIGHTED='yes'
+SOURCE_150_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_151_ID='restic-restic'
+SOURCE_151_PATH='restic-restic'
+SOURCE_151_LICENSE='BSD-2-Clause'
+SOURCE_151_NAME='restic/restic'
+SOURCE_151_VERSION='a80be1478a4c537f8396e0db2b05120aa78f11e0'
+SOURCE_151_URL='https://github.com/restic/restic'
+SOURCE_151_CATEGORY='public-dataset'
+SOURCE_151_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_151_LICENSE_URL='https://api.github.com/repos/restic/restic/license?ref=a80be1478a4c537f8396e0db2b05120aa78f11e0'
+SOURCE_151_CONTENT_TYPES='source code'
+SOURCE_151_LANGUAGES='Go'
+SOURCE_151_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_151_COPYRIGHTED='yes'
+SOURCE_151_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_152_ID='tailscale-tailscale'
+SOURCE_152_PATH='tailscale-tailscale'
+SOURCE_152_LICENSE='BSD-3-Clause'
+SOURCE_152_NAME='tailscale/tailscale'
+SOURCE_152_VERSION='e592a0c36398be8a435d1cc9e039c732c540051c'
+SOURCE_152_URL='https://github.com/tailscale/tailscale'
+SOURCE_152_CATEGORY='public-dataset'
+SOURCE_152_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_152_LICENSE_URL='https://api.github.com/repos/tailscale/tailscale/license?ref=e592a0c36398be8a435d1cc9e039c732c540051c'
+SOURCE_152_CONTENT_TYPES='source code'
+SOURCE_152_LANGUAGES='Go'
+SOURCE_152_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_152_COPYRIGHTED='yes'
+SOURCE_152_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_153_ID='serenityos-serenity'
+SOURCE_153_PATH='serenityos-serenity'
+SOURCE_153_LICENSE='BSD-2-Clause'
+SOURCE_153_NAME='SerenityOS/serenity'
+SOURCE_153_VERSION='93af8693d6868799635ff0bee2b7ca30746f39a9'
+SOURCE_153_URL='https://github.com/SerenityOS/serenity'
+SOURCE_153_CATEGORY='public-dataset'
+SOURCE_153_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_153_LICENSE_URL='https://api.github.com/repos/SerenityOS/serenity/license?ref=93af8693d6868799635ff0bee2b7ca30746f39a9'
+SOURCE_153_CONTENT_TYPES='source code'
+SOURCE_153_LANGUAGES='C++'
+SOURCE_153_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_153_COPYRIGHTED='yes'
+SOURCE_153_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_154_ID='nginx-nginx'
+SOURCE_154_PATH='nginx-nginx'
+SOURCE_154_LICENSE='BSD-2-Clause'
+SOURCE_154_NAME='nginx/nginx'
+SOURCE_154_VERSION='dea68dbf126f40a8acd09bac885a955be459162e'
+SOURCE_154_URL='https://github.com/nginx/nginx'
+SOURCE_154_CATEGORY='public-dataset'
+SOURCE_154_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_154_LICENSE_URL='https://api.github.com/repos/nginx/nginx/license?ref=dea68dbf126f40a8acd09bac885a955be459162e'
+SOURCE_154_CONTENT_TYPES='source code'
+SOURCE_154_LANGUAGES='C'
+SOURCE_154_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_154_COPYRIGHTED='yes'
+SOURCE_154_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_155_ID='getredash-redash'
+SOURCE_155_PATH='getredash-redash'
+SOURCE_155_LICENSE='BSD-2-Clause'
+SOURCE_155_NAME='getredash/redash'
+SOURCE_155_VERSION='2daefd2f78b270a6a566a86251d8bbd841d394d3'
+SOURCE_155_URL='https://github.com/getredash/redash'
+SOURCE_155_CATEGORY='public-dataset'
+SOURCE_155_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_155_LICENSE_URL='https://api.github.com/repos/getredash/redash/license?ref=2daefd2f78b270a6a566a86251d8bbd841d394d3'
+SOURCE_155_CONTENT_TYPES='source code'
+SOURCE_155_LANGUAGES='Python'
+SOURCE_155_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_155_COPYRIGHTED='yes'
+SOURCE_155_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_156_ID='fyne-io-fyne'
+SOURCE_156_PATH='fyne-io-fyne'
+SOURCE_156_LICENSE='BSD-3-Clause'
+SOURCE_156_NAME='fyne-io/fyne'
+SOURCE_156_VERSION='57f5b07179b833e781522f8a32c160312d94ede1'
+SOURCE_156_URL='https://github.com/fyne-io/fyne'
+SOURCE_156_CATEGORY='public-dataset'
+SOURCE_156_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_156_LICENSE_URL='https://api.github.com/repos/fyne-io/fyne/license?ref=57f5b07179b833e781522f8a32c160312d94ede1'
+SOURCE_156_CONTENT_TYPES='source code'
+SOURCE_156_LANGUAGES='Go'
+SOURCE_156_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_156_COPYRIGHTED='yes'
+SOURCE_156_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_157_ID='pppscn-smsforwarder'
+SOURCE_157_PATH='pppscn-smsforwarder'
+SOURCE_157_LICENSE='BSD-2-Clause'
+SOURCE_157_NAME='pppscn/SmsForwarder'
+SOURCE_157_VERSION='ce931a03739a6a2b0dfc83161bf812a94fd5e45e'
+SOURCE_157_URL='https://github.com/pppscn/SmsForwarder'
+SOURCE_157_CATEGORY='public-dataset'
+SOURCE_157_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_157_LICENSE_URL='https://api.github.com/repos/pppscn/SmsForwarder/license?ref=ce931a03739a6a2b0dfc83161bf812a94fd5e45e'
+SOURCE_157_CONTENT_TYPES='source code'
+SOURCE_157_LANGUAGES='Kotlin'
+SOURCE_157_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_157_COPYRIGHTED='yes'
+SOURCE_157_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_158_ID='valkey-io-valkey'
+SOURCE_158_PATH='valkey-io-valkey'
+SOURCE_158_LICENSE='BSD-3-Clause'
+SOURCE_158_NAME='valkey-io/valkey'
+SOURCE_158_VERSION='2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1'
+SOURCE_158_URL='https://github.com/valkey-io/valkey'
+SOURCE_158_CATEGORY='public-dataset'
+SOURCE_158_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_158_LICENSE_URL='https://api.github.com/repos/valkey-io/valkey/license?ref=2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1'
+SOURCE_158_CONTENT_TYPES='source code'
+SOURCE_158_LANGUAGES='C'
+SOURCE_158_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_158_COPYRIGHTED='yes'
+SOURCE_158_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_159_ID='kataras-iris'
+SOURCE_159_PATH='kataras-iris'
+SOURCE_159_LICENSE='BSD-3-Clause'
+SOURCE_159_NAME='kataras/iris'
+SOURCE_159_VERSION='7bedaf55a0b64bbb2248a5845a2c60d81a30996a'
+SOURCE_159_URL='https://github.com/kataras/iris'
+SOURCE_159_CATEGORY='public-dataset'
+SOURCE_159_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_159_LICENSE_URL='https://api.github.com/repos/kataras/iris/license?ref=7bedaf55a0b64bbb2248a5845a2c60d81a30996a'
+SOURCE_159_CONTENT_TYPES='source code'
+SOURCE_159_LANGUAGES='Go'
+SOURCE_159_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_159_COPYRIGHTED='yes'
+SOURCE_159_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_160_ID='highlightjs-highlight.js'
+SOURCE_160_PATH='highlightjs-highlight.js'
+SOURCE_160_LICENSE='BSD-3-Clause'
+SOURCE_160_NAME='highlightjs/highlight.js'
+SOURCE_160_VERSION='4d4268d701e30b0954149e9eb3bc9c4d9e15d550'
+SOURCE_160_URL='https://github.com/highlightjs/highlight.js'
+SOURCE_160_CATEGORY='public-dataset'
+SOURCE_160_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_160_LICENSE_URL='https://api.github.com/repos/highlightjs/highlight.js/license?ref=4d4268d701e30b0954149e9eb3bc9c4d9e15d550'
+SOURCE_160_CONTENT_TYPES='source code'
+SOURCE_160_LANGUAGES='JavaScript'
+SOURCE_160_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_160_COPYRIGHTED='yes'
+SOURCE_160_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_161_ID='copy-v86'
+SOURCE_161_PATH='copy-v86'
+SOURCE_161_LICENSE='BSD-2-Clause'
+SOURCE_161_NAME='copy/v86'
+SOURCE_161_VERSION='6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6'
+SOURCE_161_URL='https://github.com/copy/v86'
+SOURCE_161_CATEGORY='public-dataset'
+SOURCE_161_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_161_LICENSE_URL='https://api.github.com/repos/copy/v86/license?ref=6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6'
+SOURCE_161_CONTENT_TYPES='source code'
+SOURCE_161_LANGUAGES='JavaScript'
+SOURCE_161_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_161_COPYRIGHTED='yes'
+SOURCE_161_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_162_ID='filosottile-age'
+SOURCE_162_PATH='filosottile-age'
+SOURCE_162_LICENSE='BSD-3-Clause'
+SOURCE_162_NAME='FiloSottile/age'
+SOURCE_162_VERSION='706dfc1e799a03443ae46023502bd88d4e9e324f'
+SOURCE_162_URL='https://github.com/FiloSottile/age'
+SOURCE_162_CATEGORY='public-dataset'
+SOURCE_162_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_162_LICENSE_URL='https://api.github.com/repos/FiloSottile/age/license?ref=706dfc1e799a03443ae46023502bd88d4e9e324f'
+SOURCE_162_CONTENT_TYPES='source code'
+SOURCE_162_LANGUAGES='Go'
+SOURCE_162_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_162_COPYRIGHTED='yes'
+SOURCE_162_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_163_ID='zsh-users-zsh-syntax-highlighting'
+SOURCE_163_PATH='zsh-users-zsh-syntax-highlighting'
+SOURCE_163_LICENSE='BSD-3-Clause'
+SOURCE_163_NAME='zsh-users/zsh-syntax-highlighting'
+SOURCE_163_VERSION='c4d95591843d49838b7ad30081e7aba3135a6703'
+SOURCE_163_URL='https://github.com/zsh-users/zsh-syntax-highlighting'
+SOURCE_163_CATEGORY='public-dataset'
+SOURCE_163_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_163_LICENSE_URL='https://api.github.com/repos/zsh-users/zsh-syntax-highlighting/license?ref=c4d95591843d49838b7ad30081e7aba3135a6703'
+SOURCE_163_CONTENT_TYPES='source code'
+SOURCE_163_LANGUAGES='Shell'
+SOURCE_163_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_163_COPYRIGHTED='yes'
+SOURCE_163_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_164_ID='redis-go-redis'
+SOURCE_164_PATH='redis-go-redis'
+SOURCE_164_LICENSE='BSD-2-Clause'
+SOURCE_164_NAME='redis/go-redis'
+SOURCE_164_VERSION='36d97525cd8076aed67cddf54778e9ea84550929'
+SOURCE_164_URL='https://github.com/redis/go-redis'
+SOURCE_164_CATEGORY='public-dataset'
+SOURCE_164_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_164_LICENSE_URL='https://api.github.com/repos/redis/go-redis/license?ref=36d97525cd8076aed67cddf54778e9ea84550929'
+SOURCE_164_CONTENT_TYPES='source code'
+SOURCE_164_LANGUAGES='Go'
+SOURCE_164_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_164_COPYRIGHTED='yes'
+SOURCE_164_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_165_ID='homebrew-homebrew-cask'
+SOURCE_165_PATH='homebrew-homebrew-cask'
+SOURCE_165_LICENSE='BSD-2-Clause'
+SOURCE_165_NAME='Homebrew/homebrew-cask'
+SOURCE_165_VERSION='a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b'
+SOURCE_165_URL='https://github.com/Homebrew/homebrew-cask'
+SOURCE_165_CATEGORY='public-dataset'
+SOURCE_165_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_165_LICENSE_URL='https://api.github.com/repos/Homebrew/homebrew-cask/license?ref=a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b'
+SOURCE_165_CONTENT_TYPES='source code'
+SOURCE_165_LANGUAGES='Ruby'
+SOURCE_165_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_165_COPYRIGHTED='yes'
+SOURCE_165_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_166_ID='gorilla-mux'
+SOURCE_166_PATH='gorilla-mux'
+SOURCE_166_LICENSE='BSD-3-Clause'
+SOURCE_166_NAME='gorilla/mux'
+SOURCE_166_VERSION='db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265'
+SOURCE_166_URL='https://github.com/gorilla/mux'
+SOURCE_166_CATEGORY='public-dataset'
+SOURCE_166_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_166_LICENSE_URL='https://api.github.com/repos/gorilla/mux/license?ref=db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265'
+SOURCE_166_CONTENT_TYPES='source code'
+SOURCE_166_LANGUAGES='Go'
+SOURCE_166_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_166_COPYRIGHTED='yes'
+SOURCE_166_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_167_ID='jarun-nnn'
+SOURCE_167_PATH='jarun-nnn'
+SOURCE_167_LICENSE='BSD-2-Clause'
+SOURCE_167_NAME='jarun/nnn'
+SOURCE_167_VERSION='53fdae65eef6cb35afaf1e1c2abef3242f48153b'
+SOURCE_167_URL='https://github.com/jarun/nnn'
+SOURCE_167_CATEGORY='public-dataset'
+SOURCE_167_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_167_LICENSE_URL='https://api.github.com/repos/jarun/nnn/license?ref=53fdae65eef6cb35afaf1e1c2abef3242f48153b'
+SOURCE_167_CONTENT_TYPES='source code'
+SOURCE_167_LANGUAGES='C'
+SOURCE_167_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_167_COPYRIGHTED='yes'
+SOURCE_167_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_168_ID='lit-lit'
+SOURCE_168_PATH='lit-lit'
+SOURCE_168_LICENSE='BSD-3-Clause'
+SOURCE_168_NAME='lit/lit'
+SOURCE_168_VERSION='c42ee1e96b8fd61f7256f61d715daef572e76e52'
+SOURCE_168_URL='https://github.com/lit/lit'
+SOURCE_168_CATEGORY='public-dataset'
+SOURCE_168_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_168_LICENSE_URL='https://api.github.com/repos/lit/lit/license?ref=c42ee1e96b8fd61f7256f61d715daef572e76e52'
+SOURCE_168_CONTENT_TYPES='source code'
+SOURCE_168_LANGUAGES='TypeScript'
+SOURCE_168_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_168_COPYRIGHTED='yes'
+SOURCE_168_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_169_ID='qax-os-excelize'
+SOURCE_169_PATH='qax-os-excelize'
+SOURCE_169_LICENSE='BSD-3-Clause'
+SOURCE_169_NAME='qax-os/excelize'
+SOURCE_169_VERSION='a54c578af309fa81f448143ed2b7a91192cc58a7'
+SOURCE_169_URL='https://github.com/qax-os/excelize'
+SOURCE_169_CATEGORY='public-dataset'
+SOURCE_169_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_169_LICENSE_URL='https://api.github.com/repos/qax-os/excelize/license?ref=a54c578af309fa81f448143ed2b7a91192cc58a7'
+SOURCE_169_CONTENT_TYPES='source code'
+SOURCE_169_LANGUAGES='Go'
+SOURCE_169_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_169_COPYRIGHTED='yes'
+SOURCE_169_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_170_ID='motdotla-dotenv'
+SOURCE_170_PATH='motdotla-dotenv'
+SOURCE_170_LICENSE='BSD-2-Clause'
+SOURCE_170_NAME='motdotla/dotenv'
+SOURCE_170_VERSION='2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358'
+SOURCE_170_URL='https://github.com/motdotla/dotenv'
+SOURCE_170_CATEGORY='public-dataset'
+SOURCE_170_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_170_LICENSE_URL='https://api.github.com/repos/motdotla/dotenv/license?ref=2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358'
+SOURCE_170_CONTENT_TYPES='source code'
+SOURCE_170_LANGUAGES='JavaScript'
+SOURCE_170_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_170_COPYRIGHTED='yes'
+SOURCE_170_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_171_ID='bokeh-bokeh'
+SOURCE_171_PATH='bokeh-bokeh'
+SOURCE_171_LICENSE='BSD-3-Clause'
+SOURCE_171_NAME='bokeh/bokeh'
+SOURCE_171_VERSION='681880b19108a37e159b7a3d185611f04112c47b'
+SOURCE_171_URL='https://github.com/bokeh/bokeh'
+SOURCE_171_CATEGORY='public-dataset'
+SOURCE_171_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_171_LICENSE_URL='https://api.github.com/repos/bokeh/bokeh/license?ref=681880b19108a37e159b7a3d185611f04112c47b'
+SOURCE_171_CONTENT_TYPES='source code'
+SOURCE_171_LANGUAGES='TypeScript'
+SOURCE_171_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_171_COPYRIGHTED='yes'
+SOURCE_171_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_172_ID='bradlarson-gpuimage'
+SOURCE_172_PATH='bradlarson-gpuimage'
+SOURCE_172_LICENSE='BSD-3-Clause'
+SOURCE_172_NAME='BradLarson/GPUImage'
+SOURCE_172_VERSION='167b0389bc6e9dc4bb0121550f91d8d5d6412c53'
+SOURCE_172_URL='https://github.com/BradLarson/GPUImage'
+SOURCE_172_CATEGORY='public-dataset'
+SOURCE_172_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_172_LICENSE_URL='https://api.github.com/repos/BradLarson/GPUImage/license?ref=167b0389bc6e9dc4bb0121550f91d8d5d6412c53'
+SOURCE_172_CONTENT_TYPES='source code'
+SOURCE_172_LANGUAGES='Objective-C'
+SOURCE_172_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_172_COPYRIGHTED='yes'
+SOURCE_172_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_173_ID='sebastianbergmann-phpunit'
+SOURCE_173_PATH='sebastianbergmann-phpunit'
+SOURCE_173_LICENSE='BSD-3-Clause'
+SOURCE_173_NAME='sebastianbergmann/phpunit'
+SOURCE_173_VERSION='6917e76ff5762f4b70203b58608f6bba360cc2c2'
+SOURCE_173_URL='https://github.com/sebastianbergmann/phpunit'
+SOURCE_173_CATEGORY='public-dataset'
+SOURCE_173_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_173_LICENSE_URL='https://api.github.com/repos/sebastianbergmann/phpunit/license?ref=6917e76ff5762f4b70203b58608f6bba360cc2c2'
+SOURCE_173_CONTENT_TYPES='source code'
+SOURCE_173_LANGUAGES='PHP'
+SOURCE_173_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_173_COPYRIGHTED='yes'
+SOURCE_173_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_174_ID='grpc-ecosystem-grpc-gateway'
+SOURCE_174_PATH='grpc-ecosystem-grpc-gateway'
+SOURCE_174_LICENSE='BSD-3-Clause'
+SOURCE_174_NAME='grpc-ecosystem/grpc-gateway'
+SOURCE_174_VERSION='c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be'
+SOURCE_174_URL='https://github.com/grpc-ecosystem/grpc-gateway'
+SOURCE_174_CATEGORY='public-dataset'
+SOURCE_174_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_174_LICENSE_URL='https://api.github.com/repos/grpc-ecosystem/grpc-gateway/license?ref=c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be'
+SOURCE_174_CONTENT_TYPES='source code'
+SOURCE_174_LANGUAGES='Go'
+SOURCE_174_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_174_COPYRIGHTED='yes'
+SOURCE_174_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_175_ID='antlr-antlr4'
+SOURCE_175_PATH='antlr-antlr4'
+SOURCE_175_LICENSE='BSD-3-Clause'
+SOURCE_175_NAME='antlr/antlr4'
+SOURCE_175_VERSION='7d5770395bb7b02eb56e7c62662cb1d7c08f42a3'
+SOURCE_175_URL='https://github.com/antlr/antlr4'
+SOURCE_175_CATEGORY='public-dataset'
+SOURCE_175_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_175_LICENSE_URL='https://api.github.com/repos/antlr/antlr4/license?ref=7d5770395bb7b02eb56e7c62662cb1d7c08f42a3'
+SOURCE_175_CONTENT_TYPES='source code'
+SOURCE_175_LANGUAGES='Java'
+SOURCE_175_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_175_COPYRIGHTED='yes'
+SOURCE_175_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_176_ID='compiler-explorer-compiler-explorer'
+SOURCE_176_PATH='compiler-explorer-compiler-explorer'
+SOURCE_176_LICENSE='BSD-2-Clause'
+SOURCE_176_NAME='compiler-explorer/compiler-explorer'
+SOURCE_176_VERSION='2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d'
+SOURCE_176_URL='https://github.com/compiler-explorer/compiler-explorer'
+SOURCE_176_CATEGORY='public-dataset'
+SOURCE_176_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_176_LICENSE_URL='https://api.github.com/repos/compiler-explorer/compiler-explorer/license?ref=2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d'
+SOURCE_176_CONTENT_TYPES='source code'
+SOURCE_176_LANGUAGES='TypeScript'
+SOURCE_176_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_176_COPYRIGHTED='yes'
+SOURCE_176_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_177_ID='joewalnes-websocketd'
+SOURCE_177_PATH='joewalnes-websocketd'
+SOURCE_177_LICENSE='BSD-2-Clause'
+SOURCE_177_NAME='joewalnes/websocketd'
+SOURCE_177_VERSION='d1a43cab937a6a534ca18a44b971a9eb0ea55515'
+SOURCE_177_URL='https://github.com/joewalnes/websocketd'
+SOURCE_177_CATEGORY='public-dataset'
+SOURCE_177_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_177_LICENSE_URL='https://api.github.com/repos/joewalnes/websocketd/license?ref=d1a43cab937a6a534ca18a44b971a9eb0ea55515'
+SOURCE_177_CONTENT_TYPES='source code'
+SOURCE_177_LANGUAGES='Go'
+SOURCE_177_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_177_COPYRIGHTED='yes'
+SOURCE_177_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_178_ID='nikic-php-parser'
+SOURCE_178_PATH='nikic-php-parser'
+SOURCE_178_LICENSE='BSD-3-Clause'
+SOURCE_178_NAME='nikic/PHP-Parser'
+SOURCE_178_VERSION='fbd47f7ebcbb450138d92642a0a53b72a5285dda'
+SOURCE_178_URL='https://github.com/nikic/PHP-Parser'
+SOURCE_178_CATEGORY='public-dataset'
+SOURCE_178_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_178_LICENSE_URL='https://api.github.com/repos/nikic/PHP-Parser/license?ref=fbd47f7ebcbb450138d92642a0a53b72a5285dda'
+SOURCE_178_CONTENT_TYPES='source code'
+SOURCE_178_LANGUAGES='PHP'
+SOURCE_178_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_178_COPYRIGHTED='yes'
+SOURCE_178_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_179_ID='bkaradzic-bgfx'
+SOURCE_179_PATH='bkaradzic-bgfx'
+SOURCE_179_LICENSE='BSD-2-Clause'
+SOURCE_179_NAME='bkaradzic/bgfx'
+SOURCE_179_VERSION='cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f'
+SOURCE_179_URL='https://github.com/bkaradzic/bgfx'
+SOURCE_179_CATEGORY='public-dataset'
+SOURCE_179_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_179_LICENSE_URL='https://api.github.com/repos/bkaradzic/bgfx/license?ref=cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f'
+SOURCE_179_CONTENT_TYPES='source code'
+SOURCE_179_LANGUAGES='C'
+SOURCE_179_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_179_COPYRIGHTED='yes'
+SOURCE_179_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_180_ID='weaviate-weaviate'
+SOURCE_180_PATH='weaviate-weaviate'
+SOURCE_180_LICENSE='BSD-3-Clause'
+SOURCE_180_NAME='weaviate/weaviate'
+SOURCE_180_VERSION='e6e3aa9e89786573fa2e97baf7347a2248ed50b7'
+SOURCE_180_URL='https://github.com/weaviate/weaviate'
+SOURCE_180_CATEGORY='public-dataset'
+SOURCE_180_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_180_LICENSE_URL='https://api.github.com/repos/weaviate/weaviate/license?ref=e6e3aa9e89786573fa2e97baf7347a2248ed50b7'
+SOURCE_180_CONTENT_TYPES='source code'
+SOURCE_180_LANGUAGES='Go'
+SOURCE_180_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_180_COPYRIGHTED='yes'
+SOURCE_180_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_181_ID='javascript-obfuscator-javascript-obfuscator'
+SOURCE_181_PATH='javascript-obfuscator-javascript-obfuscator'
+SOURCE_181_LICENSE='BSD-2-Clause'
+SOURCE_181_NAME='javascript-obfuscator/javascript-obfuscator'
+SOURCE_181_VERSION='c948c1b43350fba818d7eceec6237cd2d467c8a9'
+SOURCE_181_URL='https://github.com/javascript-obfuscator/javascript-obfuscator'
+SOURCE_181_CATEGORY='public-dataset'
+SOURCE_181_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_181_LICENSE_URL='https://api.github.com/repos/javascript-obfuscator/javascript-obfuscator/license?ref=c948c1b43350fba818d7eceec6237cd2d467c8a9'
+SOURCE_181_CONTENT_TYPES='source code'
+SOURCE_181_LANGUAGES='TypeScript'
+SOURCE_181_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_181_COPYRIGHTED='yes'
+SOURCE_181_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_182_ID='spree-spree'
+SOURCE_182_PATH='spree-spree'
+SOURCE_182_LICENSE='BSD-3-Clause'
+SOURCE_182_NAME='spree/spree'
+SOURCE_182_VERSION='547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8'
+SOURCE_182_URL='https://github.com/spree/spree'
+SOURCE_182_CATEGORY='public-dataset'
+SOURCE_182_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_182_LICENSE_URL='https://api.github.com/repos/spree/spree/license?ref=547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8'
+SOURCE_182_CONTENT_TYPES='source code'
+SOURCE_182_LANGUAGES='Ruby'
+SOURCE_182_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_182_COPYRIGHTED='yes'
+SOURCE_182_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_183_ID='homebrew-homebrew-core'
+SOURCE_183_PATH='homebrew-homebrew-core'
+SOURCE_183_LICENSE='BSD-2-Clause'
+SOURCE_183_NAME='Homebrew/homebrew-core'
+SOURCE_183_VERSION='243e5132e70af65a9179c4300fac9fcda0dbd2d2'
+SOURCE_183_URL='https://github.com/Homebrew/homebrew-core'
+SOURCE_183_CATEGORY='public-dataset'
+SOURCE_183_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_183_LICENSE_URL='https://api.github.com/repos/Homebrew/homebrew-core/license?ref=243e5132e70af65a9179c4300fac9fcda0dbd2d2'
+SOURCE_183_CONTENT_TYPES='source code'
+SOURCE_183_LANGUAGES='Ruby'
+SOURCE_183_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_183_COPYRIGHTED='yes'
+SOURCE_183_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_184_ID='kgretzky-evilginx2'
+SOURCE_184_PATH='kgretzky-evilginx2'
+SOURCE_184_LICENSE='BSD-3-Clause'
+SOURCE_184_NAME='kgretzky/evilginx2'
+SOURCE_184_VERSION='4c0988a1d9db4d172a185e979a38bfd0efdb5830'
+SOURCE_184_URL='https://github.com/kgretzky/evilginx2'
+SOURCE_184_CATEGORY='public-dataset'
+SOURCE_184_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_184_LICENSE_URL='https://api.github.com/repos/kgretzky/evilginx2/license?ref=4c0988a1d9db4d172a185e979a38bfd0efdb5830'
+SOURCE_184_CONTENT_TYPES='source code'
+SOURCE_184_LANGUAGES='Go'
+SOURCE_184_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_184_COPYRIGHTED='yes'
+SOURCE_184_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_185_ID='acidanthera-opencorepkg'
+SOURCE_185_PATH='acidanthera-opencorepkg'
+SOURCE_185_LICENSE='BSD-3-Clause'
+SOURCE_185_NAME='acidanthera/OpenCorePkg'
+SOURCE_185_VERSION='3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4'
+SOURCE_185_URL='https://github.com/acidanthera/OpenCorePkg'
+SOURCE_185_CATEGORY='public-dataset'
+SOURCE_185_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_185_LICENSE_URL='https://api.github.com/repos/acidanthera/OpenCorePkg/license?ref=3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4'
+SOURCE_185_CONTENT_TYPES='source code'
+SOURCE_185_LANGUAGES='C'
+SOURCE_185_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_185_COPYRIGHTED='yes'
+SOURCE_185_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_186_ID='jupyterlab-jupyterlab'
+SOURCE_186_PATH='jupyterlab-jupyterlab'
+SOURCE_186_LICENSE='BSD-3-Clause'
+SOURCE_186_NAME='jupyterlab/jupyterlab'
+SOURCE_186_VERSION='08b3325c4ad3a0c817e56d883612b2b167e7404c'
+SOURCE_186_URL='https://github.com/jupyterlab/jupyterlab'
+SOURCE_186_CATEGORY='public-dataset'
+SOURCE_186_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_186_LICENSE_URL='https://api.github.com/repos/jupyterlab/jupyterlab/license?ref=08b3325c4ad3a0c817e56d883612b2b167e7404c'
+SOURCE_186_CONTENT_TYPES='source code'
+SOURCE_186_LANGUAGES='TypeScript'
+SOURCE_186_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_186_COPYRIGHTED='yes'
+SOURCE_186_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_187_ID='keycastr-keycastr'
+SOURCE_187_PATH='keycastr-keycastr'
+SOURCE_187_LICENSE='BSD-3-Clause'
+SOURCE_187_NAME='keycastr/keycastr'
+SOURCE_187_VERSION='58133a7bca58586b6fa1f462b4c13f09404f9c6a'
+SOURCE_187_URL='https://github.com/keycastr/keycastr'
+SOURCE_187_CATEGORY='public-dataset'
+SOURCE_187_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_187_LICENSE_URL='https://api.github.com/repos/keycastr/keycastr/license?ref=58133a7bca58586b6fa1f462b4c13f09404f9c6a'
+SOURCE_187_CONTENT_TYPES='source code'
+SOURCE_187_LANGUAGES='Objective-C'
+SOURCE_187_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_187_COPYRIGHTED='yes'
+SOURCE_187_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_188_ID='puerkitobio-goquery'
+SOURCE_188_PATH='puerkitobio-goquery'
+SOURCE_188_LICENSE='BSD-3-Clause'
+SOURCE_188_NAME='PuerkitoBio/goquery'
+SOURCE_188_VERSION='53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c'
+SOURCE_188_URL='https://github.com/PuerkitoBio/goquery'
+SOURCE_188_CATEGORY='public-dataset'
+SOURCE_188_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_188_LICENSE_URL='https://api.github.com/repos/PuerkitoBio/goquery/license?ref=53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c'
+SOURCE_188_CONTENT_TYPES='source code'
+SOURCE_188_LANGUAGES='Go'
+SOURCE_188_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_188_COPYRIGHTED='yes'
+SOURCE_188_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_189_ID='webrtc-samples'
+SOURCE_189_PATH='webrtc-samples'
+SOURCE_189_LICENSE='BSD-3-Clause'
+SOURCE_189_NAME='webrtc/samples'
+SOURCE_189_VERSION='6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e'
+SOURCE_189_URL='https://github.com/webrtc/samples'
+SOURCE_189_CATEGORY='public-dataset'
+SOURCE_189_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_189_LICENSE_URL='https://api.github.com/repos/webrtc/samples/license?ref=6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e'
+SOURCE_189_CONTENT_TYPES='source code'
+SOURCE_189_LANGUAGES='JavaScript'
+SOURCE_189_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_189_COPYRIGHTED='yes'
+SOURCE_189_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_190_ID='shelljs-shelljs'
+SOURCE_190_PATH='shelljs-shelljs'
+SOURCE_190_LICENSE='BSD-3-Clause'
+SOURCE_190_NAME='shelljs/shelljs'
+SOURCE_190_VERSION='f364da6625945414440bb15210f102ba5fc10ed9'
+SOURCE_190_URL='https://github.com/shelljs/shelljs'
+SOURCE_190_CATEGORY='public-dataset'
+SOURCE_190_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_190_LICENSE_URL='https://api.github.com/repos/shelljs/shelljs/license?ref=f364da6625945414440bb15210f102ba5fc10ed9'
+SOURCE_190_CONTENT_TYPES='source code'
+SOURCE_190_LANGUAGES='JavaScript'
+SOURCE_190_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_190_COPYRIGHTED='yes'
+SOURCE_190_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_191_ID='yiisoft-yii2'
+SOURCE_191_PATH='yiisoft-yii2'
+SOURCE_191_LICENSE='BSD-3-Clause'
+SOURCE_191_NAME='yiisoft/yii2'
+SOURCE_191_VERSION='66f00d18a29b520f85e8e8f1e32d1e7e7b556cac'
+SOURCE_191_URL='https://github.com/yiisoft/yii2'
+SOURCE_191_CATEGORY='public-dataset'
+SOURCE_191_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_191_LICENSE_URL='https://api.github.com/repos/yiisoft/yii2/license?ref=66f00d18a29b520f85e8e8f1e32d1e7e7b556cac'
+SOURCE_191_CONTENT_TYPES='source code'
+SOURCE_191_LANGUAGES='PHP'
+SOURCE_191_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_191_COPYRIGHTED='yes'
+SOURCE_191_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_192_ID='memcached-memcached'
+SOURCE_192_PATH='memcached-memcached'
+SOURCE_192_LICENSE='BSD-3-Clause'
+SOURCE_192_NAME='memcached/memcached'
+SOURCE_192_VERSION='2d51e364799bc9698bd4b11728ea978cea12da6e'
+SOURCE_192_URL='https://github.com/memcached/memcached'
+SOURCE_192_CATEGORY='public-dataset'
+SOURCE_192_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_192_LICENSE_URL='https://api.github.com/repos/memcached/memcached/license?ref=2d51e364799bc9698bd4b11728ea978cea12da6e'
+SOURCE_192_CONTENT_TYPES='source code'
+SOURCE_192_LANGUAGES='C'
+SOURCE_192_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_192_COPYRIGHTED='yes'
+SOURCE_192_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_193_ID='app-vnext-polly'
+SOURCE_193_PATH='app-vnext-polly'
+SOURCE_193_LICENSE='BSD-3-Clause'
+SOURCE_193_NAME='App-vNext/Polly'
+SOURCE_193_VERSION='3987bb8c0a876314ea0e29d200c333f0fdef5e53'
+SOURCE_193_URL='https://github.com/App-vNext/Polly'
+SOURCE_193_CATEGORY='public-dataset'
+SOURCE_193_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_193_LICENSE_URL='https://api.github.com/repos/App-vNext/Polly/license?ref=3987bb8c0a876314ea0e29d200c333f0fdef5e53'
+SOURCE_193_CONTENT_TYPES='source code'
+SOURCE_193_LANGUAGES='C#'
+SOURCE_193_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_193_COPYRIGHTED='yes'
+SOURCE_193_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_194_ID='arut-nginx-rtmp-module'
+SOURCE_194_PATH='arut-nginx-rtmp-module'
+SOURCE_194_LICENSE='BSD-2-Clause'
+SOURCE_194_NAME='arut/nginx-rtmp-module'
+SOURCE_194_VERSION='6c7719d0ba32e00b563ec70bd43dad11960fa9c4'
+SOURCE_194_URL='https://github.com/arut/nginx-rtmp-module'
+SOURCE_194_CATEGORY='public-dataset'
+SOURCE_194_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_194_LICENSE_URL='https://api.github.com/repos/arut/nginx-rtmp-module/license?ref=6c7719d0ba32e00b563ec70bd43dad11960fa9c4'
+SOURCE_194_CONTENT_TYPES='source code'
+SOURCE_194_LANGUAGES='C'
+SOURCE_194_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_194_COPYRIGHTED='yes'
+SOURCE_194_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_195_ID='vlucas-phpdotenv'
+SOURCE_195_PATH='vlucas-phpdotenv'
+SOURCE_195_LICENSE='BSD-3-Clause'
+SOURCE_195_NAME='vlucas/phpdotenv'
+SOURCE_195_VERSION='416df702837983f8d5ff48c9c3fee4f5f57b980b'
+SOURCE_195_URL='https://github.com/vlucas/phpdotenv'
+SOURCE_195_CATEGORY='public-dataset'
+SOURCE_195_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_195_LICENSE_URL='https://api.github.com/repos/vlucas/phpdotenv/license?ref=416df702837983f8d5ff48c9c3fee4f5f57b980b'
+SOURCE_195_CONTENT_TYPES='source code'
+SOURCE_195_LANGUAGES='PHP'
+SOURCE_195_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_195_COPYRIGHTED='yes'
+SOURCE_195_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_196_ID='cocoalumberjack-cocoalumberjack'
+SOURCE_196_PATH='cocoalumberjack-cocoalumberjack'
+SOURCE_196_LICENSE='BSD-3-Clause'
+SOURCE_196_NAME='CocoaLumberjack/CocoaLumberjack'
+SOURCE_196_VERSION='91860fa9bcda881233539dcc00f40a0f61d3e6ff'
+SOURCE_196_URL='https://github.com/CocoaLumberjack/CocoaLumberjack'
+SOURCE_196_CATEGORY='public-dataset'
+SOURCE_196_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_196_LICENSE_URL='https://api.github.com/repos/CocoaLumberjack/CocoaLumberjack/license?ref=91860fa9bcda881233539dcc00f40a0f61d3e6ff'
+SOURCE_196_CONTENT_TYPES='source code'
+SOURCE_196_LANGUAGES='Objective-C'
+SOURCE_196_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_196_COPYRIGHTED='yes'
+SOURCE_196_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_197_ID='alibaba-tengine'
+SOURCE_197_PATH='alibaba-tengine'
+SOURCE_197_LICENSE='BSD-2-Clause'
+SOURCE_197_NAME='alibaba/tengine'
+SOURCE_197_VERSION='fcebbd12267b150c7e0406e8e3e5936c0b729aae'
+SOURCE_197_URL='https://github.com/alibaba/tengine'
+SOURCE_197_CATEGORY='public-dataset'
+SOURCE_197_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_197_LICENSE_URL='https://api.github.com/repos/alibaba/tengine/license?ref=fcebbd12267b150c7e0406e8e3e5936c0b729aae'
+SOURCE_197_CONTENT_TYPES='source code'
+SOURCE_197_LANGUAGES='C'
+SOURCE_197_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_197_COPYRIGHTED='yes'
+SOURCE_197_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_198_ID='expo-create-react-native-app'
+SOURCE_198_PATH='expo-create-react-native-app'
+SOURCE_198_LICENSE='BSD-3-Clause'
+SOURCE_198_NAME='expo/create-react-native-app'
+SOURCE_198_VERSION='3a7b11ee859c5c38fe09be58419e97a286a22c13'
+SOURCE_198_URL='https://github.com/expo/create-react-native-app'
+SOURCE_198_CATEGORY='public-dataset'
+SOURCE_198_LICENSE_DECLARATION='BSD-3-Clause'
+SOURCE_198_LICENSE_URL='https://api.github.com/repos/expo/create-react-native-app/license?ref=3a7b11ee859c5c38fe09be58419e97a286a22c13'
+SOURCE_198_CONTENT_TYPES='source code'
+SOURCE_198_LANGUAGES='JavaScript'
+SOURCE_198_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_198_COPYRIGHTED='yes'
+SOURCE_198_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_199_ID='gopherjs-gopherjs'
+SOURCE_199_PATH='gopherjs-gopherjs'
+SOURCE_199_LICENSE='BSD-2-Clause'
+SOURCE_199_NAME='gopherjs/gopherjs'
+SOURCE_199_VERSION='490705b1d6fc7d5bd9202ac41888e146183328eb'
+SOURCE_199_URL='https://github.com/gopherjs/gopherjs'
+SOURCE_199_CATEGORY='public-dataset'
+SOURCE_199_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_199_LICENSE_URL='https://api.github.com/repos/gopherjs/gopherjs/license?ref=490705b1d6fc7d5bd9202ac41888e146183328eb'
+SOURCE_199_CONTENT_TYPES='source code'
+SOURCE_199_LANGUAGES='Go'
+SOURCE_199_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_199_COPYRIGHTED='yes'
+SOURCE_199_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_200_ID='node-inspector-node-inspector'
+SOURCE_200_PATH='node-inspector-node-inspector'
+SOURCE_200_LICENSE='BSD-2-Clause'
+SOURCE_200_NAME='node-inspector/node-inspector'
+SOURCE_200_VERSION='79e01c049286374f86dd560742a614019c02402f'
+SOURCE_200_URL='https://github.com/node-inspector/node-inspector'
+SOURCE_200_CATEGORY='public-dataset'
+SOURCE_200_LICENSE_DECLARATION='BSD-2-Clause'
+SOURCE_200_LICENSE_URL='https://api.github.com/repos/node-inspector/node-inspector/license?ref=79e01c049286374f86dd560742a614019c02402f'
+SOURCE_200_CONTENT_TYPES='source code'
+SOURCE_200_LANGUAGES='JavaScript'
+SOURCE_200_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_200_COPYRIGHTED='yes'
+SOURCE_200_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+FETCHER_OUTPUT=${1-}
+FETCHER_ARGUMENT_COUNT=$#
+FETCHER_SIZE='100G'
+FETCH_COUNT='200'
+FETCH_1_METHOD='git'
+FETCH_1_SOURCE='1'
+FETCH_1_PATH='freecodecamp-freecodecamp'
+FETCH_1_URL='https://github.com/freeCodeCamp/freeCodeCamp.git'
+FETCH_1_REF='f67426be7505cdb3072c72b3d254888e2bbaacd6'
+FETCH_1_REVISION='f67426be7505cdb3072c72b3d254888e2bbaacd6'
+FETCH_1_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_2_METHOD='git'
+FETCH_2_SOURCE='2'
+FETCH_2_PATH='react-react'
+FETCH_2_URL='https://github.com/react/react.git'
+FETCH_2_REF='2042572329425f9ebf35ae6287ea5bab72b2c497'
+FETCH_2_REVISION='2042572329425f9ebf35ae6287ea5bab72b2c497'
+FETCH_2_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_3_METHOD='git'
+FETCH_3_SOURCE='3'
+FETCH_3_PATH='thealgorithms-python'
+FETCH_3_URL='https://github.com/TheAlgorithms/Python.git'
+FETCH_3_REF='f5988cc09713315817df6a7e327e258013a94440'
+FETCH_3_REVISION='f5988cc09713315817df6a7e327e258013a94440'
+FETCH_3_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_4_METHOD='git'
+FETCH_4_SOURCE='4'
+FETCH_4_PATH='vuejs-vue'
+FETCH_4_URL='https://github.com/vuejs/vue.git'
+FETCH_4_REF='9e88707940088cb1f4cd7dd210c9168a50dc347c'
+FETCH_4_REVISION='9e88707940088cb1f4cd7dd210c9168a50dc347c'
+FETCH_4_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_5_METHOD='git'
+FETCH_5_SOURCE='5'
+FETCH_5_PATH='trekhleb-javascript-algorithms'
+FETCH_5_URL='https://github.com/trekhleb/javascript-algorithms.git'
+FETCH_5_REF='85293e3e2b88f4d2ce330d956b139cf628aa1e82'
+FETCH_5_REVISION='85293e3e2b88f4d2ce330d956b139cf628aa1e82'
+FETCH_5_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_6_METHOD='git'
+FETCH_6_SOURCE='6'
+FETCH_6_PATH='ohmyzsh-ohmyzsh'
+FETCH_6_URL='https://github.com/ohmyzsh/ohmyzsh.git'
+FETCH_6_REF='99aaf58d007f1378d1e0609bcd9baf8abbbaf327'
+FETCH_6_REVISION='99aaf58d007f1378d1e0609bcd9baf8abbbaf327'
+FETCH_6_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_7_METHOD='git'
+FETCH_7_SOURCE='7'
+FETCH_7_PATH='microsoft-vscode'
+FETCH_7_URL='https://github.com/microsoft/vscode.git'
+FETCH_7_REF='97f9937a4263a283f83868783cf93142d1389c16'
+FETCH_7_REVISION='97f9937a4263a283f83868783cf93142d1389c16'
+FETCH_7_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_8_METHOD='git'
+FETCH_8_SOURCE='8'
+FETCH_8_PATH='flutter-flutter'
+FETCH_8_URL='https://github.com/flutter/flutter.git'
+FETCH_8_REF='bea08b59e4d67d3deefe621b669bbcda3b396fe3'
+FETCH_8_REVISION='bea08b59e4d67d3deefe621b669bbcda3b396fe3'
+FETCH_8_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_9_METHOD='git'
+FETCH_9_SOURCE='9'
+FETCH_9_PATH='ollama-ollama'
+FETCH_9_URL='https://github.com/ollama/ollama.git'
+FETCH_9_REF='b880b76c4308cd5a97cbef2ef86367d126d77f75'
+FETCH_9_REVISION='b880b76c4308cd5a97cbef2ef86367d126d77f75'
+FETCH_9_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_10_METHOD='git'
+FETCH_10_SOURCE='10'
+FETCH_10_PATH='microsoft-markitdown'
+FETCH_10_URL='https://github.com/microsoft/markitdown.git'
+FETCH_10_REF='fd239d5d2be43d9b68329730206b9312c7d5a388'
+FETCH_10_REVISION='fd239d5d2be43d9b68329730206b9312c7d5a388'
+FETCH_10_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_11_METHOD='git'
+FETCH_11_SOURCE='11'
+FETCH_11_PATH='snailclimb-javaguide'
+FETCH_11_URL='https://github.com/Snailclimb/JavaGuide.git'
+FETCH_11_REF='11fb08483ac066ac9d6bdb0bcc80f761379d54d4'
+FETCH_11_REVISION='11fb08483ac066ac9d6bdb0bcc80f761379d54d4'
+FETCH_11_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_12_METHOD='git'
+FETCH_12_SOURCE='12'
+FETCH_12_PATH='langflow-ai-langflow'
+FETCH_12_URL='https://github.com/langflow-ai/langflow.git'
+FETCH_12_REF='3325c4642c489bfc2e2f4c9f3c63a32961f9581f'
+FETCH_12_REVISION='3325c4642c489bfc2e2f4c9f3c63a32961f9581f'
+FETCH_12_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_13_METHOD='git'
+FETCH_13_SOURCE='13'
+FETCH_13_PATH='genymobile-scrcpy'
+FETCH_13_URL='https://github.com/Genymobile/scrcpy.git'
+FETCH_13_REF='2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0'
+FETCH_13_REVISION='2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0'
+FETCH_13_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_14_METHOD='git'
+FETCH_14_SOURCE='14'
+FETCH_14_PATH='langchain-ai-langchain'
+FETCH_14_URL='https://github.com/langchain-ai/langchain.git'
+FETCH_14_REF='d048fbe170573b6e7056b5ef5f78d8451e54abaf'
+FETCH_14_REVISION='d048fbe170573b6e7056b5ef5f78d8451e54abaf'
+FETCH_14_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_15_METHOD='git'
+FETCH_15_SOURCE='15'
+FETCH_15_PATH='microsoft-powertoys'
+FETCH_15_URL='https://github.com/microsoft/PowerToys.git'
+FETCH_15_REF='9e12b7a8eed2cb693d3e6b293cd601675e76a4b0'
+FETCH_15_REVISION='9e12b7a8eed2cb693d3e6b293cd601675e76a4b0'
+FETCH_15_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_16_METHOD='git'
+FETCH_16_SOURCE='16'
+FETCH_16_PATH='golang-go'
+FETCH_16_URL='https://github.com/golang/go.git'
+FETCH_16_REF='42a6439b1241906746e0a5d68ee6a6318813fa49'
+FETCH_16_REVISION='42a6439b1241906746e0a5d68ee6a6318813fa49'
+FETCH_16_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_17_METHOD='git'
+FETCH_17_SOURCE='17'
+FETCH_17_PATH='excalidraw-excalidraw'
+FETCH_17_URL='https://github.com/excalidraw/excalidraw.git'
+FETCH_17_REF='cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58'
+FETCH_17_REVISION='cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58'
+FETCH_17_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_18_METHOD='git'
+FETCH_18_SOURCE='18'
+FETCH_18_PATH='react-react-native'
+FETCH_18_URL='https://github.com/react/react-native.git'
+FETCH_18_REF='4bf9d4e9b079a3b77842727c68b82f55415898ac'
+FETCH_18_REVISION='4bf9d4e9b079a3b77842727c68b82f55415898ac'
+FETCH_18_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_19_METHOD='git'
+FETCH_19_SOURCE='19'
+FETCH_19_PATH='kubernetes-kubernetes'
+FETCH_19_URL='https://github.com/kubernetes/kubernetes.git'
+FETCH_19_REF='94c136764292cc5fac976c0de6587daaea56410f'
+FETCH_19_REVISION='94c136764292cc5fac976c0de6587daaea56410f'
+FETCH_19_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_20_METHOD='git'
+FETCH_20_SOURCE='20'
+FETCH_20_PATH='ggml-org-llama.cpp'
+FETCH_20_URL='https://github.com/ggml-org/llama.cpp.git'
+FETCH_20_REF='7ba604f1cb61cd14898138e9abc0b4ff2601f180'
+FETCH_20_REVISION='7ba604f1cb61cd14898138e9abc0b4ff2601f180'
+FETCH_20_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_21_METHOD='git'
+FETCH_21_SOURCE='21'
+FETCH_21_PATH='electron-electron'
+FETCH_21_URL='https://github.com/electron/electron.git'
+FETCH_21_REF='50b779bde5478548df30229d81dd1a12e3434c85'
+FETCH_21_REVISION='50b779bde5478548df30229d81dd1a12e3434c85'
+FETCH_21_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_22_METHOD='git'
+FETCH_22_SOURCE='22'
+FETCH_22_PATH='shadcn-ui-ui'
+FETCH_22_URL='https://github.com/shadcn-ui/ui.git'
+FETCH_22_REF='6261bd89f72d794aea491482cc2acfd8dc3d63e2'
+FETCH_22_REVISION='6261bd89f72d794aea491482cc2acfd8dc3d63e2'
+FETCH_22_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_23_METHOD='git'
+FETCH_23_SOURCE='23'
+FETCH_23_PATH='rust-lang-rust'
+FETCH_23_URL='https://github.com/rust-lang/rust.git'
+FETCH_23_REF='4667d75565e47ba5df36c0df598c556b543e8624'
+FETCH_23_REVISION='4667d75565e47ba5df36c0df598c556b543e8624'
+FETCH_23_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_24_METHOD='git'
+FETCH_24_SOURCE='24'
+FETCH_24_PATH='godotengine-godot'
+FETCH_24_URL='https://github.com/godotengine/godot.git'
+FETCH_24_REF='4173760fdf6c2c722e82e08cb58e55f34c9efd80'
+FETCH_24_REVISION='4173760fdf6c2c722e82e08cb58e55f34c9efd80'
+FETCH_24_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_25_METHOD='git'
+FETCH_25_SOURCE='25'
+FETCH_25_PATH='mrdoob-three.js'
+FETCH_25_URL='https://github.com/mrdoob/three.js.git'
+FETCH_25_REF='98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac'
+FETCH_25_REVISION='98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac'
+FETCH_25_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_26_METHOD='git'
+FETCH_26_SOURCE='26'
+FETCH_26_PATH='tauri-apps-tauri'
+FETCH_26_URL='https://github.com/tauri-apps/tauri.git'
+FETCH_26_REF='34ec18ba5e1acabebd66ae79d6fc746f63d8eb96'
+FETCH_26_REVISION='34ec18ba5e1acabebd66ae79d6fc746f63d8eb96'
+FETCH_26_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_27_METHOD='git'
+FETCH_27_SOURCE='27'
+FETCH_27_PATH='axios-axios'
+FETCH_27_URL='https://github.com/axios/axios.git'
+FETCH_27_REF='f5e83e49ee32b1004db82dad2b14d1e273a99e07'
+FETCH_27_REVISION='f5e83e49ee32b1004db82dad2b14d1e273a99e07'
+FETCH_27_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_28_METHOD='git'
+FETCH_28_SOURCE='28'
+FETCH_28_PATH='fatedier-frp'
+FETCH_28_URL='https://github.com/fatedier/frp.git'
+FETCH_28_REF='d1928f968938e4f1b3b72fd12d581342e57a5030'
+FETCH_28_REVISION='d1928f968938e4f1b3b72fd12d581342e57a5030'
+FETCH_28_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_29_METHOD='git'
+FETCH_29_SOURCE='29'
+FETCH_29_PATH='browser-use-browser-use'
+FETCH_29_URL='https://github.com/browser-use/browser-use.git'
+FETCH_29_REF='32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4'
+FETCH_29_REVISION='32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4'
+FETCH_29_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_30_METHOD='git'
+FETCH_30_SOURCE='30'
+FETCH_30_PATH='denoland-deno'
+FETCH_30_URL='https://github.com/denoland/deno.git'
+FETCH_30_REF='98dc759254a90b98f7bbb62ba5361e531d0db6a5'
+FETCH_30_REVISION='98dc759254a90b98f7bbb62ba5361e531d0db6a5'
+FETCH_30_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_31_METHOD='git'
+FETCH_31_SOURCE='31'
+FETCH_31_PATH='openai-whisper'
+FETCH_31_URL='https://github.com/openai/whisper.git'
+FETCH_31_REF='5f86d1d86363843179951550570367b37c5d6f78'
+FETCH_31_REVISION='5f86d1d86363843179951550570367b37c5d6f78'
+FETCH_31_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_32_METHOD='git'
+FETCH_32_SOURCE='32'
+FETCH_32_PATH='microsoft-terminal'
+FETCH_32_URL='https://github.com/microsoft/terminal.git'
+FETCH_32_REF='b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a'
+FETCH_32_REVISION='b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a'
+FETCH_32_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_33_METHOD='git'
+FETCH_33_SOURCE='33'
+FETCH_33_PATH='deepseek-ai-deepseek-v3'
+FETCH_33_URL='https://github.com/deepseek-ai/DeepSeek-V3.git'
+FETCH_33_REF='9b4e9788e4a3a731f7567338ed15d3ec549ce03b'
+FETCH_33_REVISION='9b4e9788e4a3a731f7567338ed15d3ec549ce03b'
+FETCH_33_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_34_METHOD='git'
+FETCH_34_SOURCE='34'
+FETCH_34_PATH='react-create-react-app'
+FETCH_34_URL='https://github.com/react/create-react-app.git'
+FETCH_34_REF='6254386531d263688ccfa542d0e628fbc0de0b28'
+FETCH_34_REVISION='6254386531d263688ccfa542d0e628fbc0de0b28'
+FETCH_34_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_35_METHOD='git'
+FETCH_35_SOURCE='35'
+FETCH_35_PATH='harry0703-moneyprinterturbo'
+FETCH_35_URL='https://github.com/harry0703/MoneyPrinterTurbo.git'
+FETCH_35_REF='e14dea5578bb2154480b6bc436009eaa9987f0e3'
+FETCH_35_REVISION='e14dea5578bb2154480b6bc436009eaa9987f0e3'
+FETCH_35_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_36_METHOD='git'
+FETCH_36_SOURCE='36'
+FETCH_36_PATH='fastapi-fastapi'
+FETCH_36_URL='https://github.com/fastapi/fastapi.git'
+FETCH_36_REF='0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4'
+FETCH_36_REVISION='0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4'
+FETCH_36_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_37_METHOD='git'
+FETCH_37_SOURCE='37'
+FETCH_37_PATH='angular-angular'
+FETCH_37_URL='https://github.com/angular/angular.git'
+FETCH_37_REF='565dbb2fe5406f2a86d43a5b3c6993434b7124a7'
+FETCH_37_REVISION='565dbb2fe5406f2a86d43a5b3c6993434b7124a7'
+FETCH_37_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_38_METHOD='git'
+FETCH_38_SOURCE='38'
+FETCH_38_PATH='ant-design-ant-design'
+FETCH_38_URL='https://github.com/ant-design/ant-design.git'
+FETCH_38_REF='41ba18cfc3d8a0f37ab89e143fed27d341f320d0'
+FETCH_38_REVISION='41ba18cfc3d8a0f37ab89e143fed27d341f320d0'
+FETCH_38_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_39_METHOD='git'
+FETCH_39_SOURCE='39'
+FETCH_39_PATH='mui-material-ui'
+FETCH_39_URL='https://github.com/mui/material-ui.git'
+FETCH_39_REF='81e94061ca393d4eaf238e6f77c283b2edd9ef7e'
+FETCH_39_REVISION='81e94061ca393d4eaf238e6f77c283b2edd9ef7e'
+FETCH_39_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_40_METHOD='git'
+FETCH_40_SOURCE='40'
+FETCH_40_PATH='nvbn-thefuck'
+FETCH_40_URL='https://github.com/nvbn/thefuck.git'
+FETCH_40_REF='c7e7e1d884d3bb241ea6448f72a989434c2a35ec'
+FETCH_40_REVISION='c7e7e1d884d3bb241ea6448f72a989434c2a35ec'
+FETCH_40_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_41_METHOD='git'
+FETCH_41_SOURCE='41'
+FETCH_41_PATH='tailwindlabs-tailwindcss'
+FETCH_41_URL='https://github.com/tailwindlabs/tailwindcss.git'
+FETCH_41_REF='46df7ee2fc4ae822d414d35bbd48be024e5cb1c0'
+FETCH_41_REVISION='46df7ee2fc4ae822d414d35bbd48be024e5cb1c0'
+FETCH_41_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_42_METHOD='git'
+FETCH_42_SOURCE='42'
+FETCH_42_PATH='tauricresearch-tradingagents'
+FETCH_42_URL='https://github.com/TauricResearch/TradingAgents.git'
+FETCH_42_REF='a33fd4c0f134485a43553a2c23a63cb14adbd88f'
+FETCH_42_REVISION='a33fd4c0f134485a43553a2c23a63cb14adbd88f'
+FETCH_42_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_43_METHOD='git'
+FETCH_43_SOURCE='43'
+FETCH_43_PATH='puppeteer-puppeteer'
+FETCH_43_URL='https://github.com/puppeteer/puppeteer.git'
+FETCH_43_REF='566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f'
+FETCH_43_REVISION='566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f'
+FETCH_43_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_44_METHOD='git'
+FETCH_44_SOURCE='44'
+FETCH_44_PATH='nvm-sh-nvm'
+FETCH_44_URL='https://github.com/nvm-sh/nvm.git'
+FETCH_44_REF='65ded65d46c16481dbbe8e93f8ba9e6b35f20740'
+FETCH_44_REVISION='65ded65d46c16481dbbe8e93f8ba9e6b35f20740'
+FETCH_44_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_45_METHOD='git'
+FETCH_45_SOURCE='45'
+FETCH_45_PATH='microsoft-playwright'
+FETCH_45_URL='https://github.com/microsoft/playwright.git'
+FETCH_45_REF='c973356ee9e3906260f60da5e3e04442e069a0d4'
+FETCH_45_REVISION='c973356ee9e3906260f60da5e3e04442e069a0d4'
+FETCH_45_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_46_METHOD='git'
+FETCH_46_SOURCE='46'
+FETCH_46_PATH='opencv-opencv'
+FETCH_46_URL='https://github.com/opencv/opencv.git'
+FETCH_46_REF='77dfa297d08fdecdc509fc01ad92a2e9ec776a57'
+FETCH_46_REVISION='77dfa297d08fdecdc509fc01ad92a2e9ec776a57'
+FETCH_46_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_47_METHOD='git'
+FETCH_47_SOURCE='47'
+FETCH_47_PATH='panjiachen-vue-element-admin'
+FETCH_47_URL='https://github.com/PanJiaChen/vue-element-admin.git'
+FETCH_47_REF='6858a9ad67483025f6a9432a926beb9327037be3'
+FETCH_47_REVISION='6858a9ad67483025f6a9432a926beb9327037be3'
+FETCH_47_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_48_METHOD='git'
+FETCH_48_SOURCE='48'
+FETCH_48_PATH='louislam-uptime-kuma'
+FETCH_48_URL='https://github.com/louislam/uptime-kuma.git'
+FETCH_48_REF='77d1a0c57a37a4cf5657bb7b514b4e08d455928e'
+FETCH_48_REVISION='77d1a0c57a37a4cf5657bb7b514b4e08d455928e'
+FETCH_48_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_49_METHOD='git'
+FETCH_49_SOURCE='49'
+FETCH_49_PATH='bitcoin-bitcoin'
+FETCH_49_URL='https://github.com/bitcoin/bitcoin.git'
+FETCH_49_REF='128456b62d5e38abea031f97f823d5b28aef9357'
+FETCH_49_REVISION='128456b62d5e38abea031f97f823d5b28aef9357'
+FETCH_49_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_50_METHOD='git'
+FETCH_50_SOURCE='50'
+FETCH_50_PATH='home-assistant-core'
+FETCH_50_URL='https://github.com/home-assistant/core.git'
+FETCH_50_REF='c369f973abfcfba865a745a1750c0fe887e98d60'
+FETCH_50_REVISION='c369f973abfcfba865a745a1750c0fe887e98d60'
+FETCH_50_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_51_METHOD='git'
+FETCH_51_SOURCE='51'
+FETCH_51_PATH='mermaid-js-mermaid'
+FETCH_51_URL='https://github.com/mermaid-js/mermaid.git'
+FETCH_51_REF='3d521b1ee5fc9079fe0659e776a1b2cdc37174b1'
+FETCH_51_REVISION='3d521b1ee5fc9079fe0659e776a1b2cdc37174b1'
+FETCH_51_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_52_METHOD='git'
+FETCH_52_SOURCE='52'
+FETCH_52_PATH='gohugoio-hugo'
+FETCH_52_URL='https://github.com/gohugoio/hugo.git'
+FETCH_52_REF='44da086082a1dff487f4e5639bb03a65d9dd1ade'
+FETCH_52_REVISION='44da086082a1dff487f4e5639bb03a65d9dd1ade'
+FETCH_52_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_53_METHOD='git'
+FETCH_53_SOURCE='53'
+FETCH_53_PATH='3b1b-manim'
+FETCH_53_URL='https://github.com/3b1b/manim.git'
+FETCH_53_REF='01030ac5d23bc294ccb93cbfcda260f2d20dda62'
+FETCH_53_REVISION='01030ac5d23bc294ccb93cbfcda260f2d20dda62'
+FETCH_53_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_54_METHOD='git'
+FETCH_54_SOURCE='54'
+FETCH_54_PATH='gin-gonic-gin'
+FETCH_54_URL='https://github.com/gin-gonic/gin.git'
+FETCH_54_REF='34dac209ffb6ef85cc78c5d217bbb7ad001d68fd'
+FETCH_54_REVISION='34dac209ffb6ef85cc78c5d217bbb7ad001d68fd'
+FETCH_54_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_55_METHOD='git'
+FETCH_55_SOURCE='55'
+FETCH_55_PATH='chatgptnextweb-nextchat'
+FETCH_55_URL='https://github.com/ChatGPTNextWeb/NextChat.git'
+FETCH_55_REF='706a18b95b714ab29b2a4842d3b9ff4f887935d5'
+FETCH_55_REVISION='706a18b95b714ab29b2a4842d3b9ff4f887935d5'
+FETCH_55_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_56_METHOD='git'
+FETCH_56_SOURCE='56'
+FETCH_56_PATH='sherlock-project-sherlock'
+FETCH_56_URL='https://github.com/sherlock-project/sherlock.git'
+FETCH_56_REF='9100f9d40a3274bd46f4ce903c5c6fee6f3745bc'
+FETCH_56_REVISION='9100f9d40a3274bd46f4ce903c5c6fee6f3745bc'
+FETCH_56_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_57_METHOD='git'
+FETCH_57_SOURCE='57'
+FETCH_57_PATH='vllm-project-vllm'
+FETCH_57_URL='https://github.com/vllm-project/vllm.git'
+FETCH_57_REF='cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7'
+FETCH_57_REVISION='cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7'
+FETCH_57_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_58_METHOD='git'
+FETCH_58_SOURCE='58'
+FETCH_58_PATH='astral-sh-uv'
+FETCH_58_URL='https://github.com/astral-sh/uv.git'
+FETCH_58_REF='dd0584d560a4693b5713a78be54304123ada3e77'
+FETCH_58_REVISION='dd0584d560a4693b5713a78be54304123ada3e77'
+FETCH_58_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_59_METHOD='git'
+FETCH_59_SOURCE='59'
+FETCH_59_PATH='django-django'
+FETCH_59_URL='https://github.com/django/django.git'
+FETCH_59_REF='c9eb16a87e60c305fb3651459639f647cce498db'
+FETCH_59_REVISION='c9eb16a87e60c305fb3651459639f647cce498db'
+FETCH_59_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_60_METHOD='git'
+FETCH_60_SOURCE='60'
+FETCH_60_PATH='sveltejs-svelte'
+FETCH_60_URL='https://github.com/sveltejs/svelte.git'
+FETCH_60_REF='26786e92985842a6d563c67049a43bc5857bf792'
+FETCH_60_REVISION='26786e92985842a6d563c67049a43bc5857bf792'
+FETCH_60_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_61_METHOD='git'
+FETCH_61_SOURCE='61'
+FETCH_61_PATH='paddlepaddle-paddleocr'
+FETCH_61_URL='https://github.com/PaddlePaddle/PaddleOCR.git'
+FETCH_61_REF='2661c7c0ef5c613e8f93c6e93b2e052399f0f854'
+FETCH_61_REVISION='2661c7c0ef5c613e8f93c6e93b2e052399f0f854'
+FETCH_61_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_62_METHOD='git'
+FETCH_62_SOURCE='62'
+FETCH_62_PATH='localsend-localsend'
+FETCH_62_URL='https://github.com/localsend/localsend.git'
+FETCH_62_REF='ff2995c9523c5fae407f7d444d0986b2c6ae568e'
+FETCH_62_REVISION='ff2995c9523c5fae407f7d444d0986b2c6ae568e'
+FETCH_62_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_63_METHOD='git'
+FETCH_63_SOURCE='63'
+FETCH_63_PATH='infiniflow-ragflow'
+FETCH_63_URL='https://github.com/infiniflow/ragflow.git'
+FETCH_63_REF='99110c2df0d4822bd819eda36e4d038c33391123'
+FETCH_63_REVISION='99110c2df0d4822bd819eda36e4d038c33391123'
+FETCH_63_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_64_METHOD='git'
+FETCH_64_SOURCE='64'
+FETCH_64_PATH='macrozheng-mall'
+FETCH_64_URL='https://github.com/macrozheng/mall.git'
+FETCH_64_REF='0504e86b1f1b6f1b8aa6a734d37a90fb67346be7'
+FETCH_64_REVISION='0504e86b1f1b6f1b8aa6a734d37a90fb67346be7'
+FETCH_64_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_65_METHOD='git'
+FETCH_65_SOURCE='65'
+FETCH_65_PATH='openhands-openhands'
+FETCH_65_URL='https://github.com/OpenHands/OpenHands.git'
+FETCH_65_REF='4470813ce58f5ac384e3d367d34518e10106526b'
+FETCH_65_REVISION='4470813ce58f5ac384e3d367d34518e10106526b'
+FETCH_65_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_66_METHOD='git'
+FETCH_66_SOURCE='66'
+FETCH_66_PATH='junegunn-fzf'
+FETCH_66_URL='https://github.com/junegunn/fzf.git'
+FETCH_66_REF='715d26fa3949c9a0f1e41fcbda5440f3ac338e51'
+FETCH_66_REVISION='715d26fa3949c9a0f1e41fcbda5440f3ac338e51'
+FETCH_66_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_67_METHOD='git'
+FETCH_67_SOURCE='67'
+FETCH_67_PATH='vitejs-vite'
+FETCH_67_URL='https://github.com/vitejs/vite.git'
+FETCH_67_REF='57fea001d154e7dd8d5d74d3082731f1dcfd31be'
+FETCH_67_REVISION='57fea001d154e7dd8d5d74d3082731f1dcfd31be'
+FETCH_67_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_68_METHOD='git'
+FETCH_68_SOURCE='68'
+FETCH_68_PATH='spring-projects-spring-boot'
+FETCH_68_URL='https://github.com/spring-projects/spring-boot.git'
+FETCH_68_REF='ee3c48d00ffa6efda14e730c02ba145dc15e0fe4'
+FETCH_68_REVISION='ee3c48d00ffa6efda14e730c02ba145dc15e0fe4'
+FETCH_68_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_69_METHOD='git'
+FETCH_69_SOURCE='69'
+FETCH_69_PATH='jesseduffield-lazygit'
+FETCH_69_URL='https://github.com/jesseduffield/lazygit.git'
+FETCH_69_REF='ddceff696286811d2adc02e27bad1b275b9b1c75'
+FETCH_69_REVISION='ddceff696286811d2adc02e27bad1b275b9b1c75'
+FETCH_69_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_70_METHOD='git'
+FETCH_70_SOURCE='70'
+FETCH_70_PATH='hoppscotch-hoppscotch'
+FETCH_70_URL='https://github.com/hoppscotch/hoppscotch.git'
+FETCH_70_REF='1acb8a3a7581e4db32ba0d529170c4669a2e1053'
+FETCH_70_REVISION='1acb8a3a7581e4db32ba0d529170c4669a2e1053'
+FETCH_70_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_71_METHOD='git'
+FETCH_71_SOURCE='71'
+FETCH_71_PATH='anuraghazra-github-readme-stats'
+FETCH_71_URL='https://github.com/anuraghazra/github-readme-stats.git'
+FETCH_71_REF='54a7985aeefda00d5eadb55b80c17c7f976c37d2'
+FETCH_71_REVISION='54a7985aeefda00d5eadb55b80c17c7f976c37d2'
+FETCH_71_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_72_METHOD='git'
+FETCH_72_SOURCE='72'
+FETCH_72_PATH='d2l-ai-d2l-zh'
+FETCH_72_URL='https://github.com/d2l-ai/d2l-zh.git'
+FETCH_72_REF='e6b18ccea71451a55fcd861d7b96fddf2587b09a'
+FETCH_72_REVISION='e6b18ccea71451a55fcd861d7b96fddf2587b09a'
+FETCH_72_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_73_METHOD='git'
+FETCH_73_SOURCE='73'
+FETCH_73_PATH='z4nzu-hackingtool'
+FETCH_73_URL='https://github.com/Z4nzu/hackingtool.git'
+FETCH_73_REF='9b92b6156ddc5ff87bf0fa592d81c333a88d1c78'
+FETCH_73_REVISION='9b92b6156ddc5ff87bf0fa592d81c333a88d1c78'
+FETCH_73_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_74_METHOD='git'
+FETCH_74_SOURCE='74'
+FETCH_74_PATH='coder-code-server'
+FETCH_74_URL='https://github.com/coder/code-server.git'
+FETCH_74_REF='313bf0359b4d391ba18f1fa131aad8a583bc2919'
+FETCH_74_REVISION='313bf0359b4d391ba18f1fa131aad8a583bc2919'
+FETCH_74_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_75_METHOD='git'
+FETCH_75_SOURCE='75'
+FETCH_75_PATH='nomic-ai-gpt4all'
+FETCH_75_URL='https://github.com/nomic-ai/gpt4all.git'
+FETCH_75_REF='b666d16db5aeab8b91aaf7963adcee9c643734d7'
+FETCH_75_REVISION='b666d16db5aeab8b91aaf7963adcee9c643734d7'
+FETCH_75_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_76_METHOD='git'
+FETCH_76_SOURCE='76'
+FETCH_76_PATH='unclecode-crawl4ai'
+FETCH_76_URL='https://github.com/unclecode/crawl4ai.git'
+FETCH_76_REF='7e801521428ee12509994d39151006f64055ebe3'
+FETCH_76_REVISION='7e801521428ee12509994d39151006f64055ebe3'
+FETCH_76_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_77_METHOD='git'
+FETCH_77_SOURCE='77'
+FETCH_77_PATH='nestjs-nest'
+FETCH_77_URL='https://github.com/nestjs/nest.git'
+FETCH_77_REF='c3bc75c973813969aa676793e20a7cba12a9daf5'
+FETCH_77_REVISION='c3bc75c973813969aa676793e20a7cba12a9daf5'
+FETCH_77_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_78_METHOD='git'
+FETCH_78_SOURCE='78'
+FETCH_78_PATH='tesseract-ocr-tesseract'
+FETCH_78_URL='https://github.com/tesseract-ocr/tesseract.git'
+FETCH_78_REF='64ed93b68c01f359d924fc1bfcf0d5931eb77211'
+FETCH_78_REVISION='64ed93b68c01f359d924fc1bfcf0d5931eb77211'
+FETCH_78_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_79_METHOD='git'
+FETCH_79_SOURCE='79'
+FETCH_79_PATH='typicode-json-server'
+FETCH_79_URL='https://github.com/typicode/json-server.git'
+FETCH_79_REF='89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea'
+FETCH_79_REVISION='89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea'
+FETCH_79_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_80_METHOD='git'
+FETCH_80_SOURCE='80'
+FETCH_80_PATH='ocornut-imgui'
+FETCH_80_URL='https://github.com/ocornut/imgui.git'
+FETCH_80_REF='46d39d56febc2a00bdd2270dc88c8a13f2a0441a'
+FETCH_80_REVISION='46d39d56febc2a00bdd2270dc88c8a13f2a0441a'
+FETCH_80_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_81_METHOD='git'
+FETCH_81_SOURCE='81'
+FETCH_81_PATH='caddyserver-caddy'
+FETCH_81_URL='https://github.com/caddyserver/caddy.git'
+FETCH_81_REF='64b64c61ebc40ea37280b2baa1a7a492cc1156c5'
+FETCH_81_REVISION='64b64c61ebc40ea37280b2baa1a7a492cc1156c5'
+FETCH_81_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_82_METHOD='git'
+FETCH_82_SOURCE='82'
+FETCH_82_PATH='apache-superset'
+FETCH_82_URL='https://github.com/apache/superset.git'
+FETCH_82_REF='3b164e4270860ac07223d4df1a60ca7b56312362'
+FETCH_82_REVISION='3b164e4270860ac07223d4df1a60ca7b56312362'
+FETCH_82_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_83_METHOD='git'
+FETCH_83_SOURCE='83'
+FETCH_83_PATH='hiyouga-llamafactory'
+FETCH_83_URL='https://github.com/hiyouga/LlamaFactory.git'
+FETCH_83_REF='887b850813d80a8d893ec56703d5b3a0eec46de6'
+FETCH_83_REVISION='887b850813d80a8d893ec56703d5b3a0eec46de6'
+FETCH_83_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_84_METHOD='git'
+FETCH_84_SOURCE='84'
+FETCH_84_PATH='abi-screenshot-to-code'
+FETCH_84_URL='https://github.com/abi/screenshot-to-code.git'
+FETCH_84_REF='d026163f586dfa8c5c10d28c36edd59a9d3b0e88'
+FETCH_84_REVISION='d026163f586dfa8c5c10d28c36edd59a9d3b0e88'
+FETCH_84_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_85_METHOD='git'
+FETCH_85_SOURCE='85'
+FETCH_85_PATH='unionlabs-union'
+FETCH_85_URL='https://github.com/unionlabs/union.git'
+FETCH_85_REF='031785bb6dc6b957c624e62bc64c184409c97d7b'
+FETCH_85_REVISION='031785bb6dc6b957c624e62bc64c184409c97d7b'
+FETCH_85_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_86_METHOD='git'
+FETCH_86_SOURCE='86'
+FETCH_86_PATH='eugeny-tabby'
+FETCH_86_URL='https://github.com/Eugeny/tabby.git'
+FETCH_86_REF='14e2d60b9b6dee84a53c37f05eefeb803787de04'
+FETCH_86_REVISION='14e2d60b9b6dee84a53c37f05eefeb803787de04'
+FETCH_86_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_87_METHOD='git'
+FETCH_87_SOURCE='87'
+FETCH_87_PATH='d4vinci-scrapling'
+FETCH_87_URL='https://github.com/D4Vinci/Scrapling.git'
+FETCH_87_REF='39847bd2da41f8e089593f91016d81d3a4771e6f'
+FETCH_87_REVISION='39847bd2da41f8e089593f91016d81d3a4771e6f'
+FETCH_87_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_88_METHOD='git'
+FETCH_88_SOURCE='88'
+FETCH_88_PATH='pallets-flask'
+FETCH_88_URL='https://github.com/pallets/flask.git'
+FETCH_88_REF='6a2f545bfd8ed31e19066a299296917e034aca58'
+FETCH_88_REVISION='6a2f545bfd8ed31e19066a299296917e034aca58'
+FETCH_88_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_89_METHOD='git'
+FETCH_89_SOURCE='89'
+FETCH_89_PATH='nationalsecurityagency-ghidra'
+FETCH_89_URL='https://github.com/NationalSecurityAgency/ghidra.git'
+FETCH_89_REF='291d5c4e77735b0b4b40613d952ecdd157ef750b'
+FETCH_89_REVISION='291d5c4e77735b0b4b40613d952ecdd157ef750b'
+FETCH_89_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_90_METHOD='git'
+FETCH_90_SOURCE='90'
+FETCH_90_PATH='moby-moby'
+FETCH_90_URL='https://github.com/moby/moby.git'
+FETCH_90_REF='e456107947c1d554ae1ad0645ed6e13978aa1c2d'
+FETCH_90_REVISION='e456107947c1d554ae1ad0645ed6e13978aa1c2d'
+FETCH_90_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_91_METHOD='git'
+FETCH_91_SOURCE='91'
+FETCH_91_PATH='swiftlang-swift'
+FETCH_91_URL='https://github.com/swiftlang/swift.git'
+FETCH_91_REF='e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7'
+FETCH_91_REVISION='e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7'
+FETCH_91_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_92_METHOD='git'
+FETCH_92_SOURCE='92'
+FETCH_92_PATH='unslothai-unsloth'
+FETCH_92_URL='https://github.com/unslothai/unsloth.git'
+FETCH_92_REF='2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5'
+FETCH_92_REVISION='2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5'
+FETCH_92_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_93_METHOD='git'
+FETCH_93_SOURCE='93'
+FETCH_93_PATH='openinterpreter-openinterpreter'
+FETCH_93_URL='https://github.com/openinterpreter/openinterpreter.git'
+FETCH_93_REF='984acc698cd038885ecb0b82721402b01e11a5ad'
+FETCH_93_REVISION='984acc698cd038885ecb0b82721402b01e11a5ad'
+FETCH_93_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_94_METHOD='git'
+FETCH_94_SOURCE='94'
+FETCH_94_PATH='apache-echarts'
+FETCH_94_URL='https://github.com/apache/echarts.git'
+FETCH_94_REF='30076aedcd7b7f65d8dd8e8d9ece46ce778133a3'
+FETCH_94_REVISION='30076aedcd7b7f65d8dd8e8d9ece46ce778133a3'
+FETCH_94_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_95_METHOD='git'
+FETCH_95_SOURCE='95'
+FETCH_95_PATH='cline-cline'
+FETCH_95_URL='https://github.com/cline/cline.git'
+FETCH_95_REF='45403900964a74aa5ae3683a0e61b535600b97e0'
+FETCH_95_REVISION='45403900964a74aa5ae3683a0e61b535600b97e0'
+FETCH_95_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_96_METHOD='git'
+FETCH_96_SOURCE='96'
+FETCH_96_PATH='prometheus-prometheus'
+FETCH_96_URL='https://github.com/prometheus/prometheus.git'
+FETCH_96_REF='5542b00b9d5933e29d7b597705c718b764bcc1cb'
+FETCH_96_REVISION='5542b00b9d5933e29d7b597705c718b764bcc1cb'
+FETCH_96_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_97_METHOD='git'
+FETCH_97_SOURCE='97'
+FETCH_97_PATH='alacritty-alacritty'
+FETCH_97_URL='https://github.com/alacritty/alacritty.git'
+FETCH_97_REF='1b2b36a64e88068ad02c95fad00ee2fad31c00bf'
+FETCH_97_REVISION='1b2b36a64e88068ad02c95fad00ee2fad31c00bf'
+FETCH_97_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_98_METHOD='git'
+FETCH_98_SOURCE='98'
+FETCH_98_PATH='ladybirdbrowser-ladybird'
+FETCH_98_URL='https://github.com/LadybirdBrowser/ladybird.git'
+FETCH_98_REF='8d225a329ee852510b4522e04d357c6fdd51d7f7'
+FETCH_98_REVISION='8d225a329ee852510b4522e04d357c6fdd51d7f7'
+FETCH_98_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_99_METHOD='git'
+FETCH_99_SOURCE='99'
+FETCH_99_PATH='scrapy-scrapy'
+FETCH_99_URL='https://github.com/scrapy/scrapy.git'
+FETCH_99_REF='1bd839b57ddb614664a179b6213f49579bdfd3da'
+FETCH_99_REVISION='1bd839b57ddb614664a179b6213f49579bdfd3da'
+FETCH_99_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_100_METHOD='git'
+FETCH_100_SOURCE='100'
+FETCH_100_PATH='mem0ai-mem0'
+FETCH_100_URL='https://github.com/mem0ai/mem0.git'
+FETCH_100_REF='4debc58a83377b18be81ae1e5969a300736b2fac'
+FETCH_100_REVISION='4debc58a83377b18be81ae1e5969a300736b2fac'
+FETCH_100_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_101_METHOD='git'
+FETCH_101_SOURCE='101'
+FETCH_101_PATH='jgraph-drawio-desktop'
+FETCH_101_URL='https://github.com/jgraph/drawio-desktop.git'
+FETCH_101_REF='403a2cb79f431db13a395f033b67eeebc1631754'
+FETCH_101_REVISION='403a2cb79f431db13a395f033b67eeebc1631754'
+FETCH_101_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_102_METHOD='git'
+FETCH_102_SOURCE='102'
+FETCH_102_PATH='fuellabs-sway'
+FETCH_102_URL='https://github.com/FuelLabs/sway.git'
+FETCH_102_REF='91be236f71fbb541ee6639ef0d955b2b8cf0a658'
+FETCH_102_REVISION='91be236f71fbb541ee6639ef0d955b2b8cf0a658'
+FETCH_102_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_103_METHOD='git'
+FETCH_103_SOURCE='103'
+FETCH_103_PATH='coollabsio-coolify'
+FETCH_103_URL='https://github.com/coollabsio/coolify.git'
+FETCH_103_REF='940571e16f5a0e6c73cf56b4bb1184bed3d60623'
+FETCH_103_REVISION='940571e16f5a0e6c73cf56b4bb1184bed3d60623'
+FETCH_103_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_104_METHOD='git'
+FETCH_104_SOURCE='104'
+FETCH_104_PATH='spring-projects-spring-framework'
+FETCH_104_URL='https://github.com/spring-projects/spring-framework.git'
+FETCH_104_REF='da4b31c82b567a0531c6980b5172cba1fc7e6ed5'
+FETCH_104_REVISION='da4b31c82b567a0531c6980b5172cba1fc7e6ed5'
+FETCH_104_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_105_METHOD='git'
+FETCH_105_SOURCE='105'
+FETCH_105_PATH='sharkdp-bat'
+FETCH_105_URL='https://github.com/sharkdp/bat.git'
+FETCH_105_REF='2ba8db9c14e5794572f5ea338c2b90404c9769cb'
+FETCH_105_REVISION='2ba8db9c14e5794572f5ea338c2b90404c9769cb'
+FETCH_105_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_106_METHOD='git'
+FETCH_106_SOURCE='106'
+FETCH_106_PATH='filosottile-mkcert'
+FETCH_106_URL='https://github.com/FiloSottile/mkcert.git'
+FETCH_106_REF='1c1dc4ed27ed5936046b6398d39cab4d657a2d8e'
+FETCH_106_REVISION='1c1dc4ed27ed5936046b6398d39cab4d657a2d8e'
+FETCH_106_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_107_METHOD='git'
+FETCH_107_SOURCE='107'
+FETCH_107_PATH='appwrite-appwrite'
+FETCH_107_URL='https://github.com/appwrite/appwrite.git'
+FETCH_107_REF='5d1e08464b2e5785cb21c1eef4604f904788fbb5'
+FETCH_107_REVISION='5d1e08464b2e5785cb21c1eef4604f904788fbb5'
+FETCH_107_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_108_METHOD='git'
+FETCH_108_SOURCE='108'
+FETCH_108_PATH='typst-typst'
+FETCH_108_URL='https://github.com/typst/typst.git'
+FETCH_108_REF='a51e028041cac426f97d34335bb01d8f1d8e5e8f'
+FETCH_108_REVISION='a51e028041cac426f97d34335bb01d8f1d8e5e8f'
+FETCH_108_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_109_METHOD='git'
+FETCH_109_SOURCE='109'
+FETCH_109_PATH='jingyaogong-minimind'
+FETCH_109_URL='https://github.com/jingyaogong/minimind.git'
+FETCH_109_REF='393e387e9ad99f0f04c296e4c5e7353f4444629f'
+FETCH_109_REVISION='393e387e9ad99f0f04c296e4c5e7353f4444629f'
+FETCH_109_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_110_METHOD='git'
+FETCH_110_SOURCE='110'
+FETCH_110_PATH='psf-requests'
+FETCH_110_URL='https://github.com/psf/requests.git'
+FETCH_110_REF='1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e'
+FETCH_110_REVISION='1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e'
+FETCH_110_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_111_METHOD='git'
+FETCH_111_SOURCE='111'
+FETCH_111_PATH='mozilla-pdf.js'
+FETCH_111_URL='https://github.com/mozilla/pdf.js.git'
+FETCH_111_REF='022e9588728346cde58088a9925120293af1c8f4'
+FETCH_111_REVISION='022e9588728346cde58088a9925120293af1c8f4'
+FETCH_111_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_112_METHOD='git'
+FETCH_112_SOURCE='112'
+FETCH_112_PATH='lyswhut-lx-music-desktop'
+FETCH_112_URL='https://github.com/lyswhut/lx-music-desktop.git'
+FETCH_112_REF='9c364b482e5621a1d38b50e8610d2fb974457e6e'
+FETCH_112_REVISION='9c364b482e5621a1d38b50e8610d2fb974457e6e'
+FETCH_112_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_113_METHOD='git'
+FETCH_113_SOURCE='113'
+FETCH_113_PATH='aaif-goose-goose'
+FETCH_113_URL='https://github.com/aaif-goose/goose.git'
+FETCH_113_REF='064244e6bddf641876676f054a006b7da1da5182'
+FETCH_113_REVISION='064244e6bddf641876676f054a006b7da1da5182'
+FETCH_113_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_114_METHOD='git'
+FETCH_114_SOURCE='114'
+FETCH_114_PATH='xai-org-grok-1'
+FETCH_114_URL='https://github.com/xai-org/grok-1.git'
+FETCH_114_REF='7050ed204b8206bb8645c7b7bbef7252f79561b0'
+FETCH_114_REVISION='7050ed204b8206bb8645c7b7bbef7252f79561b0'
+FETCH_114_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_115_METHOD='git'
+FETCH_115_SOURCE='115'
+FETCH_115_PATH='etcd-io-etcd'
+FETCH_115_URL='https://github.com/etcd-io/etcd.git'
+FETCH_115_REF='5b75ac62cf042a185e902530c25fd3d59c095232'
+FETCH_115_REVISION='5b75ac62cf042a185e902530c25fd3d59c095232'
+FETCH_115_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_116_METHOD='git'
+FETCH_116_SOURCE='116'
+FETCH_116_PATH='google-guava'
+FETCH_116_URL='https://github.com/google/guava.git'
+FETCH_116_REF='0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a'
+FETCH_116_REVISION='0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a'
+FETCH_116_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_117_METHOD='git'
+FETCH_117_SOURCE='117'
+FETCH_117_PATH='dbeaver-dbeaver'
+FETCH_117_URL='https://github.com/dbeaver/dbeaver.git'
+FETCH_117_REF='b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0'
+FETCH_117_REVISION='b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0'
+FETCH_117_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_118_METHOD='git'
+FETCH_118_SOURCE='118'
+FETCH_118_PATH='skylot-jadx'
+FETCH_118_URL='https://github.com/skylot/jadx.git'
+FETCH_118_REF='e738a26571d02919f01df40de93bc9a44dee4e18'
+FETCH_118_REVISION='e738a26571d02919f01df40de93bc9a44dee4e18'
+FETCH_118_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_119_METHOD='git'
+FETCH_119_SOURCE='119'
+FETCH_119_PATH='pandas-dev-pandas'
+FETCH_119_URL='https://github.com/pandas-dev/pandas.git'
+FETCH_119_REF='ff1d39bbdf4eda26de2285cf836104f9885b0826'
+FETCH_119_REVISION='ff1d39bbdf4eda26de2285cf836104f9885b0826'
+FETCH_119_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_120_METHOD='git'
+FETCH_120_SOURCE='120'
+FETCH_120_PATH='homebrew-brew'
+FETCH_120_URL='https://github.com/Homebrew/brew.git'
+FETCH_120_REF='749b3557ccebae4ecd79f17aa2527d2f68acc739'
+FETCH_120_REVISION='749b3557ccebae4ecd79f17aa2527d2f68acc739'
+FETCH_120_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_121_METHOD='git'
+FETCH_121_SOURCE='121'
+FETCH_121_PATH='reactivex-rxjava'
+FETCH_121_URL='https://github.com/ReactiveX/RxJava.git'
+FETCH_121_REF='8f7b841984133e2a3ba88630779af9e66248ff95'
+FETCH_121_REVISION='8f7b841984133e2a3ba88630779af9e66248ff95'
+FETCH_121_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_122_METHOD='git'
+FETCH_122_SOURCE='122'
+FETCH_122_PATH='aider-ai-aider'
+FETCH_122_URL='https://github.com/Aider-AI/aider.git'
+FETCH_122_REF='5dc9490bb35f9729ef2c95d00a19ccd30c26339c'
+FETCH_122_REVISION='5dc9490bb35f9729ef2c95d00a19ccd30c26339c'
+FETCH_122_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_123_METHOD='git'
+FETCH_123_SOURCE='123'
+FETCH_123_PATH='prisma-prisma'
+FETCH_123_URL='https://github.com/prisma/prisma.git'
+FETCH_123_REF='d55cd02911b0c6675bedaad90cc0e2727d5787ce'
+FETCH_123_REVISION='d55cd02911b0c6675bedaad90cc0e2727d5787ce'
+FETCH_123_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_124_METHOD='git'
+FETCH_124_SOURCE='124'
+FETCH_124_PATH='bevyengine-bevy'
+FETCH_124_URL='https://github.com/bevyengine/bevy.git'
+FETCH_124_REF='e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59'
+FETCH_124_REVISION='e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59'
+FETCH_124_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_125_METHOD='git'
+FETCH_125_SOURCE='125'
+FETCH_125_PATH='slab-quill'
+FETCH_125_URL='https://github.com/slab/quill.git'
+FETCH_125_REF='539cbffd0a13b18e9c65eb84dd35e6596e403158'
+FETCH_125_REVISION='539cbffd0a13b18e9c65eb84dd35e6596e403158'
+FETCH_125_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_126_METHOD='git'
+FETCH_126_SOURCE='126'
+FETCH_126_PATH='lysine-dev-okhttp'
+FETCH_126_URL='https://github.com/lysine-dev/okhttp.git'
+FETCH_126_REF='fc9a83dd580f06c52beea5207ffca1a7d99df24e'
+FETCH_126_REVISION='fc9a83dd580f06c52beea5207ffca1a7d99df24e'
+FETCH_126_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_127_METHOD='git'
+FETCH_127_SOURCE='127'
+FETCH_127_PATH='exo-explore-exo'
+FETCH_127_URL='https://github.com/exo-explore/exo.git'
+FETCH_127_REF='b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa'
+FETCH_127_REVISION='b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa'
+FETCH_127_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_128_METHOD='git'
+FETCH_128_SOURCE='128'
+FETCH_128_PATH='apache-airflow'
+FETCH_128_URL='https://github.com/apache/airflow.git'
+FETCH_128_REF='1f529f3837ab5e38ddd27ea355a7fbfddd392573'
+FETCH_128_REVISION='1f529f3837ab5e38ddd27ea355a7fbfddd392573'
+FETCH_128_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_129_METHOD='git'
+FETCH_129_SOURCE='129'
+FETCH_129_PATH='android-architecture-samples'
+FETCH_129_URL='https://github.com/android/architecture-samples.git'
+FETCH_129_REF='ee66e1526b84c026615df032c705842b7d2a521f'
+FETCH_129_REVISION='ee66e1526b84c026615df032c705842b7d2a521f'
+FETCH_129_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_130_METHOD='git'
+FETCH_130_SOURCE='130'
+FETCH_130_PATH='google-zx'
+FETCH_130_URL='https://github.com/google/zx.git'
+FETCH_130_REF='00a2c484e219c2e84bfc3a199febf7fbce2cfbf4'
+FETCH_130_REVISION='00a2c484e219c2e84bfc3a199febf7fbce2cfbf4'
+FETCH_130_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_131_METHOD='git'
+FETCH_131_SOURCE='131'
+FETCH_131_PATH='milvus-io-milvus'
+FETCH_131_URL='https://github.com/milvus-io/milvus.git'
+FETCH_131_REF='025d2e3e75d38f4edd8d5b8536d514e777a47559'
+FETCH_131_REVISION='025d2e3e75d38f4edd8d5b8536d514e777a47559'
+FETCH_131_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_132_METHOD='git'
+FETCH_132_SOURCE='132'
+FETCH_132_PATH='streamlit-streamlit'
+FETCH_132_URL='https://github.com/streamlit/streamlit.git'
+FETCH_132_REF='97eada51b426a81884955906d75407d1270545f9'
+FETCH_132_REVISION='97eada51b426a81884955906d75407d1270545f9'
+FETCH_132_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_133_METHOD='git'
+FETCH_133_SOURCE='133'
+FETCH_133_PATH='leaflet-leaflet'
+FETCH_133_URL='https://github.com/Leaflet/Leaflet.git'
+FETCH_133_REF='c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9'
+FETCH_133_REVISION='c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9'
+FETCH_133_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_134_METHOD='git'
+FETCH_134_SOURCE='134'
+FETCH_134_PATH='grpc-grpc'
+FETCH_134_URL='https://github.com/grpc/grpc.git'
+FETCH_134_REF='b6449efc3e9968eb022a2cf7a043b4317adde589'
+FETCH_134_REVISION='b6449efc3e9968eb022a2cf7a043b4317adde589'
+FETCH_134_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_135_METHOD='git'
+FETCH_135_SOURCE='135'
+FETCH_135_PATH='spf13-cobra'
+FETCH_135_URL='https://github.com/spf13/cobra.git'
+FETCH_135_REF='adbc8813901bba65827259daa8e22ff94ec1f30e'
+FETCH_135_REVISION='adbc8813901bba65827259daa8e22ff94ec1f30e'
+FETCH_135_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_136_METHOD='git'
+FETCH_136_SOURCE='136'
+FETCH_136_PATH='aykutsarac-jsoncrack.com'
+FETCH_136_URL='https://github.com/AykutSarac/jsoncrack.com.git'
+FETCH_136_REF='3c9af69e23c635356293b6b28cf4cd0af10d1059'
+FETCH_136_REVISION='3c9af69e23c635356293b6b28cf4cd0af10d1059'
+FETCH_136_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_137_METHOD='git'
+FETCH_137_SOURCE='137'
+FETCH_137_PATH='sharkdp-fd'
+FETCH_137_URL='https://github.com/sharkdp/fd.git'
+FETCH_137_REF='0f1f9676dcf7bc5af814469a74a0d878449cde80'
+FETCH_137_REVISION='0f1f9676dcf7bc5af814469a74a0d878449cde80'
+FETCH_137_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_138_METHOD='git'
+FETCH_138_SOURCE='138'
+FETCH_138_PATH='kong-kong'
+FETCH_138_URL='https://github.com/Kong/kong.git'
+FETCH_138_REF='fa9c3b695af72668f135cb17bbb84a8b4dc511d2'
+FETCH_138_REVISION='fa9c3b695af72668f135cb17bbb84a8b4dc511d2'
+FETCH_138_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_139_METHOD='git'
+FETCH_139_SOURCE='139'
+FETCH_139_PATH='lysine-dev-retrofit'
+FETCH_139_URL='https://github.com/lysine-dev/retrofit.git'
+FETCH_139_REF='d0b112dad073b7fe49c953ebc46ff1b424cb1e51'
+FETCH_139_REVISION='d0b112dad073b7fe49c953ebc46ff1b424cb1e51'
+FETCH_139_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_140_METHOD='git'
+FETCH_140_SOURCE='140'
+FETCH_140_PATH='apache-spark'
+FETCH_140_URL='https://github.com/apache/spark.git'
+FETCH_140_REF='f896d8d0d40a859f0c40ef99dac3fb2bba5035e7'
+FETCH_140_REVISION='f896d8d0d40a859f0c40ef99dac3fb2bba5035e7'
+FETCH_140_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_141_METHOD='git'
+FETCH_141_SOURCE='141'
+FETCH_141_PATH='ray-project-ray'
+FETCH_141_URL='https://github.com/ray-project/ray.git'
+FETCH_141_REF='12436ea75080433a9134cfa362b3dbb98fe9e73f'
+FETCH_141_REVISION='12436ea75080433a9134cfa362b3dbb98fe9e73f'
+FETCH_141_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_142_METHOD='git'
+FETCH_142_SOURCE='142'
+FETCH_142_PATH='juspay-hyperswitch'
+FETCH_142_URL='https://github.com/juspay/hyperswitch.git'
+FETCH_142_REF='77c45d76b2b70a5b127d11a6b6755d2793b021f9'
+FETCH_142_REVISION='77c45d76b2b70a5b127d11a6b6755d2793b021f9'
+FETCH_142_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_143_METHOD='git'
+FETCH_143_SOURCE='143'
+FETCH_143_PATH='fuellabs-fuels-rs'
+FETCH_143_URL='https://github.com/FuelLabs/fuels-rs.git'
+FETCH_143_REF='d9a250a51818dda64bfeb5ef7cc19cf27bdcd623'
+FETCH_143_REVISION='d9a250a51818dda64bfeb5ef7cc19cf27bdcd623'
+FETCH_143_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_144_METHOD='git'
+FETCH_144_SOURCE='144'
+FETCH_144_PATH='juanfont-headscale'
+FETCH_144_URL='https://github.com/juanfont/headscale.git'
+FETCH_144_REF='565fd254d06c4c7f9a8cad1714a43445c79ba420'
+FETCH_144_REVISION='565fd254d06c4c7f9a8cad1714a43445c79ba420'
+FETCH_144_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_145_METHOD='git'
+FETCH_145_SOURCE='145'
+FETCH_145_PATH='php-php-src'
+FETCH_145_URL='https://github.com/php/php-src.git'
+FETCH_145_REF='b9b44872d72dc66bcea72232a2bc79a3b63a0c3b'
+FETCH_145_REVISION='b9b44872d72dc66bcea72232a2bc79a3b63a0c3b'
+FETCH_145_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_146_METHOD='git'
+FETCH_146_SOURCE='146'
+FETCH_146_PATH='google-leveldb'
+FETCH_146_URL='https://github.com/google/leveldb.git'
+FETCH_146_REF='7ee830d02b623e8ffe0b95d59a74db1e58da04c5'
+FETCH_146_REVISION='7ee830d02b623e8ffe0b95d59a74db1e58da04c5'
+FETCH_146_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_147_METHOD='git'
+FETCH_147_SOURCE='147'
+FETCH_147_PATH='google-googletest'
+FETCH_147_URL='https://github.com/google/googletest.git'
+FETCH_147_REF='d89aac5f0dd4021198d903d39de16f896726de21'
+FETCH_147_REVISION='d89aac5f0dd4021198d903d39de16f896726de21'
+FETCH_147_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_148_METHOD='git'
+FETCH_148_SOURCE='148'
+FETCH_148_PATH='httpie-cli'
+FETCH_148_URL='https://github.com/httpie/cli.git'
+FETCH_148_REF='5b604c37c6c67e18e7c3e9aee6c88a8c22b98345'
+FETCH_148_REVISION='5b604c37c6c67e18e7c3e9aee6c88a8c22b98345'
+FETCH_148_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_149_METHOD='git'
+FETCH_149_SOURCE='149'
+FETCH_149_PATH='hyprwm-hyprland'
+FETCH_149_URL='https://github.com/hyprwm/Hyprland.git'
+FETCH_149_REF='5dee44a72476be67789f64e6c6bffae0df28c53a'
+FETCH_149_REVISION='5dee44a72476be67789f64e6c6bffae0df28c53a'
+FETCH_149_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_150_METHOD='git'
+FETCH_150_SOURCE='150'
+FETCH_150_PATH='xinntao-real-esrgan'
+FETCH_150_URL='https://github.com/xinntao/Real-ESRGAN.git'
+FETCH_150_REF='a4abfb2979a7bbff3f69f58f58ae324608821e27'
+FETCH_150_REVISION='a4abfb2979a7bbff3f69f58f58ae324608821e27'
+FETCH_150_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_151_METHOD='git'
+FETCH_151_SOURCE='151'
+FETCH_151_PATH='restic-restic'
+FETCH_151_URL='https://github.com/restic/restic.git'
+FETCH_151_REF='a80be1478a4c537f8396e0db2b05120aa78f11e0'
+FETCH_151_REVISION='a80be1478a4c537f8396e0db2b05120aa78f11e0'
+FETCH_151_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_152_METHOD='git'
+FETCH_152_SOURCE='152'
+FETCH_152_PATH='tailscale-tailscale'
+FETCH_152_URL='https://github.com/tailscale/tailscale.git'
+FETCH_152_REF='e592a0c36398be8a435d1cc9e039c732c540051c'
+FETCH_152_REVISION='e592a0c36398be8a435d1cc9e039c732c540051c'
+FETCH_152_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_153_METHOD='git'
+FETCH_153_SOURCE='153'
+FETCH_153_PATH='serenityos-serenity'
+FETCH_153_URL='https://github.com/SerenityOS/serenity.git'
+FETCH_153_REF='93af8693d6868799635ff0bee2b7ca30746f39a9'
+FETCH_153_REVISION='93af8693d6868799635ff0bee2b7ca30746f39a9'
+FETCH_153_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_154_METHOD='git'
+FETCH_154_SOURCE='154'
+FETCH_154_PATH='nginx-nginx'
+FETCH_154_URL='https://github.com/nginx/nginx.git'
+FETCH_154_REF='dea68dbf126f40a8acd09bac885a955be459162e'
+FETCH_154_REVISION='dea68dbf126f40a8acd09bac885a955be459162e'
+FETCH_154_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_155_METHOD='git'
+FETCH_155_SOURCE='155'
+FETCH_155_PATH='getredash-redash'
+FETCH_155_URL='https://github.com/getredash/redash.git'
+FETCH_155_REF='2daefd2f78b270a6a566a86251d8bbd841d394d3'
+FETCH_155_REVISION='2daefd2f78b270a6a566a86251d8bbd841d394d3'
+FETCH_155_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_156_METHOD='git'
+FETCH_156_SOURCE='156'
+FETCH_156_PATH='fyne-io-fyne'
+FETCH_156_URL='https://github.com/fyne-io/fyne.git'
+FETCH_156_REF='57f5b07179b833e781522f8a32c160312d94ede1'
+FETCH_156_REVISION='57f5b07179b833e781522f8a32c160312d94ede1'
+FETCH_156_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_157_METHOD='git'
+FETCH_157_SOURCE='157'
+FETCH_157_PATH='pppscn-smsforwarder'
+FETCH_157_URL='https://github.com/pppscn/SmsForwarder.git'
+FETCH_157_REF='ce931a03739a6a2b0dfc83161bf812a94fd5e45e'
+FETCH_157_REVISION='ce931a03739a6a2b0dfc83161bf812a94fd5e45e'
+FETCH_157_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_158_METHOD='git'
+FETCH_158_SOURCE='158'
+FETCH_158_PATH='valkey-io-valkey'
+FETCH_158_URL='https://github.com/valkey-io/valkey.git'
+FETCH_158_REF='2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1'
+FETCH_158_REVISION='2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1'
+FETCH_158_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_159_METHOD='git'
+FETCH_159_SOURCE='159'
+FETCH_159_PATH='kataras-iris'
+FETCH_159_URL='https://github.com/kataras/iris.git'
+FETCH_159_REF='7bedaf55a0b64bbb2248a5845a2c60d81a30996a'
+FETCH_159_REVISION='7bedaf55a0b64bbb2248a5845a2c60d81a30996a'
+FETCH_159_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_160_METHOD='git'
+FETCH_160_SOURCE='160'
+FETCH_160_PATH='highlightjs-highlight.js'
+FETCH_160_URL='https://github.com/highlightjs/highlight.js.git'
+FETCH_160_REF='4d4268d701e30b0954149e9eb3bc9c4d9e15d550'
+FETCH_160_REVISION='4d4268d701e30b0954149e9eb3bc9c4d9e15d550'
+FETCH_160_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_161_METHOD='git'
+FETCH_161_SOURCE='161'
+FETCH_161_PATH='copy-v86'
+FETCH_161_URL='https://github.com/copy/v86.git'
+FETCH_161_REF='6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6'
+FETCH_161_REVISION='6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6'
+FETCH_161_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_162_METHOD='git'
+FETCH_162_SOURCE='162'
+FETCH_162_PATH='filosottile-age'
+FETCH_162_URL='https://github.com/FiloSottile/age.git'
+FETCH_162_REF='706dfc1e799a03443ae46023502bd88d4e9e324f'
+FETCH_162_REVISION='706dfc1e799a03443ae46023502bd88d4e9e324f'
+FETCH_162_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_163_METHOD='git'
+FETCH_163_SOURCE='163'
+FETCH_163_PATH='zsh-users-zsh-syntax-highlighting'
+FETCH_163_URL='https://github.com/zsh-users/zsh-syntax-highlighting.git'
+FETCH_163_REF='c4d95591843d49838b7ad30081e7aba3135a6703'
+FETCH_163_REVISION='c4d95591843d49838b7ad30081e7aba3135a6703'
+FETCH_163_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_164_METHOD='git'
+FETCH_164_SOURCE='164'
+FETCH_164_PATH='redis-go-redis'
+FETCH_164_URL='https://github.com/redis/go-redis.git'
+FETCH_164_REF='36d97525cd8076aed67cddf54778e9ea84550929'
+FETCH_164_REVISION='36d97525cd8076aed67cddf54778e9ea84550929'
+FETCH_164_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_165_METHOD='git'
+FETCH_165_SOURCE='165'
+FETCH_165_PATH='homebrew-homebrew-cask'
+FETCH_165_URL='https://github.com/Homebrew/homebrew-cask.git'
+FETCH_165_REF='a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b'
+FETCH_165_REVISION='a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b'
+FETCH_165_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_166_METHOD='git'
+FETCH_166_SOURCE='166'
+FETCH_166_PATH='gorilla-mux'
+FETCH_166_URL='https://github.com/gorilla/mux.git'
+FETCH_166_REF='db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265'
+FETCH_166_REVISION='db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265'
+FETCH_166_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_167_METHOD='git'
+FETCH_167_SOURCE='167'
+FETCH_167_PATH='jarun-nnn'
+FETCH_167_URL='https://github.com/jarun/nnn.git'
+FETCH_167_REF='53fdae65eef6cb35afaf1e1c2abef3242f48153b'
+FETCH_167_REVISION='53fdae65eef6cb35afaf1e1c2abef3242f48153b'
+FETCH_167_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_168_METHOD='git'
+FETCH_168_SOURCE='168'
+FETCH_168_PATH='lit-lit'
+FETCH_168_URL='https://github.com/lit/lit.git'
+FETCH_168_REF='c42ee1e96b8fd61f7256f61d715daef572e76e52'
+FETCH_168_REVISION='c42ee1e96b8fd61f7256f61d715daef572e76e52'
+FETCH_168_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_169_METHOD='git'
+FETCH_169_SOURCE='169'
+FETCH_169_PATH='qax-os-excelize'
+FETCH_169_URL='https://github.com/qax-os/excelize.git'
+FETCH_169_REF='a54c578af309fa81f448143ed2b7a91192cc58a7'
+FETCH_169_REVISION='a54c578af309fa81f448143ed2b7a91192cc58a7'
+FETCH_169_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_170_METHOD='git'
+FETCH_170_SOURCE='170'
+FETCH_170_PATH='motdotla-dotenv'
+FETCH_170_URL='https://github.com/motdotla/dotenv.git'
+FETCH_170_REF='2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358'
+FETCH_170_REVISION='2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358'
+FETCH_170_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_171_METHOD='git'
+FETCH_171_SOURCE='171'
+FETCH_171_PATH='bokeh-bokeh'
+FETCH_171_URL='https://github.com/bokeh/bokeh.git'
+FETCH_171_REF='681880b19108a37e159b7a3d185611f04112c47b'
+FETCH_171_REVISION='681880b19108a37e159b7a3d185611f04112c47b'
+FETCH_171_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_172_METHOD='git'
+FETCH_172_SOURCE='172'
+FETCH_172_PATH='bradlarson-gpuimage'
+FETCH_172_URL='https://github.com/BradLarson/GPUImage.git'
+FETCH_172_REF='167b0389bc6e9dc4bb0121550f91d8d5d6412c53'
+FETCH_172_REVISION='167b0389bc6e9dc4bb0121550f91d8d5d6412c53'
+FETCH_172_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_173_METHOD='git'
+FETCH_173_SOURCE='173'
+FETCH_173_PATH='sebastianbergmann-phpunit'
+FETCH_173_URL='https://github.com/sebastianbergmann/phpunit.git'
+FETCH_173_REF='6917e76ff5762f4b70203b58608f6bba360cc2c2'
+FETCH_173_REVISION='6917e76ff5762f4b70203b58608f6bba360cc2c2'
+FETCH_173_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_174_METHOD='git'
+FETCH_174_SOURCE='174'
+FETCH_174_PATH='grpc-ecosystem-grpc-gateway'
+FETCH_174_URL='https://github.com/grpc-ecosystem/grpc-gateway.git'
+FETCH_174_REF='c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be'
+FETCH_174_REVISION='c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be'
+FETCH_174_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_175_METHOD='git'
+FETCH_175_SOURCE='175'
+FETCH_175_PATH='antlr-antlr4'
+FETCH_175_URL='https://github.com/antlr/antlr4.git'
+FETCH_175_REF='7d5770395bb7b02eb56e7c62662cb1d7c08f42a3'
+FETCH_175_REVISION='7d5770395bb7b02eb56e7c62662cb1d7c08f42a3'
+FETCH_175_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_176_METHOD='git'
+FETCH_176_SOURCE='176'
+FETCH_176_PATH='compiler-explorer-compiler-explorer'
+FETCH_176_URL='https://github.com/compiler-explorer/compiler-explorer.git'
+FETCH_176_REF='2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d'
+FETCH_176_REVISION='2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d'
+FETCH_176_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_177_METHOD='git'
+FETCH_177_SOURCE='177'
+FETCH_177_PATH='joewalnes-websocketd'
+FETCH_177_URL='https://github.com/joewalnes/websocketd.git'
+FETCH_177_REF='d1a43cab937a6a534ca18a44b971a9eb0ea55515'
+FETCH_177_REVISION='d1a43cab937a6a534ca18a44b971a9eb0ea55515'
+FETCH_177_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_178_METHOD='git'
+FETCH_178_SOURCE='178'
+FETCH_178_PATH='nikic-php-parser'
+FETCH_178_URL='https://github.com/nikic/PHP-Parser.git'
+FETCH_178_REF='fbd47f7ebcbb450138d92642a0a53b72a5285dda'
+FETCH_178_REVISION='fbd47f7ebcbb450138d92642a0a53b72a5285dda'
+FETCH_178_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_179_METHOD='git'
+FETCH_179_SOURCE='179'
+FETCH_179_PATH='bkaradzic-bgfx'
+FETCH_179_URL='https://github.com/bkaradzic/bgfx.git'
+FETCH_179_REF='cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f'
+FETCH_179_REVISION='cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f'
+FETCH_179_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_180_METHOD='git'
+FETCH_180_SOURCE='180'
+FETCH_180_PATH='weaviate-weaviate'
+FETCH_180_URL='https://github.com/weaviate/weaviate.git'
+FETCH_180_REF='e6e3aa9e89786573fa2e97baf7347a2248ed50b7'
+FETCH_180_REVISION='e6e3aa9e89786573fa2e97baf7347a2248ed50b7'
+FETCH_180_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_181_METHOD='git'
+FETCH_181_SOURCE='181'
+FETCH_181_PATH='javascript-obfuscator-javascript-obfuscator'
+FETCH_181_URL='https://github.com/javascript-obfuscator/javascript-obfuscator.git'
+FETCH_181_REF='c948c1b43350fba818d7eceec6237cd2d467c8a9'
+FETCH_181_REVISION='c948c1b43350fba818d7eceec6237cd2d467c8a9'
+FETCH_181_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_182_METHOD='git'
+FETCH_182_SOURCE='182'
+FETCH_182_PATH='spree-spree'
+FETCH_182_URL='https://github.com/spree/spree.git'
+FETCH_182_REF='547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8'
+FETCH_182_REVISION='547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8'
+FETCH_182_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_183_METHOD='git'
+FETCH_183_SOURCE='183'
+FETCH_183_PATH='homebrew-homebrew-core'
+FETCH_183_URL='https://github.com/Homebrew/homebrew-core.git'
+FETCH_183_REF='243e5132e70af65a9179c4300fac9fcda0dbd2d2'
+FETCH_183_REVISION='243e5132e70af65a9179c4300fac9fcda0dbd2d2'
+FETCH_183_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_184_METHOD='git'
+FETCH_184_SOURCE='184'
+FETCH_184_PATH='kgretzky-evilginx2'
+FETCH_184_URL='https://github.com/kgretzky/evilginx2.git'
+FETCH_184_REF='4c0988a1d9db4d172a185e979a38bfd0efdb5830'
+FETCH_184_REVISION='4c0988a1d9db4d172a185e979a38bfd0efdb5830'
+FETCH_184_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_185_METHOD='git'
+FETCH_185_SOURCE='185'
+FETCH_185_PATH='acidanthera-opencorepkg'
+FETCH_185_URL='https://github.com/acidanthera/OpenCorePkg.git'
+FETCH_185_REF='3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4'
+FETCH_185_REVISION='3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4'
+FETCH_185_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_186_METHOD='git'
+FETCH_186_SOURCE='186'
+FETCH_186_PATH='jupyterlab-jupyterlab'
+FETCH_186_URL='https://github.com/jupyterlab/jupyterlab.git'
+FETCH_186_REF='08b3325c4ad3a0c817e56d883612b2b167e7404c'
+FETCH_186_REVISION='08b3325c4ad3a0c817e56d883612b2b167e7404c'
+FETCH_186_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_187_METHOD='git'
+FETCH_187_SOURCE='187'
+FETCH_187_PATH='keycastr-keycastr'
+FETCH_187_URL='https://github.com/keycastr/keycastr.git'
+FETCH_187_REF='58133a7bca58586b6fa1f462b4c13f09404f9c6a'
+FETCH_187_REVISION='58133a7bca58586b6fa1f462b4c13f09404f9c6a'
+FETCH_187_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_188_METHOD='git'
+FETCH_188_SOURCE='188'
+FETCH_188_PATH='puerkitobio-goquery'
+FETCH_188_URL='https://github.com/PuerkitoBio/goquery.git'
+FETCH_188_REF='53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c'
+FETCH_188_REVISION='53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c'
+FETCH_188_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_189_METHOD='git'
+FETCH_189_SOURCE='189'
+FETCH_189_PATH='webrtc-samples'
+FETCH_189_URL='https://github.com/webrtc/samples.git'
+FETCH_189_REF='6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e'
+FETCH_189_REVISION='6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e'
+FETCH_189_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_190_METHOD='git'
+FETCH_190_SOURCE='190'
+FETCH_190_PATH='shelljs-shelljs'
+FETCH_190_URL='https://github.com/shelljs/shelljs.git'
+FETCH_190_REF='f364da6625945414440bb15210f102ba5fc10ed9'
+FETCH_190_REVISION='f364da6625945414440bb15210f102ba5fc10ed9'
+FETCH_190_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_191_METHOD='git'
+FETCH_191_SOURCE='191'
+FETCH_191_PATH='yiisoft-yii2'
+FETCH_191_URL='https://github.com/yiisoft/yii2.git'
+FETCH_191_REF='66f00d18a29b520f85e8e8f1e32d1e7e7b556cac'
+FETCH_191_REVISION='66f00d18a29b520f85e8e8f1e32d1e7e7b556cac'
+FETCH_191_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_192_METHOD='git'
+FETCH_192_SOURCE='192'
+FETCH_192_PATH='memcached-memcached'
+FETCH_192_URL='https://github.com/memcached/memcached.git'
+FETCH_192_REF='2d51e364799bc9698bd4b11728ea978cea12da6e'
+FETCH_192_REVISION='2d51e364799bc9698bd4b11728ea978cea12da6e'
+FETCH_192_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_193_METHOD='git'
+FETCH_193_SOURCE='193'
+FETCH_193_PATH='app-vnext-polly'
+FETCH_193_URL='https://github.com/App-vNext/Polly.git'
+FETCH_193_REF='3987bb8c0a876314ea0e29d200c333f0fdef5e53'
+FETCH_193_REVISION='3987bb8c0a876314ea0e29d200c333f0fdef5e53'
+FETCH_193_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_194_METHOD='git'
+FETCH_194_SOURCE='194'
+FETCH_194_PATH='arut-nginx-rtmp-module'
+FETCH_194_URL='https://github.com/arut/nginx-rtmp-module.git'
+FETCH_194_REF='6c7719d0ba32e00b563ec70bd43dad11960fa9c4'
+FETCH_194_REVISION='6c7719d0ba32e00b563ec70bd43dad11960fa9c4'
+FETCH_194_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_195_METHOD='git'
+FETCH_195_SOURCE='195'
+FETCH_195_PATH='vlucas-phpdotenv'
+FETCH_195_URL='https://github.com/vlucas/phpdotenv.git'
+FETCH_195_REF='416df702837983f8d5ff48c9c3fee4f5f57b980b'
+FETCH_195_REVISION='416df702837983f8d5ff48c9c3fee4f5f57b980b'
+FETCH_195_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_196_METHOD='git'
+FETCH_196_SOURCE='196'
+FETCH_196_PATH='cocoalumberjack-cocoalumberjack'
+FETCH_196_URL='https://github.com/CocoaLumberjack/CocoaLumberjack.git'
+FETCH_196_REF='91860fa9bcda881233539dcc00f40a0f61d3e6ff'
+FETCH_196_REVISION='91860fa9bcda881233539dcc00f40a0f61d3e6ff'
+FETCH_196_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_197_METHOD='git'
+FETCH_197_SOURCE='197'
+FETCH_197_PATH='alibaba-tengine'
+FETCH_197_URL='https://github.com/alibaba/tengine.git'
+FETCH_197_REF='fcebbd12267b150c7e0406e8e3e5936c0b729aae'
+FETCH_197_REVISION='fcebbd12267b150c7e0406e8e3e5936c0b729aae'
+FETCH_197_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_198_METHOD='git'
+FETCH_198_SOURCE='198'
+FETCH_198_PATH='expo-create-react-native-app'
+FETCH_198_URL='https://github.com/expo/create-react-native-app.git'
+FETCH_198_REF='3a7b11ee859c5c38fe09be58419e97a286a22c13'
+FETCH_198_REVISION='3a7b11ee859c5c38fe09be58419e97a286a22c13'
+FETCH_198_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_199_METHOD='git'
+FETCH_199_SOURCE='199'
+FETCH_199_PATH='gopherjs-gopherjs'
+FETCH_199_URL='https://github.com/gopherjs/gopherjs.git'
+FETCH_199_REF='490705b1d6fc7d5bd9202ac41888e146183328eb'
+FETCH_199_REVISION='490705b1d6fc7d5bd9202ac41888e146183328eb'
+FETCH_199_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_200_METHOD='git'
+FETCH_200_SOURCE='200'
+FETCH_200_PATH='node-inspector-node-inspector'
+FETCH_200_URL='https://github.com/node-inspector/node-inspector.git'
+FETCH_200_REF='79e01c049286374f86dd560742a614019c02402f'
+FETCH_200_REVISION='79e01c049286374f86dd560742a614019c02402f'
+FETCH_200_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
 script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 . "$script_dir/../functions.sh"
-
-fetcher_begin "$@"
-fetcher_require jq find sort awk wc git tar
-fetcher_size 100G
-fetcher_git 'freecodecamp-freecodecamp' 'https://github.com/freeCodeCamp/freeCodeCamp.git' 'f67426be7505cdb3072c72b3d254888e2bbaacd6' 'f67426be7505cdb3072c72b3d254888e2bbaacd6' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'react-react' 'https://github.com/react/react.git' '2042572329425f9ebf35ae6287ea5bab72b2c497' '2042572329425f9ebf35ae6287ea5bab72b2c497' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'thealgorithms-python' 'https://github.com/TheAlgorithms/Python.git' 'f5988cc09713315817df6a7e327e258013a94440' 'f5988cc09713315817df6a7e327e258013a94440' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'vuejs-vue' 'https://github.com/vuejs/vue.git' '9e88707940088cb1f4cd7dd210c9168a50dc347c' '9e88707940088cb1f4cd7dd210c9168a50dc347c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'trekhleb-javascript-algorithms' 'https://github.com/trekhleb/javascript-algorithms.git' '85293e3e2b88f4d2ce330d956b139cf628aa1e82' '85293e3e2b88f4d2ce330d956b139cf628aa1e82' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ohmyzsh-ohmyzsh' 'https://github.com/ohmyzsh/ohmyzsh.git' '99aaf58d007f1378d1e0609bcd9baf8abbbaf327' '99aaf58d007f1378d1e0609bcd9baf8abbbaf327' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'microsoft-vscode' 'https://github.com/microsoft/vscode.git' '97f9937a4263a283f83868783cf93142d1389c16' '97f9937a4263a283f83868783cf93142d1389c16' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'flutter-flutter' 'https://github.com/flutter/flutter.git' 'bea08b59e4d67d3deefe621b669bbcda3b396fe3' 'bea08b59e4d67d3deefe621b669bbcda3b396fe3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ollama-ollama' 'https://github.com/ollama/ollama.git' 'b880b76c4308cd5a97cbef2ef86367d126d77f75' 'b880b76c4308cd5a97cbef2ef86367d126d77f75' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'microsoft-markitdown' 'https://github.com/microsoft/markitdown.git' 'fd239d5d2be43d9b68329730206b9312c7d5a388' 'fd239d5d2be43d9b68329730206b9312c7d5a388' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'snailclimb-javaguide' 'https://github.com/Snailclimb/JavaGuide.git' '11fb08483ac066ac9d6bdb0bcc80f761379d54d4' '11fb08483ac066ac9d6bdb0bcc80f761379d54d4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'langflow-ai-langflow' 'https://github.com/langflow-ai/langflow.git' '3325c4642c489bfc2e2f4c9f3c63a32961f9581f' '3325c4642c489bfc2e2f4c9f3c63a32961f9581f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'genymobile-scrcpy' 'https://github.com/Genymobile/scrcpy.git' '2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0' '2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'langchain-ai-langchain' 'https://github.com/langchain-ai/langchain.git' 'd048fbe170573b6e7056b5ef5f78d8451e54abaf' 'd048fbe170573b6e7056b5ef5f78d8451e54abaf' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'microsoft-powertoys' 'https://github.com/microsoft/PowerToys.git' '9e12b7a8eed2cb693d3e6b293cd601675e76a4b0' '9e12b7a8eed2cb693d3e6b293cd601675e76a4b0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'golang-go' 'https://github.com/golang/go.git' '42a6439b1241906746e0a5d68ee6a6318813fa49' '42a6439b1241906746e0a5d68ee6a6318813fa49' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'excalidraw-excalidraw' 'https://github.com/excalidraw/excalidraw.git' 'cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58' 'cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'react-react-native' 'https://github.com/react/react-native.git' '4bf9d4e9b079a3b77842727c68b82f55415898ac' '4bf9d4e9b079a3b77842727c68b82f55415898ac' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'kubernetes-kubernetes' 'https://github.com/kubernetes/kubernetes.git' '94c136764292cc5fac976c0de6587daaea56410f' '94c136764292cc5fac976c0de6587daaea56410f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ggml-org-llama.cpp' 'https://github.com/ggml-org/llama.cpp.git' '7ba604f1cb61cd14898138e9abc0b4ff2601f180' '7ba604f1cb61cd14898138e9abc0b4ff2601f180' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'electron-electron' 'https://github.com/electron/electron.git' '50b779bde5478548df30229d81dd1a12e3434c85' '50b779bde5478548df30229d81dd1a12e3434c85' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'shadcn-ui-ui' 'https://github.com/shadcn-ui/ui.git' '6261bd89f72d794aea491482cc2acfd8dc3d63e2' '6261bd89f72d794aea491482cc2acfd8dc3d63e2' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'rust-lang-rust' 'https://github.com/rust-lang/rust.git' '4667d75565e47ba5df36c0df598c556b543e8624' '4667d75565e47ba5df36c0df598c556b543e8624' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'godotengine-godot' 'https://github.com/godotengine/godot.git' '4173760fdf6c2c722e82e08cb58e55f34c9efd80' '4173760fdf6c2c722e82e08cb58e55f34c9efd80' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mrdoob-three.js' 'https://github.com/mrdoob/three.js.git' '98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac' '98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'tauri-apps-tauri' 'https://github.com/tauri-apps/tauri.git' '34ec18ba5e1acabebd66ae79d6fc746f63d8eb96' '34ec18ba5e1acabebd66ae79d6fc746f63d8eb96' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'axios-axios' 'https://github.com/axios/axios.git' 'f5e83e49ee32b1004db82dad2b14d1e273a99e07' 'f5e83e49ee32b1004db82dad2b14d1e273a99e07' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'fatedier-frp' 'https://github.com/fatedier/frp.git' 'd1928f968938e4f1b3b72fd12d581342e57a5030' 'd1928f968938e4f1b3b72fd12d581342e57a5030' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'browser-use-browser-use' 'https://github.com/browser-use/browser-use.git' '32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4' '32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'denoland-deno' 'https://github.com/denoland/deno.git' '98dc759254a90b98f7bbb62ba5361e531d0db6a5' '98dc759254a90b98f7bbb62ba5361e531d0db6a5' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'openai-whisper' 'https://github.com/openai/whisper.git' '5f86d1d86363843179951550570367b37c5d6f78' '5f86d1d86363843179951550570367b37c5d6f78' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'microsoft-terminal' 'https://github.com/microsoft/terminal.git' 'b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a' 'b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'deepseek-ai-deepseek-v3' 'https://github.com/deepseek-ai/DeepSeek-V3.git' '9b4e9788e4a3a731f7567338ed15d3ec549ce03b' '9b4e9788e4a3a731f7567338ed15d3ec549ce03b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'react-create-react-app' 'https://github.com/react/create-react-app.git' '6254386531d263688ccfa542d0e628fbc0de0b28' '6254386531d263688ccfa542d0e628fbc0de0b28' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'harry0703-moneyprinterturbo' 'https://github.com/harry0703/MoneyPrinterTurbo.git' 'e14dea5578bb2154480b6bc436009eaa9987f0e3' 'e14dea5578bb2154480b6bc436009eaa9987f0e3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'fastapi-fastapi' 'https://github.com/fastapi/fastapi.git' '0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4' '0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'angular-angular' 'https://github.com/angular/angular.git' '565dbb2fe5406f2a86d43a5b3c6993434b7124a7' '565dbb2fe5406f2a86d43a5b3c6993434b7124a7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ant-design-ant-design' 'https://github.com/ant-design/ant-design.git' '41ba18cfc3d8a0f37ab89e143fed27d341f320d0' '41ba18cfc3d8a0f37ab89e143fed27d341f320d0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mui-material-ui' 'https://github.com/mui/material-ui.git' '81e94061ca393d4eaf238e6f77c283b2edd9ef7e' '81e94061ca393d4eaf238e6f77c283b2edd9ef7e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'nvbn-thefuck' 'https://github.com/nvbn/thefuck.git' 'c7e7e1d884d3bb241ea6448f72a989434c2a35ec' 'c7e7e1d884d3bb241ea6448f72a989434c2a35ec' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'tailwindlabs-tailwindcss' 'https://github.com/tailwindlabs/tailwindcss.git' '46df7ee2fc4ae822d414d35bbd48be024e5cb1c0' '46df7ee2fc4ae822d414d35bbd48be024e5cb1c0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'tauricresearch-tradingagents' 'https://github.com/TauricResearch/TradingAgents.git' 'a33fd4c0f134485a43553a2c23a63cb14adbd88f' 'a33fd4c0f134485a43553a2c23a63cb14adbd88f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'puppeteer-puppeteer' 'https://github.com/puppeteer/puppeteer.git' '566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f' '566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'nvm-sh-nvm' 'https://github.com/nvm-sh/nvm.git' '65ded65d46c16481dbbe8e93f8ba9e6b35f20740' '65ded65d46c16481dbbe8e93f8ba9e6b35f20740' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'microsoft-playwright' 'https://github.com/microsoft/playwright.git' 'c973356ee9e3906260f60da5e3e04442e069a0d4' 'c973356ee9e3906260f60da5e3e04442e069a0d4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'opencv-opencv' 'https://github.com/opencv/opencv.git' '77dfa297d08fdecdc509fc01ad92a2e9ec776a57' '77dfa297d08fdecdc509fc01ad92a2e9ec776a57' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'panjiachen-vue-element-admin' 'https://github.com/PanJiaChen/vue-element-admin.git' '6858a9ad67483025f6a9432a926beb9327037be3' '6858a9ad67483025f6a9432a926beb9327037be3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'louislam-uptime-kuma' 'https://github.com/louislam/uptime-kuma.git' '77d1a0c57a37a4cf5657bb7b514b4e08d455928e' '77d1a0c57a37a4cf5657bb7b514b4e08d455928e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bitcoin-bitcoin' 'https://github.com/bitcoin/bitcoin.git' '128456b62d5e38abea031f97f823d5b28aef9357' '128456b62d5e38abea031f97f823d5b28aef9357' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'home-assistant-core' 'https://github.com/home-assistant/core.git' 'c369f973abfcfba865a745a1750c0fe887e98d60' 'c369f973abfcfba865a745a1750c0fe887e98d60' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mermaid-js-mermaid' 'https://github.com/mermaid-js/mermaid.git' '3d521b1ee5fc9079fe0659e776a1b2cdc37174b1' '3d521b1ee5fc9079fe0659e776a1b2cdc37174b1' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gohugoio-hugo' 'https://github.com/gohugoio/hugo.git' '44da086082a1dff487f4e5639bb03a65d9dd1ade' '44da086082a1dff487f4e5639bb03a65d9dd1ade' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git '3b1b-manim' 'https://github.com/3b1b/manim.git' '01030ac5d23bc294ccb93cbfcda260f2d20dda62' '01030ac5d23bc294ccb93cbfcda260f2d20dda62' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gin-gonic-gin' 'https://github.com/gin-gonic/gin.git' '34dac209ffb6ef85cc78c5d217bbb7ad001d68fd' '34dac209ffb6ef85cc78c5d217bbb7ad001d68fd' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'chatgptnextweb-nextchat' 'https://github.com/ChatGPTNextWeb/NextChat.git' '706a18b95b714ab29b2a4842d3b9ff4f887935d5' '706a18b95b714ab29b2a4842d3b9ff4f887935d5' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'sherlock-project-sherlock' 'https://github.com/sherlock-project/sherlock.git' '9100f9d40a3274bd46f4ce903c5c6fee6f3745bc' '9100f9d40a3274bd46f4ce903c5c6fee6f3745bc' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'vllm-project-vllm' 'https://github.com/vllm-project/vllm.git' 'cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7' 'cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'astral-sh-uv' 'https://github.com/astral-sh/uv.git' 'dd0584d560a4693b5713a78be54304123ada3e77' 'dd0584d560a4693b5713a78be54304123ada3e77' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'django-django' 'https://github.com/django/django.git' 'c9eb16a87e60c305fb3651459639f647cce498db' 'c9eb16a87e60c305fb3651459639f647cce498db' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'sveltejs-svelte' 'https://github.com/sveltejs/svelte.git' '26786e92985842a6d563c67049a43bc5857bf792' '26786e92985842a6d563c67049a43bc5857bf792' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'paddlepaddle-paddleocr' 'https://github.com/PaddlePaddle/PaddleOCR.git' '2661c7c0ef5c613e8f93c6e93b2e052399f0f854' '2661c7c0ef5c613e8f93c6e93b2e052399f0f854' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'localsend-localsend' 'https://github.com/localsend/localsend.git' 'ff2995c9523c5fae407f7d444d0986b2c6ae568e' 'ff2995c9523c5fae407f7d444d0986b2c6ae568e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'infiniflow-ragflow' 'https://github.com/infiniflow/ragflow.git' '99110c2df0d4822bd819eda36e4d038c33391123' '99110c2df0d4822bd819eda36e4d038c33391123' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'macrozheng-mall' 'https://github.com/macrozheng/mall.git' '0504e86b1f1b6f1b8aa6a734d37a90fb67346be7' '0504e86b1f1b6f1b8aa6a734d37a90fb67346be7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'openhands-openhands' 'https://github.com/OpenHands/OpenHands.git' '4470813ce58f5ac384e3d367d34518e10106526b' '4470813ce58f5ac384e3d367d34518e10106526b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'junegunn-fzf' 'https://github.com/junegunn/fzf.git' '715d26fa3949c9a0f1e41fcbda5440f3ac338e51' '715d26fa3949c9a0f1e41fcbda5440f3ac338e51' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'vitejs-vite' 'https://github.com/vitejs/vite.git' '57fea001d154e7dd8d5d74d3082731f1dcfd31be' '57fea001d154e7dd8d5d74d3082731f1dcfd31be' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'spring-projects-spring-boot' 'https://github.com/spring-projects/spring-boot.git' 'ee3c48d00ffa6efda14e730c02ba145dc15e0fe4' 'ee3c48d00ffa6efda14e730c02ba145dc15e0fe4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jesseduffield-lazygit' 'https://github.com/jesseduffield/lazygit.git' 'ddceff696286811d2adc02e27bad1b275b9b1c75' 'ddceff696286811d2adc02e27bad1b275b9b1c75' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'hoppscotch-hoppscotch' 'https://github.com/hoppscotch/hoppscotch.git' '1acb8a3a7581e4db32ba0d529170c4669a2e1053' '1acb8a3a7581e4db32ba0d529170c4669a2e1053' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'anuraghazra-github-readme-stats' 'https://github.com/anuraghazra/github-readme-stats.git' '54a7985aeefda00d5eadb55b80c17c7f976c37d2' '54a7985aeefda00d5eadb55b80c17c7f976c37d2' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'd2l-ai-d2l-zh' 'https://github.com/d2l-ai/d2l-zh.git' 'e6b18ccea71451a55fcd861d7b96fddf2587b09a' 'e6b18ccea71451a55fcd861d7b96fddf2587b09a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'z4nzu-hackingtool' 'https://github.com/Z4nzu/hackingtool.git' '9b92b6156ddc5ff87bf0fa592d81c333a88d1c78' '9b92b6156ddc5ff87bf0fa592d81c333a88d1c78' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'coder-code-server' 'https://github.com/coder/code-server.git' '313bf0359b4d391ba18f1fa131aad8a583bc2919' '313bf0359b4d391ba18f1fa131aad8a583bc2919' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'nomic-ai-gpt4all' 'https://github.com/nomic-ai/gpt4all.git' 'b666d16db5aeab8b91aaf7963adcee9c643734d7' 'b666d16db5aeab8b91aaf7963adcee9c643734d7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'unclecode-crawl4ai' 'https://github.com/unclecode/crawl4ai.git' '7e801521428ee12509994d39151006f64055ebe3' '7e801521428ee12509994d39151006f64055ebe3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'nestjs-nest' 'https://github.com/nestjs/nest.git' 'c3bc75c973813969aa676793e20a7cba12a9daf5' 'c3bc75c973813969aa676793e20a7cba12a9daf5' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'tesseract-ocr-tesseract' 'https://github.com/tesseract-ocr/tesseract.git' '64ed93b68c01f359d924fc1bfcf0d5931eb77211' '64ed93b68c01f359d924fc1bfcf0d5931eb77211' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'typicode-json-server' 'https://github.com/typicode/json-server.git' '89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea' '89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ocornut-imgui' 'https://github.com/ocornut/imgui.git' '46d39d56febc2a00bdd2270dc88c8a13f2a0441a' '46d39d56febc2a00bdd2270dc88c8a13f2a0441a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'caddyserver-caddy' 'https://github.com/caddyserver/caddy.git' '64b64c61ebc40ea37280b2baa1a7a492cc1156c5' '64b64c61ebc40ea37280b2baa1a7a492cc1156c5' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'apache-superset' 'https://github.com/apache/superset.git' '3b164e4270860ac07223d4df1a60ca7b56312362' '3b164e4270860ac07223d4df1a60ca7b56312362' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'hiyouga-llamafactory' 'https://github.com/hiyouga/LlamaFactory.git' '887b850813d80a8d893ec56703d5b3a0eec46de6' '887b850813d80a8d893ec56703d5b3a0eec46de6' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'abi-screenshot-to-code' 'https://github.com/abi/screenshot-to-code.git' 'd026163f586dfa8c5c10d28c36edd59a9d3b0e88' 'd026163f586dfa8c5c10d28c36edd59a9d3b0e88' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'unionlabs-union' 'https://github.com/unionlabs/union.git' '031785bb6dc6b957c624e62bc64c184409c97d7b' '031785bb6dc6b957c624e62bc64c184409c97d7b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'eugeny-tabby' 'https://github.com/Eugeny/tabby.git' '14e2d60b9b6dee84a53c37f05eefeb803787de04' '14e2d60b9b6dee84a53c37f05eefeb803787de04' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'd4vinci-scrapling' 'https://github.com/D4Vinci/Scrapling.git' '39847bd2da41f8e089593f91016d81d3a4771e6f' '39847bd2da41f8e089593f91016d81d3a4771e6f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'pallets-flask' 'https://github.com/pallets/flask.git' '6a2f545bfd8ed31e19066a299296917e034aca58' '6a2f545bfd8ed31e19066a299296917e034aca58' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'nationalsecurityagency-ghidra' 'https://github.com/NationalSecurityAgency/ghidra.git' '291d5c4e77735b0b4b40613d952ecdd157ef750b' '291d5c4e77735b0b4b40613d952ecdd157ef750b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'moby-moby' 'https://github.com/moby/moby.git' 'e456107947c1d554ae1ad0645ed6e13978aa1c2d' 'e456107947c1d554ae1ad0645ed6e13978aa1c2d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'swiftlang-swift' 'https://github.com/swiftlang/swift.git' 'e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7' 'e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'unslothai-unsloth' 'https://github.com/unslothai/unsloth.git' '2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5' '2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'openinterpreter-openinterpreter' 'https://github.com/openinterpreter/openinterpreter.git' '984acc698cd038885ecb0b82721402b01e11a5ad' '984acc698cd038885ecb0b82721402b01e11a5ad' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'apache-echarts' 'https://github.com/apache/echarts.git' '30076aedcd7b7f65d8dd8e8d9ece46ce778133a3' '30076aedcd7b7f65d8dd8e8d9ece46ce778133a3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'cline-cline' 'https://github.com/cline/cline.git' '45403900964a74aa5ae3683a0e61b535600b97e0' '45403900964a74aa5ae3683a0e61b535600b97e0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'prometheus-prometheus' 'https://github.com/prometheus/prometheus.git' '5542b00b9d5933e29d7b597705c718b764bcc1cb' '5542b00b9d5933e29d7b597705c718b764bcc1cb' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'alacritty-alacritty' 'https://github.com/alacritty/alacritty.git' '1b2b36a64e88068ad02c95fad00ee2fad31c00bf' '1b2b36a64e88068ad02c95fad00ee2fad31c00bf' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ladybirdbrowser-ladybird' 'https://github.com/LadybirdBrowser/ladybird.git' '8d225a329ee852510b4522e04d357c6fdd51d7f7' '8d225a329ee852510b4522e04d357c6fdd51d7f7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'scrapy-scrapy' 'https://github.com/scrapy/scrapy.git' '1bd839b57ddb614664a179b6213f49579bdfd3da' '1bd839b57ddb614664a179b6213f49579bdfd3da' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mem0ai-mem0' 'https://github.com/mem0ai/mem0.git' '4debc58a83377b18be81ae1e5969a300736b2fac' '4debc58a83377b18be81ae1e5969a300736b2fac' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jgraph-drawio-desktop' 'https://github.com/jgraph/drawio-desktop.git' '403a2cb79f431db13a395f033b67eeebc1631754' '403a2cb79f431db13a395f033b67eeebc1631754' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'fuellabs-sway' 'https://github.com/FuelLabs/sway.git' '91be236f71fbb541ee6639ef0d955b2b8cf0a658' '91be236f71fbb541ee6639ef0d955b2b8cf0a658' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'coollabsio-coolify' 'https://github.com/coollabsio/coolify.git' '940571e16f5a0e6c73cf56b4bb1184bed3d60623' '940571e16f5a0e6c73cf56b4bb1184bed3d60623' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'spring-projects-spring-framework' 'https://github.com/spring-projects/spring-framework.git' 'da4b31c82b567a0531c6980b5172cba1fc7e6ed5' 'da4b31c82b567a0531c6980b5172cba1fc7e6ed5' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'sharkdp-bat' 'https://github.com/sharkdp/bat.git' '2ba8db9c14e5794572f5ea338c2b90404c9769cb' '2ba8db9c14e5794572f5ea338c2b90404c9769cb' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'filosottile-mkcert' 'https://github.com/FiloSottile/mkcert.git' '1c1dc4ed27ed5936046b6398d39cab4d657a2d8e' '1c1dc4ed27ed5936046b6398d39cab4d657a2d8e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'appwrite-appwrite' 'https://github.com/appwrite/appwrite.git' '5d1e08464b2e5785cb21c1eef4604f904788fbb5' '5d1e08464b2e5785cb21c1eef4604f904788fbb5' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'typst-typst' 'https://github.com/typst/typst.git' 'a51e028041cac426f97d34335bb01d8f1d8e5e8f' 'a51e028041cac426f97d34335bb01d8f1d8e5e8f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jingyaogong-minimind' 'https://github.com/jingyaogong/minimind.git' '393e387e9ad99f0f04c296e4c5e7353f4444629f' '393e387e9ad99f0f04c296e4c5e7353f4444629f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'psf-requests' 'https://github.com/psf/requests.git' '1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e' '1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mozilla-pdf.js' 'https://github.com/mozilla/pdf.js.git' '022e9588728346cde58088a9925120293af1c8f4' '022e9588728346cde58088a9925120293af1c8f4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'lyswhut-lx-music-desktop' 'https://github.com/lyswhut/lx-music-desktop.git' '9c364b482e5621a1d38b50e8610d2fb974457e6e' '9c364b482e5621a1d38b50e8610d2fb974457e6e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'aaif-goose-goose' 'https://github.com/aaif-goose/goose.git' '064244e6bddf641876676f054a006b7da1da5182' '064244e6bddf641876676f054a006b7da1da5182' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'xai-org-grok-1' 'https://github.com/xai-org/grok-1.git' '7050ed204b8206bb8645c7b7bbef7252f79561b0' '7050ed204b8206bb8645c7b7bbef7252f79561b0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'etcd-io-etcd' 'https://github.com/etcd-io/etcd.git' '5b75ac62cf042a185e902530c25fd3d59c095232' '5b75ac62cf042a185e902530c25fd3d59c095232' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'google-guava' 'https://github.com/google/guava.git' '0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a' '0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'dbeaver-dbeaver' 'https://github.com/dbeaver/dbeaver.git' 'b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0' 'b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'skylot-jadx' 'https://github.com/skylot/jadx.git' 'e738a26571d02919f01df40de93bc9a44dee4e18' 'e738a26571d02919f01df40de93bc9a44dee4e18' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'pandas-dev-pandas' 'https://github.com/pandas-dev/pandas.git' 'ff1d39bbdf4eda26de2285cf836104f9885b0826' 'ff1d39bbdf4eda26de2285cf836104f9885b0826' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'homebrew-brew' 'https://github.com/Homebrew/brew.git' '749b3557ccebae4ecd79f17aa2527d2f68acc739' '749b3557ccebae4ecd79f17aa2527d2f68acc739' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'reactivex-rxjava' 'https://github.com/ReactiveX/RxJava.git' '8f7b841984133e2a3ba88630779af9e66248ff95' '8f7b841984133e2a3ba88630779af9e66248ff95' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'aider-ai-aider' 'https://github.com/Aider-AI/aider.git' '5dc9490bb35f9729ef2c95d00a19ccd30c26339c' '5dc9490bb35f9729ef2c95d00a19ccd30c26339c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'prisma-prisma' 'https://github.com/prisma/prisma.git' 'd55cd02911b0c6675bedaad90cc0e2727d5787ce' 'd55cd02911b0c6675bedaad90cc0e2727d5787ce' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bevyengine-bevy' 'https://github.com/bevyengine/bevy.git' 'e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59' 'e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'slab-quill' 'https://github.com/slab/quill.git' '539cbffd0a13b18e9c65eb84dd35e6596e403158' '539cbffd0a13b18e9c65eb84dd35e6596e403158' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'lysine-dev-okhttp' 'https://github.com/lysine-dev/okhttp.git' 'fc9a83dd580f06c52beea5207ffca1a7d99df24e' 'fc9a83dd580f06c52beea5207ffca1a7d99df24e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'exo-explore-exo' 'https://github.com/exo-explore/exo.git' 'b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa' 'b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'apache-airflow' 'https://github.com/apache/airflow.git' '1f529f3837ab5e38ddd27ea355a7fbfddd392573' '1f529f3837ab5e38ddd27ea355a7fbfddd392573' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'android-architecture-samples' 'https://github.com/android/architecture-samples.git' 'ee66e1526b84c026615df032c705842b7d2a521f' 'ee66e1526b84c026615df032c705842b7d2a521f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'google-zx' 'https://github.com/google/zx.git' '00a2c484e219c2e84bfc3a199febf7fbce2cfbf4' '00a2c484e219c2e84bfc3a199febf7fbce2cfbf4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'milvus-io-milvus' 'https://github.com/milvus-io/milvus.git' '025d2e3e75d38f4edd8d5b8536d514e777a47559' '025d2e3e75d38f4edd8d5b8536d514e777a47559' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'streamlit-streamlit' 'https://github.com/streamlit/streamlit.git' '97eada51b426a81884955906d75407d1270545f9' '97eada51b426a81884955906d75407d1270545f9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'leaflet-leaflet' 'https://github.com/Leaflet/Leaflet.git' 'c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9' 'c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'grpc-grpc' 'https://github.com/grpc/grpc.git' 'b6449efc3e9968eb022a2cf7a043b4317adde589' 'b6449efc3e9968eb022a2cf7a043b4317adde589' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'spf13-cobra' 'https://github.com/spf13/cobra.git' 'adbc8813901bba65827259daa8e22ff94ec1f30e' 'adbc8813901bba65827259daa8e22ff94ec1f30e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'aykutsarac-jsoncrack.com' 'https://github.com/AykutSarac/jsoncrack.com.git' '3c9af69e23c635356293b6b28cf4cd0af10d1059' '3c9af69e23c635356293b6b28cf4cd0af10d1059' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'sharkdp-fd' 'https://github.com/sharkdp/fd.git' '0f1f9676dcf7bc5af814469a74a0d878449cde80' '0f1f9676dcf7bc5af814469a74a0d878449cde80' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'kong-kong' 'https://github.com/Kong/kong.git' 'fa9c3b695af72668f135cb17bbb84a8b4dc511d2' 'fa9c3b695af72668f135cb17bbb84a8b4dc511d2' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'lysine-dev-retrofit' 'https://github.com/lysine-dev/retrofit.git' 'd0b112dad073b7fe49c953ebc46ff1b424cb1e51' 'd0b112dad073b7fe49c953ebc46ff1b424cb1e51' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'apache-spark' 'https://github.com/apache/spark.git' 'f896d8d0d40a859f0c40ef99dac3fb2bba5035e7' 'f896d8d0d40a859f0c40ef99dac3fb2bba5035e7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ray-project-ray' 'https://github.com/ray-project/ray.git' '12436ea75080433a9134cfa362b3dbb98fe9e73f' '12436ea75080433a9134cfa362b3dbb98fe9e73f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'juspay-hyperswitch' 'https://github.com/juspay/hyperswitch.git' '77c45d76b2b70a5b127d11a6b6755d2793b021f9' '77c45d76b2b70a5b127d11a6b6755d2793b021f9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'fuellabs-fuels-rs' 'https://github.com/FuelLabs/fuels-rs.git' 'd9a250a51818dda64bfeb5ef7cc19cf27bdcd623' 'd9a250a51818dda64bfeb5ef7cc19cf27bdcd623' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'juanfont-headscale' 'https://github.com/juanfont/headscale.git' '565fd254d06c4c7f9a8cad1714a43445c79ba420' '565fd254d06c4c7f9a8cad1714a43445c79ba420' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'php-php-src' 'https://github.com/php/php-src.git' 'b9b44872d72dc66bcea72232a2bc79a3b63a0c3b' 'b9b44872d72dc66bcea72232a2bc79a3b63a0c3b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'google-leveldb' 'https://github.com/google/leveldb.git' '7ee830d02b623e8ffe0b95d59a74db1e58da04c5' '7ee830d02b623e8ffe0b95d59a74db1e58da04c5' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'google-googletest' 'https://github.com/google/googletest.git' 'd89aac5f0dd4021198d903d39de16f896726de21' 'd89aac5f0dd4021198d903d39de16f896726de21' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'httpie-cli' 'https://github.com/httpie/cli.git' '5b604c37c6c67e18e7c3e9aee6c88a8c22b98345' '5b604c37c6c67e18e7c3e9aee6c88a8c22b98345' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'hyprwm-hyprland' 'https://github.com/hyprwm/Hyprland.git' '5dee44a72476be67789f64e6c6bffae0df28c53a' '5dee44a72476be67789f64e6c6bffae0df28c53a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'xinntao-real-esrgan' 'https://github.com/xinntao/Real-ESRGAN.git' 'a4abfb2979a7bbff3f69f58f58ae324608821e27' 'a4abfb2979a7bbff3f69f58f58ae324608821e27' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'restic-restic' 'https://github.com/restic/restic.git' 'a80be1478a4c537f8396e0db2b05120aa78f11e0' 'a80be1478a4c537f8396e0db2b05120aa78f11e0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'tailscale-tailscale' 'https://github.com/tailscale/tailscale.git' 'e592a0c36398be8a435d1cc9e039c732c540051c' 'e592a0c36398be8a435d1cc9e039c732c540051c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'serenityos-serenity' 'https://github.com/SerenityOS/serenity.git' '93af8693d6868799635ff0bee2b7ca30746f39a9' '93af8693d6868799635ff0bee2b7ca30746f39a9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'nginx-nginx' 'https://github.com/nginx/nginx.git' 'dea68dbf126f40a8acd09bac885a955be459162e' 'dea68dbf126f40a8acd09bac885a955be459162e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'getredash-redash' 'https://github.com/getredash/redash.git' '2daefd2f78b270a6a566a86251d8bbd841d394d3' '2daefd2f78b270a6a566a86251d8bbd841d394d3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'fyne-io-fyne' 'https://github.com/fyne-io/fyne.git' '57f5b07179b833e781522f8a32c160312d94ede1' '57f5b07179b833e781522f8a32c160312d94ede1' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'pppscn-smsforwarder' 'https://github.com/pppscn/SmsForwarder.git' 'ce931a03739a6a2b0dfc83161bf812a94fd5e45e' 'ce931a03739a6a2b0dfc83161bf812a94fd5e45e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'valkey-io-valkey' 'https://github.com/valkey-io/valkey.git' '2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1' '2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'kataras-iris' 'https://github.com/kataras/iris.git' '7bedaf55a0b64bbb2248a5845a2c60d81a30996a' '7bedaf55a0b64bbb2248a5845a2c60d81a30996a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'highlightjs-highlight.js' 'https://github.com/highlightjs/highlight.js.git' '4d4268d701e30b0954149e9eb3bc9c4d9e15d550' '4d4268d701e30b0954149e9eb3bc9c4d9e15d550' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'copy-v86' 'https://github.com/copy/v86.git' '6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6' '6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'filosottile-age' 'https://github.com/FiloSottile/age.git' '706dfc1e799a03443ae46023502bd88d4e9e324f' '706dfc1e799a03443ae46023502bd88d4e9e324f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'zsh-users-zsh-syntax-highlighting' 'https://github.com/zsh-users/zsh-syntax-highlighting.git' 'c4d95591843d49838b7ad30081e7aba3135a6703' 'c4d95591843d49838b7ad30081e7aba3135a6703' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'redis-go-redis' 'https://github.com/redis/go-redis.git' '36d97525cd8076aed67cddf54778e9ea84550929' '36d97525cd8076aed67cddf54778e9ea84550929' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'homebrew-homebrew-cask' 'https://github.com/Homebrew/homebrew-cask.git' 'a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b' 'a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gorilla-mux' 'https://github.com/gorilla/mux.git' 'db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265' 'db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jarun-nnn' 'https://github.com/jarun/nnn.git' '53fdae65eef6cb35afaf1e1c2abef3242f48153b' '53fdae65eef6cb35afaf1e1c2abef3242f48153b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'lit-lit' 'https://github.com/lit/lit.git' 'c42ee1e96b8fd61f7256f61d715daef572e76e52' 'c42ee1e96b8fd61f7256f61d715daef572e76e52' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'qax-os-excelize' 'https://github.com/qax-os/excelize.git' 'a54c578af309fa81f448143ed2b7a91192cc58a7' 'a54c578af309fa81f448143ed2b7a91192cc58a7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'motdotla-dotenv' 'https://github.com/motdotla/dotenv.git' '2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358' '2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bokeh-bokeh' 'https://github.com/bokeh/bokeh.git' '681880b19108a37e159b7a3d185611f04112c47b' '681880b19108a37e159b7a3d185611f04112c47b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bradlarson-gpuimage' 'https://github.com/BradLarson/GPUImage.git' '167b0389bc6e9dc4bb0121550f91d8d5d6412c53' '167b0389bc6e9dc4bb0121550f91d8d5d6412c53' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'sebastianbergmann-phpunit' 'https://github.com/sebastianbergmann/phpunit.git' '6917e76ff5762f4b70203b58608f6bba360cc2c2' '6917e76ff5762f4b70203b58608f6bba360cc2c2' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'grpc-ecosystem-grpc-gateway' 'https://github.com/grpc-ecosystem/grpc-gateway.git' 'c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be' 'c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'antlr-antlr4' 'https://github.com/antlr/antlr4.git' '7d5770395bb7b02eb56e7c62662cb1d7c08f42a3' '7d5770395bb7b02eb56e7c62662cb1d7c08f42a3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'compiler-explorer-compiler-explorer' 'https://github.com/compiler-explorer/compiler-explorer.git' '2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d' '2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'joewalnes-websocketd' 'https://github.com/joewalnes/websocketd.git' 'd1a43cab937a6a534ca18a44b971a9eb0ea55515' 'd1a43cab937a6a534ca18a44b971a9eb0ea55515' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'nikic-php-parser' 'https://github.com/nikic/PHP-Parser.git' 'fbd47f7ebcbb450138d92642a0a53b72a5285dda' 'fbd47f7ebcbb450138d92642a0a53b72a5285dda' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bkaradzic-bgfx' 'https://github.com/bkaradzic/bgfx.git' 'cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f' 'cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'weaviate-weaviate' 'https://github.com/weaviate/weaviate.git' 'e6e3aa9e89786573fa2e97baf7347a2248ed50b7' 'e6e3aa9e89786573fa2e97baf7347a2248ed50b7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'javascript-obfuscator-javascript-obfuscator' 'https://github.com/javascript-obfuscator/javascript-obfuscator.git' 'c948c1b43350fba818d7eceec6237cd2d467c8a9' 'c948c1b43350fba818d7eceec6237cd2d467c8a9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'spree-spree' 'https://github.com/spree/spree.git' '547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8' '547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'homebrew-homebrew-core' 'https://github.com/Homebrew/homebrew-core.git' '243e5132e70af65a9179c4300fac9fcda0dbd2d2' '243e5132e70af65a9179c4300fac9fcda0dbd2d2' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'kgretzky-evilginx2' 'https://github.com/kgretzky/evilginx2.git' '4c0988a1d9db4d172a185e979a38bfd0efdb5830' '4c0988a1d9db4d172a185e979a38bfd0efdb5830' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'acidanthera-opencorepkg' 'https://github.com/acidanthera/OpenCorePkg.git' '3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4' '3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jupyterlab-jupyterlab' 'https://github.com/jupyterlab/jupyterlab.git' '08b3325c4ad3a0c817e56d883612b2b167e7404c' '08b3325c4ad3a0c817e56d883612b2b167e7404c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'keycastr-keycastr' 'https://github.com/keycastr/keycastr.git' '58133a7bca58586b6fa1f462b4c13f09404f9c6a' '58133a7bca58586b6fa1f462b4c13f09404f9c6a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'puerkitobio-goquery' 'https://github.com/PuerkitoBio/goquery.git' '53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c' '53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'webrtc-samples' 'https://github.com/webrtc/samples.git' '6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e' '6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'shelljs-shelljs' 'https://github.com/shelljs/shelljs.git' 'f364da6625945414440bb15210f102ba5fc10ed9' 'f364da6625945414440bb15210f102ba5fc10ed9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'yiisoft-yii2' 'https://github.com/yiisoft/yii2.git' '66f00d18a29b520f85e8e8f1e32d1e7e7b556cac' '66f00d18a29b520f85e8e8f1e32d1e7e7b556cac' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'memcached-memcached' 'https://github.com/memcached/memcached.git' '2d51e364799bc9698bd4b11728ea978cea12da6e' '2d51e364799bc9698bd4b11728ea978cea12da6e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'app-vnext-polly' 'https://github.com/App-vNext/Polly.git' '3987bb8c0a876314ea0e29d200c333f0fdef5e53' '3987bb8c0a876314ea0e29d200c333f0fdef5e53' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'arut-nginx-rtmp-module' 'https://github.com/arut/nginx-rtmp-module.git' '6c7719d0ba32e00b563ec70bd43dad11960fa9c4' '6c7719d0ba32e00b563ec70bd43dad11960fa9c4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'vlucas-phpdotenv' 'https://github.com/vlucas/phpdotenv.git' '416df702837983f8d5ff48c9c3fee4f5f57b980b' '416df702837983f8d5ff48c9c3fee4f5f57b980b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'cocoalumberjack-cocoalumberjack' 'https://github.com/CocoaLumberjack/CocoaLumberjack.git' '91860fa9bcda881233539dcc00f40a0f61d3e6ff' '91860fa9bcda881233539dcc00f40a0f61d3e6ff' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'alibaba-tengine' 'https://github.com/alibaba/tengine.git' 'fcebbd12267b150c7e0406e8e3e5936c0b729aae' 'fcebbd12267b150c7e0406e8e3e5936c0b729aae' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'expo-create-react-native-app' 'https://github.com/expo/create-react-native-app.git' '3a7b11ee859c5c38fe09be58419e97a286a22c13' '3a7b11ee859c5c38fe09be58419e97a286a22c13' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gopherjs-gopherjs' 'https://github.com/gopherjs/gopherjs.git' '490705b1d6fc7d5bd9202ac41888e146183328eb' '490705b1d6fc7d5bd9202ac41888e146183328eb' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'node-inspector-node-inspector' 'https://github.com/node-inspector/node-inspector.git' '79e01c049286374f86dd560742a614019c02402f' '79e01c049286374f86dd560742a614019c02402f' '--skip-symlinks' '--filter-blobs' '--source-code'
-
-# shellcheck disable=SC2119
-fetcher_manifest <<'JSON'
-{
-  "corpus": {
-    "id": "permissive",
-    "title": "Permissively Licensed Project Code",
-    "description": "Project-owned files from immutable open-source repository commits, with text, structured, and binary assets retained while common vendored, generated, dependency, fixture, and build-output trees are excluded.",
-    "destination": "code/permissive"
-  },
-  "sources": [
-    {
-      "id": "freecodecamp-freecodecamp",
-      "path": "freecodecamp-freecodecamp",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "freeCodeCamp/freeCodeCamp",
-        "version": "f67426be7505cdb3072c72b3d254888e2bbaacd6",
-        "url": "https://github.com/freeCodeCamp/freeCodeCamp",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/freeCodeCamp/freeCodeCamp/license?ref=f67426be7505cdb3072c72b3d254888e2bbaacd6",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/freeCodeCamp/freeCodeCamp.git",
-          "revision": "f67426be7505cdb3072c72b3d254888e2bbaacd6",
-          "ref": "f67426be7505cdb3072c72b3d254888e2bbaacd6"
-        }
-      ]
-    },
-    {
-      "id": "react-react",
-      "path": "react-react",
-      "license": "MIT",
-      "source": {
-        "name": "react/react",
-        "version": "2042572329425f9ebf35ae6287ea5bab72b2c497",
-        "url": "https://github.com/react/react",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/react/react/license?ref=2042572329425f9ebf35ae6287ea5bab72b2c497",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/react/react.git",
-          "revision": "2042572329425f9ebf35ae6287ea5bab72b2c497",
-          "ref": "2042572329425f9ebf35ae6287ea5bab72b2c497"
-        }
-      ]
-    },
-    {
-      "id": "thealgorithms-python",
-      "path": "thealgorithms-python",
-      "license": "MIT",
-      "source": {
-        "name": "TheAlgorithms/Python",
-        "version": "f5988cc09713315817df6a7e327e258013a94440",
-        "url": "https://github.com/TheAlgorithms/Python",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/TheAlgorithms/Python/license?ref=f5988cc09713315817df6a7e327e258013a94440",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/TheAlgorithms/Python.git",
-          "revision": "f5988cc09713315817df6a7e327e258013a94440",
-          "ref": "f5988cc09713315817df6a7e327e258013a94440"
-        }
-      ]
-    },
-    {
-      "id": "vuejs-vue",
-      "path": "vuejs-vue",
-      "license": "MIT",
-      "source": {
-        "name": "vuejs/vue",
-        "version": "9e88707940088cb1f4cd7dd210c9168a50dc347c",
-        "url": "https://github.com/vuejs/vue",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/vuejs/vue/license?ref=9e88707940088cb1f4cd7dd210c9168a50dc347c",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/vuejs/vue.git",
-          "revision": "9e88707940088cb1f4cd7dd210c9168a50dc347c",
-          "ref": "9e88707940088cb1f4cd7dd210c9168a50dc347c"
-        }
-      ]
-    },
-    {
-      "id": "trekhleb-javascript-algorithms",
-      "path": "trekhleb-javascript-algorithms",
-      "license": "MIT",
-      "source": {
-        "name": "trekhleb/javascript-algorithms",
-        "version": "85293e3e2b88f4d2ce330d956b139cf628aa1e82",
-        "url": "https://github.com/trekhleb/javascript-algorithms",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/trekhleb/javascript-algorithms/license?ref=85293e3e2b88f4d2ce330d956b139cf628aa1e82",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/trekhleb/javascript-algorithms.git",
-          "revision": "85293e3e2b88f4d2ce330d956b139cf628aa1e82",
-          "ref": "85293e3e2b88f4d2ce330d956b139cf628aa1e82"
-        }
-      ]
-    },
-    {
-      "id": "ohmyzsh-ohmyzsh",
-      "path": "ohmyzsh-ohmyzsh",
-      "license": "MIT",
-      "source": {
-        "name": "ohmyzsh/ohmyzsh",
-        "version": "99aaf58d007f1378d1e0609bcd9baf8abbbaf327",
-        "url": "https://github.com/ohmyzsh/ohmyzsh",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ohmyzsh/ohmyzsh/license?ref=99aaf58d007f1378d1e0609bcd9baf8abbbaf327",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Shell"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ohmyzsh/ohmyzsh.git",
-          "revision": "99aaf58d007f1378d1e0609bcd9baf8abbbaf327",
-          "ref": "99aaf58d007f1378d1e0609bcd9baf8abbbaf327"
-        }
-      ]
-    },
-    {
-      "id": "microsoft-vscode",
-      "path": "microsoft-vscode",
-      "license": "MIT",
-      "source": {
-        "name": "microsoft/vscode",
-        "version": "97f9937a4263a283f83868783cf93142d1389c16",
-        "url": "https://github.com/microsoft/vscode",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/microsoft/vscode/license?ref=97f9937a4263a283f83868783cf93142d1389c16",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/microsoft/vscode.git",
-          "revision": "97f9937a4263a283f83868783cf93142d1389c16",
-          "ref": "97f9937a4263a283f83868783cf93142d1389c16"
-        }
-      ]
-    },
-    {
-      "id": "flutter-flutter",
-      "path": "flutter-flutter",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "flutter/flutter",
-        "version": "bea08b59e4d67d3deefe621b669bbcda3b396fe3",
-        "url": "https://github.com/flutter/flutter",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/flutter/flutter/license?ref=bea08b59e4d67d3deefe621b669bbcda3b396fe3",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Dart"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/flutter/flutter.git",
-          "revision": "bea08b59e4d67d3deefe621b669bbcda3b396fe3",
-          "ref": "bea08b59e4d67d3deefe621b669bbcda3b396fe3"
-        }
-      ]
-    },
-    {
-      "id": "ollama-ollama",
-      "path": "ollama-ollama",
-      "license": "MIT",
-      "source": {
-        "name": "ollama/ollama",
-        "version": "b880b76c4308cd5a97cbef2ef86367d126d77f75",
-        "url": "https://github.com/ollama/ollama",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ollama/ollama/license?ref=b880b76c4308cd5a97cbef2ef86367d126d77f75",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ollama/ollama.git",
-          "revision": "b880b76c4308cd5a97cbef2ef86367d126d77f75",
-          "ref": "b880b76c4308cd5a97cbef2ef86367d126d77f75"
-        }
-      ]
-    },
-    {
-      "id": "microsoft-markitdown",
-      "path": "microsoft-markitdown",
-      "license": "MIT",
-      "source": {
-        "name": "microsoft/markitdown",
-        "version": "fd239d5d2be43d9b68329730206b9312c7d5a388",
-        "url": "https://github.com/microsoft/markitdown",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/microsoft/markitdown/license?ref=fd239d5d2be43d9b68329730206b9312c7d5a388",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/microsoft/markitdown.git",
-          "revision": "fd239d5d2be43d9b68329730206b9312c7d5a388",
-          "ref": "fd239d5d2be43d9b68329730206b9312c7d5a388"
-        }
-      ]
-    },
-    {
-      "id": "snailclimb-javaguide",
-      "path": "snailclimb-javaguide",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "Snailclimb/JavaGuide",
-        "version": "11fb08483ac066ac9d6bdb0bcc80f761379d54d4",
-        "url": "https://github.com/Snailclimb/JavaGuide",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Snailclimb/JavaGuide/license?ref=11fb08483ac066ac9d6bdb0bcc80f761379d54d4",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Snailclimb/JavaGuide.git",
-          "revision": "11fb08483ac066ac9d6bdb0bcc80f761379d54d4",
-          "ref": "11fb08483ac066ac9d6bdb0bcc80f761379d54d4"
-        }
-      ]
-    },
-    {
-      "id": "langflow-ai-langflow",
-      "path": "langflow-ai-langflow",
-      "license": "MIT",
-      "source": {
-        "name": "langflow-ai/langflow",
-        "version": "3325c4642c489bfc2e2f4c9f3c63a32961f9581f",
-        "url": "https://github.com/langflow-ai/langflow",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/langflow-ai/langflow/license?ref=3325c4642c489bfc2e2f4c9f3c63a32961f9581f",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/langflow-ai/langflow.git",
-          "revision": "3325c4642c489bfc2e2f4c9f3c63a32961f9581f",
-          "ref": "3325c4642c489bfc2e2f4c9f3c63a32961f9581f"
-        }
-      ]
-    },
-    {
-      "id": "genymobile-scrcpy",
-      "path": "genymobile-scrcpy",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "Genymobile/scrcpy",
-        "version": "2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0",
-        "url": "https://github.com/Genymobile/scrcpy",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Genymobile/scrcpy/license?ref=2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Genymobile/scrcpy.git",
-          "revision": "2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0",
-          "ref": "2926c06c5dc3064ae6d8db706f1a98a37cfcf3f0"
-        }
-      ]
-    },
-    {
-      "id": "langchain-ai-langchain",
-      "path": "langchain-ai-langchain",
-      "license": "MIT",
-      "source": {
-        "name": "langchain-ai/langchain",
-        "version": "d048fbe170573b6e7056b5ef5f78d8451e54abaf",
-        "url": "https://github.com/langchain-ai/langchain",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/langchain-ai/langchain/license?ref=d048fbe170573b6e7056b5ef5f78d8451e54abaf",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/langchain-ai/langchain.git",
-          "revision": "d048fbe170573b6e7056b5ef5f78d8451e54abaf",
-          "ref": "d048fbe170573b6e7056b5ef5f78d8451e54abaf"
-        }
-      ]
-    },
-    {
-      "id": "microsoft-powertoys",
-      "path": "microsoft-powertoys",
-      "license": "MIT",
-      "source": {
-        "name": "microsoft/PowerToys",
-        "version": "9e12b7a8eed2cb693d3e6b293cd601675e76a4b0",
-        "url": "https://github.com/microsoft/PowerToys",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/microsoft/PowerToys/license?ref=9e12b7a8eed2cb693d3e6b293cd601675e76a4b0",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/microsoft/PowerToys.git",
-          "revision": "9e12b7a8eed2cb693d3e6b293cd601675e76a4b0",
-          "ref": "9e12b7a8eed2cb693d3e6b293cd601675e76a4b0"
-        }
-      ]
-    },
-    {
-      "id": "golang-go",
-      "path": "golang-go",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "golang/go",
-        "version": "42a6439b1241906746e0a5d68ee6a6318813fa49",
-        "url": "https://github.com/golang/go",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/golang/go/license?ref=42a6439b1241906746e0a5d68ee6a6318813fa49",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/golang/go.git",
-          "revision": "42a6439b1241906746e0a5d68ee6a6318813fa49",
-          "ref": "42a6439b1241906746e0a5d68ee6a6318813fa49"
-        }
-      ]
-    },
-    {
-      "id": "excalidraw-excalidraw",
-      "path": "excalidraw-excalidraw",
-      "license": "MIT",
-      "source": {
-        "name": "excalidraw/excalidraw",
-        "version": "cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58",
-        "url": "https://github.com/excalidraw/excalidraw",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/excalidraw/excalidraw/license?ref=cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/excalidraw/excalidraw.git",
-          "revision": "cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58",
-          "ref": "cf212b2f3354c09bd6f960b53a9cfb0a3ecbfa58"
-        }
-      ]
-    },
-    {
-      "id": "react-react-native",
-      "path": "react-react-native",
-      "license": "MIT",
-      "source": {
-        "name": "react/react-native",
-        "version": "4bf9d4e9b079a3b77842727c68b82f55415898ac",
-        "url": "https://github.com/react/react-native",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/react/react-native/license?ref=4bf9d4e9b079a3b77842727c68b82f55415898ac",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/react/react-native.git",
-          "revision": "4bf9d4e9b079a3b77842727c68b82f55415898ac",
-          "ref": "4bf9d4e9b079a3b77842727c68b82f55415898ac"
-        }
-      ]
-    },
-    {
-      "id": "kubernetes-kubernetes",
-      "path": "kubernetes-kubernetes",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "kubernetes/kubernetes",
-        "version": "94c136764292cc5fac976c0de6587daaea56410f",
-        "url": "https://github.com/kubernetes/kubernetes",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/kubernetes/kubernetes/license?ref=94c136764292cc5fac976c0de6587daaea56410f",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/kubernetes/kubernetes.git",
-          "revision": "94c136764292cc5fac976c0de6587daaea56410f",
-          "ref": "94c136764292cc5fac976c0de6587daaea56410f"
-        }
-      ]
-    },
-    {
-      "id": "ggml-org-llama.cpp",
-      "path": "ggml-org-llama.cpp",
-      "license": "MIT",
-      "source": {
-        "name": "ggml-org/llama.cpp",
-        "version": "7ba604f1cb61cd14898138e9abc0b4ff2601f180",
-        "url": "https://github.com/ggml-org/llama.cpp",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ggml-org/llama.cpp/license?ref=7ba604f1cb61cd14898138e9abc0b4ff2601f180",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ggml-org/llama.cpp.git",
-          "revision": "7ba604f1cb61cd14898138e9abc0b4ff2601f180",
-          "ref": "7ba604f1cb61cd14898138e9abc0b4ff2601f180"
-        }
-      ]
-    },
-    {
-      "id": "electron-electron",
-      "path": "electron-electron",
-      "license": "MIT",
-      "source": {
-        "name": "electron/electron",
-        "version": "50b779bde5478548df30229d81dd1a12e3434c85",
-        "url": "https://github.com/electron/electron",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/electron/electron/license?ref=50b779bde5478548df30229d81dd1a12e3434c85",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/electron/electron.git",
-          "revision": "50b779bde5478548df30229d81dd1a12e3434c85",
-          "ref": "50b779bde5478548df30229d81dd1a12e3434c85"
-        }
-      ]
-    },
-    {
-      "id": "shadcn-ui-ui",
-      "path": "shadcn-ui-ui",
-      "license": "MIT",
-      "source": {
-        "name": "shadcn-ui/ui",
-        "version": "6261bd89f72d794aea491482cc2acfd8dc3d63e2",
-        "url": "https://github.com/shadcn-ui/ui",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/shadcn-ui/ui/license?ref=6261bd89f72d794aea491482cc2acfd8dc3d63e2",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/shadcn-ui/ui.git",
-          "revision": "6261bd89f72d794aea491482cc2acfd8dc3d63e2",
-          "ref": "6261bd89f72d794aea491482cc2acfd8dc3d63e2"
-        }
-      ]
-    },
-    {
-      "id": "rust-lang-rust",
-      "path": "rust-lang-rust",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "rust-lang/rust",
-        "version": "4667d75565e47ba5df36c0df598c556b543e8624",
-        "url": "https://github.com/rust-lang/rust",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/rust-lang/rust/license?ref=4667d75565e47ba5df36c0df598c556b543e8624",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/rust-lang/rust.git",
-          "revision": "4667d75565e47ba5df36c0df598c556b543e8624",
-          "ref": "4667d75565e47ba5df36c0df598c556b543e8624"
-        }
-      ]
-    },
-    {
-      "id": "godotengine-godot",
-      "path": "godotengine-godot",
-      "license": "MIT",
-      "source": {
-        "name": "godotengine/godot",
-        "version": "4173760fdf6c2c722e82e08cb58e55f34c9efd80",
-        "url": "https://github.com/godotengine/godot",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/godotengine/godot/license?ref=4173760fdf6c2c722e82e08cb58e55f34c9efd80",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/godotengine/godot.git",
-          "revision": "4173760fdf6c2c722e82e08cb58e55f34c9efd80",
-          "ref": "4173760fdf6c2c722e82e08cb58e55f34c9efd80"
-        }
-      ]
-    },
-    {
-      "id": "mrdoob-three.js",
-      "path": "mrdoob-three.js",
-      "license": "MIT",
-      "source": {
-        "name": "mrdoob/three.js",
-        "version": "98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac",
-        "url": "https://github.com/mrdoob/three.js",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mrdoob/three.js/license?ref=98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mrdoob/three.js.git",
-          "revision": "98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac",
-          "ref": "98fbdb4a5ca8f095554e5ea58b8f58c8cbc35aac"
-        }
-      ]
-    },
-    {
-      "id": "tauri-apps-tauri",
-      "path": "tauri-apps-tauri",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "tauri-apps/tauri",
-        "version": "34ec18ba5e1acabebd66ae79d6fc746f63d8eb96",
-        "url": "https://github.com/tauri-apps/tauri",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/tauri-apps/tauri/license?ref=34ec18ba5e1acabebd66ae79d6fc746f63d8eb96",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/tauri-apps/tauri.git",
-          "revision": "34ec18ba5e1acabebd66ae79d6fc746f63d8eb96",
-          "ref": "34ec18ba5e1acabebd66ae79d6fc746f63d8eb96"
-        }
-      ]
-    },
-    {
-      "id": "axios-axios",
-      "path": "axios-axios",
-      "license": "MIT",
-      "source": {
-        "name": "axios/axios",
-        "version": "f5e83e49ee32b1004db82dad2b14d1e273a99e07",
-        "url": "https://github.com/axios/axios",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/axios/axios/license?ref=f5e83e49ee32b1004db82dad2b14d1e273a99e07",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/axios/axios.git",
-          "revision": "f5e83e49ee32b1004db82dad2b14d1e273a99e07",
-          "ref": "f5e83e49ee32b1004db82dad2b14d1e273a99e07"
-        }
-      ]
-    },
-    {
-      "id": "fatedier-frp",
-      "path": "fatedier-frp",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "fatedier/frp",
-        "version": "d1928f968938e4f1b3b72fd12d581342e57a5030",
-        "url": "https://github.com/fatedier/frp",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/fatedier/frp/license?ref=d1928f968938e4f1b3b72fd12d581342e57a5030",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/fatedier/frp.git",
-          "revision": "d1928f968938e4f1b3b72fd12d581342e57a5030",
-          "ref": "d1928f968938e4f1b3b72fd12d581342e57a5030"
-        }
-      ]
-    },
-    {
-      "id": "browser-use-browser-use",
-      "path": "browser-use-browser-use",
-      "license": "MIT",
-      "source": {
-        "name": "browser-use/browser-use",
-        "version": "32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4",
-        "url": "https://github.com/browser-use/browser-use",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/browser-use/browser-use/license?ref=32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/browser-use/browser-use.git",
-          "revision": "32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4",
-          "ref": "32601887cfbc9f4f1e3cad3e2b678e56aeaeaae4"
-        }
-      ]
-    },
-    {
-      "id": "denoland-deno",
-      "path": "denoland-deno",
-      "license": "MIT",
-      "source": {
-        "name": "denoland/deno",
-        "version": "98dc759254a90b98f7bbb62ba5361e531d0db6a5",
-        "url": "https://github.com/denoland/deno",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/denoland/deno/license?ref=98dc759254a90b98f7bbb62ba5361e531d0db6a5",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/denoland/deno.git",
-          "revision": "98dc759254a90b98f7bbb62ba5361e531d0db6a5",
-          "ref": "98dc759254a90b98f7bbb62ba5361e531d0db6a5"
-        }
-      ]
-    },
-    {
-      "id": "openai-whisper",
-      "path": "openai-whisper",
-      "license": "MIT",
-      "source": {
-        "name": "openai/whisper",
-        "version": "5f86d1d86363843179951550570367b37c5d6f78",
-        "url": "https://github.com/openai/whisper",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/openai/whisper/license?ref=5f86d1d86363843179951550570367b37c5d6f78",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/openai/whisper.git",
-          "revision": "5f86d1d86363843179951550570367b37c5d6f78",
-          "ref": "5f86d1d86363843179951550570367b37c5d6f78"
-        }
-      ]
-    },
-    {
-      "id": "microsoft-terminal",
-      "path": "microsoft-terminal",
-      "license": "MIT",
-      "source": {
-        "name": "microsoft/terminal",
-        "version": "b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a",
-        "url": "https://github.com/microsoft/terminal",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/microsoft/terminal/license?ref=b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/microsoft/terminal.git",
-          "revision": "b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a",
-          "ref": "b888cb7e4c3b0b21b7ed66c224bcdf7fa9ef6d9a"
-        }
-      ]
-    },
-    {
-      "id": "deepseek-ai-deepseek-v3",
-      "path": "deepseek-ai-deepseek-v3",
-      "license": "MIT",
-      "source": {
-        "name": "deepseek-ai/DeepSeek-V3",
-        "version": "9b4e9788e4a3a731f7567338ed15d3ec549ce03b",
-        "url": "https://github.com/deepseek-ai/DeepSeek-V3",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/deepseek-ai/DeepSeek-V3/license?ref=9b4e9788e4a3a731f7567338ed15d3ec549ce03b",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/deepseek-ai/DeepSeek-V3.git",
-          "revision": "9b4e9788e4a3a731f7567338ed15d3ec549ce03b",
-          "ref": "9b4e9788e4a3a731f7567338ed15d3ec549ce03b"
-        }
-      ]
-    },
-    {
-      "id": "react-create-react-app",
-      "path": "react-create-react-app",
-      "license": "MIT",
-      "source": {
-        "name": "react/create-react-app",
-        "version": "6254386531d263688ccfa542d0e628fbc0de0b28",
-        "url": "https://github.com/react/create-react-app",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/react/create-react-app/license?ref=6254386531d263688ccfa542d0e628fbc0de0b28",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/react/create-react-app.git",
-          "revision": "6254386531d263688ccfa542d0e628fbc0de0b28",
-          "ref": "6254386531d263688ccfa542d0e628fbc0de0b28"
-        }
-      ]
-    },
-    {
-      "id": "harry0703-moneyprinterturbo",
-      "path": "harry0703-moneyprinterturbo",
-      "license": "MIT",
-      "source": {
-        "name": "harry0703/MoneyPrinterTurbo",
-        "version": "e14dea5578bb2154480b6bc436009eaa9987f0e3",
-        "url": "https://github.com/harry0703/MoneyPrinterTurbo",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/harry0703/MoneyPrinterTurbo/license?ref=e14dea5578bb2154480b6bc436009eaa9987f0e3",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/harry0703/MoneyPrinterTurbo.git",
-          "revision": "e14dea5578bb2154480b6bc436009eaa9987f0e3",
-          "ref": "e14dea5578bb2154480b6bc436009eaa9987f0e3"
-        }
-      ]
-    },
-    {
-      "id": "fastapi-fastapi",
-      "path": "fastapi-fastapi",
-      "license": "MIT",
-      "source": {
-        "name": "fastapi/fastapi",
-        "version": "0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4",
-        "url": "https://github.com/fastapi/fastapi",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/fastapi/fastapi/license?ref=0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/fastapi/fastapi.git",
-          "revision": "0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4",
-          "ref": "0c2b6aafd7a2e3a5bf1055ea0ed0a41da15ba5f4"
-        }
-      ]
-    },
-    {
-      "id": "angular-angular",
-      "path": "angular-angular",
-      "license": "MIT",
-      "source": {
-        "name": "angular/angular",
-        "version": "565dbb2fe5406f2a86d43a5b3c6993434b7124a7",
-        "url": "https://github.com/angular/angular",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/angular/angular/license?ref=565dbb2fe5406f2a86d43a5b3c6993434b7124a7",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/angular/angular.git",
-          "revision": "565dbb2fe5406f2a86d43a5b3c6993434b7124a7",
-          "ref": "565dbb2fe5406f2a86d43a5b3c6993434b7124a7"
-        }
-      ]
-    },
-    {
-      "id": "ant-design-ant-design",
-      "path": "ant-design-ant-design",
-      "license": "MIT",
-      "source": {
-        "name": "ant-design/ant-design",
-        "version": "41ba18cfc3d8a0f37ab89e143fed27d341f320d0",
-        "url": "https://github.com/ant-design/ant-design",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ant-design/ant-design/license?ref=41ba18cfc3d8a0f37ab89e143fed27d341f320d0",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ant-design/ant-design.git",
-          "revision": "41ba18cfc3d8a0f37ab89e143fed27d341f320d0",
-          "ref": "41ba18cfc3d8a0f37ab89e143fed27d341f320d0"
-        }
-      ]
-    },
-    {
-      "id": "mui-material-ui",
-      "path": "mui-material-ui",
-      "license": "MIT",
-      "source": {
-        "name": "mui/material-ui",
-        "version": "81e94061ca393d4eaf238e6f77c283b2edd9ef7e",
-        "url": "https://github.com/mui/material-ui",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mui/material-ui/license?ref=81e94061ca393d4eaf238e6f77c283b2edd9ef7e",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mui/material-ui.git",
-          "revision": "81e94061ca393d4eaf238e6f77c283b2edd9ef7e",
-          "ref": "81e94061ca393d4eaf238e6f77c283b2edd9ef7e"
-        }
-      ]
-    },
-    {
-      "id": "nvbn-thefuck",
-      "path": "nvbn-thefuck",
-      "license": "MIT",
-      "source": {
-        "name": "nvbn/thefuck",
-        "version": "c7e7e1d884d3bb241ea6448f72a989434c2a35ec",
-        "url": "https://github.com/nvbn/thefuck",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/nvbn/thefuck/license?ref=c7e7e1d884d3bb241ea6448f72a989434c2a35ec",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/nvbn/thefuck.git",
-          "revision": "c7e7e1d884d3bb241ea6448f72a989434c2a35ec",
-          "ref": "c7e7e1d884d3bb241ea6448f72a989434c2a35ec"
-        }
-      ]
-    },
-    {
-      "id": "tailwindlabs-tailwindcss",
-      "path": "tailwindlabs-tailwindcss",
-      "license": "MIT",
-      "source": {
-        "name": "tailwindlabs/tailwindcss",
-        "version": "46df7ee2fc4ae822d414d35bbd48be024e5cb1c0",
-        "url": "https://github.com/tailwindlabs/tailwindcss",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/tailwindlabs/tailwindcss/license?ref=46df7ee2fc4ae822d414d35bbd48be024e5cb1c0",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/tailwindlabs/tailwindcss.git",
-          "revision": "46df7ee2fc4ae822d414d35bbd48be024e5cb1c0",
-          "ref": "46df7ee2fc4ae822d414d35bbd48be024e5cb1c0"
-        }
-      ]
-    },
-    {
-      "id": "tauricresearch-tradingagents",
-      "path": "tauricresearch-tradingagents",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "TauricResearch/TradingAgents",
-        "version": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
-        "url": "https://github.com/TauricResearch/TradingAgents",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/TauricResearch/TradingAgents/license?ref=a33fd4c0f134485a43553a2c23a63cb14adbd88f",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/TauricResearch/TradingAgents.git",
-          "revision": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
-          "ref": "a33fd4c0f134485a43553a2c23a63cb14adbd88f"
-        }
-      ]
-    },
-    {
-      "id": "puppeteer-puppeteer",
-      "path": "puppeteer-puppeteer",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "puppeteer/puppeteer",
-        "version": "566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f",
-        "url": "https://github.com/puppeteer/puppeteer",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/puppeteer/puppeteer/license?ref=566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/puppeteer/puppeteer.git",
-          "revision": "566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f",
-          "ref": "566e6a9cffb9678e20e9ec9a4cc1be343a7ac94f"
-        }
-      ]
-    },
-    {
-      "id": "nvm-sh-nvm",
-      "path": "nvm-sh-nvm",
-      "license": "MIT",
-      "source": {
-        "name": "nvm-sh/nvm",
-        "version": "65ded65d46c16481dbbe8e93f8ba9e6b35f20740",
-        "url": "https://github.com/nvm-sh/nvm",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/nvm-sh/nvm/license?ref=65ded65d46c16481dbbe8e93f8ba9e6b35f20740",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Shell"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/nvm-sh/nvm.git",
-          "revision": "65ded65d46c16481dbbe8e93f8ba9e6b35f20740",
-          "ref": "65ded65d46c16481dbbe8e93f8ba9e6b35f20740"
-        }
-      ]
-    },
-    {
-      "id": "microsoft-playwright",
-      "path": "microsoft-playwright",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "microsoft/playwright",
-        "version": "c973356ee9e3906260f60da5e3e04442e069a0d4",
-        "url": "https://github.com/microsoft/playwright",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/microsoft/playwright/license?ref=c973356ee9e3906260f60da5e3e04442e069a0d4",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/microsoft/playwright.git",
-          "revision": "c973356ee9e3906260f60da5e3e04442e069a0d4",
-          "ref": "c973356ee9e3906260f60da5e3e04442e069a0d4"
-        }
-      ]
-    },
-    {
-      "id": "opencv-opencv",
-      "path": "opencv-opencv",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "opencv/opencv",
-        "version": "77dfa297d08fdecdc509fc01ad92a2e9ec776a57",
-        "url": "https://github.com/opencv/opencv",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/opencv/opencv/license?ref=77dfa297d08fdecdc509fc01ad92a2e9ec776a57",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/opencv/opencv.git",
-          "revision": "77dfa297d08fdecdc509fc01ad92a2e9ec776a57",
-          "ref": "77dfa297d08fdecdc509fc01ad92a2e9ec776a57"
-        }
-      ]
-    },
-    {
-      "id": "panjiachen-vue-element-admin",
-      "path": "panjiachen-vue-element-admin",
-      "license": "MIT",
-      "source": {
-        "name": "PanJiaChen/vue-element-admin",
-        "version": "6858a9ad67483025f6a9432a926beb9327037be3",
-        "url": "https://github.com/PanJiaChen/vue-element-admin",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/PanJiaChen/vue-element-admin/license?ref=6858a9ad67483025f6a9432a926beb9327037be3",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Vue"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/PanJiaChen/vue-element-admin.git",
-          "revision": "6858a9ad67483025f6a9432a926beb9327037be3",
-          "ref": "6858a9ad67483025f6a9432a926beb9327037be3"
-        }
-      ]
-    },
-    {
-      "id": "louislam-uptime-kuma",
-      "path": "louislam-uptime-kuma",
-      "license": "MIT",
-      "source": {
-        "name": "louislam/uptime-kuma",
-        "version": "77d1a0c57a37a4cf5657bb7b514b4e08d455928e",
-        "url": "https://github.com/louislam/uptime-kuma",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/louislam/uptime-kuma/license?ref=77d1a0c57a37a4cf5657bb7b514b4e08d455928e",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/louislam/uptime-kuma.git",
-          "revision": "77d1a0c57a37a4cf5657bb7b514b4e08d455928e",
-          "ref": "77d1a0c57a37a4cf5657bb7b514b4e08d455928e"
-        }
-      ]
-    },
-    {
-      "id": "bitcoin-bitcoin",
-      "path": "bitcoin-bitcoin",
-      "license": "MIT",
-      "source": {
-        "name": "bitcoin/bitcoin",
-        "version": "128456b62d5e38abea031f97f823d5b28aef9357",
-        "url": "https://github.com/bitcoin/bitcoin",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/bitcoin/bitcoin/license?ref=128456b62d5e38abea031f97f823d5b28aef9357",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/bitcoin/bitcoin.git",
-          "revision": "128456b62d5e38abea031f97f823d5b28aef9357",
-          "ref": "128456b62d5e38abea031f97f823d5b28aef9357"
-        }
-      ]
-    },
-    {
-      "id": "home-assistant-core",
-      "path": "home-assistant-core",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "home-assistant/core",
-        "version": "c369f973abfcfba865a745a1750c0fe887e98d60",
-        "url": "https://github.com/home-assistant/core",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/home-assistant/core/license?ref=c369f973abfcfba865a745a1750c0fe887e98d60",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/home-assistant/core.git",
-          "revision": "c369f973abfcfba865a745a1750c0fe887e98d60",
-          "ref": "c369f973abfcfba865a745a1750c0fe887e98d60"
-        }
-      ]
-    },
-    {
-      "id": "mermaid-js-mermaid",
-      "path": "mermaid-js-mermaid",
-      "license": "MIT",
-      "source": {
-        "name": "mermaid-js/mermaid",
-        "version": "3d521b1ee5fc9079fe0659e776a1b2cdc37174b1",
-        "url": "https://github.com/mermaid-js/mermaid",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mermaid-js/mermaid/license?ref=3d521b1ee5fc9079fe0659e776a1b2cdc37174b1",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mermaid-js/mermaid.git",
-          "revision": "3d521b1ee5fc9079fe0659e776a1b2cdc37174b1",
-          "ref": "3d521b1ee5fc9079fe0659e776a1b2cdc37174b1"
-        }
-      ]
-    },
-    {
-      "id": "gohugoio-hugo",
-      "path": "gohugoio-hugo",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "gohugoio/hugo",
-        "version": "44da086082a1dff487f4e5639bb03a65d9dd1ade",
-        "url": "https://github.com/gohugoio/hugo",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/gohugoio/hugo/license?ref=44da086082a1dff487f4e5639bb03a65d9dd1ade",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/gohugoio/hugo.git",
-          "revision": "44da086082a1dff487f4e5639bb03a65d9dd1ade",
-          "ref": "44da086082a1dff487f4e5639bb03a65d9dd1ade"
-        }
-      ]
-    },
-    {
-      "id": "3b1b-manim",
-      "path": "3b1b-manim",
-      "license": "MIT",
-      "source": {
-        "name": "3b1b/manim",
-        "version": "01030ac5d23bc294ccb93cbfcda260f2d20dda62",
-        "url": "https://github.com/3b1b/manim",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/3b1b/manim/license?ref=01030ac5d23bc294ccb93cbfcda260f2d20dda62",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/3b1b/manim.git",
-          "revision": "01030ac5d23bc294ccb93cbfcda260f2d20dda62",
-          "ref": "01030ac5d23bc294ccb93cbfcda260f2d20dda62"
-        }
-      ]
-    },
-    {
-      "id": "gin-gonic-gin",
-      "path": "gin-gonic-gin",
-      "license": "MIT",
-      "source": {
-        "name": "gin-gonic/gin",
-        "version": "34dac209ffb6ef85cc78c5d217bbb7ad001d68fd",
-        "url": "https://github.com/gin-gonic/gin",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/gin-gonic/gin/license?ref=34dac209ffb6ef85cc78c5d217bbb7ad001d68fd",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/gin-gonic/gin.git",
-          "revision": "34dac209ffb6ef85cc78c5d217bbb7ad001d68fd",
-          "ref": "34dac209ffb6ef85cc78c5d217bbb7ad001d68fd"
-        }
-      ]
-    },
-    {
-      "id": "chatgptnextweb-nextchat",
-      "path": "chatgptnextweb-nextchat",
-      "license": "MIT",
-      "source": {
-        "name": "ChatGPTNextWeb/NextChat",
-        "version": "706a18b95b714ab29b2a4842d3b9ff4f887935d5",
-        "url": "https://github.com/ChatGPTNextWeb/NextChat",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ChatGPTNextWeb/NextChat/license?ref=706a18b95b714ab29b2a4842d3b9ff4f887935d5",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ChatGPTNextWeb/NextChat.git",
-          "revision": "706a18b95b714ab29b2a4842d3b9ff4f887935d5",
-          "ref": "706a18b95b714ab29b2a4842d3b9ff4f887935d5"
-        }
-      ]
-    },
-    {
-      "id": "sherlock-project-sherlock",
-      "path": "sherlock-project-sherlock",
-      "license": "MIT",
-      "source": {
-        "name": "sherlock-project/sherlock",
-        "version": "9100f9d40a3274bd46f4ce903c5c6fee6f3745bc",
-        "url": "https://github.com/sherlock-project/sherlock",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/sherlock-project/sherlock/license?ref=9100f9d40a3274bd46f4ce903c5c6fee6f3745bc",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/sherlock-project/sherlock.git",
-          "revision": "9100f9d40a3274bd46f4ce903c5c6fee6f3745bc",
-          "ref": "9100f9d40a3274bd46f4ce903c5c6fee6f3745bc"
-        }
-      ]
-    },
-    {
-      "id": "vllm-project-vllm",
-      "path": "vllm-project-vllm",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "vllm-project/vllm",
-        "version": "cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7",
-        "url": "https://github.com/vllm-project/vllm",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/vllm-project/vllm/license?ref=cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/vllm-project/vllm.git",
-          "revision": "cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7",
-          "ref": "cb1a52aee3b31c692a6629ebd7ff5503b3cd13f7"
-        }
-      ]
-    },
-    {
-      "id": "astral-sh-uv",
-      "path": "astral-sh-uv",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "astral-sh/uv",
-        "version": "dd0584d560a4693b5713a78be54304123ada3e77",
-        "url": "https://github.com/astral-sh/uv",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/astral-sh/uv/license?ref=dd0584d560a4693b5713a78be54304123ada3e77",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/astral-sh/uv.git",
-          "revision": "dd0584d560a4693b5713a78be54304123ada3e77",
-          "ref": "dd0584d560a4693b5713a78be54304123ada3e77"
-        }
-      ]
-    },
-    {
-      "id": "django-django",
-      "path": "django-django",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "django/django",
-        "version": "c9eb16a87e60c305fb3651459639f647cce498db",
-        "url": "https://github.com/django/django",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/django/django/license?ref=c9eb16a87e60c305fb3651459639f647cce498db",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/django/django.git",
-          "revision": "c9eb16a87e60c305fb3651459639f647cce498db",
-          "ref": "c9eb16a87e60c305fb3651459639f647cce498db"
-        }
-      ]
-    },
-    {
-      "id": "sveltejs-svelte",
-      "path": "sveltejs-svelte",
-      "license": "MIT",
-      "source": {
-        "name": "sveltejs/svelte",
-        "version": "26786e92985842a6d563c67049a43bc5857bf792",
-        "url": "https://github.com/sveltejs/svelte",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/sveltejs/svelte/license?ref=26786e92985842a6d563c67049a43bc5857bf792",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/sveltejs/svelte.git",
-          "revision": "26786e92985842a6d563c67049a43bc5857bf792",
-          "ref": "26786e92985842a6d563c67049a43bc5857bf792"
-        }
-      ]
-    },
-    {
-      "id": "paddlepaddle-paddleocr",
-      "path": "paddlepaddle-paddleocr",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "PaddlePaddle/PaddleOCR",
-        "version": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
-        "url": "https://github.com/PaddlePaddle/PaddleOCR",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/PaddlePaddle/PaddleOCR/license?ref=2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/PaddlePaddle/PaddleOCR.git",
-          "revision": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
-          "ref": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854"
-        }
-      ]
-    },
-    {
-      "id": "localsend-localsend",
-      "path": "localsend-localsend",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "localsend/localsend",
-        "version": "ff2995c9523c5fae407f7d444d0986b2c6ae568e",
-        "url": "https://github.com/localsend/localsend",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/localsend/localsend/license?ref=ff2995c9523c5fae407f7d444d0986b2c6ae568e",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Dart"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/localsend/localsend.git",
-          "revision": "ff2995c9523c5fae407f7d444d0986b2c6ae568e",
-          "ref": "ff2995c9523c5fae407f7d444d0986b2c6ae568e"
-        }
-      ]
-    },
-    {
-      "id": "infiniflow-ragflow",
-      "path": "infiniflow-ragflow",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "infiniflow/ragflow",
-        "version": "99110c2df0d4822bd819eda36e4d038c33391123",
-        "url": "https://github.com/infiniflow/ragflow",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/infiniflow/ragflow/license?ref=99110c2df0d4822bd819eda36e4d038c33391123",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/infiniflow/ragflow.git",
-          "revision": "99110c2df0d4822bd819eda36e4d038c33391123",
-          "ref": "99110c2df0d4822bd819eda36e4d038c33391123"
-        }
-      ]
-    },
-    {
-      "id": "macrozheng-mall",
-      "path": "macrozheng-mall",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "macrozheng/mall",
-        "version": "0504e86b1f1b6f1b8aa6a734d37a90fb67346be7",
-        "url": "https://github.com/macrozheng/mall",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/macrozheng/mall/license?ref=0504e86b1f1b6f1b8aa6a734d37a90fb67346be7",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/macrozheng/mall.git",
-          "revision": "0504e86b1f1b6f1b8aa6a734d37a90fb67346be7",
-          "ref": "0504e86b1f1b6f1b8aa6a734d37a90fb67346be7"
-        }
-      ]
-    },
-    {
-      "id": "openhands-openhands",
-      "path": "openhands-openhands",
-      "license": "MIT",
-      "source": {
-        "name": "OpenHands/OpenHands",
-        "version": "4470813ce58f5ac384e3d367d34518e10106526b",
-        "url": "https://github.com/OpenHands/OpenHands",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/OpenHands/OpenHands/license?ref=4470813ce58f5ac384e3d367d34518e10106526b",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/OpenHands/OpenHands.git",
-          "revision": "4470813ce58f5ac384e3d367d34518e10106526b",
-          "ref": "4470813ce58f5ac384e3d367d34518e10106526b"
-        }
-      ]
-    },
-    {
-      "id": "junegunn-fzf",
-      "path": "junegunn-fzf",
-      "license": "MIT",
-      "source": {
-        "name": "junegunn/fzf",
-        "version": "715d26fa3949c9a0f1e41fcbda5440f3ac338e51",
-        "url": "https://github.com/junegunn/fzf",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/junegunn/fzf/license?ref=715d26fa3949c9a0f1e41fcbda5440f3ac338e51",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/junegunn/fzf.git",
-          "revision": "715d26fa3949c9a0f1e41fcbda5440f3ac338e51",
-          "ref": "715d26fa3949c9a0f1e41fcbda5440f3ac338e51"
-        }
-      ]
-    },
-    {
-      "id": "vitejs-vite",
-      "path": "vitejs-vite",
-      "license": "MIT",
-      "source": {
-        "name": "vitejs/vite",
-        "version": "57fea001d154e7dd8d5d74d3082731f1dcfd31be",
-        "url": "https://github.com/vitejs/vite",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/vitejs/vite/license?ref=57fea001d154e7dd8d5d74d3082731f1dcfd31be",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/vitejs/vite.git",
-          "revision": "57fea001d154e7dd8d5d74d3082731f1dcfd31be",
-          "ref": "57fea001d154e7dd8d5d74d3082731f1dcfd31be"
-        }
-      ]
-    },
-    {
-      "id": "spring-projects-spring-boot",
-      "path": "spring-projects-spring-boot",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "spring-projects/spring-boot",
-        "version": "ee3c48d00ffa6efda14e730c02ba145dc15e0fe4",
-        "url": "https://github.com/spring-projects/spring-boot",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/spring-projects/spring-boot/license?ref=ee3c48d00ffa6efda14e730c02ba145dc15e0fe4",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/spring-projects/spring-boot.git",
-          "revision": "ee3c48d00ffa6efda14e730c02ba145dc15e0fe4",
-          "ref": "ee3c48d00ffa6efda14e730c02ba145dc15e0fe4"
-        }
-      ]
-    },
-    {
-      "id": "jesseduffield-lazygit",
-      "path": "jesseduffield-lazygit",
-      "license": "MIT",
-      "source": {
-        "name": "jesseduffield/lazygit",
-        "version": "ddceff696286811d2adc02e27bad1b275b9b1c75",
-        "url": "https://github.com/jesseduffield/lazygit",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jesseduffield/lazygit/license?ref=ddceff696286811d2adc02e27bad1b275b9b1c75",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jesseduffield/lazygit.git",
-          "revision": "ddceff696286811d2adc02e27bad1b275b9b1c75",
-          "ref": "ddceff696286811d2adc02e27bad1b275b9b1c75"
-        }
-      ]
-    },
-    {
-      "id": "hoppscotch-hoppscotch",
-      "path": "hoppscotch-hoppscotch",
-      "license": "MIT",
-      "source": {
-        "name": "hoppscotch/hoppscotch",
-        "version": "1acb8a3a7581e4db32ba0d529170c4669a2e1053",
-        "url": "https://github.com/hoppscotch/hoppscotch",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/hoppscotch/hoppscotch/license?ref=1acb8a3a7581e4db32ba0d529170c4669a2e1053",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/hoppscotch/hoppscotch.git",
-          "revision": "1acb8a3a7581e4db32ba0d529170c4669a2e1053",
-          "ref": "1acb8a3a7581e4db32ba0d529170c4669a2e1053"
-        }
-      ]
-    },
-    {
-      "id": "anuraghazra-github-readme-stats",
-      "path": "anuraghazra-github-readme-stats",
-      "license": "MIT",
-      "source": {
-        "name": "anuraghazra/github-readme-stats",
-        "version": "54a7985aeefda00d5eadb55b80c17c7f976c37d2",
-        "url": "https://github.com/anuraghazra/github-readme-stats",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/anuraghazra/github-readme-stats/license?ref=54a7985aeefda00d5eadb55b80c17c7f976c37d2",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/anuraghazra/github-readme-stats.git",
-          "revision": "54a7985aeefda00d5eadb55b80c17c7f976c37d2",
-          "ref": "54a7985aeefda00d5eadb55b80c17c7f976c37d2"
-        }
-      ]
-    },
-    {
-      "id": "d2l-ai-d2l-zh",
-      "path": "d2l-ai-d2l-zh",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "d2l-ai/d2l-zh",
-        "version": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
-        "url": "https://github.com/d2l-ai/d2l-zh",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/d2l-ai/d2l-zh/license?ref=e6b18ccea71451a55fcd861d7b96fddf2587b09a",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/d2l-ai/d2l-zh.git",
-          "revision": "e6b18ccea71451a55fcd861d7b96fddf2587b09a",
-          "ref": "e6b18ccea71451a55fcd861d7b96fddf2587b09a"
-        }
-      ]
-    },
-    {
-      "id": "z4nzu-hackingtool",
-      "path": "z4nzu-hackingtool",
-      "license": "MIT",
-      "source": {
-        "name": "Z4nzu/hackingtool",
-        "version": "9b92b6156ddc5ff87bf0fa592d81c333a88d1c78",
-        "url": "https://github.com/Z4nzu/hackingtool",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Z4nzu/hackingtool/license?ref=9b92b6156ddc5ff87bf0fa592d81c333a88d1c78",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Z4nzu/hackingtool.git",
-          "revision": "9b92b6156ddc5ff87bf0fa592d81c333a88d1c78",
-          "ref": "9b92b6156ddc5ff87bf0fa592d81c333a88d1c78"
-        }
-      ]
-    },
-    {
-      "id": "coder-code-server",
-      "path": "coder-code-server",
-      "license": "MIT",
-      "source": {
-        "name": "coder/code-server",
-        "version": "313bf0359b4d391ba18f1fa131aad8a583bc2919",
-        "url": "https://github.com/coder/code-server",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/coder/code-server/license?ref=313bf0359b4d391ba18f1fa131aad8a583bc2919",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/coder/code-server.git",
-          "revision": "313bf0359b4d391ba18f1fa131aad8a583bc2919",
-          "ref": "313bf0359b4d391ba18f1fa131aad8a583bc2919"
-        }
-      ]
-    },
-    {
-      "id": "nomic-ai-gpt4all",
-      "path": "nomic-ai-gpt4all",
-      "license": "MIT",
-      "source": {
-        "name": "nomic-ai/gpt4all",
-        "version": "b666d16db5aeab8b91aaf7963adcee9c643734d7",
-        "url": "https://github.com/nomic-ai/gpt4all",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/nomic-ai/gpt4all/license?ref=b666d16db5aeab8b91aaf7963adcee9c643734d7",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/nomic-ai/gpt4all.git",
-          "revision": "b666d16db5aeab8b91aaf7963adcee9c643734d7",
-          "ref": "b666d16db5aeab8b91aaf7963adcee9c643734d7"
-        }
-      ]
-    },
-    {
-      "id": "unclecode-crawl4ai",
-      "path": "unclecode-crawl4ai",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "unclecode/crawl4ai",
-        "version": "7e801521428ee12509994d39151006f64055ebe3",
-        "url": "https://github.com/unclecode/crawl4ai",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/unclecode/crawl4ai/license?ref=7e801521428ee12509994d39151006f64055ebe3",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/unclecode/crawl4ai.git",
-          "revision": "7e801521428ee12509994d39151006f64055ebe3",
-          "ref": "7e801521428ee12509994d39151006f64055ebe3"
-        }
-      ]
-    },
-    {
-      "id": "nestjs-nest",
-      "path": "nestjs-nest",
-      "license": "MIT",
-      "source": {
-        "name": "nestjs/nest",
-        "version": "c3bc75c973813969aa676793e20a7cba12a9daf5",
-        "url": "https://github.com/nestjs/nest",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/nestjs/nest/license?ref=c3bc75c973813969aa676793e20a7cba12a9daf5",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/nestjs/nest.git",
-          "revision": "c3bc75c973813969aa676793e20a7cba12a9daf5",
-          "ref": "c3bc75c973813969aa676793e20a7cba12a9daf5"
-        }
-      ]
-    },
-    {
-      "id": "tesseract-ocr-tesseract",
-      "path": "tesseract-ocr-tesseract",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "tesseract-ocr/tesseract",
-        "version": "64ed93b68c01f359d924fc1bfcf0d5931eb77211",
-        "url": "https://github.com/tesseract-ocr/tesseract",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/tesseract-ocr/tesseract/license?ref=64ed93b68c01f359d924fc1bfcf0d5931eb77211",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/tesseract-ocr/tesseract.git",
-          "revision": "64ed93b68c01f359d924fc1bfcf0d5931eb77211",
-          "ref": "64ed93b68c01f359d924fc1bfcf0d5931eb77211"
-        }
-      ]
-    },
-    {
-      "id": "typicode-json-server",
-      "path": "typicode-json-server",
-      "license": "MIT",
-      "source": {
-        "name": "typicode/json-server",
-        "version": "89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea",
-        "url": "https://github.com/typicode/json-server",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/typicode/json-server/license?ref=89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/typicode/json-server.git",
-          "revision": "89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea",
-          "ref": "89a34a44b7a6a5311dc84f3b8a1b8b45c0905aea"
-        }
-      ]
-    },
-    {
-      "id": "ocornut-imgui",
-      "path": "ocornut-imgui",
-      "license": "MIT",
-      "source": {
-        "name": "ocornut/imgui",
-        "version": "46d39d56febc2a00bdd2270dc88c8a13f2a0441a",
-        "url": "https://github.com/ocornut/imgui",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ocornut/imgui/license?ref=46d39d56febc2a00bdd2270dc88c8a13f2a0441a",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ocornut/imgui.git",
-          "revision": "46d39d56febc2a00bdd2270dc88c8a13f2a0441a",
-          "ref": "46d39d56febc2a00bdd2270dc88c8a13f2a0441a"
-        }
-      ]
-    },
-    {
-      "id": "caddyserver-caddy",
-      "path": "caddyserver-caddy",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "caddyserver/caddy",
-        "version": "64b64c61ebc40ea37280b2baa1a7a492cc1156c5",
-        "url": "https://github.com/caddyserver/caddy",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/caddyserver/caddy/license?ref=64b64c61ebc40ea37280b2baa1a7a492cc1156c5",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/caddyserver/caddy.git",
-          "revision": "64b64c61ebc40ea37280b2baa1a7a492cc1156c5",
-          "ref": "64b64c61ebc40ea37280b2baa1a7a492cc1156c5"
-        }
-      ]
-    },
-    {
-      "id": "apache-superset",
-      "path": "apache-superset",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "apache/superset",
-        "version": "3b164e4270860ac07223d4df1a60ca7b56312362",
-        "url": "https://github.com/apache/superset",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/apache/superset/license?ref=3b164e4270860ac07223d4df1a60ca7b56312362",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/apache/superset.git",
-          "revision": "3b164e4270860ac07223d4df1a60ca7b56312362",
-          "ref": "3b164e4270860ac07223d4df1a60ca7b56312362"
-        }
-      ]
-    },
-    {
-      "id": "hiyouga-llamafactory",
-      "path": "hiyouga-llamafactory",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "hiyouga/LlamaFactory",
-        "version": "887b850813d80a8d893ec56703d5b3a0eec46de6",
-        "url": "https://github.com/hiyouga/LlamaFactory",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/hiyouga/LlamaFactory/license?ref=887b850813d80a8d893ec56703d5b3a0eec46de6",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/hiyouga/LlamaFactory.git",
-          "revision": "887b850813d80a8d893ec56703d5b3a0eec46de6",
-          "ref": "887b850813d80a8d893ec56703d5b3a0eec46de6"
-        }
-      ]
-    },
-    {
-      "id": "abi-screenshot-to-code",
-      "path": "abi-screenshot-to-code",
-      "license": "MIT",
-      "source": {
-        "name": "abi/screenshot-to-code",
-        "version": "d026163f586dfa8c5c10d28c36edd59a9d3b0e88",
-        "url": "https://github.com/abi/screenshot-to-code",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/abi/screenshot-to-code/license?ref=d026163f586dfa8c5c10d28c36edd59a9d3b0e88",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/abi/screenshot-to-code.git",
-          "revision": "d026163f586dfa8c5c10d28c36edd59a9d3b0e88",
-          "ref": "d026163f586dfa8c5c10d28c36edd59a9d3b0e88"
-        }
-      ]
-    },
-    {
-      "id": "unionlabs-union",
-      "path": "unionlabs-union",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "unionlabs/union",
-        "version": "031785bb6dc6b957c624e62bc64c184409c97d7b",
-        "url": "https://github.com/unionlabs/union",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/unionlabs/union/license?ref=031785bb6dc6b957c624e62bc64c184409c97d7b",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/unionlabs/union.git",
-          "revision": "031785bb6dc6b957c624e62bc64c184409c97d7b",
-          "ref": "031785bb6dc6b957c624e62bc64c184409c97d7b"
-        }
-      ]
-    },
-    {
-      "id": "eugeny-tabby",
-      "path": "eugeny-tabby",
-      "license": "MIT",
-      "source": {
-        "name": "Eugeny/tabby",
-        "version": "14e2d60b9b6dee84a53c37f05eefeb803787de04",
-        "url": "https://github.com/Eugeny/tabby",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Eugeny/tabby/license?ref=14e2d60b9b6dee84a53c37f05eefeb803787de04",
-          "declaration": "MIT"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Eugeny/tabby.git",
-          "revision": "14e2d60b9b6dee84a53c37f05eefeb803787de04",
-          "ref": "14e2d60b9b6dee84a53c37f05eefeb803787de04"
-        }
-      ]
-    },
-    {
-      "id": "d4vinci-scrapling",
-      "path": "d4vinci-scrapling",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "D4Vinci/Scrapling",
-        "version": "39847bd2da41f8e089593f91016d81d3a4771e6f",
-        "url": "https://github.com/D4Vinci/Scrapling",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/D4Vinci/Scrapling/license?ref=39847bd2da41f8e089593f91016d81d3a4771e6f",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/D4Vinci/Scrapling.git",
-          "revision": "39847bd2da41f8e089593f91016d81d3a4771e6f",
-          "ref": "39847bd2da41f8e089593f91016d81d3a4771e6f"
-        }
-      ]
-    },
-    {
-      "id": "pallets-flask",
-      "path": "pallets-flask",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "pallets/flask",
-        "version": "6a2f545bfd8ed31e19066a299296917e034aca58",
-        "url": "https://github.com/pallets/flask",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/pallets/flask/license?ref=6a2f545bfd8ed31e19066a299296917e034aca58",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/pallets/flask.git",
-          "revision": "6a2f545bfd8ed31e19066a299296917e034aca58",
-          "ref": "6a2f545bfd8ed31e19066a299296917e034aca58"
-        }
-      ]
-    },
-    {
-      "id": "nationalsecurityagency-ghidra",
-      "path": "nationalsecurityagency-ghidra",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "NationalSecurityAgency/ghidra",
-        "version": "291d5c4e77735b0b4b40613d952ecdd157ef750b",
-        "url": "https://github.com/NationalSecurityAgency/ghidra",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/NationalSecurityAgency/ghidra/license?ref=291d5c4e77735b0b4b40613d952ecdd157ef750b",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/NationalSecurityAgency/ghidra.git",
-          "revision": "291d5c4e77735b0b4b40613d952ecdd157ef750b",
-          "ref": "291d5c4e77735b0b4b40613d952ecdd157ef750b"
-        }
-      ]
-    },
-    {
-      "id": "moby-moby",
-      "path": "moby-moby",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "moby/moby",
-        "version": "e456107947c1d554ae1ad0645ed6e13978aa1c2d",
-        "url": "https://github.com/moby/moby",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/moby/moby/license?ref=e456107947c1d554ae1ad0645ed6e13978aa1c2d",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/moby/moby.git",
-          "revision": "e456107947c1d554ae1ad0645ed6e13978aa1c2d",
-          "ref": "e456107947c1d554ae1ad0645ed6e13978aa1c2d"
-        }
-      ]
-    },
-    {
-      "id": "swiftlang-swift",
-      "path": "swiftlang-swift",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "swiftlang/swift",
-        "version": "e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7",
-        "url": "https://github.com/swiftlang/swift",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/swiftlang/swift/license?ref=e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Swift"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/swiftlang/swift.git",
-          "revision": "e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7",
-          "ref": "e2bbdd321e85cf8a54c253c1d7cfbf495103e6f7"
-        }
-      ]
-    },
-    {
-      "id": "unslothai-unsloth",
-      "path": "unslothai-unsloth",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "unslothai/unsloth",
-        "version": "2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5",
-        "url": "https://github.com/unslothai/unsloth",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/unslothai/unsloth/license?ref=2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/unslothai/unsloth.git",
-          "revision": "2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5",
-          "ref": "2a56df02e6a00ea2496169fe0ef6dc2d9ea9c3a5"
-        }
-      ]
-    },
-    {
-      "id": "openinterpreter-openinterpreter",
-      "path": "openinterpreter-openinterpreter",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "openinterpreter/openinterpreter",
-        "version": "984acc698cd038885ecb0b82721402b01e11a5ad",
-        "url": "https://github.com/openinterpreter/openinterpreter",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/openinterpreter/openinterpreter/license?ref=984acc698cd038885ecb0b82721402b01e11a5ad",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/openinterpreter/openinterpreter.git",
-          "revision": "984acc698cd038885ecb0b82721402b01e11a5ad",
-          "ref": "984acc698cd038885ecb0b82721402b01e11a5ad"
-        }
-      ]
-    },
-    {
-      "id": "apache-echarts",
-      "path": "apache-echarts",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "apache/echarts",
-        "version": "30076aedcd7b7f65d8dd8e8d9ece46ce778133a3",
-        "url": "https://github.com/apache/echarts",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/apache/echarts/license?ref=30076aedcd7b7f65d8dd8e8d9ece46ce778133a3",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/apache/echarts.git",
-          "revision": "30076aedcd7b7f65d8dd8e8d9ece46ce778133a3",
-          "ref": "30076aedcd7b7f65d8dd8e8d9ece46ce778133a3"
-        }
-      ]
-    },
-    {
-      "id": "cline-cline",
-      "path": "cline-cline",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "cline/cline",
-        "version": "45403900964a74aa5ae3683a0e61b535600b97e0",
-        "url": "https://github.com/cline/cline",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/cline/cline/license?ref=45403900964a74aa5ae3683a0e61b535600b97e0",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/cline/cline.git",
-          "revision": "45403900964a74aa5ae3683a0e61b535600b97e0",
-          "ref": "45403900964a74aa5ae3683a0e61b535600b97e0"
-        }
-      ]
-    },
-    {
-      "id": "prometheus-prometheus",
-      "path": "prometheus-prometheus",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "prometheus/prometheus",
-        "version": "5542b00b9d5933e29d7b597705c718b764bcc1cb",
-        "url": "https://github.com/prometheus/prometheus",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/prometheus/prometheus/license?ref=5542b00b9d5933e29d7b597705c718b764bcc1cb",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/prometheus/prometheus.git",
-          "revision": "5542b00b9d5933e29d7b597705c718b764bcc1cb",
-          "ref": "5542b00b9d5933e29d7b597705c718b764bcc1cb"
-        }
-      ]
-    },
-    {
-      "id": "alacritty-alacritty",
-      "path": "alacritty-alacritty",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "alacritty/alacritty",
-        "version": "1b2b36a64e88068ad02c95fad00ee2fad31c00bf",
-        "url": "https://github.com/alacritty/alacritty",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/alacritty/alacritty/license?ref=1b2b36a64e88068ad02c95fad00ee2fad31c00bf",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/alacritty/alacritty.git",
-          "revision": "1b2b36a64e88068ad02c95fad00ee2fad31c00bf",
-          "ref": "1b2b36a64e88068ad02c95fad00ee2fad31c00bf"
-        }
-      ]
-    },
-    {
-      "id": "ladybirdbrowser-ladybird",
-      "path": "ladybirdbrowser-ladybird",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "LadybirdBrowser/ladybird",
-        "version": "8d225a329ee852510b4522e04d357c6fdd51d7f7",
-        "url": "https://github.com/LadybirdBrowser/ladybird",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/LadybirdBrowser/ladybird/license?ref=8d225a329ee852510b4522e04d357c6fdd51d7f7",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/LadybirdBrowser/ladybird.git",
-          "revision": "8d225a329ee852510b4522e04d357c6fdd51d7f7",
-          "ref": "8d225a329ee852510b4522e04d357c6fdd51d7f7"
-        }
-      ]
-    },
-    {
-      "id": "scrapy-scrapy",
-      "path": "scrapy-scrapy",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "scrapy/scrapy",
-        "version": "1bd839b57ddb614664a179b6213f49579bdfd3da",
-        "url": "https://github.com/scrapy/scrapy",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/scrapy/scrapy/license?ref=1bd839b57ddb614664a179b6213f49579bdfd3da",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/scrapy/scrapy.git",
-          "revision": "1bd839b57ddb614664a179b6213f49579bdfd3da",
-          "ref": "1bd839b57ddb614664a179b6213f49579bdfd3da"
-        }
-      ]
-    },
-    {
-      "id": "mem0ai-mem0",
-      "path": "mem0ai-mem0",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "mem0ai/mem0",
-        "version": "4debc58a83377b18be81ae1e5969a300736b2fac",
-        "url": "https://github.com/mem0ai/mem0",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mem0ai/mem0/license?ref=4debc58a83377b18be81ae1e5969a300736b2fac",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mem0ai/mem0.git",
-          "revision": "4debc58a83377b18be81ae1e5969a300736b2fac",
-          "ref": "4debc58a83377b18be81ae1e5969a300736b2fac"
-        }
-      ]
-    },
-    {
-      "id": "jgraph-drawio-desktop",
-      "path": "jgraph-drawio-desktop",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "jgraph/drawio-desktop",
-        "version": "403a2cb79f431db13a395f033b67eeebc1631754",
-        "url": "https://github.com/jgraph/drawio-desktop",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jgraph/drawio-desktop/license?ref=403a2cb79f431db13a395f033b67eeebc1631754",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jgraph/drawio-desktop.git",
-          "revision": "403a2cb79f431db13a395f033b67eeebc1631754",
-          "ref": "403a2cb79f431db13a395f033b67eeebc1631754"
-        }
-      ]
-    },
-    {
-      "id": "fuellabs-sway",
-      "path": "fuellabs-sway",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "FuelLabs/sway",
-        "version": "91be236f71fbb541ee6639ef0d955b2b8cf0a658",
-        "url": "https://github.com/FuelLabs/sway",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/FuelLabs/sway/license?ref=91be236f71fbb541ee6639ef0d955b2b8cf0a658",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/FuelLabs/sway.git",
-          "revision": "91be236f71fbb541ee6639ef0d955b2b8cf0a658",
-          "ref": "91be236f71fbb541ee6639ef0d955b2b8cf0a658"
-        }
-      ]
-    },
-    {
-      "id": "coollabsio-coolify",
-      "path": "coollabsio-coolify",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "coollabsio/coolify",
-        "version": "940571e16f5a0e6c73cf56b4bb1184bed3d60623",
-        "url": "https://github.com/coollabsio/coolify",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/coollabsio/coolify/license?ref=940571e16f5a0e6c73cf56b4bb1184bed3d60623",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "PHP"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/coollabsio/coolify.git",
-          "revision": "940571e16f5a0e6c73cf56b4bb1184bed3d60623",
-          "ref": "940571e16f5a0e6c73cf56b4bb1184bed3d60623"
-        }
-      ]
-    },
-    {
-      "id": "spring-projects-spring-framework",
-      "path": "spring-projects-spring-framework",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "spring-projects/spring-framework",
-        "version": "da4b31c82b567a0531c6980b5172cba1fc7e6ed5",
-        "url": "https://github.com/spring-projects/spring-framework",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/spring-projects/spring-framework/license?ref=da4b31c82b567a0531c6980b5172cba1fc7e6ed5",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/spring-projects/spring-framework.git",
-          "revision": "da4b31c82b567a0531c6980b5172cba1fc7e6ed5",
-          "ref": "da4b31c82b567a0531c6980b5172cba1fc7e6ed5"
-        }
-      ]
-    },
-    {
-      "id": "sharkdp-bat",
-      "path": "sharkdp-bat",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "sharkdp/bat",
-        "version": "2ba8db9c14e5794572f5ea338c2b90404c9769cb",
-        "url": "https://github.com/sharkdp/bat",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/sharkdp/bat/license?ref=2ba8db9c14e5794572f5ea338c2b90404c9769cb",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/sharkdp/bat.git",
-          "revision": "2ba8db9c14e5794572f5ea338c2b90404c9769cb",
-          "ref": "2ba8db9c14e5794572f5ea338c2b90404c9769cb"
-        }
-      ]
-    },
-    {
-      "id": "filosottile-mkcert",
-      "path": "filosottile-mkcert",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "FiloSottile/mkcert",
-        "version": "1c1dc4ed27ed5936046b6398d39cab4d657a2d8e",
-        "url": "https://github.com/FiloSottile/mkcert",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/FiloSottile/mkcert/license?ref=1c1dc4ed27ed5936046b6398d39cab4d657a2d8e",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/FiloSottile/mkcert.git",
-          "revision": "1c1dc4ed27ed5936046b6398d39cab4d657a2d8e",
-          "ref": "1c1dc4ed27ed5936046b6398d39cab4d657a2d8e"
-        }
-      ]
-    },
-    {
-      "id": "appwrite-appwrite",
-      "path": "appwrite-appwrite",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "appwrite/appwrite",
-        "version": "5d1e08464b2e5785cb21c1eef4604f904788fbb5",
-        "url": "https://github.com/appwrite/appwrite",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/appwrite/appwrite/license?ref=5d1e08464b2e5785cb21c1eef4604f904788fbb5",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/appwrite/appwrite.git",
-          "revision": "5d1e08464b2e5785cb21c1eef4604f904788fbb5",
-          "ref": "5d1e08464b2e5785cb21c1eef4604f904788fbb5"
-        }
-      ]
-    },
-    {
-      "id": "typst-typst",
-      "path": "typst-typst",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "typst/typst",
-        "version": "a51e028041cac426f97d34335bb01d8f1d8e5e8f",
-        "url": "https://github.com/typst/typst",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/typst/typst/license?ref=a51e028041cac426f97d34335bb01d8f1d8e5e8f",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/typst/typst.git",
-          "revision": "a51e028041cac426f97d34335bb01d8f1d8e5e8f",
-          "ref": "a51e028041cac426f97d34335bb01d8f1d8e5e8f"
-        }
-      ]
-    },
-    {
-      "id": "jingyaogong-minimind",
-      "path": "jingyaogong-minimind",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "jingyaogong/minimind",
-        "version": "393e387e9ad99f0f04c296e4c5e7353f4444629f",
-        "url": "https://github.com/jingyaogong/minimind",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jingyaogong/minimind/license?ref=393e387e9ad99f0f04c296e4c5e7353f4444629f",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jingyaogong/minimind.git",
-          "revision": "393e387e9ad99f0f04c296e4c5e7353f4444629f",
-          "ref": "393e387e9ad99f0f04c296e4c5e7353f4444629f"
-        }
-      ]
-    },
-    {
-      "id": "psf-requests",
-      "path": "psf-requests",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "psf/requests",
-        "version": "1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e",
-        "url": "https://github.com/psf/requests",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/psf/requests/license?ref=1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/psf/requests.git",
-          "revision": "1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e",
-          "ref": "1f6589ec3a1ee910f9a65cc3ceac60b26677bc0e"
-        }
-      ]
-    },
-    {
-      "id": "mozilla-pdf.js",
-      "path": "mozilla-pdf.js",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "mozilla/pdf.js",
-        "version": "022e9588728346cde58088a9925120293af1c8f4",
-        "url": "https://github.com/mozilla/pdf.js",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mozilla/pdf.js/license?ref=022e9588728346cde58088a9925120293af1c8f4",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mozilla/pdf.js.git",
-          "revision": "022e9588728346cde58088a9925120293af1c8f4",
-          "ref": "022e9588728346cde58088a9925120293af1c8f4"
-        }
-      ]
-    },
-    {
-      "id": "lyswhut-lx-music-desktop",
-      "path": "lyswhut-lx-music-desktop",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "lyswhut/lx-music-desktop",
-        "version": "9c364b482e5621a1d38b50e8610d2fb974457e6e",
-        "url": "https://github.com/lyswhut/lx-music-desktop",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/lyswhut/lx-music-desktop/license?ref=9c364b482e5621a1d38b50e8610d2fb974457e6e",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/lyswhut/lx-music-desktop.git",
-          "revision": "9c364b482e5621a1d38b50e8610d2fb974457e6e",
-          "ref": "9c364b482e5621a1d38b50e8610d2fb974457e6e"
-        }
-      ]
-    },
-    {
-      "id": "aaif-goose-goose",
-      "path": "aaif-goose-goose",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "aaif-goose/goose",
-        "version": "064244e6bddf641876676f054a006b7da1da5182",
-        "url": "https://github.com/aaif-goose/goose",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/aaif-goose/goose/license?ref=064244e6bddf641876676f054a006b7da1da5182",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/aaif-goose/goose.git",
-          "revision": "064244e6bddf641876676f054a006b7da1da5182",
-          "ref": "064244e6bddf641876676f054a006b7da1da5182"
-        }
-      ]
-    },
-    {
-      "id": "xai-org-grok-1",
-      "path": "xai-org-grok-1",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "xai-org/grok-1",
-        "version": "7050ed204b8206bb8645c7b7bbef7252f79561b0",
-        "url": "https://github.com/xai-org/grok-1",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/xai-org/grok-1/license?ref=7050ed204b8206bb8645c7b7bbef7252f79561b0",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/xai-org/grok-1.git",
-          "revision": "7050ed204b8206bb8645c7b7bbef7252f79561b0",
-          "ref": "7050ed204b8206bb8645c7b7bbef7252f79561b0"
-        }
-      ]
-    },
-    {
-      "id": "etcd-io-etcd",
-      "path": "etcd-io-etcd",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "etcd-io/etcd",
-        "version": "5b75ac62cf042a185e902530c25fd3d59c095232",
-        "url": "https://github.com/etcd-io/etcd",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/etcd-io/etcd/license?ref=5b75ac62cf042a185e902530c25fd3d59c095232",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/etcd-io/etcd.git",
-          "revision": "5b75ac62cf042a185e902530c25fd3d59c095232",
-          "ref": "5b75ac62cf042a185e902530c25fd3d59c095232"
-        }
-      ]
-    },
-    {
-      "id": "google-guava",
-      "path": "google-guava",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "google/guava",
-        "version": "0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a",
-        "url": "https://github.com/google/guava",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/google/guava/license?ref=0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/google/guava.git",
-          "revision": "0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a",
-          "ref": "0a8e1ec55afe1d9361ebbd0c4149adfbb32ccf9a"
-        }
-      ]
-    },
-    {
-      "id": "dbeaver-dbeaver",
-      "path": "dbeaver-dbeaver",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "dbeaver/dbeaver",
-        "version": "b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0",
-        "url": "https://github.com/dbeaver/dbeaver",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/dbeaver/dbeaver/license?ref=b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/dbeaver/dbeaver.git",
-          "revision": "b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0",
-          "ref": "b2122ee6c4bdf914af3f13d42a603a3ab2d25bc0"
-        }
-      ]
-    },
-    {
-      "id": "skylot-jadx",
-      "path": "skylot-jadx",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "skylot/jadx",
-        "version": "e738a26571d02919f01df40de93bc9a44dee4e18",
-        "url": "https://github.com/skylot/jadx",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/skylot/jadx/license?ref=e738a26571d02919f01df40de93bc9a44dee4e18",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/skylot/jadx.git",
-          "revision": "e738a26571d02919f01df40de93bc9a44dee4e18",
-          "ref": "e738a26571d02919f01df40de93bc9a44dee4e18"
-        }
-      ]
-    },
-    {
-      "id": "pandas-dev-pandas",
-      "path": "pandas-dev-pandas",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "pandas-dev/pandas",
-        "version": "ff1d39bbdf4eda26de2285cf836104f9885b0826",
-        "url": "https://github.com/pandas-dev/pandas",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/pandas-dev/pandas/license?ref=ff1d39bbdf4eda26de2285cf836104f9885b0826",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/pandas-dev/pandas.git",
-          "revision": "ff1d39bbdf4eda26de2285cf836104f9885b0826",
-          "ref": "ff1d39bbdf4eda26de2285cf836104f9885b0826"
-        }
-      ]
-    },
-    {
-      "id": "homebrew-brew",
-      "path": "homebrew-brew",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "Homebrew/brew",
-        "version": "749b3557ccebae4ecd79f17aa2527d2f68acc739",
-        "url": "https://github.com/Homebrew/brew",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Homebrew/brew/license?ref=749b3557ccebae4ecd79f17aa2527d2f68acc739",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Ruby"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Homebrew/brew.git",
-          "revision": "749b3557ccebae4ecd79f17aa2527d2f68acc739",
-          "ref": "749b3557ccebae4ecd79f17aa2527d2f68acc739"
-        }
-      ]
-    },
-    {
-      "id": "reactivex-rxjava",
-      "path": "reactivex-rxjava",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "ReactiveX/RxJava",
-        "version": "8f7b841984133e2a3ba88630779af9e66248ff95",
-        "url": "https://github.com/ReactiveX/RxJava",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ReactiveX/RxJava/license?ref=8f7b841984133e2a3ba88630779af9e66248ff95",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ReactiveX/RxJava.git",
-          "revision": "8f7b841984133e2a3ba88630779af9e66248ff95",
-          "ref": "8f7b841984133e2a3ba88630779af9e66248ff95"
-        }
-      ]
-    },
-    {
-      "id": "aider-ai-aider",
-      "path": "aider-ai-aider",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "Aider-AI/aider",
-        "version": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
-        "url": "https://github.com/Aider-AI/aider",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Aider-AI/aider/license?ref=5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Aider-AI/aider.git",
-          "revision": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c",
-          "ref": "5dc9490bb35f9729ef2c95d00a19ccd30c26339c"
-        }
-      ]
-    },
-    {
-      "id": "prisma-prisma",
-      "path": "prisma-prisma",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "prisma/prisma",
-        "version": "d55cd02911b0c6675bedaad90cc0e2727d5787ce",
-        "url": "https://github.com/prisma/prisma",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/prisma/prisma/license?ref=d55cd02911b0c6675bedaad90cc0e2727d5787ce",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/prisma/prisma.git",
-          "revision": "d55cd02911b0c6675bedaad90cc0e2727d5787ce",
-          "ref": "d55cd02911b0c6675bedaad90cc0e2727d5787ce"
-        }
-      ]
-    },
-    {
-      "id": "bevyengine-bevy",
-      "path": "bevyengine-bevy",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "bevyengine/bevy",
-        "version": "e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59",
-        "url": "https://github.com/bevyengine/bevy",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/bevyengine/bevy/license?ref=e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/bevyengine/bevy.git",
-          "revision": "e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59",
-          "ref": "e8b3598ff5e5ec40e8ba84edd5750a1c0e4d4e59"
-        }
-      ]
-    },
-    {
-      "id": "slab-quill",
-      "path": "slab-quill",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "slab/quill",
-        "version": "539cbffd0a13b18e9c65eb84dd35e6596e403158",
-        "url": "https://github.com/slab/quill",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/slab/quill/license?ref=539cbffd0a13b18e9c65eb84dd35e6596e403158",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/slab/quill.git",
-          "revision": "539cbffd0a13b18e9c65eb84dd35e6596e403158",
-          "ref": "539cbffd0a13b18e9c65eb84dd35e6596e403158"
-        }
-      ]
-    },
-    {
-      "id": "lysine-dev-okhttp",
-      "path": "lysine-dev-okhttp",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "lysine-dev/okhttp",
-        "version": "fc9a83dd580f06c52beea5207ffca1a7d99df24e",
-        "url": "https://github.com/lysine-dev/okhttp",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/lysine-dev/okhttp/license?ref=fc9a83dd580f06c52beea5207ffca1a7d99df24e",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Kotlin"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/lysine-dev/okhttp.git",
-          "revision": "fc9a83dd580f06c52beea5207ffca1a7d99df24e",
-          "ref": "fc9a83dd580f06c52beea5207ffca1a7d99df24e"
-        }
-      ]
-    },
-    {
-      "id": "exo-explore-exo",
-      "path": "exo-explore-exo",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "exo-explore/exo",
-        "version": "b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa",
-        "url": "https://github.com/exo-explore/exo",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/exo-explore/exo/license?ref=b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/exo-explore/exo.git",
-          "revision": "b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa",
-          "ref": "b5375f8cee4368d09e1ce96a56b9f81fb0bc81aa"
-        }
-      ]
-    },
-    {
-      "id": "apache-airflow",
-      "path": "apache-airflow",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "apache/airflow",
-        "version": "1f529f3837ab5e38ddd27ea355a7fbfddd392573",
-        "url": "https://github.com/apache/airflow",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/apache/airflow/license?ref=1f529f3837ab5e38ddd27ea355a7fbfddd392573",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/apache/airflow.git",
-          "revision": "1f529f3837ab5e38ddd27ea355a7fbfddd392573",
-          "ref": "1f529f3837ab5e38ddd27ea355a7fbfddd392573"
-        }
-      ]
-    },
-    {
-      "id": "android-architecture-samples",
-      "path": "android-architecture-samples",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "android/architecture-samples",
-        "version": "ee66e1526b84c026615df032c705842b7d2a521f",
-        "url": "https://github.com/android/architecture-samples",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/android/architecture-samples/license?ref=ee66e1526b84c026615df032c705842b7d2a521f",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Kotlin"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/android/architecture-samples.git",
-          "revision": "ee66e1526b84c026615df032c705842b7d2a521f",
-          "ref": "ee66e1526b84c026615df032c705842b7d2a521f"
-        }
-      ]
-    },
-    {
-      "id": "google-zx",
-      "path": "google-zx",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "google/zx",
-        "version": "00a2c484e219c2e84bfc3a199febf7fbce2cfbf4",
-        "url": "https://github.com/google/zx",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/google/zx/license?ref=00a2c484e219c2e84bfc3a199febf7fbce2cfbf4",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/google/zx.git",
-          "revision": "00a2c484e219c2e84bfc3a199febf7fbce2cfbf4",
-          "ref": "00a2c484e219c2e84bfc3a199febf7fbce2cfbf4"
-        }
-      ]
-    },
-    {
-      "id": "milvus-io-milvus",
-      "path": "milvus-io-milvus",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "milvus-io/milvus",
-        "version": "025d2e3e75d38f4edd8d5b8536d514e777a47559",
-        "url": "https://github.com/milvus-io/milvus",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/milvus-io/milvus/license?ref=025d2e3e75d38f4edd8d5b8536d514e777a47559",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/milvus-io/milvus.git",
-          "revision": "025d2e3e75d38f4edd8d5b8536d514e777a47559",
-          "ref": "025d2e3e75d38f4edd8d5b8536d514e777a47559"
-        }
-      ]
-    },
-    {
-      "id": "streamlit-streamlit",
-      "path": "streamlit-streamlit",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "streamlit/streamlit",
-        "version": "97eada51b426a81884955906d75407d1270545f9",
-        "url": "https://github.com/streamlit/streamlit",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/streamlit/streamlit/license?ref=97eada51b426a81884955906d75407d1270545f9",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/streamlit/streamlit.git",
-          "revision": "97eada51b426a81884955906d75407d1270545f9",
-          "ref": "97eada51b426a81884955906d75407d1270545f9"
-        }
-      ]
-    },
-    {
-      "id": "leaflet-leaflet",
-      "path": "leaflet-leaflet",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "Leaflet/Leaflet",
-        "version": "c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9",
-        "url": "https://github.com/Leaflet/Leaflet",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Leaflet/Leaflet/license?ref=c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Leaflet/Leaflet.git",
-          "revision": "c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9",
-          "ref": "c96f31a7a350a07cfbc852cf88e6ca69af5f5ec9"
-        }
-      ]
-    },
-    {
-      "id": "grpc-grpc",
-      "path": "grpc-grpc",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "grpc/grpc",
-        "version": "b6449efc3e9968eb022a2cf7a043b4317adde589",
-        "url": "https://github.com/grpc/grpc",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/grpc/grpc/license?ref=b6449efc3e9968eb022a2cf7a043b4317adde589",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/grpc/grpc.git",
-          "revision": "b6449efc3e9968eb022a2cf7a043b4317adde589",
-          "ref": "b6449efc3e9968eb022a2cf7a043b4317adde589"
-        }
-      ]
-    },
-    {
-      "id": "spf13-cobra",
-      "path": "spf13-cobra",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "spf13/cobra",
-        "version": "adbc8813901bba65827259daa8e22ff94ec1f30e",
-        "url": "https://github.com/spf13/cobra",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/spf13/cobra/license?ref=adbc8813901bba65827259daa8e22ff94ec1f30e",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/spf13/cobra.git",
-          "revision": "adbc8813901bba65827259daa8e22ff94ec1f30e",
-          "ref": "adbc8813901bba65827259daa8e22ff94ec1f30e"
-        }
-      ]
-    },
-    {
-      "id": "aykutsarac-jsoncrack.com",
-      "path": "aykutsarac-jsoncrack.com",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "AykutSarac/jsoncrack.com",
-        "version": "3c9af69e23c635356293b6b28cf4cd0af10d1059",
-        "url": "https://github.com/AykutSarac/jsoncrack.com",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/AykutSarac/jsoncrack.com/license?ref=3c9af69e23c635356293b6b28cf4cd0af10d1059",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/AykutSarac/jsoncrack.com.git",
-          "revision": "3c9af69e23c635356293b6b28cf4cd0af10d1059",
-          "ref": "3c9af69e23c635356293b6b28cf4cd0af10d1059"
-        }
-      ]
-    },
-    {
-      "id": "sharkdp-fd",
-      "path": "sharkdp-fd",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "sharkdp/fd",
-        "version": "0f1f9676dcf7bc5af814469a74a0d878449cde80",
-        "url": "https://github.com/sharkdp/fd",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/sharkdp/fd/license?ref=0f1f9676dcf7bc5af814469a74a0d878449cde80",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/sharkdp/fd.git",
-          "revision": "0f1f9676dcf7bc5af814469a74a0d878449cde80",
-          "ref": "0f1f9676dcf7bc5af814469a74a0d878449cde80"
-        }
-      ]
-    },
-    {
-      "id": "kong-kong",
-      "path": "kong-kong",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "Kong/kong",
-        "version": "fa9c3b695af72668f135cb17bbb84a8b4dc511d2",
-        "url": "https://github.com/Kong/kong",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Kong/kong/license?ref=fa9c3b695af72668f135cb17bbb84a8b4dc511d2",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Lua"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Kong/kong.git",
-          "revision": "fa9c3b695af72668f135cb17bbb84a8b4dc511d2",
-          "ref": "fa9c3b695af72668f135cb17bbb84a8b4dc511d2"
-        }
-      ]
-    },
-    {
-      "id": "lysine-dev-retrofit",
-      "path": "lysine-dev-retrofit",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "lysine-dev/retrofit",
-        "version": "d0b112dad073b7fe49c953ebc46ff1b424cb1e51",
-        "url": "https://github.com/lysine-dev/retrofit",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/lysine-dev/retrofit/license?ref=d0b112dad073b7fe49c953ebc46ff1b424cb1e51",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/lysine-dev/retrofit.git",
-          "revision": "d0b112dad073b7fe49c953ebc46ff1b424cb1e51",
-          "ref": "d0b112dad073b7fe49c953ebc46ff1b424cb1e51"
-        }
-      ]
-    },
-    {
-      "id": "apache-spark",
-      "path": "apache-spark",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "apache/spark",
-        "version": "f896d8d0d40a859f0c40ef99dac3fb2bba5035e7",
-        "url": "https://github.com/apache/spark",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/apache/spark/license?ref=f896d8d0d40a859f0c40ef99dac3fb2bba5035e7",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Scala"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/apache/spark.git",
-          "revision": "f896d8d0d40a859f0c40ef99dac3fb2bba5035e7",
-          "ref": "f896d8d0d40a859f0c40ef99dac3fb2bba5035e7"
-        }
-      ]
-    },
-    {
-      "id": "ray-project-ray",
-      "path": "ray-project-ray",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "ray-project/ray",
-        "version": "12436ea75080433a9134cfa362b3dbb98fe9e73f",
-        "url": "https://github.com/ray-project/ray",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ray-project/ray/license?ref=12436ea75080433a9134cfa362b3dbb98fe9e73f",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ray-project/ray.git",
-          "revision": "12436ea75080433a9134cfa362b3dbb98fe9e73f",
-          "ref": "12436ea75080433a9134cfa362b3dbb98fe9e73f"
-        }
-      ]
-    },
-    {
-      "id": "juspay-hyperswitch",
-      "path": "juspay-hyperswitch",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "juspay/hyperswitch",
-        "version": "77c45d76b2b70a5b127d11a6b6755d2793b021f9",
-        "url": "https://github.com/juspay/hyperswitch",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/juspay/hyperswitch/license?ref=77c45d76b2b70a5b127d11a6b6755d2793b021f9",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/juspay/hyperswitch.git",
-          "revision": "77c45d76b2b70a5b127d11a6b6755d2793b021f9",
-          "ref": "77c45d76b2b70a5b127d11a6b6755d2793b021f9"
-        }
-      ]
-    },
-    {
-      "id": "fuellabs-fuels-rs",
-      "path": "fuellabs-fuels-rs",
-      "license": "Apache-2.0",
-      "source": {
-        "name": "FuelLabs/fuels-rs",
-        "version": "d9a250a51818dda64bfeb5ef7cc19cf27bdcd623",
-        "url": "https://github.com/FuelLabs/fuels-rs",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/FuelLabs/fuels-rs/license?ref=d9a250a51818dda64bfeb5ef7cc19cf27bdcd623",
-          "declaration": "Apache-2.0"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/FuelLabs/fuels-rs.git",
-          "revision": "d9a250a51818dda64bfeb5ef7cc19cf27bdcd623",
-          "ref": "d9a250a51818dda64bfeb5ef7cc19cf27bdcd623"
-        }
-      ]
-    },
-    {
-      "id": "juanfont-headscale",
-      "path": "juanfont-headscale",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "juanfont/headscale",
-        "version": "565fd254d06c4c7f9a8cad1714a43445c79ba420",
-        "url": "https://github.com/juanfont/headscale",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/juanfont/headscale/license?ref=565fd254d06c4c7f9a8cad1714a43445c79ba420",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/juanfont/headscale.git",
-          "revision": "565fd254d06c4c7f9a8cad1714a43445c79ba420",
-          "ref": "565fd254d06c4c7f9a8cad1714a43445c79ba420"
-        }
-      ]
-    },
-    {
-      "id": "php-php-src",
-      "path": "php-php-src",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "php/php-src",
-        "version": "b9b44872d72dc66bcea72232a2bc79a3b63a0c3b",
-        "url": "https://github.com/php/php-src",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/php/php-src/license?ref=b9b44872d72dc66bcea72232a2bc79a3b63a0c3b",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/php/php-src.git",
-          "revision": "b9b44872d72dc66bcea72232a2bc79a3b63a0c3b",
-          "ref": "b9b44872d72dc66bcea72232a2bc79a3b63a0c3b"
-        }
-      ]
-    },
-    {
-      "id": "google-leveldb",
-      "path": "google-leveldb",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "google/leveldb",
-        "version": "7ee830d02b623e8ffe0b95d59a74db1e58da04c5",
-        "url": "https://github.com/google/leveldb",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/google/leveldb/license?ref=7ee830d02b623e8ffe0b95d59a74db1e58da04c5",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/google/leveldb.git",
-          "revision": "7ee830d02b623e8ffe0b95d59a74db1e58da04c5",
-          "ref": "7ee830d02b623e8ffe0b95d59a74db1e58da04c5"
-        }
-      ]
-    },
-    {
-      "id": "google-googletest",
-      "path": "google-googletest",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "google/googletest",
-        "version": "d89aac5f0dd4021198d903d39de16f896726de21",
-        "url": "https://github.com/google/googletest",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/google/googletest/license?ref=d89aac5f0dd4021198d903d39de16f896726de21",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/google/googletest.git",
-          "revision": "d89aac5f0dd4021198d903d39de16f896726de21",
-          "ref": "d89aac5f0dd4021198d903d39de16f896726de21"
-        }
-      ]
-    },
-    {
-      "id": "httpie-cli",
-      "path": "httpie-cli",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "httpie/cli",
-        "version": "5b604c37c6c67e18e7c3e9aee6c88a8c22b98345",
-        "url": "https://github.com/httpie/cli",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/httpie/cli/license?ref=5b604c37c6c67e18e7c3e9aee6c88a8c22b98345",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/httpie/cli.git",
-          "revision": "5b604c37c6c67e18e7c3e9aee6c88a8c22b98345",
-          "ref": "5b604c37c6c67e18e7c3e9aee6c88a8c22b98345"
-        }
-      ]
-    },
-    {
-      "id": "hyprwm-hyprland",
-      "path": "hyprwm-hyprland",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "hyprwm/Hyprland",
-        "version": "5dee44a72476be67789f64e6c6bffae0df28c53a",
-        "url": "https://github.com/hyprwm/Hyprland",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/hyprwm/Hyprland/license?ref=5dee44a72476be67789f64e6c6bffae0df28c53a",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/hyprwm/Hyprland.git",
-          "revision": "5dee44a72476be67789f64e6c6bffae0df28c53a",
-          "ref": "5dee44a72476be67789f64e6c6bffae0df28c53a"
-        }
-      ]
-    },
-    {
-      "id": "xinntao-real-esrgan",
-      "path": "xinntao-real-esrgan",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "xinntao/Real-ESRGAN",
-        "version": "a4abfb2979a7bbff3f69f58f58ae324608821e27",
-        "url": "https://github.com/xinntao/Real-ESRGAN",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/xinntao/Real-ESRGAN/license?ref=a4abfb2979a7bbff3f69f58f58ae324608821e27",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/xinntao/Real-ESRGAN.git",
-          "revision": "a4abfb2979a7bbff3f69f58f58ae324608821e27",
-          "ref": "a4abfb2979a7bbff3f69f58f58ae324608821e27"
-        }
-      ]
-    },
-    {
-      "id": "restic-restic",
-      "path": "restic-restic",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "restic/restic",
-        "version": "a80be1478a4c537f8396e0db2b05120aa78f11e0",
-        "url": "https://github.com/restic/restic",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/restic/restic/license?ref=a80be1478a4c537f8396e0db2b05120aa78f11e0",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/restic/restic.git",
-          "revision": "a80be1478a4c537f8396e0db2b05120aa78f11e0",
-          "ref": "a80be1478a4c537f8396e0db2b05120aa78f11e0"
-        }
-      ]
-    },
-    {
-      "id": "tailscale-tailscale",
-      "path": "tailscale-tailscale",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "tailscale/tailscale",
-        "version": "e592a0c36398be8a435d1cc9e039c732c540051c",
-        "url": "https://github.com/tailscale/tailscale",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/tailscale/tailscale/license?ref=e592a0c36398be8a435d1cc9e039c732c540051c",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/tailscale/tailscale.git",
-          "revision": "e592a0c36398be8a435d1cc9e039c732c540051c",
-          "ref": "e592a0c36398be8a435d1cc9e039c732c540051c"
-        }
-      ]
-    },
-    {
-      "id": "serenityos-serenity",
-      "path": "serenityos-serenity",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "SerenityOS/serenity",
-        "version": "93af8693d6868799635ff0bee2b7ca30746f39a9",
-        "url": "https://github.com/SerenityOS/serenity",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/SerenityOS/serenity/license?ref=93af8693d6868799635ff0bee2b7ca30746f39a9",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/SerenityOS/serenity.git",
-          "revision": "93af8693d6868799635ff0bee2b7ca30746f39a9",
-          "ref": "93af8693d6868799635ff0bee2b7ca30746f39a9"
-        }
-      ]
-    },
-    {
-      "id": "nginx-nginx",
-      "path": "nginx-nginx",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "nginx/nginx",
-        "version": "dea68dbf126f40a8acd09bac885a955be459162e",
-        "url": "https://github.com/nginx/nginx",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/nginx/nginx/license?ref=dea68dbf126f40a8acd09bac885a955be459162e",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/nginx/nginx.git",
-          "revision": "dea68dbf126f40a8acd09bac885a955be459162e",
-          "ref": "dea68dbf126f40a8acd09bac885a955be459162e"
-        }
-      ]
-    },
-    {
-      "id": "getredash-redash",
-      "path": "getredash-redash",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "getredash/redash",
-        "version": "2daefd2f78b270a6a566a86251d8bbd841d394d3",
-        "url": "https://github.com/getredash/redash",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/getredash/redash/license?ref=2daefd2f78b270a6a566a86251d8bbd841d394d3",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/getredash/redash.git",
-          "revision": "2daefd2f78b270a6a566a86251d8bbd841d394d3",
-          "ref": "2daefd2f78b270a6a566a86251d8bbd841d394d3"
-        }
-      ]
-    },
-    {
-      "id": "fyne-io-fyne",
-      "path": "fyne-io-fyne",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "fyne-io/fyne",
-        "version": "57f5b07179b833e781522f8a32c160312d94ede1",
-        "url": "https://github.com/fyne-io/fyne",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/fyne-io/fyne/license?ref=57f5b07179b833e781522f8a32c160312d94ede1",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/fyne-io/fyne.git",
-          "revision": "57f5b07179b833e781522f8a32c160312d94ede1",
-          "ref": "57f5b07179b833e781522f8a32c160312d94ede1"
-        }
-      ]
-    },
-    {
-      "id": "pppscn-smsforwarder",
-      "path": "pppscn-smsforwarder",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "pppscn/SmsForwarder",
-        "version": "ce931a03739a6a2b0dfc83161bf812a94fd5e45e",
-        "url": "https://github.com/pppscn/SmsForwarder",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/pppscn/SmsForwarder/license?ref=ce931a03739a6a2b0dfc83161bf812a94fd5e45e",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Kotlin"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/pppscn/SmsForwarder.git",
-          "revision": "ce931a03739a6a2b0dfc83161bf812a94fd5e45e",
-          "ref": "ce931a03739a6a2b0dfc83161bf812a94fd5e45e"
-        }
-      ]
-    },
-    {
-      "id": "valkey-io-valkey",
-      "path": "valkey-io-valkey",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "valkey-io/valkey",
-        "version": "2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1",
-        "url": "https://github.com/valkey-io/valkey",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/valkey-io/valkey/license?ref=2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/valkey-io/valkey.git",
-          "revision": "2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1",
-          "ref": "2d69e5e9b7c27d3a49cef67aa61ad306d107bfd1"
-        }
-      ]
-    },
-    {
-      "id": "kataras-iris",
-      "path": "kataras-iris",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "kataras/iris",
-        "version": "7bedaf55a0b64bbb2248a5845a2c60d81a30996a",
-        "url": "https://github.com/kataras/iris",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/kataras/iris/license?ref=7bedaf55a0b64bbb2248a5845a2c60d81a30996a",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/kataras/iris.git",
-          "revision": "7bedaf55a0b64bbb2248a5845a2c60d81a30996a",
-          "ref": "7bedaf55a0b64bbb2248a5845a2c60d81a30996a"
-        }
-      ]
-    },
-    {
-      "id": "highlightjs-highlight.js",
-      "path": "highlightjs-highlight.js",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "highlightjs/highlight.js",
-        "version": "4d4268d701e30b0954149e9eb3bc9c4d9e15d550",
-        "url": "https://github.com/highlightjs/highlight.js",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/highlightjs/highlight.js/license?ref=4d4268d701e30b0954149e9eb3bc9c4d9e15d550",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/highlightjs/highlight.js.git",
-          "revision": "4d4268d701e30b0954149e9eb3bc9c4d9e15d550",
-          "ref": "4d4268d701e30b0954149e9eb3bc9c4d9e15d550"
-        }
-      ]
-    },
-    {
-      "id": "copy-v86",
-      "path": "copy-v86",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "copy/v86",
-        "version": "6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6",
-        "url": "https://github.com/copy/v86",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/copy/v86/license?ref=6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/copy/v86.git",
-          "revision": "6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6",
-          "ref": "6eda8ff53a7d2e0e6e3edb3c43b0a4757dcf24a6"
-        }
-      ]
-    },
-    {
-      "id": "filosottile-age",
-      "path": "filosottile-age",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "FiloSottile/age",
-        "version": "706dfc1e799a03443ae46023502bd88d4e9e324f",
-        "url": "https://github.com/FiloSottile/age",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/FiloSottile/age/license?ref=706dfc1e799a03443ae46023502bd88d4e9e324f",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/FiloSottile/age.git",
-          "revision": "706dfc1e799a03443ae46023502bd88d4e9e324f",
-          "ref": "706dfc1e799a03443ae46023502bd88d4e9e324f"
-        }
-      ]
-    },
-    {
-      "id": "zsh-users-zsh-syntax-highlighting",
-      "path": "zsh-users-zsh-syntax-highlighting",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "zsh-users/zsh-syntax-highlighting",
-        "version": "c4d95591843d49838b7ad30081e7aba3135a6703",
-        "url": "https://github.com/zsh-users/zsh-syntax-highlighting",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/zsh-users/zsh-syntax-highlighting/license?ref=c4d95591843d49838b7ad30081e7aba3135a6703",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Shell"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/zsh-users/zsh-syntax-highlighting.git",
-          "revision": "c4d95591843d49838b7ad30081e7aba3135a6703",
-          "ref": "c4d95591843d49838b7ad30081e7aba3135a6703"
-        }
-      ]
-    },
-    {
-      "id": "redis-go-redis",
-      "path": "redis-go-redis",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "redis/go-redis",
-        "version": "36d97525cd8076aed67cddf54778e9ea84550929",
-        "url": "https://github.com/redis/go-redis",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/redis/go-redis/license?ref=36d97525cd8076aed67cddf54778e9ea84550929",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/redis/go-redis.git",
-          "revision": "36d97525cd8076aed67cddf54778e9ea84550929",
-          "ref": "36d97525cd8076aed67cddf54778e9ea84550929"
-        }
-      ]
-    },
-    {
-      "id": "homebrew-homebrew-cask",
-      "path": "homebrew-homebrew-cask",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "Homebrew/homebrew-cask",
-        "version": "a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b",
-        "url": "https://github.com/Homebrew/homebrew-cask",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Homebrew/homebrew-cask/license?ref=a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Ruby"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Homebrew/homebrew-cask.git",
-          "revision": "a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b",
-          "ref": "a5ae7dad7f4d23844499bf4ac502ecbe382b0e9b"
-        }
-      ]
-    },
-    {
-      "id": "gorilla-mux",
-      "path": "gorilla-mux",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "gorilla/mux",
-        "version": "db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265",
-        "url": "https://github.com/gorilla/mux",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/gorilla/mux/license?ref=db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/gorilla/mux.git",
-          "revision": "db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265",
-          "ref": "db9d1d0073d27a0a2d9a8c1bc52aa0af4374d265"
-        }
-      ]
-    },
-    {
-      "id": "jarun-nnn",
-      "path": "jarun-nnn",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "jarun/nnn",
-        "version": "53fdae65eef6cb35afaf1e1c2abef3242f48153b",
-        "url": "https://github.com/jarun/nnn",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jarun/nnn/license?ref=53fdae65eef6cb35afaf1e1c2abef3242f48153b",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jarun/nnn.git",
-          "revision": "53fdae65eef6cb35afaf1e1c2abef3242f48153b",
-          "ref": "53fdae65eef6cb35afaf1e1c2abef3242f48153b"
-        }
-      ]
-    },
-    {
-      "id": "lit-lit",
-      "path": "lit-lit",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "lit/lit",
-        "version": "c42ee1e96b8fd61f7256f61d715daef572e76e52",
-        "url": "https://github.com/lit/lit",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/lit/lit/license?ref=c42ee1e96b8fd61f7256f61d715daef572e76e52",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/lit/lit.git",
-          "revision": "c42ee1e96b8fd61f7256f61d715daef572e76e52",
-          "ref": "c42ee1e96b8fd61f7256f61d715daef572e76e52"
-        }
-      ]
-    },
-    {
-      "id": "qax-os-excelize",
-      "path": "qax-os-excelize",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "qax-os/excelize",
-        "version": "a54c578af309fa81f448143ed2b7a91192cc58a7",
-        "url": "https://github.com/qax-os/excelize",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/qax-os/excelize/license?ref=a54c578af309fa81f448143ed2b7a91192cc58a7",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/qax-os/excelize.git",
-          "revision": "a54c578af309fa81f448143ed2b7a91192cc58a7",
-          "ref": "a54c578af309fa81f448143ed2b7a91192cc58a7"
-        }
-      ]
-    },
-    {
-      "id": "motdotla-dotenv",
-      "path": "motdotla-dotenv",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "motdotla/dotenv",
-        "version": "2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358",
-        "url": "https://github.com/motdotla/dotenv",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/motdotla/dotenv/license?ref=2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/motdotla/dotenv.git",
-          "revision": "2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358",
-          "ref": "2fc7eac8ad77cbd5f7814355c7fa352dbcf3c358"
-        }
-      ]
-    },
-    {
-      "id": "bokeh-bokeh",
-      "path": "bokeh-bokeh",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "bokeh/bokeh",
-        "version": "681880b19108a37e159b7a3d185611f04112c47b",
-        "url": "https://github.com/bokeh/bokeh",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/bokeh/bokeh/license?ref=681880b19108a37e159b7a3d185611f04112c47b",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/bokeh/bokeh.git",
-          "revision": "681880b19108a37e159b7a3d185611f04112c47b",
-          "ref": "681880b19108a37e159b7a3d185611f04112c47b"
-        }
-      ]
-    },
-    {
-      "id": "bradlarson-gpuimage",
-      "path": "bradlarson-gpuimage",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "BradLarson/GPUImage",
-        "version": "167b0389bc6e9dc4bb0121550f91d8d5d6412c53",
-        "url": "https://github.com/BradLarson/GPUImage",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/BradLarson/GPUImage/license?ref=167b0389bc6e9dc4bb0121550f91d8d5d6412c53",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Objective-C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/BradLarson/GPUImage.git",
-          "revision": "167b0389bc6e9dc4bb0121550f91d8d5d6412c53",
-          "ref": "167b0389bc6e9dc4bb0121550f91d8d5d6412c53"
-        }
-      ]
-    },
-    {
-      "id": "sebastianbergmann-phpunit",
-      "path": "sebastianbergmann-phpunit",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "sebastianbergmann/phpunit",
-        "version": "6917e76ff5762f4b70203b58608f6bba360cc2c2",
-        "url": "https://github.com/sebastianbergmann/phpunit",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/sebastianbergmann/phpunit/license?ref=6917e76ff5762f4b70203b58608f6bba360cc2c2",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "PHP"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/sebastianbergmann/phpunit.git",
-          "revision": "6917e76ff5762f4b70203b58608f6bba360cc2c2",
-          "ref": "6917e76ff5762f4b70203b58608f6bba360cc2c2"
-        }
-      ]
-    },
-    {
-      "id": "grpc-ecosystem-grpc-gateway",
-      "path": "grpc-ecosystem-grpc-gateway",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "grpc-ecosystem/grpc-gateway",
-        "version": "c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be",
-        "url": "https://github.com/grpc-ecosystem/grpc-gateway",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/grpc-ecosystem/grpc-gateway/license?ref=c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/grpc-ecosystem/grpc-gateway.git",
-          "revision": "c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be",
-          "ref": "c59e315f9f70e99a2dcb7a2b6ca0f9ab15b1d8be"
-        }
-      ]
-    },
-    {
-      "id": "antlr-antlr4",
-      "path": "antlr-antlr4",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "antlr/antlr4",
-        "version": "7d5770395bb7b02eb56e7c62662cb1d7c08f42a3",
-        "url": "https://github.com/antlr/antlr4",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/antlr/antlr4/license?ref=7d5770395bb7b02eb56e7c62662cb1d7c08f42a3",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/antlr/antlr4.git",
-          "revision": "7d5770395bb7b02eb56e7c62662cb1d7c08f42a3",
-          "ref": "7d5770395bb7b02eb56e7c62662cb1d7c08f42a3"
-        }
-      ]
-    },
-    {
-      "id": "compiler-explorer-compiler-explorer",
-      "path": "compiler-explorer-compiler-explorer",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "compiler-explorer/compiler-explorer",
-        "version": "2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d",
-        "url": "https://github.com/compiler-explorer/compiler-explorer",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/compiler-explorer/compiler-explorer/license?ref=2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/compiler-explorer/compiler-explorer.git",
-          "revision": "2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d",
-          "ref": "2854ef3dfb93bd9cac85afce5a1d5c1b47093e2d"
-        }
-      ]
-    },
-    {
-      "id": "joewalnes-websocketd",
-      "path": "joewalnes-websocketd",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "joewalnes/websocketd",
-        "version": "d1a43cab937a6a534ca18a44b971a9eb0ea55515",
-        "url": "https://github.com/joewalnes/websocketd",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/joewalnes/websocketd/license?ref=d1a43cab937a6a534ca18a44b971a9eb0ea55515",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/joewalnes/websocketd.git",
-          "revision": "d1a43cab937a6a534ca18a44b971a9eb0ea55515",
-          "ref": "d1a43cab937a6a534ca18a44b971a9eb0ea55515"
-        }
-      ]
-    },
-    {
-      "id": "nikic-php-parser",
-      "path": "nikic-php-parser",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "nikic/PHP-Parser",
-        "version": "fbd47f7ebcbb450138d92642a0a53b72a5285dda",
-        "url": "https://github.com/nikic/PHP-Parser",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/nikic/PHP-Parser/license?ref=fbd47f7ebcbb450138d92642a0a53b72a5285dda",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "PHP"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/nikic/PHP-Parser.git",
-          "revision": "fbd47f7ebcbb450138d92642a0a53b72a5285dda",
-          "ref": "fbd47f7ebcbb450138d92642a0a53b72a5285dda"
-        }
-      ]
-    },
-    {
-      "id": "bkaradzic-bgfx",
-      "path": "bkaradzic-bgfx",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "bkaradzic/bgfx",
-        "version": "cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f",
-        "url": "https://github.com/bkaradzic/bgfx",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/bkaradzic/bgfx/license?ref=cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/bkaradzic/bgfx.git",
-          "revision": "cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f",
-          "ref": "cb2b1edbbe8a5e5a7c7e363d650cc4000dcbe51f"
-        }
-      ]
-    },
-    {
-      "id": "weaviate-weaviate",
-      "path": "weaviate-weaviate",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "weaviate/weaviate",
-        "version": "e6e3aa9e89786573fa2e97baf7347a2248ed50b7",
-        "url": "https://github.com/weaviate/weaviate",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/weaviate/weaviate/license?ref=e6e3aa9e89786573fa2e97baf7347a2248ed50b7",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/weaviate/weaviate.git",
-          "revision": "e6e3aa9e89786573fa2e97baf7347a2248ed50b7",
-          "ref": "e6e3aa9e89786573fa2e97baf7347a2248ed50b7"
-        }
-      ]
-    },
-    {
-      "id": "javascript-obfuscator-javascript-obfuscator",
-      "path": "javascript-obfuscator-javascript-obfuscator",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "javascript-obfuscator/javascript-obfuscator",
-        "version": "c948c1b43350fba818d7eceec6237cd2d467c8a9",
-        "url": "https://github.com/javascript-obfuscator/javascript-obfuscator",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/javascript-obfuscator/javascript-obfuscator/license?ref=c948c1b43350fba818d7eceec6237cd2d467c8a9",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/javascript-obfuscator/javascript-obfuscator.git",
-          "revision": "c948c1b43350fba818d7eceec6237cd2d467c8a9",
-          "ref": "c948c1b43350fba818d7eceec6237cd2d467c8a9"
-        }
-      ]
-    },
-    {
-      "id": "spree-spree",
-      "path": "spree-spree",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "spree/spree",
-        "version": "547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8",
-        "url": "https://github.com/spree/spree",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/spree/spree/license?ref=547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Ruby"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/spree/spree.git",
-          "revision": "547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8",
-          "ref": "547e59959f9d8ca49b35f6aeb3f6ccecdf0ad1f8"
-        }
-      ]
-    },
-    {
-      "id": "homebrew-homebrew-core",
-      "path": "homebrew-homebrew-core",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "Homebrew/homebrew-core",
-        "version": "243e5132e70af65a9179c4300fac9fcda0dbd2d2",
-        "url": "https://github.com/Homebrew/homebrew-core",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Homebrew/homebrew-core/license?ref=243e5132e70af65a9179c4300fac9fcda0dbd2d2",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Ruby"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Homebrew/homebrew-core.git",
-          "revision": "243e5132e70af65a9179c4300fac9fcda0dbd2d2",
-          "ref": "243e5132e70af65a9179c4300fac9fcda0dbd2d2"
-        }
-      ]
-    },
-    {
-      "id": "kgretzky-evilginx2",
-      "path": "kgretzky-evilginx2",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "kgretzky/evilginx2",
-        "version": "4c0988a1d9db4d172a185e979a38bfd0efdb5830",
-        "url": "https://github.com/kgretzky/evilginx2",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/kgretzky/evilginx2/license?ref=4c0988a1d9db4d172a185e979a38bfd0efdb5830",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/kgretzky/evilginx2.git",
-          "revision": "4c0988a1d9db4d172a185e979a38bfd0efdb5830",
-          "ref": "4c0988a1d9db4d172a185e979a38bfd0efdb5830"
-        }
-      ]
-    },
-    {
-      "id": "acidanthera-opencorepkg",
-      "path": "acidanthera-opencorepkg",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "acidanthera/OpenCorePkg",
-        "version": "3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4",
-        "url": "https://github.com/acidanthera/OpenCorePkg",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/acidanthera/OpenCorePkg/license?ref=3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/acidanthera/OpenCorePkg.git",
-          "revision": "3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4",
-          "ref": "3eb5eea3729bb953517d2dc6501e8ac2cabfc3d4"
-        }
-      ]
-    },
-    {
-      "id": "jupyterlab-jupyterlab",
-      "path": "jupyterlab-jupyterlab",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "jupyterlab/jupyterlab",
-        "version": "08b3325c4ad3a0c817e56d883612b2b167e7404c",
-        "url": "https://github.com/jupyterlab/jupyterlab",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jupyterlab/jupyterlab/license?ref=08b3325c4ad3a0c817e56d883612b2b167e7404c",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jupyterlab/jupyterlab.git",
-          "revision": "08b3325c4ad3a0c817e56d883612b2b167e7404c",
-          "ref": "08b3325c4ad3a0c817e56d883612b2b167e7404c"
-        }
-      ]
-    },
-    {
-      "id": "keycastr-keycastr",
-      "path": "keycastr-keycastr",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "keycastr/keycastr",
-        "version": "58133a7bca58586b6fa1f462b4c13f09404f9c6a",
-        "url": "https://github.com/keycastr/keycastr",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/keycastr/keycastr/license?ref=58133a7bca58586b6fa1f462b4c13f09404f9c6a",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Objective-C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/keycastr/keycastr.git",
-          "revision": "58133a7bca58586b6fa1f462b4c13f09404f9c6a",
-          "ref": "58133a7bca58586b6fa1f462b4c13f09404f9c6a"
-        }
-      ]
-    },
-    {
-      "id": "puerkitobio-goquery",
-      "path": "puerkitobio-goquery",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "PuerkitoBio/goquery",
-        "version": "53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c",
-        "url": "https://github.com/PuerkitoBio/goquery",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/PuerkitoBio/goquery/license?ref=53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/PuerkitoBio/goquery.git",
-          "revision": "53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c",
-          "ref": "53a9b37ea8596a9fe2fb4bea6f5eb30d12c6bb6c"
-        }
-      ]
-    },
-    {
-      "id": "webrtc-samples",
-      "path": "webrtc-samples",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "webrtc/samples",
-        "version": "6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e",
-        "url": "https://github.com/webrtc/samples",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/webrtc/samples/license?ref=6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/webrtc/samples.git",
-          "revision": "6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e",
-          "ref": "6e2c5a117aa860d66d874f7c0df0ef9a3e2cd74e"
-        }
-      ]
-    },
-    {
-      "id": "shelljs-shelljs",
-      "path": "shelljs-shelljs",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "shelljs/shelljs",
-        "version": "f364da6625945414440bb15210f102ba5fc10ed9",
-        "url": "https://github.com/shelljs/shelljs",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/shelljs/shelljs/license?ref=f364da6625945414440bb15210f102ba5fc10ed9",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/shelljs/shelljs.git",
-          "revision": "f364da6625945414440bb15210f102ba5fc10ed9",
-          "ref": "f364da6625945414440bb15210f102ba5fc10ed9"
-        }
-      ]
-    },
-    {
-      "id": "yiisoft-yii2",
-      "path": "yiisoft-yii2",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "yiisoft/yii2",
-        "version": "66f00d18a29b520f85e8e8f1e32d1e7e7b556cac",
-        "url": "https://github.com/yiisoft/yii2",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/yiisoft/yii2/license?ref=66f00d18a29b520f85e8e8f1e32d1e7e7b556cac",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "PHP"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/yiisoft/yii2.git",
-          "revision": "66f00d18a29b520f85e8e8f1e32d1e7e7b556cac",
-          "ref": "66f00d18a29b520f85e8e8f1e32d1e7e7b556cac"
-        }
-      ]
-    },
-    {
-      "id": "memcached-memcached",
-      "path": "memcached-memcached",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "memcached/memcached",
-        "version": "2d51e364799bc9698bd4b11728ea978cea12da6e",
-        "url": "https://github.com/memcached/memcached",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/memcached/memcached/license?ref=2d51e364799bc9698bd4b11728ea978cea12da6e",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/memcached/memcached.git",
-          "revision": "2d51e364799bc9698bd4b11728ea978cea12da6e",
-          "ref": "2d51e364799bc9698bd4b11728ea978cea12da6e"
-        }
-      ]
-    },
-    {
-      "id": "app-vnext-polly",
-      "path": "app-vnext-polly",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "App-vNext/Polly",
-        "version": "3987bb8c0a876314ea0e29d200c333f0fdef5e53",
-        "url": "https://github.com/App-vNext/Polly",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/App-vNext/Polly/license?ref=3987bb8c0a876314ea0e29d200c333f0fdef5e53",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/App-vNext/Polly.git",
-          "revision": "3987bb8c0a876314ea0e29d200c333f0fdef5e53",
-          "ref": "3987bb8c0a876314ea0e29d200c333f0fdef5e53"
-        }
-      ]
-    },
-    {
-      "id": "arut-nginx-rtmp-module",
-      "path": "arut-nginx-rtmp-module",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "arut/nginx-rtmp-module",
-        "version": "6c7719d0ba32e00b563ec70bd43dad11960fa9c4",
-        "url": "https://github.com/arut/nginx-rtmp-module",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/arut/nginx-rtmp-module/license?ref=6c7719d0ba32e00b563ec70bd43dad11960fa9c4",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/arut/nginx-rtmp-module.git",
-          "revision": "6c7719d0ba32e00b563ec70bd43dad11960fa9c4",
-          "ref": "6c7719d0ba32e00b563ec70bd43dad11960fa9c4"
-        }
-      ]
-    },
-    {
-      "id": "vlucas-phpdotenv",
-      "path": "vlucas-phpdotenv",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "vlucas/phpdotenv",
-        "version": "416df702837983f8d5ff48c9c3fee4f5f57b980b",
-        "url": "https://github.com/vlucas/phpdotenv",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/vlucas/phpdotenv/license?ref=416df702837983f8d5ff48c9c3fee4f5f57b980b",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "PHP"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/vlucas/phpdotenv.git",
-          "revision": "416df702837983f8d5ff48c9c3fee4f5f57b980b",
-          "ref": "416df702837983f8d5ff48c9c3fee4f5f57b980b"
-        }
-      ]
-    },
-    {
-      "id": "cocoalumberjack-cocoalumberjack",
-      "path": "cocoalumberjack-cocoalumberjack",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "CocoaLumberjack/CocoaLumberjack",
-        "version": "91860fa9bcda881233539dcc00f40a0f61d3e6ff",
-        "url": "https://github.com/CocoaLumberjack/CocoaLumberjack",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/CocoaLumberjack/CocoaLumberjack/license?ref=91860fa9bcda881233539dcc00f40a0f61d3e6ff",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Objective-C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/CocoaLumberjack/CocoaLumberjack.git",
-          "revision": "91860fa9bcda881233539dcc00f40a0f61d3e6ff",
-          "ref": "91860fa9bcda881233539dcc00f40a0f61d3e6ff"
-        }
-      ]
-    },
-    {
-      "id": "alibaba-tengine",
-      "path": "alibaba-tengine",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "alibaba/tengine",
-        "version": "fcebbd12267b150c7e0406e8e3e5936c0b729aae",
-        "url": "https://github.com/alibaba/tengine",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/alibaba/tengine/license?ref=fcebbd12267b150c7e0406e8e3e5936c0b729aae",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/alibaba/tengine.git",
-          "revision": "fcebbd12267b150c7e0406e8e3e5936c0b729aae",
-          "ref": "fcebbd12267b150c7e0406e8e3e5936c0b729aae"
-        }
-      ]
-    },
-    {
-      "id": "expo-create-react-native-app",
-      "path": "expo-create-react-native-app",
-      "license": "BSD-3-Clause",
-      "source": {
-        "name": "expo/create-react-native-app",
-        "version": "3a7b11ee859c5c38fe09be58419e97a286a22c13",
-        "url": "https://github.com/expo/create-react-native-app",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/expo/create-react-native-app/license?ref=3a7b11ee859c5c38fe09be58419e97a286a22c13",
-          "declaration": "BSD-3-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/expo/create-react-native-app.git",
-          "revision": "3a7b11ee859c5c38fe09be58419e97a286a22c13",
-          "ref": "3a7b11ee859c5c38fe09be58419e97a286a22c13"
-        }
-      ]
-    },
-    {
-      "id": "gopherjs-gopherjs",
-      "path": "gopherjs-gopherjs",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "gopherjs/gopherjs",
-        "version": "490705b1d6fc7d5bd9202ac41888e146183328eb",
-        "url": "https://github.com/gopherjs/gopherjs",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/gopherjs/gopherjs/license?ref=490705b1d6fc7d5bd9202ac41888e146183328eb",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/gopherjs/gopherjs.git",
-          "revision": "490705b1d6fc7d5bd9202ac41888e146183328eb",
-          "ref": "490705b1d6fc7d5bd9202ac41888e146183328eb"
-        }
-      ]
-    },
-    {
-      "id": "node-inspector-node-inspector",
-      "path": "node-inspector-node-inspector",
-      "license": "BSD-2-Clause",
-      "source": {
-        "name": "node-inspector/node-inspector",
-        "version": "79e01c049286374f86dd560742a614019c02402f",
-        "url": "https://github.com/node-inspector/node-inspector",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/node-inspector/node-inspector/license?ref=79e01c049286374f86dd560742a614019c02402f",
-          "declaration": "BSD-2-Clause"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/node-inspector/node-inspector.git",
-          "revision": "79e01c049286374f86dd560742a614019c02402f",
-          "ref": "79e01c049286374f86dd560742a614019c02402f"
-        }
-      ]
-    }
-  ]
-}
-JSON
+fetcher_main

@@ -1,57 +1,35 @@
 #!/bin/sh
 set -eu
 
+CORPUS_ID='gutenberg'
+CORPUS_TITLE='Project Gutenberg'
+CORPUS_DESCRIPTION='Public-domain books transcribed and proofread by Project Gutenberg volunteers.'
+CORPUS_DESTINATION='core/books/gutenberg'
+
+SOURCE_ID='gutenberg'
+SOURCE_PATH=''
+SOURCE_LICENSE='CC0-1.0'
+SOURCE_NAME='gutenberg'
+SOURCE_URL='https://www.gutenberg.org/'
+SOURCE_CATEGORY='public-dataset'
+SOURCE_LICENSE_DECLARATION='CC0-1.0'
+SOURCE_LICENSE_URL='https://www.gutenberg.org/'
+INPUT_TYPE='bounded-text'
+INPUT_ON_EMPTY='skip'
+INPUT_BOUNDS_START='(?m)^\*\*\*\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*$'
+INPUT_BOUNDS_END='(?m)^[ \t]*\*\*\*\s*END OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\n]*$'
+
+FETCHER_OUTPUT=${1-}
+FETCHER_ARGUMENT_COUNT=$#
+FETCHER_SIZE='100G'
+FETCH_METHOD='gutenberg'
+FETCH_ARG_COUNT='5'
+FETCH_ARG_1=''
+FETCH_ARG_2='https://www.gutenberg.org'
+FETCH_ARG_3='-all'
+FETCH_ARG_4='-exclude-ids'
+FETCH_ARG_5='673'
+
 script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 . "$script_dir/../functions.sh"
-
-fetcher_begin "$@"
-fetcher_require jq find sort awk wc curl gzip
-fetcher_size 100G
-fetcher_gutenberg '' 'https://www.gutenberg.org' '-all' '-exclude-ids' '673'
-
-# shellcheck disable=SC2119
-fetcher_manifest <<'JSON'
-{
-  "corpus": {
-    "id": "gutenberg",
-    "title": "Project Gutenberg",
-    "description": "Public-domain books transcribed and proofread by Project Gutenberg volunteers.",
-    "destination": "core/books/gutenberg"
-  },
-  "sources": [
-    {
-      "id": "gutenberg",
-      "path": "",
-      "license": "CC0-1.0",
-      "source": {
-        "name": "gutenberg",
-        "url": "https://www.gutenberg.org/",
-        "category": "public-dataset",
-        "license_evidence": {
-          "declaration": "CC0-1.0",
-          "url": "https://www.gutenberg.org/"
-        }
-      },
-      "input": {
-        "type": "bounded-text",
-        "on_empty": "skip",
-        "bounds": {
-          "start_pattern": "(?m)^\\*\\*\\*\\s*START OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\\n]*$",
-          "end_pattern": "(?m)^[ \\t]*\\*\\*\\*\\s*END OF (?:THE|THIS) PROJECT GUTENBERG EBOOK[^\\n]*$"
-        }
-      },
-      "artifacts": [
-        {
-          "method": "gutenberg",
-          "arguments": [
-            "https://www.gutenberg.org",
-            "-all",
-            "-exclude-ids",
-            "673"
-          ]
-        }
-      ]
-    }
-  ]
-}
-JSON
+fetcher_main

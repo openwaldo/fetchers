@@ -1,5115 +1,3366 @@
 #!/bin/sh
 set -eu
 
+CORPUS_ID='copyleft'
+CORPUS_TITLE='Copyleft-Licensed Project Code'
+CORPUS_DESCRIPTION='Project-owned files from immutable open-source repository commits, with text, structured, and binary assets retained while common vendored, generated, dependency, fixture, and build-output trees are excluded.'
+CORPUS_DESTINATION='code/copyleft'
+
+SOURCE_COUNT='134'
+SOURCE_1_ID='clash-verge-rev-clash-verge-rev'
+SOURCE_1_PATH='clash-verge-rev-clash-verge-rev'
+SOURCE_1_LICENSE='GPL-3.0-only'
+SOURCE_1_NAME='clash-verge-rev/clash-verge-rev'
+SOURCE_1_VERSION='c34781e1677d29422940c57e10fbf254c5f215ff'
+SOURCE_1_URL='https://github.com/clash-verge-rev/clash-verge-rev'
+SOURCE_1_CATEGORY='public-dataset'
+SOURCE_1_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_1_LICENSE_URL='https://api.github.com/repos/clash-verge-rev/clash-verge-rev/license?ref=c34781e1677d29422940c57e10fbf254c5f215ff'
+SOURCE_1_CONTENT_TYPES='source code'
+SOURCE_1_LANGUAGES='TypeScript'
+SOURCE_1_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_1_COPYRIGHTED='yes'
+SOURCE_1_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_2_ID='comfy-org-comfyui'
+SOURCE_2_PATH='comfy-org-comfyui'
+SOURCE_2_LICENSE='GPL-3.0-only'
+SOURCE_2_NAME='Comfy-Org/ComfyUI'
+SOURCE_2_VERSION='a683fa6e577f3f73ab8a0b4d7434173ccaec9c12'
+SOURCE_2_URL='https://github.com/Comfy-Org/ComfyUI'
+SOURCE_2_CATEGORY='public-dataset'
+SOURCE_2_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_2_LICENSE_URL='https://api.github.com/repos/Comfy-Org/ComfyUI/license?ref=a683fa6e577f3f73ab8a0b4d7434173ccaec9c12'
+SOURCE_2_CONTENT_TYPES='source code'
+SOURCE_2_LANGUAGES='Python'
+SOURCE_2_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_2_COPYRIGHTED='yes'
+SOURCE_2_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_3_ID='2dust-v2rayn'
+SOURCE_3_PATH='2dust-v2rayn'
+SOURCE_3_LICENSE='GPL-3.0-only'
+SOURCE_3_NAME='2dust/v2rayN'
+SOURCE_3_VERSION='31044f449db5562aedb871daf69c0873e4b8a768'
+SOURCE_3_URL='https://github.com/2dust/v2rayN'
+SOURCE_3_CATEGORY='public-dataset'
+SOURCE_3_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_3_LICENSE_URL='https://api.github.com/repos/2dust/v2rayN/license?ref=31044f449db5562aedb871daf69c0873e4b8a768'
+SOURCE_3_CONTENT_TYPES='source code'
+SOURCE_3_LANGUAGES='C#'
+SOURCE_3_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_3_COPYRIGHTED='yes'
+SOURCE_3_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_4_ID='netdata-netdata'
+SOURCE_4_PATH='netdata-netdata'
+SOURCE_4_LICENSE='GPL-3.0-only'
+SOURCE_4_NAME='netdata/netdata'
+SOURCE_4_VERSION='58d3948c3af4f15bfd1c146b40e7f419675f2dbe'
+SOURCE_4_URL='https://github.com/netdata/netdata'
+SOURCE_4_CATEGORY='public-dataset'
+SOURCE_4_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_4_LICENSE_URL='https://api.github.com/repos/netdata/netdata/license?ref=58d3948c3af4f15bfd1c146b40e7f419675f2dbe'
+SOURCE_4_CONTENT_TYPES='source code'
+SOURCE_4_LANGUAGES='Go'
+SOURCE_4_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_4_COPYRIGHTED='yes'
+SOURCE_4_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_5_ID='ventoy-ventoy'
+SOURCE_5_PATH='ventoy-ventoy'
+SOURCE_5_LICENSE='GPL-3.0-only'
+SOURCE_5_NAME='ventoy/Ventoy'
+SOURCE_5_VERSION='6568972abca37e33e031e1f2651a68a86491082b'
+SOURCE_5_URL='https://github.com/ventoy/Ventoy'
+SOURCE_5_CATEGORY='public-dataset'
+SOURCE_5_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_5_LICENSE_URL='https://api.github.com/repos/ventoy/Ventoy/license?ref=6568972abca37e33e031e1f2651a68a86491082b'
+SOURCE_5_CONTENT_TYPES='source code'
+SOURCE_5_LANGUAGES='C'
+SOURCE_5_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_5_COPYRIGHTED='yes'
+SOURCE_5_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_6_ID='obsproject-obs-studio'
+SOURCE_6_PATH='obsproject-obs-studio'
+SOURCE_6_LICENSE='GPL-2.0-only'
+SOURCE_6_NAME='obsproject/obs-studio'
+SOURCE_6_VERSION='220a16378fb9079b0ebd008ee994f5cb298de90d'
+SOURCE_6_URL='https://github.com/obsproject/obs-studio'
+SOURCE_6_CATEGORY='public-dataset'
+SOURCE_6_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_6_LICENSE_URL='https://api.github.com/repos/obsproject/obs-studio/license?ref=220a16378fb9079b0ebd008ee994f5cb298de90d'
+SOURCE_6_CONTENT_TYPES='source code'
+SOURCE_6_LANGUAGES='C'
+SOURCE_6_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_6_COPYRIGHTED='yes'
+SOURCE_6_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_7_ID='binary-husky-gpt_academic'
+SOURCE_7_PATH='binary-husky-gpt_academic'
+SOURCE_7_LICENSE='GPL-3.0-only'
+SOURCE_7_NAME='binary-husky/gpt_academic'
+SOURCE_7_VERSION='d6bde0fa54373309bd05823a49bda8da019d2c77'
+SOURCE_7_URL='https://github.com/binary-husky/gpt_academic'
+SOURCE_7_CATEGORY='public-dataset'
+SOURCE_7_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_7_LICENSE_URL='https://api.github.com/repos/binary-husky/gpt_academic/license?ref=d6bde0fa54373309bd05823a49bda8da019d2c77'
+SOURCE_7_CONTENT_TYPES='source code'
+SOURCE_7_LANGUAGES='Python'
+SOURCE_7_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_7_COPYRIGHTED='yes'
+SOURCE_7_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_8_ID='ansible-ansible'
+SOURCE_8_PATH='ansible-ansible'
+SOURCE_8_LICENSE='GPL-3.0-only'
+SOURCE_8_NAME='ansible/ansible'
+SOURCE_8_VERSION='c5ecb46c3f8c135a76ee86584f4b77b50184e5a6'
+SOURCE_8_URL='https://github.com/ansible/ansible'
+SOURCE_8_CATEGORY='public-dataset'
+SOURCE_8_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_8_LICENSE_URL='https://api.github.com/repos/ansible/ansible/license?ref=c5ecb46c3f8c135a76ee86584f4b77b50184e5a6'
+SOURCE_8_CONTENT_TYPES='source code'
+SOURCE_8_LANGUAGES='Python'
+SOURCE_8_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_8_COPYRIGHTED='yes'
+SOURCE_8_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_9_ID='gorhill-ublock'
+SOURCE_9_PATH='gorhill-ublock'
+SOURCE_9_LICENSE='GPL-3.0-only'
+SOURCE_9_NAME='gorhill/uBlock'
+SOURCE_9_VERSION='6bc5ee892d7b135d1d230d658520c46ab2cbb2e8'
+SOURCE_9_URL='https://github.com/gorhill/uBlock'
+SOURCE_9_CATEGORY='public-dataset'
+SOURCE_9_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_9_LICENSE_URL='https://api.github.com/repos/gorhill/uBlock/license?ref=6bc5ee892d7b135d1d230d658520c46ab2cbb2e8'
+SOURCE_9_CONTENT_TYPES='source code'
+SOURCE_9_LANGUAGES='JavaScript'
+SOURCE_9_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_9_COPYRIGHTED='yes'
+SOURCE_9_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_10_ID='xtekky-gpt4free'
+SOURCE_10_PATH='xtekky-gpt4free'
+SOURCE_10_LICENSE='GPL-3.0-only'
+SOURCE_10_NAME='xtekky/gpt4free'
+SOURCE_10_VERSION='8b4edf83622eabe445d28df313e704c9cdd342ff'
+SOURCE_10_URL='https://github.com/xtekky/gpt4free'
+SOURCE_10_CATEGORY='public-dataset'
+SOURCE_10_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_10_LICENSE_URL='https://api.github.com/repos/xtekky/gpt4free/license?ref=8b4edf83622eabe445d28df313e704c9cdd342ff'
+SOURCE_10_CONTENT_TYPES='source code'
+SOURCE_10_LANGUAGES='Python'
+SOURCE_10_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_10_COPYRIGHTED='yes'
+SOURCE_10_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_11_ID='topjohnwu-magisk'
+SOURCE_11_PATH='topjohnwu-magisk'
+SOURCE_11_LICENSE='GPL-3.0-only'
+SOURCE_11_NAME='topjohnwu/Magisk'
+SOURCE_11_VERSION='ede844bdaa4d673617c0f14a991a79542c95967c'
+SOURCE_11_URL='https://github.com/topjohnwu/Magisk'
+SOURCE_11_CATEGORY='public-dataset'
+SOURCE_11_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_11_LICENSE_URL='https://api.github.com/repos/topjohnwu/Magisk/license?ref=ede844bdaa4d673617c0f14a991a79542c95967c'
+SOURCE_11_CONTENT_TYPES='source code'
+SOURCE_11_LANGUAGES='Kotlin'
+SOURCE_11_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_11_COPYRIGHTED='yes'
+SOURCE_11_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_12_ID='2dust-v2rayng'
+SOURCE_12_PATH='2dust-v2rayng'
+SOURCE_12_LICENSE='GPL-3.0-only'
+SOURCE_12_NAME='2dust/v2rayNG'
+SOURCE_12_VERSION='f63f649477fe884ae6101ccb2c6fb172832e0d03'
+SOURCE_12_URL='https://github.com/2dust/v2rayNG'
+SOURCE_12_CATEGORY='public-dataset'
+SOURCE_12_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_12_LICENSE_URL='https://api.github.com/repos/2dust/v2rayNG/license?ref=f63f649477fe884ae6101ccb2c6fb172832e0d03'
+SOURCE_12_CONTENT_TYPES='source code'
+SOURCE_12_LANGUAGES='Kotlin'
+SOURCE_12_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_12_COPYRIGHTED='yes'
+SOURCE_12_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_13_ID='tw93-pake'
+SOURCE_13_PATH='tw93-pake'
+SOURCE_13_LICENSE='GPL-3.0-only'
+SOURCE_13_NAME='tw93/Pake'
+SOURCE_13_VERSION='c01afad4e258de6a27fa483908dfdeb6df3914ad'
+SOURCE_13_URL='https://github.com/tw93/Pake'
+SOURCE_13_CATEGORY='public-dataset'
+SOURCE_13_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_13_LICENSE_URL='https://api.github.com/repos/tw93/Pake/license?ref=c01afad4e258de6a27fa483908dfdeb6df3914ad'
+SOURCE_13_CONTENT_TYPES='source code'
+SOURCE_13_LANGUAGES='Rust'
+SOURCE_13_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_13_COPYRIGHTED='yes'
+SOURCE_13_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_14_ID='deepfakes-faceswap'
+SOURCE_14_PATH='deepfakes-faceswap'
+SOURCE_14_LICENSE='GPL-3.0-only'
+SOURCE_14_NAME='deepfakes/faceswap'
+SOURCE_14_VERSION='f530cb7508ae670f6474f8a7d9c4df94705cf96b'
+SOURCE_14_URL='https://github.com/deepfakes/faceswap'
+SOURCE_14_CATEGORY='public-dataset'
+SOURCE_14_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_14_LICENSE_URL='https://api.github.com/repos/deepfakes/faceswap/license?ref=f530cb7508ae670f6474f8a7d9c4df94705cf96b'
+SOURCE_14_CONTENT_TYPES='source code'
+SOURCE_14_LANGUAGES='Python'
+SOURCE_14_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_14_COPYRIGHTED='yes'
+SOURCE_14_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_15_ID='jellyfin-jellyfin'
+SOURCE_15_PATH='jellyfin-jellyfin'
+SOURCE_15_LICENSE='GPL-2.0-only'
+SOURCE_15_NAME='jellyfin/jellyfin'
+SOURCE_15_VERSION='fb763c47bfc88b1661f8dd1f3f7a4340d140380e'
+SOURCE_15_URL='https://github.com/jellyfin/jellyfin'
+SOURCE_15_CATEGORY='public-dataset'
+SOURCE_15_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_15_LICENSE_URL='https://api.github.com/repos/jellyfin/jellyfin/license?ref=fb763c47bfc88b1661f8dd1f3f7a4340d140380e'
+SOURCE_15_CONTENT_TYPES='source code'
+SOURCE_15_LANGUAGES='C#'
+SOURCE_15_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_15_COPYRIGHTED='yes'
+SOURCE_15_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_16_ID='werwolv-imhex'
+SOURCE_16_PATH='werwolv-imhex'
+SOURCE_16_LICENSE='GPL-2.0-only'
+SOURCE_16_NAME='WerWolv/ImHex'
+SOURCE_16_VERSION='bb938c41fb29aed576180384d534cf2476bc8ebb'
+SOURCE_16_URL='https://github.com/WerWolv/ImHex'
+SOURCE_16_CATEGORY='public-dataset'
+SOURCE_16_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_16_LICENSE_URL='https://api.github.com/repos/WerWolv/ImHex/license?ref=bb938c41fb29aed576180384d534cf2476bc8ebb'
+SOURCE_16_CONTENT_TYPES='source code'
+SOURCE_16_LANGUAGES='C++'
+SOURCE_16_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_16_COPYRIGHTED='yes'
+SOURCE_16_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_17_ID='freqtrade-freqtrade'
+SOURCE_17_PATH='freqtrade-freqtrade'
+SOURCE_17_LICENSE='GPL-3.0-only'
+SOURCE_17_NAME='freqtrade/freqtrade'
+SOURCE_17_VERSION='89d469fe638eaf116d45a8f92598aeed4d9f6dde'
+SOURCE_17_URL='https://github.com/freqtrade/freqtrade'
+SOURCE_17_CATEGORY='public-dataset'
+SOURCE_17_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_17_LICENSE_URL='https://api.github.com/repos/freqtrade/freqtrade/license?ref=89d469fe638eaf116d45a8f92598aeed4d9f6dde'
+SOURCE_17_CONTENT_TYPES='source code'
+SOURCE_17_LANGUAGES='Python'
+SOURCE_17_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_17_COPYRIGHTED='yes'
+SOURCE_17_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_18_ID='sickcodes-docker-osx'
+SOURCE_18_PATH='sickcodes-docker-osx'
+SOURCE_18_LICENSE='GPL-3.0-only'
+SOURCE_18_NAME='sickcodes/Docker-OSX'
+SOURCE_18_VERSION='aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3'
+SOURCE_18_URL='https://github.com/sickcodes/Docker-OSX'
+SOURCE_18_CATEGORY='public-dataset'
+SOURCE_18_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_18_LICENSE_URL='https://api.github.com/repos/sickcodes/Docker-OSX/license?ref=aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3'
+SOURCE_18_CONTENT_TYPES='source code'
+SOURCE_18_LANGUAGES='Shell'
+SOURCE_18_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_18_COPYRIGHTED='yes'
+SOURCE_18_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_19_ID='justjavac-wechat-miniapp-radar'
+SOURCE_19_PATH='justjavac-wechat-miniapp-radar'
+SOURCE_19_LICENSE='GPL-3.0-only'
+SOURCE_19_NAME='justjavac/wechat-miniapp-radar'
+SOURCE_19_VERSION='02a010ecea0320b7aa975bb62a5dde271ae630c9'
+SOURCE_19_URL='https://github.com/justjavac/wechat-miniapp-radar'
+SOURCE_19_CATEGORY='public-dataset'
+SOURCE_19_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_19_LICENSE_URL='https://api.github.com/repos/justjavac/wechat-miniapp-radar/license?ref=02a010ecea0320b7aa975bb62a5dde271ae630c9'
+SOURCE_19_CONTENT_TYPES='source code'
+SOURCE_19_LANGUAGES='TypeScript'
+SOURCE_19_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_19_COPYRIGHTED='yes'
+SOURCE_19_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_20_ID='chen08209-flclash'
+SOURCE_20_PATH='chen08209-flclash'
+SOURCE_20_LICENSE='GPL-3.0-only'
+SOURCE_20_NAME='chen08209/FlClash'
+SOURCE_20_VERSION='7c831855efedceb1a72bd0b4c18da026593d0853'
+SOURCE_20_URL='https://github.com/chen08209/FlClash'
+SOURCE_20_CATEGORY='public-dataset'
+SOURCE_20_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_20_LICENSE_URL='https://api.github.com/repos/chen08209/FlClash/license?ref=7c831855efedceb1a72bd0b4c18da026593d0853'
+SOURCE_20_CONTENT_TYPES='source code'
+SOURCE_20_LANGUAGES='Dart'
+SOURCE_20_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_20_COPYRIGHTED='yes'
+SOURCE_20_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_21_ID='acmesh-official-acme.sh'
+SOURCE_21_PATH='acmesh-official-acme.sh'
+SOURCE_21_LICENSE='GPL-3.0-only'
+SOURCE_21_NAME='acmesh-official/acme.sh'
+SOURCE_21_VERSION='2feb392bd0e3964d9bf68871ae804578d9d5ca80'
+SOURCE_21_URL='https://github.com/acmesh-official/acme.sh'
+SOURCE_21_CATEGORY='public-dataset'
+SOURCE_21_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_21_LICENSE_URL='https://api.github.com/repos/acmesh-official/acme.sh/license?ref=2feb392bd0e3964d9bf68871ae804578d9d5ca80'
+SOURCE_21_CONTENT_TYPES='source code'
+SOURCE_21_LANGUAGES='Shell'
+SOURCE_21_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_21_COPYRIGHTED='yes'
+SOURCE_21_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_22_ID='iina-iina'
+SOURCE_22_PATH='iina-iina'
+SOURCE_22_LICENSE='GPL-3.0-only'
+SOURCE_22_NAME='iina/iina'
+SOURCE_22_VERSION='a25ed1390eff00cbed5f2eca045ee8dccd28d791'
+SOURCE_22_URL='https://github.com/iina/iina'
+SOURCE_22_CATEGORY='public-dataset'
+SOURCE_22_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_22_LICENSE_URL='https://api.github.com/repos/iina/iina/license?ref=a25ed1390eff00cbed5f2eca045ee8dccd28d791'
+SOURCE_22_CONTENT_TYPES='source code'
+SOURCE_22_LANGUAGES='Swift'
+SOURCE_22_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_22_COPYRIGHTED='yes'
+SOURCE_22_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_23_ID='jgm-pandoc'
+SOURCE_23_PATH='jgm-pandoc'
+SOURCE_23_LICENSE='GPL-2.0-only'
+SOURCE_23_NAME='jgm/pandoc'
+SOURCE_23_VERSION='87bc462713209420f9beac0041b47c42935f7a1d'
+SOURCE_23_URL='https://github.com/jgm/pandoc'
+SOURCE_23_CATEGORY='public-dataset'
+SOURCE_23_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_23_LICENSE_URL='https://api.github.com/repos/jgm/pandoc/license?ref=87bc462713209420f9beac0041b47c42935f7a1d'
+SOURCE_23_CONTENT_TYPES='source code'
+SOURCE_23_LANGUAGES='Haskell'
+SOURCE_23_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_23_COPYRIGHTED='yes'
+SOURCE_23_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_24_ID='mhsanaei-3x-ui'
+SOURCE_24_PATH='mhsanaei-3x-ui'
+SOURCE_24_LICENSE='GPL-3.0-only'
+SOURCE_24_NAME='MHSanaei/3x-ui'
+SOURCE_24_VERSION='ece16559397f756513d7338f59168049dd6e2e51'
+SOURCE_24_URL='https://github.com/MHSanaei/3x-ui'
+SOURCE_24_CATEGORY='public-dataset'
+SOURCE_24_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_24_LICENSE_URL='https://api.github.com/repos/MHSanaei/3x-ui/license?ref=ece16559397f756513d7338f59168049dd6e2e51'
+SOURCE_24_CONTENT_TYPES='source code'
+SOURCE_24_LANGUAGES='Go'
+SOURCE_24_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_24_COPYRIGHTED='yes'
+SOURCE_24_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_25_ID='paperless-ngx-paperless-ngx'
+SOURCE_25_PATH='paperless-ngx-paperless-ngx'
+SOURCE_25_LICENSE='GPL-3.0-only'
+SOURCE_25_NAME='paperless-ngx/paperless-ngx'
+SOURCE_25_VERSION='17dc482872cf62e12965f6207772c83d1deb651b'
+SOURCE_25_URL='https://github.com/paperless-ngx/paperless-ngx'
+SOURCE_25_CATEGORY='public-dataset'
+SOURCE_25_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_25_LICENSE_URL='https://api.github.com/repos/paperless-ngx/paperless-ngx/license?ref=17dc482872cf62e12965f6207772c83d1deb651b'
+SOURCE_25_CONTENT_TYPES='source code'
+SOURCE_25_LANGUAGES='Python'
+SOURCE_25_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_25_COPYRIGHTED='yes'
+SOURCE_25_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_26_ID='mifi-lossless-cut'
+SOURCE_26_PATH='mifi-lossless-cut'
+SOURCE_26_LICENSE='GPL-2.0-only'
+SOURCE_26_NAME='mifi/lossless-cut'
+SOURCE_26_VERSION='3b9a59c288bf6e11076b583c932cfa48ddab3b02'
+SOURCE_26_URL='https://github.com/mifi/lossless-cut'
+SOURCE_26_CATEGORY='public-dataset'
+SOURCE_26_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_26_LICENSE_URL='https://api.github.com/repos/mifi/lossless-cut/license?ref=3b9a59c288bf6e11076b583c932cfa48ddab3b02'
+SOURCE_26_CONTENT_TYPES='source code'
+SOURCE_26_LANGUAGES='TypeScript'
+SOURCE_26_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_26_COPYRIGHTED='yes'
+SOURCE_26_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_27_ID='666ghj-bettafish'
+SOURCE_27_PATH='666ghj-bettafish'
+SOURCE_27_LICENSE='GPL-2.0-only'
+SOURCE_27_NAME='666ghj/BettaFish'
+SOURCE_27_VERSION='dcd309dfc08480708e41af0c9f7b2e68db191a25'
+SOURCE_27_URL='https://github.com/666ghj/BettaFish'
+SOURCE_27_CATEGORY='public-dataset'
+SOURCE_27_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_27_LICENSE_URL='https://api.github.com/repos/666ghj/BettaFish/license?ref=dcd309dfc08480708e41af0c9f7b2e68db191a25'
+SOURCE_27_CONTENT_TYPES='source code'
+SOURCE_27_LANGUAGES='Python'
+SOURCE_27_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_27_COPYRIGHTED='yes'
+SOURCE_27_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_28_ID='aria2-aria2'
+SOURCE_28_PATH='aria2-aria2'
+SOURCE_28_LICENSE='GPL-2.0-only'
+SOURCE_28_NAME='aria2/aria2'
+SOURCE_28_VERSION='9e7273583f83e881e3ec067b523ba88724088d2f'
+SOURCE_28_URL='https://github.com/aria2/aria2'
+SOURCE_28_CATEGORY='public-dataset'
+SOURCE_28_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_28_LICENSE_URL='https://api.github.com/repos/aria2/aria2/license?ref=9e7273583f83e881e3ec067b523ba88724088d2f'
+SOURCE_28_CONTENT_TYPES='source code'
+SOURCE_28_LANGUAGES='C++'
+SOURCE_28_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_28_COPYRIGHTED='yes'
+SOURCE_28_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_29_ID='chatboxai-chatbox'
+SOURCE_29_PATH='chatboxai-chatbox'
+SOURCE_29_LICENSE='GPL-3.0-only'
+SOURCE_29_NAME='chatboxai/chatbox'
+SOURCE_29_VERSION='5c7e38828699aefa4efd17b44f817aa263c8f900'
+SOURCE_29_URL='https://github.com/chatboxai/chatbox'
+SOURCE_29_CATEGORY='public-dataset'
+SOURCE_29_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_29_LICENSE_URL='https://api.github.com/repos/chatboxai/chatbox/license?ref=5c7e38828699aefa4efd17b44f817aa263c8f900'
+SOURCE_29_CONTENT_TYPES='source code'
+SOURCE_29_LANGUAGES='TypeScript'
+SOURCE_29_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_29_COPYRIGHTED='yes'
+SOURCE_29_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_30_ID='bailicangdu-vue2-elm'
+SOURCE_30_PATH='bailicangdu-vue2-elm'
+SOURCE_30_LICENSE='GPL-2.0-only'
+SOURCE_30_NAME='bailicangdu/vue2-elm'
+SOURCE_30_VERSION='b85ff0220366be863868269177a4abf74c7a85ca'
+SOURCE_30_URL='https://github.com/bailicangdu/vue2-elm'
+SOURCE_30_CATEGORY='public-dataset'
+SOURCE_30_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_30_LICENSE_URL='https://api.github.com/repos/bailicangdu/vue2-elm/license?ref=b85ff0220366be863868269177a4abf74c7a85ca'
+SOURCE_30_CONTENT_TYPES='source code'
+SOURCE_30_LANGUAGES='Vue'
+SOURCE_30_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_30_COPYRIGHTED='yes'
+SOURCE_30_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_31_ID='corentinth-it-tools'
+SOURCE_31_PATH='corentinth-it-tools'
+SOURCE_31_LICENSE='GPL-3.0-only'
+SOURCE_31_NAME='CorentinTh/it-tools'
+SOURCE_31_VERSION='d505845f918e946ec300af7b36efc107e2f66e9e'
+SOURCE_31_URL='https://github.com/CorentinTh/it-tools'
+SOURCE_31_CATEGORY='public-dataset'
+SOURCE_31_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_31_LICENSE_URL='https://api.github.com/repos/CorentinTh/it-tools/license?ref=d505845f918e946ec300af7b36efc107e2f66e9e'
+SOURCE_31_CONTENT_TYPES='source code'
+SOURCE_31_LANGUAGES='Vue'
+SOURCE_31_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_31_COPYRIGHTED='yes'
+SOURCE_31_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_32_ID='lizardbyte-sunshine'
+SOURCE_32_PATH='lizardbyte-sunshine'
+SOURCE_32_LICENSE='GPL-3.0-only'
+SOURCE_32_NAME='LizardByte/Sunshine'
+SOURCE_32_VERSION='25c06d79b54f3d092d3fedd5f5ba44989f394692'
+SOURCE_32_URL='https://github.com/LizardByte/Sunshine'
+SOURCE_32_CATEGORY='public-dataset'
+SOURCE_32_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_32_LICENSE_URL='https://api.github.com/repos/LizardByte/Sunshine/license?ref=25c06d79b54f3d092d3fedd5f5ba44989f394692'
+SOURCE_32_CONTENT_TYPES='source code'
+SOURCE_32_LANGUAGES='C++'
+SOURCE_32_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_32_COPYRIGHTED='yes'
+SOURCE_32_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_33_ID='koalaman-shellcheck'
+SOURCE_33_PATH='koalaman-shellcheck'
+SOURCE_33_LICENSE='GPL-3.0-only'
+SOURCE_33_NAME='koalaman/shellcheck'
+SOURCE_33_VERSION='9af7ee28ce587baadd950b85dd6826a16b9c068d'
+SOURCE_33_URL='https://github.com/koalaman/shellcheck'
+SOURCE_33_CATEGORY='public-dataset'
+SOURCE_33_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_33_LICENSE_URL='https://api.github.com/repos/koalaman/shellcheck/license?ref=9af7ee28ce587baadd950b85dd6826a16b9c068d'
+SOURCE_33_CONTENT_TYPES='source code'
+SOURCE_33_LANGUAGES='Haskell'
+SOURCE_33_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_33_COPYRIGHTED='yes'
+SOURCE_33_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_34_ID='halo-dev-halo'
+SOURCE_34_PATH='halo-dev-halo'
+SOURCE_34_LICENSE='GPL-3.0-only'
+SOURCE_34_NAME='halo-dev/halo'
+SOURCE_34_VERSION='815292f426d8f216d02398a2813dc9a52d881775'
+SOURCE_34_URL='https://github.com/halo-dev/halo'
+SOURCE_34_CATEGORY='public-dataset'
+SOURCE_34_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_34_LICENSE_URL='https://api.github.com/repos/halo-dev/halo/license?ref=815292f426d8f216d02398a2813dc9a52d881775'
+SOURCE_34_CONTENT_TYPES='source code'
+SOURCE_34_LANGUAGES='Java'
+SOURCE_34_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_34_COPYRIGHTED='yes'
+SOURCE_34_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_35_ID='teamnewpipe-newpipe'
+SOURCE_35_PATH='teamnewpipe-newpipe'
+SOURCE_35_LICENSE='GPL-3.0-only'
+SOURCE_35_NAME='TeamNewPipe/NewPipe'
+SOURCE_35_VERSION='89d2423692918653134e79a841d96e065175e976'
+SOURCE_35_URL='https://github.com/TeamNewPipe/NewPipe'
+SOURCE_35_CATEGORY='public-dataset'
+SOURCE_35_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_35_LICENSE_URL='https://api.github.com/repos/TeamNewPipe/NewPipe/license?ref=89d2423692918653134e79a841d96e065175e976'
+SOURCE_35_CONTENT_TYPES='source code'
+SOURCE_35_LANGUAGES='Java'
+SOURCE_35_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_35_COPYRIGHTED='yes'
+SOURCE_35_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_36_ID='sharex-sharex'
+SOURCE_36_PATH='sharex-sharex'
+SOURCE_36_LICENSE='GPL-3.0-only'
+SOURCE_36_NAME='ShareX/ShareX'
+SOURCE_36_VERSION='b1a388ebd428e49fd9909e9319c2ce8e93577f67'
+SOURCE_36_URL='https://github.com/ShareX/ShareX'
+SOURCE_36_CATEGORY='public-dataset'
+SOURCE_36_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_36_LICENSE_URL='https://api.github.com/repos/ShareX/ShareX/license?ref=b1a388ebd428e49fd9909e9319c2ce8e93577f67'
+SOURCE_36_CONTENT_TYPES='source code'
+SOURCE_36_LANGUAGES='C#'
+SOURCE_36_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_36_COPYRIGHTED='yes'
+SOURCE_36_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_37_ID='huiyadanli-revokemsgpatcher'
+SOURCE_37_PATH='huiyadanli-revokemsgpatcher'
+SOURCE_37_LICENSE='GPL-3.0-only'
+SOURCE_37_NAME='huiyadanli/RevokeMsgPatcher'
+SOURCE_37_VERSION='939dfaf00a2fcec90674c4ffddb37b6773460c51'
+SOURCE_37_URL='https://github.com/huiyadanli/RevokeMsgPatcher'
+SOURCE_37_CATEGORY='public-dataset'
+SOURCE_37_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_37_LICENSE_URL='https://api.github.com/repos/huiyadanli/RevokeMsgPatcher/license?ref=939dfaf00a2fcec90674c4ffddb37b6773460c51'
+SOURCE_37_CONTENT_TYPES='source code'
+SOURCE_37_LANGUAGES='C#'
+SOURCE_37_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_37_COPYRIGHTED='yes'
+SOURCE_37_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_38_ID='frappe-erpnext'
+SOURCE_38_PATH='frappe-erpnext'
+SOURCE_38_LICENSE='GPL-3.0-only'
+SOURCE_38_NAME='frappe/erpnext'
+SOURCE_38_VERSION='53d3ba7a7820e3c09b24a698149a63ecfc523e84'
+SOURCE_38_URL='https://github.com/frappe/erpnext'
+SOURCE_38_CATEGORY='public-dataset'
+SOURCE_38_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_38_LICENSE_URL='https://api.github.com/repos/frappe/erpnext/license?ref=53d3ba7a7820e3c09b24a698149a63ecfc523e84'
+SOURCE_38_CONTENT_TYPES='source code'
+SOURCE_38_LANGUAGES='Python'
+SOURCE_38_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_38_COPYRIGHTED='yes'
+SOURCE_38_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_39_ID='pbatard-rufus'
+SOURCE_39_PATH='pbatard-rufus'
+SOURCE_39_LICENSE='GPL-3.0-only'
+SOURCE_39_NAME='pbatard/rufus'
+SOURCE_39_VERSION='6d8fbf98305ff37eb531c45cbd6ff44563c53917'
+SOURCE_39_URL='https://github.com/pbatard/rufus'
+SOURCE_39_CATEGORY='public-dataset'
+SOURCE_39_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_39_LICENSE_URL='https://api.github.com/repos/pbatard/rufus/license?ref=6d8fbf98305ff37eb531c45cbd6ff44563c53917'
+SOURCE_39_CONTENT_TYPES='source code'
+SOURCE_39_LANGUAGES='C'
+SOURCE_39_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_39_COPYRIGHTED='yes'
+SOURCE_39_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_40_ID='1panel-dev-1panel'
+SOURCE_40_PATH='1panel-dev-1panel'
+SOURCE_40_LICENSE='GPL-3.0-only'
+SOURCE_40_NAME='1Panel-dev/1Panel'
+SOURCE_40_VERSION='d1558c5eaea9bcafef5f3a885af279ad5ccd8d25'
+SOURCE_40_URL='https://github.com/1Panel-dev/1Panel'
+SOURCE_40_CATEGORY='public-dataset'
+SOURCE_40_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_40_LICENSE_URL='https://api.github.com/repos/1Panel-dev/1Panel/license?ref=d1558c5eaea9bcafef5f3a885af279ad5ccd8d25'
+SOURCE_40_CONTENT_TYPES='source code'
+SOURCE_40_LANGUAGES='Go'
+SOURCE_40_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_40_COPYRIGHTED='yes'
+SOURCE_40_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_41_ID='zuodaotech-everyone-can-use-english'
+SOURCE_41_PATH='zuodaotech-everyone-can-use-english'
+SOURCE_41_LICENSE='GPL-3.0-only'
+SOURCE_41_NAME='ZuodaoTech/everyone-can-use-english'
+SOURCE_41_VERSION='3d799132046993eade5a364ddd1e557906854eda'
+SOURCE_41_URL='https://github.com/ZuodaoTech/everyone-can-use-english'
+SOURCE_41_CATEGORY='public-dataset'
+SOURCE_41_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_41_LICENSE_URL='https://api.github.com/repos/ZuodaoTech/everyone-can-use-english/license?ref=3d799132046993eade5a364ddd1e557906854eda'
+SOURCE_41_CONTENT_TYPES='source code'
+SOURCE_41_LANGUAGES='TypeScript'
+SOURCE_41_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_41_COPYRIGHTED='yes'
+SOURCE_41_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_42_ID='alvarotrigo-fullpage.js'
+SOURCE_42_PATH='alvarotrigo-fullpage.js'
+SOURCE_42_LICENSE='GPL-3.0-only'
+SOURCE_42_NAME='alvarotrigo/fullPage.js'
+SOURCE_42_VERSION='49f15effa7b195def295a36f872c28153cf9fb00'
+SOURCE_42_URL='https://github.com/alvarotrigo/fullPage.js'
+SOURCE_42_CATEGORY='public-dataset'
+SOURCE_42_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_42_LICENSE_URL='https://api.github.com/repos/alvarotrigo/fullPage.js/license?ref=49f15effa7b195def295a36f872c28153cf9fb00'
+SOURCE_42_CONTENT_TYPES='source code'
+SOURCE_42_LANGUAGES='JavaScript'
+SOURCE_42_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_42_COPYRIGHTED='yes'
+SOURCE_42_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_43_ID='kovidgoyal-kitty'
+SOURCE_43_PATH='kovidgoyal-kitty'
+SOURCE_43_LICENSE='GPL-3.0-only'
+SOURCE_43_NAME='kovidgoyal/kitty'
+SOURCE_43_VERSION='a6d5e7145a3fc36822bcf5296e4b1f1194239f48'
+SOURCE_43_URL='https://github.com/kovidgoyal/kitty'
+SOURCE_43_CATEGORY='public-dataset'
+SOURCE_43_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_43_LICENSE_URL='https://api.github.com/repos/kovidgoyal/kitty/license?ref=a6d5e7145a3fc36822bcf5296e4b1f1194239f48'
+SOURCE_43_CONTENT_TYPES='source code'
+SOURCE_43_LANGUAGES='Python'
+SOURCE_43_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_43_COPYRIGHTED='yes'
+SOURCE_43_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_44_ID='ehang-io-nps'
+SOURCE_44_PATH='ehang-io-nps'
+SOURCE_44_LICENSE='GPL-3.0-only'
+SOURCE_44_NAME='ehang-io/nps'
+SOURCE_44_VERSION='ab648d6f0c618c690a7a79948a7ebd686e1cdafc'
+SOURCE_44_URL='https://github.com/ehang-io/nps'
+SOURCE_44_CATEGORY='public-dataset'
+SOURCE_44_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_44_LICENSE_URL='https://api.github.com/repos/ehang-io/nps/license?ref=ab648d6f0c618c690a7a79948a7ebd686e1cdafc'
+SOURCE_44_CONTENT_TYPES='source code'
+SOURCE_44_LANGUAGES='Go'
+SOURCE_44_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_44_COPYRIGHTED='yes'
+SOURCE_44_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_45_ID='valinet-explorerpatcher'
+SOURCE_45_PATH='valinet-explorerpatcher'
+SOURCE_45_LICENSE='GPL-2.0-only'
+SOURCE_45_NAME='valinet/ExplorerPatcher'
+SOURCE_45_VERSION='0a88a6e0ef6b1752fea36e581cffff1097e862b0'
+SOURCE_45_URL='https://github.com/valinet/ExplorerPatcher'
+SOURCE_45_CATEGORY='public-dataset'
+SOURCE_45_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_45_LICENSE_URL='https://api.github.com/repos/valinet/ExplorerPatcher/license?ref=0a88a6e0ef6b1752fea36e581cffff1097e862b0'
+SOURCE_45_CONTENT_TYPES='source code'
+SOURCE_45_LANGUAGES='C'
+SOURCE_45_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_45_COPYRIGHTED='yes'
+SOURCE_45_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_46_ID='bilibili-ijkplayer'
+SOURCE_46_PATH='bilibili-ijkplayer'
+SOURCE_46_LICENSE='GPL-2.0-only'
+SOURCE_46_NAME='bilibili/ijkplayer'
+SOURCE_46_VERSION='30eb9441945da795079492041a791c121d2b8206'
+SOURCE_46_URL='https://github.com/bilibili/ijkplayer'
+SOURCE_46_CATEGORY='public-dataset'
+SOURCE_46_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_46_LICENSE_URL='https://api.github.com/repos/bilibili/ijkplayer/license?ref=30eb9441945da795079492041a791c121d2b8206'
+SOURCE_46_CONTENT_TYPES='source code'
+SOURCE_46_LANGUAGES='C'
+SOURCE_46_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_46_COPYRIGHTED='yes'
+SOURCE_46_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_47_ID='shadowsocks-shadowsocksx-ng'
+SOURCE_47_PATH='shadowsocks-shadowsocksx-ng'
+SOURCE_47_LICENSE='GPL-3.0-only'
+SOURCE_47_NAME='shadowsocks/ShadowsocksX-NG'
+SOURCE_47_VERSION='719203afc60e1dbab00e459ebcfecc468e7700bd'
+SOURCE_47_URL='https://github.com/shadowsocks/ShadowsocksX-NG'
+SOURCE_47_CATEGORY='public-dataset'
+SOURCE_47_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_47_LICENSE_URL='https://api.github.com/repos/shadowsocks/ShadowsocksX-NG/license?ref=719203afc60e1dbab00e459ebcfecc468e7700bd'
+SOURCE_47_CONTENT_TYPES='source code'
+SOURCE_47_LANGUAGES='Swift'
+SOURCE_47_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_47_COPYRIGHTED='yes'
+SOURCE_47_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_48_ID='shadps4-emu-shadps4'
+SOURCE_48_PATH='shadps4-emu-shadps4'
+SOURCE_48_LICENSE='GPL-2.0-only'
+SOURCE_48_NAME='shadps4-emu/shadPS4'
+SOURCE_48_VERSION='c5ae3c681276bd884b9b714c2099d55796c36154'
+SOURCE_48_URL='https://github.com/shadps4-emu/shadPS4'
+SOURCE_48_CATEGORY='public-dataset'
+SOURCE_48_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_48_LICENSE_URL='https://api.github.com/repos/shadps4-emu/shadPS4/license?ref=c5ae3c681276bd884b9b714c2099d55796c36154'
+SOURCE_48_CONTENT_TYPES='source code'
+SOURCE_48_LANGUAGES='C++'
+SOURCE_48_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_48_COPYRIGHTED='yes'
+SOURCE_48_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_49_ID='facebook-rocksdb'
+SOURCE_49_PATH='facebook-rocksdb'
+SOURCE_49_LICENSE='GPL-2.0-only'
+SOURCE_49_NAME='facebook/rocksdb'
+SOURCE_49_VERSION='1dfa7297933df05237ac11376d6cb69d32591b1d'
+SOURCE_49_URL='https://github.com/facebook/rocksdb'
+SOURCE_49_CATEGORY='public-dataset'
+SOURCE_49_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_49_LICENSE_URL='https://api.github.com/repos/facebook/rocksdb/license?ref=1dfa7297933df05237ac11376d6cb69d32591b1d'
+SOURCE_49_CONTENT_TYPES='source code'
+SOURCE_49_LANGUAGES='C++'
+SOURCE_49_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_49_COPYRIGHTED='yes'
+SOURCE_49_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_50_ID='gethomepage-homepage'
+SOURCE_50_PATH='gethomepage-homepage'
+SOURCE_50_LICENSE='GPL-3.0-only'
+SOURCE_50_NAME='gethomepage/homepage'
+SOURCE_50_VERSION='1a047d1dfc135fd3c904699f562dd9ea892088e6'
+SOURCE_50_URL='https://github.com/gethomepage/homepage'
+SOURCE_50_CATEGORY='public-dataset'
+SOURCE_50_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_50_LICENSE_URL='https://api.github.com/repos/gethomepage/homepage/license?ref=1a047d1dfc135fd3c904699f562dd9ea892088e6'
+SOURCE_50_CONTENT_TYPES='source code'
+SOURCE_50_LANGUAGES='JavaScript'
+SOURCE_50_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_50_COPYRIGHTED='yes'
+SOURCE_50_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_51_ID='jumpserver-jumpserver'
+SOURCE_51_PATH='jumpserver-jumpserver'
+SOURCE_51_LICENSE='GPL-3.0-only'
+SOURCE_51_NAME='jumpserver/jumpserver'
+SOURCE_51_VERSION='93214a3067ad80b04d036122eeab33f2539e3633'
+SOURCE_51_URL='https://github.com/jumpserver/jumpserver'
+SOURCE_51_CATEGORY='public-dataset'
+SOURCE_51_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_51_LICENSE_URL='https://api.github.com/repos/jumpserver/jumpserver/license?ref=93214a3067ad80b04d036122eeab33f2539e3633'
+SOURCE_51_CONTENT_TYPES='source code'
+SOURCE_51_LANGUAGES='Python'
+SOURCE_51_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_51_COPYRIGHTED='yes'
+SOURCE_51_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_52_ID='flameshot-org-flameshot'
+SOURCE_52_PATH='flameshot-org-flameshot'
+SOURCE_52_LICENSE='GPL-3.0-only'
+SOURCE_52_NAME='flameshot-org/flameshot'
+SOURCE_52_VERSION='52260408e3a3b810095d8e7661ca2911cb46ea57'
+SOURCE_52_URL='https://github.com/flameshot-org/flameshot'
+SOURCE_52_CATEGORY='public-dataset'
+SOURCE_52_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_52_LICENSE_URL='https://api.github.com/repos/flameshot-org/flameshot/license?ref=52260408e3a3b810095d8e7661ca2911cb46ea57'
+SOURCE_52_CONTENT_TYPES='source code'
+SOURCE_52_LANGUAGES='C++'
+SOURCE_52_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_52_COPYRIGHTED='yes'
+SOURCE_52_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_53_ID='maboloshi-github-chinese'
+SOURCE_53_PATH='maboloshi-github-chinese'
+SOURCE_53_LICENSE='GPL-3.0-only'
+SOURCE_53_NAME='maboloshi/github-chinese'
+SOURCE_53_VERSION='bf852c09a2ee1e4d832af62d50e4f839ad3514e1'
+SOURCE_53_URL='https://github.com/maboloshi/github-chinese'
+SOURCE_53_CATEGORY='public-dataset'
+SOURCE_53_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_53_LICENSE_URL='https://api.github.com/repos/maboloshi/github-chinese/license?ref=bf852c09a2ee1e4d832af62d50e4f839ad3514e1'
+SOURCE_53_CONTENT_TYPES='source code'
+SOURCE_53_LANGUAGES='JavaScript'
+SOURCE_53_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_53_COPYRIGHTED='yes'
+SOURCE_53_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_54_ID='xuxueli-xxl-job'
+SOURCE_54_PATH='xuxueli-xxl-job'
+SOURCE_54_LICENSE='GPL-3.0-only'
+SOURCE_54_NAME='xuxueli/xxl-job'
+SOURCE_54_VERSION='e74c784f68f81fa89cb350913ef15794865d7b12'
+SOURCE_54_URL='https://github.com/xuxueli/xxl-job'
+SOURCE_54_CATEGORY='public-dataset'
+SOURCE_54_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_54_LICENSE_URL='https://api.github.com/repos/xuxueli/xxl-job/license?ref=e74c784f68f81fa89cb350913ef15794865d7b12'
+SOURCE_54_CONTENT_TYPES='source code'
+SOURCE_54_LANGUAGES='Java'
+SOURCE_54_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_54_COPYRIGHTED='yes'
+SOURCE_54_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_55_ID='drklo-telegram'
+SOURCE_55_PATH='drklo-telegram'
+SOURCE_55_LICENSE='GPL-2.0-only'
+SOURCE_55_NAME='DrKLO/Telegram'
+SOURCE_55_VERSION='45ab8f4308496e1f01026a97fcdb0d58a5274474'
+SOURCE_55_URL='https://github.com/DrKLO/Telegram'
+SOURCE_55_CATEGORY='public-dataset'
+SOURCE_55_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_55_LICENSE_URL='https://api.github.com/repos/DrKLO/Telegram/license?ref=45ab8f4308496e1f01026a97fcdb0d58a5274474'
+SOURCE_55_CONTENT_TYPES='source code'
+SOURCE_55_LANGUAGES='Java'
+SOURCE_55_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_55_COPYRIGHTED='yes'
+SOURCE_55_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_56_ID='233boy-v2ray'
+SOURCE_56_PATH='233boy-v2ray'
+SOURCE_56_LICENSE='GPL-3.0-only'
+SOURCE_56_NAME='233boy/v2ray'
+SOURCE_56_VERSION='707ecf7601ff49f91c2d12dd22b98e8f89588d1c'
+SOURCE_56_URL='https://github.com/233boy/v2ray'
+SOURCE_56_CATEGORY='public-dataset'
+SOURCE_56_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_56_LICENSE_URL='https://api.github.com/repos/233boy/v2ray/license?ref=707ecf7601ff49f91c2d12dd22b98e8f89588d1c'
+SOURCE_56_CONTENT_TYPES='source code'
+SOURCE_56_LANGUAGES='Shell'
+SOURCE_56_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_56_COPYRIGHTED='yes'
+SOURCE_56_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_57_ID='python-telegram-bot-python-telegram-bot'
+SOURCE_57_PATH='python-telegram-bot-python-telegram-bot'
+SOURCE_57_LICENSE='GPL-3.0-only'
+SOURCE_57_NAME='python-telegram-bot/python-telegram-bot'
+SOURCE_57_VERSION='377f5effb3afc2d9b1e7e1de1b908b26cc87fd17'
+SOURCE_57_URL='https://github.com/python-telegram-bot/python-telegram-bot'
+SOURCE_57_CATEGORY='public-dataset'
+SOURCE_57_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_57_LICENSE_URL='https://api.github.com/repos/python-telegram-bot/python-telegram-bot/license?ref=377f5effb3afc2d9b1e7e1de1b908b26cc87fd17'
+SOURCE_57_CONTENT_TYPES='source code'
+SOURCE_57_LANGUAGES='Python'
+SOURCE_57_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_57_COPYRIGHTED='yes'
+SOURCE_57_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_58_ID='slymnoyann-hey-1'
+SOURCE_58_PATH='slymnoyann-hey-1'
+SOURCE_58_LICENSE='GPL-3.0-only'
+SOURCE_58_NAME='slymnoyann/hey-1'
+SOURCE_58_VERSION='88c8f9d55340d57a37846ff72f55c2c604e3a566'
+SOURCE_58_URL='https://github.com/slymnoyann/hey-1'
+SOURCE_58_CATEGORY='public-dataset'
+SOURCE_58_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_58_LICENSE_URL='https://api.github.com/repos/slymnoyann/hey-1/license?ref=88c8f9d55340d57a37846ff72f55c2c604e3a566'
+SOURCE_58_CONTENT_TYPES='source code'
+SOURCE_58_LANGUAGES='TypeScript'
+SOURCE_58_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_58_COPYRIGHTED='yes'
+SOURCE_58_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_59_ID='librepods-org-librepods'
+SOURCE_59_PATH='librepods-org-librepods'
+SOURCE_59_LICENSE='GPL-3.0-only'
+SOURCE_59_NAME='librepods-org/librepods'
+SOURCE_59_VERSION='b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25'
+SOURCE_59_URL='https://github.com/librepods-org/librepods'
+SOURCE_59_CATEGORY='public-dataset'
+SOURCE_59_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_59_LICENSE_URL='https://api.github.com/repos/librepods-org/librepods/license?ref=b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25'
+SOURCE_59_CONTENT_TYPES='source code'
+SOURCE_59_LANGUAGES='Kotlin'
+SOURCE_59_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_59_COPYRIGHTED='yes'
+SOURCE_59_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_60_ID='jordanbaird-ice'
+SOURCE_60_PATH='jordanbaird-ice'
+SOURCE_60_LICENSE='GPL-3.0-only'
+SOURCE_60_NAME='jordanbaird/Ice'
+SOURCE_60_VERSION='11edd39115f3f43a83ae114b5348df6a0e1741cf'
+SOURCE_60_URL='https://github.com/jordanbaird/Ice'
+SOURCE_60_CATEGORY='public-dataset'
+SOURCE_60_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_60_LICENSE_URL='https://api.github.com/repos/jordanbaird/Ice/license?ref=11edd39115f3f43a83ae114b5348df6a0e1741cf'
+SOURCE_60_CONTENT_TYPES='source code'
+SOURCE_60_LANGUAGES='Swift'
+SOURCE_60_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_60_COPYRIGHTED='yes'
+SOURCE_60_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_61_ID='revanced-revanced-manager'
+SOURCE_61_PATH='revanced-revanced-manager'
+SOURCE_61_LICENSE='GPL-3.0-only'
+SOURCE_61_NAME='ReVanced/revanced-manager'
+SOURCE_61_VERSION='2a88257b71d35c9f141907ffea67c87e51bbb0db'
+SOURCE_61_URL='https://github.com/ReVanced/revanced-manager'
+SOURCE_61_CATEGORY='public-dataset'
+SOURCE_61_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_61_LICENSE_URL='https://api.github.com/repos/ReVanced/revanced-manager/license?ref=2a88257b71d35c9f141907ffea67c87e51bbb0db'
+SOURCE_61_CONTENT_TYPES='source code'
+SOURCE_61_LANGUAGES='Kotlin'
+SOURCE_61_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_61_COPYRIGHTED='yes'
+SOURCE_61_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_62_ID='predidit-kazumi'
+SOURCE_62_PATH='predidit-kazumi'
+SOURCE_62_LICENSE='GPL-3.0-only'
+SOURCE_62_NAME='Predidit/Kazumi'
+SOURCE_62_VERSION='c5e3feb43bcdb576d9639649991ebad77c1ab31f'
+SOURCE_62_URL='https://github.com/Predidit/Kazumi'
+SOURCE_62_CATEGORY='public-dataset'
+SOURCE_62_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_62_LICENSE_URL='https://api.github.com/repos/Predidit/Kazumi/license?ref=c5e3feb43bcdb576d9639649991ebad77c1ab31f'
+SOURCE_62_CONTENT_TYPES='source code'
+SOURCE_62_LANGUAGES='Dart'
+SOURCE_62_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_62_COPYRIGHTED='yes'
+SOURCE_62_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_63_ID='anuken-mindustry'
+SOURCE_63_PATH='anuken-mindustry'
+SOURCE_63_LICENSE='GPL-3.0-only'
+SOURCE_63_NAME='Anuken/Mindustry'
+SOURCE_63_VERSION='269a3f58415cda92af1b55038924f5865bc17a0e'
+SOURCE_63_URL='https://github.com/Anuken/Mindustry'
+SOURCE_63_CATEGORY='public-dataset'
+SOURCE_63_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_63_LICENSE_URL='https://api.github.com/repos/Anuken/Mindustry/license?ref=269a3f58415cda92af1b55038924f5865bc17a0e'
+SOURCE_63_CONTENT_TYPES='source code'
+SOURCE_63_LANGUAGES='Java'
+SOURCE_63_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_63_COPYRIGHTED='yes'
+SOURCE_63_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_64_ID='cloudreve-cloudreve'
+SOURCE_64_PATH='cloudreve-cloudreve'
+SOURCE_64_LICENSE='GPL-3.0-only'
+SOURCE_64_NAME='cloudreve/cloudreve'
+SOURCE_64_VERSION='20c95ad73f3a8bcb72887fea91ff31ab24fa1011'
+SOURCE_64_URL='https://github.com/cloudreve/cloudreve'
+SOURCE_64_CATEGORY='public-dataset'
+SOURCE_64_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_64_LICENSE_URL='https://api.github.com/repos/cloudreve/cloudreve/license?ref=20c95ad73f3a8bcb72887fea91ff31ab24fa1011'
+SOURCE_64_CONTENT_TYPES='source code'
+SOURCE_64_LANGUAGES='Go'
+SOURCE_64_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_64_COPYRIGHTED='yes'
+SOURCE_64_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_65_ID='nvchad-nvchad'
+SOURCE_65_PATH='nvchad-nvchad'
+SOURCE_65_LICENSE='GPL-3.0-only'
+SOURCE_65_NAME='NvChad/NvChad'
+SOURCE_65_VERSION='add44b952d631981614bbb8cfc6f7002f296dfe6'
+SOURCE_65_URL='https://github.com/NvChad/NvChad'
+SOURCE_65_CATEGORY='public-dataset'
+SOURCE_65_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_65_LICENSE_URL='https://api.github.com/repos/NvChad/NvChad/license?ref=add44b952d631981614bbb8cfc6f7002f296dfe6'
+SOURCE_65_CONTENT_TYPES='source code'
+SOURCE_65_LANGUAGES='Lua'
+SOURCE_65_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_65_COPYRIGHTED='yes'
+SOURCE_65_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_66_ID='fanmingming-live'
+SOURCE_66_PATH='fanmingming-live'
+SOURCE_66_LICENSE='GPL-3.0-only'
+SOURCE_66_NAME='fanmingming/live'
+SOURCE_66_VERSION='b085d39e05d126f91709d7a545604bd667a6f026'
+SOURCE_66_URL='https://github.com/fanmingming/live'
+SOURCE_66_CATEGORY='public-dataset'
+SOURCE_66_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_66_LICENSE_URL='https://api.github.com/repos/fanmingming/live/license?ref=b085d39e05d126f91709d7a545604bd667a6f026'
+SOURCE_66_CONTENT_TYPES='source code'
+SOURCE_66_LANGUAGES='JavaScript'
+SOURCE_66_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_66_COPYRIGHTED='yes'
+SOURCE_66_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_67_ID='junkfood02-seal'
+SOURCE_67_PATH='junkfood02-seal'
+SOURCE_67_LICENSE='GPL-3.0-only'
+SOURCE_67_NAME='JunkFood02/Seal'
+SOURCE_67_VERSION='44e0d2e6fc26177e0da4cb1948223baa13b0887f'
+SOURCE_67_URL='https://github.com/JunkFood02/Seal'
+SOURCE_67_CATEGORY='public-dataset'
+SOURCE_67_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_67_LICENSE_URL='https://api.github.com/repos/JunkFood02/Seal/license?ref=44e0d2e6fc26177e0da4cb1948223baa13b0887f'
+SOURCE_67_CONTENT_TYPES='source code'
+SOURCE_67_LANGUAGES='Kotlin'
+SOURCE_67_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_67_COPYRIGHTED='yes'
+SOURCE_67_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_68_ID='deskflow-deskflow'
+SOURCE_68_PATH='deskflow-deskflow'
+SOURCE_68_LICENSE='GPL-2.0-only'
+SOURCE_68_NAME='deskflow/deskflow'
+SOURCE_68_VERSION='f765e829f2373f055331e910d69b8c8b8006952b'
+SOURCE_68_URL='https://github.com/deskflow/deskflow'
+SOURCE_68_CATEGORY='public-dataset'
+SOURCE_68_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_68_LICENSE_URL='https://api.github.com/repos/deskflow/deskflow/license?ref=f765e829f2373f055331e910d69b8c8b8006952b'
+SOURCE_68_CONTENT_TYPES='source code'
+SOURCE_68_LANGUAGES='C++'
+SOURCE_68_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_68_COPYRIGHTED='yes'
+SOURCE_68_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_69_ID='wox-launcher-wox'
+SOURCE_69_PATH='wox-launcher-wox'
+SOURCE_69_LICENSE='GPL-3.0-only'
+SOURCE_69_NAME='Wox-launcher/Wox'
+SOURCE_69_VERSION='2e1db9c38a7bb03ecbd67cec4c47bf39c3633880'
+SOURCE_69_URL='https://github.com/Wox-launcher/Wox'
+SOURCE_69_CATEGORY='public-dataset'
+SOURCE_69_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_69_LICENSE_URL='https://api.github.com/repos/Wox-launcher/Wox/license?ref=2e1db9c38a7bb03ecbd67cec4c47bf39c3633880'
+SOURCE_69_CONTENT_TYPES='source code'
+SOURCE_69_LANGUAGES='Go'
+SOURCE_69_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_69_COPYRIGHTED='yes'
+SOURCE_69_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_70_ID='niri-wm-niri'
+SOURCE_70_PATH='niri-wm-niri'
+SOURCE_70_LICENSE='GPL-3.0-only'
+SOURCE_70_NAME='niri-wm/niri'
+SOURCE_70_VERSION='59a10015610bb7d068a82ce1c386fcd8b44f6c52'
+SOURCE_70_URL='https://github.com/niri-wm/niri'
+SOURCE_70_CATEGORY='public-dataset'
+SOURCE_70_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_70_LICENSE_URL='https://api.github.com/repos/niri-wm/niri/license?ref=59a10015610bb7d068a82ce1c386fcd8b44f6c52'
+SOURCE_70_CONTENT_TYPES='source code'
+SOURCE_70_LANGUAGES='Rust'
+SOURCE_70_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_70_COPYRIGHTED='yes'
+SOURCE_70_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_71_ID='schniz-fnm'
+SOURCE_71_PATH='schniz-fnm'
+SOURCE_71_LICENSE='GPL-3.0-only'
+SOURCE_71_NAME='Schniz/fnm'
+SOURCE_71_VERSION='86adc9676ceb2a509b21e75e74048b93c89f097d'
+SOURCE_71_URL='https://github.com/Schniz/fnm'
+SOURCE_71_CATEGORY='public-dataset'
+SOURCE_71_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_71_LICENSE_URL='https://api.github.com/repos/Schniz/fnm/license?ref=86adc9676ceb2a509b21e75e74048b93c89f097d'
+SOURCE_71_CONTENT_TYPES='source code'
+SOURCE_71_LANGUAGES='Rust'
+SOURCE_71_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_71_COPYRIGHTED='yes'
+SOURCE_71_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_72_ID='beyonddimension-steamtools'
+SOURCE_72_PATH='beyonddimension-steamtools'
+SOURCE_72_LICENSE='GPL-3.0-only'
+SOURCE_72_NAME='BeyondDimension/SteamTools'
+SOURCE_72_VERSION='c16ffa08e03b192d23ada290c4969e77f9201f3d'
+SOURCE_72_URL='https://github.com/BeyondDimension/SteamTools'
+SOURCE_72_CATEGORY='public-dataset'
+SOURCE_72_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_72_LICENSE_URL='https://api.github.com/repos/BeyondDimension/SteamTools/license?ref=c16ffa08e03b192d23ada290c4969e77f9201f3d'
+SOURCE_72_CONTENT_TYPES='source code'
+SOURCE_72_LANGUAGES='C#'
+SOURCE_72_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_72_COPYRIGHTED='yes'
+SOURCE_72_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_73_ID='typesense-typesense'
+SOURCE_73_PATH='typesense-typesense'
+SOURCE_73_LICENSE='GPL-3.0-only'
+SOURCE_73_NAME='typesense/typesense'
+SOURCE_73_VERSION='2b1ea8002cfa6febc212123deec6c6bed66837b3'
+SOURCE_73_URL='https://github.com/typesense/typesense'
+SOURCE_73_CATEGORY='public-dataset'
+SOURCE_73_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_73_LICENSE_URL='https://api.github.com/repos/typesense/typesense/license?ref=2b1ea8002cfa6febc212123deec6c6bed66837b3'
+SOURCE_73_CONTENT_TYPES='source code'
+SOURCE_73_LANGUAGES='C++'
+SOURCE_73_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_73_COPYRIGHTED='yes'
+SOURCE_73_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_74_ID='ycm-core-youcompleteme'
+SOURCE_74_PATH='ycm-core-youcompleteme'
+SOURCE_74_LICENSE='GPL-3.0-only'
+SOURCE_74_NAME='ycm-core/YouCompleteMe'
+SOURCE_74_VERSION='d4c91430b70a21ce471c8572400b647d313995b4'
+SOURCE_74_URL='https://github.com/ycm-core/YouCompleteMe'
+SOURCE_74_CATEGORY='public-dataset'
+SOURCE_74_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_74_LICENSE_URL='https://api.github.com/repos/ycm-core/YouCompleteMe/license?ref=d4c91430b70a21ce471c8572400b647d313995b4'
+SOURCE_74_CONTENT_TYPES='source code'
+SOURCE_74_LANGUAGES='Python'
+SOURCE_74_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_74_COPYRIGHTED='yes'
+SOURCE_74_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_75_ID='mihomo-party-org-clash-party'
+SOURCE_75_PATH='mihomo-party-org-clash-party'
+SOURCE_75_LICENSE='GPL-3.0-only'
+SOURCE_75_NAME='mihomo-party-org/clash-party'
+SOURCE_75_VERSION='8af583e771b218d33174e3897ac7b5bdec1cb302'
+SOURCE_75_URL='https://github.com/mihomo-party-org/clash-party'
+SOURCE_75_CATEGORY='public-dataset'
+SOURCE_75_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_75_LICENSE_URL='https://api.github.com/repos/mihomo-party-org/clash-party/license?ref=8af583e771b218d33174e3897ac7b5bdec1cb302'
+SOURCE_75_CONTENT_TYPES='source code'
+SOURCE_75_LANGUAGES='TypeScript'
+SOURCE_75_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_75_COPYRIGHTED='yes'
+SOURCE_75_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_76_ID='zhaoolee-chromeappheroes'
+SOURCE_76_PATH='zhaoolee-chromeappheroes'
+SOURCE_76_LICENSE='GPL-3.0-only'
+SOURCE_76_NAME='zhaoolee/ChromeAppHeroes'
+SOURCE_76_VERSION='abe715d5059c415225e2a1e42ecf67d0aa65b5a1'
+SOURCE_76_URL='https://github.com/zhaoolee/ChromeAppHeroes'
+SOURCE_76_CATEGORY='public-dataset'
+SOURCE_76_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_76_LICENSE_URL='https://api.github.com/repos/zhaoolee/ChromeAppHeroes/license?ref=abe715d5059c415225e2a1e42ecf67d0aa65b5a1'
+SOURCE_76_CONTENT_TYPES='source code'
+SOURCE_76_LANGUAGES='JavaScript'
+SOURCE_76_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_76_COPYRIGHTED='yes'
+SOURCE_76_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_77_ID='gopeedlab-gopeed'
+SOURCE_77_PATH='gopeedlab-gopeed'
+SOURCE_77_LICENSE='GPL-3.0-only'
+SOURCE_77_NAME='GopeedLab/gopeed'
+SOURCE_77_VERSION='fdfc6902a7750a3628735e8bf37d739bfda9549c'
+SOURCE_77_URL='https://github.com/GopeedLab/gopeed'
+SOURCE_77_CATEGORY='public-dataset'
+SOURCE_77_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_77_LICENSE_URL='https://api.github.com/repos/GopeedLab/gopeed/license?ref=fdfc6902a7750a3628735e8bf37d739bfda9549c'
+SOURCE_77_CONTENT_TYPES='source code'
+SOURCE_77_LANGUAGES='Go'
+SOURCE_77_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_77_COPYRIGHTED='yes'
+SOURCE_77_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_78_ID='argotorg-solidity'
+SOURCE_78_PATH='argotorg-solidity'
+SOURCE_78_LICENSE='GPL-3.0-only'
+SOURCE_78_NAME='argotorg/solidity'
+SOURCE_78_VERSION='9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a'
+SOURCE_78_URL='https://github.com/argotorg/solidity'
+SOURCE_78_CATEGORY='public-dataset'
+SOURCE_78_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_78_LICENSE_URL='https://api.github.com/repos/argotorg/solidity/license?ref=9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a'
+SOURCE_78_CONTENT_TYPES='source code'
+SOURCE_78_LANGUAGES='C++'
+SOURCE_78_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_78_COPYRIGHTED='yes'
+SOURCE_78_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_79_ID='syl20bnr-spacemacs'
+SOURCE_79_PATH='syl20bnr-spacemacs'
+SOURCE_79_LICENSE='GPL-3.0-only'
+SOURCE_79_NAME='syl20bnr/spacemacs'
+SOURCE_79_VERSION='47c09c5777a33ecd59ea0456829041464883135a'
+SOURCE_79_URL='https://github.com/syl20bnr/spacemacs'
+SOURCE_79_CATEGORY='public-dataset'
+SOURCE_79_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_79_LICENSE_URL='https://api.github.com/repos/syl20bnr/spacemacs/license?ref=47c09c5777a33ecd59ea0456829041464883135a'
+SOURCE_79_CONTENT_TYPES='source code'
+SOURCE_79_LANGUAGES='Emacs Lisp'
+SOURCE_79_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_79_COPYRIGHTED='yes'
+SOURCE_79_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_80_ID='ql-win-quicklook'
+SOURCE_80_PATH='ql-win-quicklook'
+SOURCE_80_LICENSE='GPL-3.0-only'
+SOURCE_80_NAME='QL-Win/QuickLook'
+SOURCE_80_VERSION='cb5d9c429c81d9796fac469da2a68efb5626946d'
+SOURCE_80_URL='https://github.com/QL-Win/QuickLook'
+SOURCE_80_CATEGORY='public-dataset'
+SOURCE_80_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_80_LICENSE_URL='https://api.github.com/repos/QL-Win/QuickLook/license?ref=cb5d9c429c81d9796fac469da2a68efb5626946d'
+SOURCE_80_CONTENT_TYPES='source code'
+SOURCE_80_LANGUAGES='C#'
+SOURCE_80_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_80_COPYRIGHTED='yes'
+SOURCE_80_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_81_ID='lsposed-lsposed'
+SOURCE_81_PATH='lsposed-lsposed'
+SOURCE_81_LICENSE='GPL-3.0-only'
+SOURCE_81_NAME='LSPosed/LSPosed'
+SOURCE_81_VERSION='df74d83eb03a44cc6ad268841ac2ada28d077c77'
+SOURCE_81_URL='https://github.com/LSPosed/LSPosed'
+SOURCE_81_CATEGORY='public-dataset'
+SOURCE_81_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_81_LICENSE_URL='https://api.github.com/repos/LSPosed/LSPosed/license?ref=df74d83eb03a44cc6ad268841ac2ada28d077c77'
+SOURCE_81_CONTENT_TYPES='source code'
+SOURCE_81_LANGUAGES='Java'
+SOURCE_81_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_81_COPYRIGHTED='yes'
+SOURCE_81_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_82_ID='dataease-dataease'
+SOURCE_82_PATH='dataease-dataease'
+SOURCE_82_LICENSE='GPL-3.0-only'
+SOURCE_82_NAME='dataease/dataease'
+SOURCE_82_VERSION='9f37143899b47c570a1d3769368641db1a2f5a5c'
+SOURCE_82_URL='https://github.com/dataease/dataease'
+SOURCE_82_CATEGORY='public-dataset'
+SOURCE_82_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_82_LICENSE_URL='https://api.github.com/repos/dataease/dataease/license?ref=9f37143899b47c570a1d3769368641db1a2f5a5c'
+SOURCE_82_CONTENT_TYPES='source code'
+SOURCE_82_LANGUAGES='Java'
+SOURCE_82_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_82_COPYRIGHTED='yes'
+SOURCE_82_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_83_ID='air-verse-air'
+SOURCE_83_PATH='air-verse-air'
+SOURCE_83_LICENSE='GPL-3.0-only'
+SOURCE_83_NAME='air-verse/air'
+SOURCE_83_VERSION='9f19e52511f7bb697036e6ee2c12a212e742199d'
+SOURCE_83_URL='https://github.com/air-verse/air'
+SOURCE_83_CATEGORY='public-dataset'
+SOURCE_83_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_83_LICENSE_URL='https://api.github.com/repos/air-verse/air/license?ref=9f19e52511f7bb697036e6ee2c12a212e742199d'
+SOURCE_83_CONTENT_TYPES='source code'
+SOURCE_83_LANGUAGES='Go'
+SOURCE_83_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_83_COPYRIGHTED='yes'
+SOURCE_83_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_84_ID='aldanial-cloc'
+SOURCE_84_PATH='aldanial-cloc'
+SOURCE_84_LICENSE='GPL-2.0-only'
+SOURCE_84_NAME='AlDanial/cloc'
+SOURCE_84_VERSION='e94e6ec247b7a30290024d546d0fc86f3ce89261'
+SOURCE_84_URL='https://github.com/AlDanial/cloc'
+SOURCE_84_CATEGORY='public-dataset'
+SOURCE_84_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_84_LICENSE_URL='https://api.github.com/repos/AlDanial/cloc/license?ref=e94e6ec247b7a30290024d546d0fc86f3ce89261'
+SOURCE_84_CONTENT_TYPES='source code'
+SOURCE_84_LANGUAGES='Perl'
+SOURCE_84_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_84_COPYRIGHTED='yes'
+SOURCE_84_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_85_ID='openjdk-jdk'
+SOURCE_85_PATH='openjdk-jdk'
+SOURCE_85_LICENSE='GPL-2.0-only'
+SOURCE_85_NAME='openjdk/jdk'
+SOURCE_85_VERSION='20ccb7cfbde76b7ce2bb0e635934c252a187f702'
+SOURCE_85_URL='https://github.com/openjdk/jdk'
+SOURCE_85_CATEGORY='public-dataset'
+SOURCE_85_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_85_LICENSE_URL='https://api.github.com/repos/openjdk/jdk/license?ref=20ccb7cfbde76b7ce2bb0e635934c252a187f702'
+SOURCE_85_CONTENT_TYPES='source code'
+SOURCE_85_LANGUAGES='Java'
+SOURCE_85_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_85_COPYRIGHTED='yes'
+SOURCE_85_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_86_ID='navidrome-navidrome'
+SOURCE_86_PATH='navidrome-navidrome'
+SOURCE_86_LICENSE='GPL-3.0-only'
+SOURCE_86_NAME='navidrome/navidrome'
+SOURCE_86_VERSION='a0bf78cdeab4d0f316edcd37094f03d09f0ede8e'
+SOURCE_86_URL='https://github.com/navidrome/navidrome'
+SOURCE_86_CATEGORY='public-dataset'
+SOURCE_86_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_86_LICENSE_URL='https://api.github.com/repos/navidrome/navidrome/license?ref=a0bf78cdeab4d0f316edcd37094f03d09f0ede8e'
+SOURCE_86_CONTENT_TYPES='source code'
+SOURCE_86_LANGUAGES='Go'
+SOURCE_86_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_86_COPYRIGHTED='yes'
+SOURCE_86_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_87_ID='mementum-backtrader'
+SOURCE_87_PATH='mementum-backtrader'
+SOURCE_87_LICENSE='GPL-3.0-only'
+SOURCE_87_NAME='mementum/backtrader'
+SOURCE_87_VERSION='b853d7c90b6721476eb5a5ea3135224e33db1f14'
+SOURCE_87_URL='https://github.com/mementum/backtrader'
+SOURCE_87_CATEGORY='public-dataset'
+SOURCE_87_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_87_LICENSE_URL='https://api.github.com/repos/mementum/backtrader/license?ref=b853d7c90b6721476eb5a5ea3135224e33db1f14'
+SOURCE_87_CONTENT_TYPES='source code'
+SOURCE_87_LANGUAGES='Python'
+SOURCE_87_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_87_COPYRIGHTED='yes'
+SOURCE_87_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_88_ID='feliscatus-switchyomega'
+SOURCE_88_PATH='feliscatus-switchyomega'
+SOURCE_88_LICENSE='GPL-3.0-only'
+SOURCE_88_NAME='FelisCatus/SwitchyOmega'
+SOURCE_88_VERSION='19f9d73f20125b6164fb95d17cd4cc6659df147c'
+SOURCE_88_URL='https://github.com/FelisCatus/SwitchyOmega'
+SOURCE_88_CATEGORY='public-dataset'
+SOURCE_88_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_88_LICENSE_URL='https://api.github.com/repos/FelisCatus/SwitchyOmega/license?ref=19f9d73f20125b6164fb95d17cd4cc6659df147c'
+SOURCE_88_CONTENT_TYPES='source code'
+SOURCE_88_LANGUAGES='CoffeeScript'
+SOURCE_88_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_88_COPYRIGHTED='yes'
+SOURCE_88_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_89_ID='1panel-dev-maxkb'
+SOURCE_89_PATH='1panel-dev-maxkb'
+SOURCE_89_LICENSE='GPL-3.0-only'
+SOURCE_89_NAME='1Panel-dev/MaxKB'
+SOURCE_89_VERSION='01b21db88145278d98bf5e9bd55e6abd6b3aad43'
+SOURCE_89_URL='https://github.com/1Panel-dev/MaxKB'
+SOURCE_89_CATEGORY='public-dataset'
+SOURCE_89_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_89_LICENSE_URL='https://api.github.com/repos/1Panel-dev/MaxKB/license?ref=01b21db88145278d98bf5e9bd55e6abd6b3aad43'
+SOURCE_89_CONTENT_TYPES='source code'
+SOURCE_89_LANGUAGES='Python'
+SOURCE_89_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_89_COPYRIGHTED='yes'
+SOURCE_89_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_90_ID='chaitin-safeline'
+SOURCE_90_PATH='chaitin-safeline'
+SOURCE_90_LICENSE='GPL-3.0-only'
+SOURCE_90_NAME='chaitin/SafeLine'
+SOURCE_90_VERSION='2f27406501973da4bf8543bc9623beb624330215'
+SOURCE_90_URL='https://github.com/chaitin/SafeLine'
+SOURCE_90_CATEGORY='public-dataset'
+SOURCE_90_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_90_LICENSE_URL='https://api.github.com/repos/chaitin/SafeLine/license?ref=2f27406501973da4bf8543bc9623beb624330215'
+SOURCE_90_CONTENT_TYPES='source code'
+SOURCE_90_LANGUAGES='Go'
+SOURCE_90_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_90_COPYRIGHTED='yes'
+SOURCE_90_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_91_ID='darkflippers-unleashed-firmware'
+SOURCE_91_PATH='darkflippers-unleashed-firmware'
+SOURCE_91_LICENSE='GPL-3.0-only'
+SOURCE_91_NAME='DarkFlippers/unleashed-firmware'
+SOURCE_91_VERSION='9d4dae48fad0aaebaf87254cd0707ed6fff073de'
+SOURCE_91_URL='https://github.com/DarkFlippers/unleashed-firmware'
+SOURCE_91_CATEGORY='public-dataset'
+SOURCE_91_LICENSE_DECLARATION='GPL-3.0-only'
+SOURCE_91_LICENSE_URL='https://api.github.com/repos/DarkFlippers/unleashed-firmware/license?ref=9d4dae48fad0aaebaf87254cd0707ed6fff073de'
+SOURCE_91_CONTENT_TYPES='source code'
+SOURCE_91_LANGUAGES='C'
+SOURCE_91_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_91_COPYRIGHTED='yes'
+SOURCE_91_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_92_ID='qmk-qmk_firmware'
+SOURCE_92_PATH='qmk-qmk_firmware'
+SOURCE_92_LICENSE='GPL-2.0-only'
+SOURCE_92_NAME='qmk/qmk_firmware'
+SOURCE_92_VERSION='9caa5f871ddb9813c7370708be62d7a3e1cfeb75'
+SOURCE_92_URL='https://github.com/qmk/qmk_firmware'
+SOURCE_92_CATEGORY='public-dataset'
+SOURCE_92_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_92_LICENSE_URL='https://api.github.com/repos/qmk/qmk_firmware/license?ref=9caa5f871ddb9813c7370708be62d7a3e1cfeb75'
+SOURCE_92_CONTENT_TYPES='source code'
+SOURCE_92_LANGUAGES='C'
+SOURCE_92_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_92_COPYRIGHTED='yes'
+SOURCE_92_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_93_ID='atmosphere-nx-atmosphere'
+SOURCE_93_PATH='atmosphere-nx-atmosphere'
+SOURCE_93_LICENSE='GPL-2.0-only'
+SOURCE_93_NAME='Atmosphere-NX/Atmosphere'
+SOURCE_93_VERSION='e468f59c9d369b8ebbffa040f4c9fc201b9f75a8'
+SOURCE_93_URL='https://github.com/Atmosphere-NX/Atmosphere'
+SOURCE_93_CATEGORY='public-dataset'
+SOURCE_93_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_93_LICENSE_URL='https://api.github.com/repos/Atmosphere-NX/Atmosphere/license?ref=e468f59c9d369b8ebbffa040f4c9fc201b9f75a8'
+SOURCE_93_CONTENT_TYPES='source code'
+SOURCE_93_LANGUAGES='C++'
+SOURCE_93_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_93_COPYRIGHTED='yes'
+SOURCE_93_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_94_ID='rpcs3-rpcs3'
+SOURCE_94_PATH='rpcs3-rpcs3'
+SOURCE_94_LICENSE='GPL-2.0-only'
+SOURCE_94_NAME='RPCS3/rpcs3'
+SOURCE_94_VERSION='8d034a36e8119165a581c0f7c6c76c5f156886e3'
+SOURCE_94_URL='https://github.com/RPCS3/rpcs3'
+SOURCE_94_CATEGORY='public-dataset'
+SOURCE_94_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_94_LICENSE_URL='https://api.github.com/repos/RPCS3/rpcs3/license?ref=8d034a36e8119165a581c0f7c6c76c5f156886e3'
+SOURCE_94_CONTENT_TYPES='source code'
+SOURCE_94_LANGUAGES='C++'
+SOURCE_94_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_94_COPYRIGHTED='yes'
+SOURCE_94_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_95_ID='videolan-vlc'
+SOURCE_95_PATH='videolan-vlc'
+SOURCE_95_LICENSE='GPL-2.0-only'
+SOURCE_95_NAME='videolan/vlc'
+SOURCE_95_VERSION='329ed3135eeabd85d2f190b8e3388e7a7e441d0f'
+SOURCE_95_URL='https://github.com/videolan/vlc'
+SOURCE_95_CATEGORY='public-dataset'
+SOURCE_95_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_95_LICENSE_URL='https://api.github.com/repos/videolan/vlc/license?ref=329ed3135eeabd85d2f190b8e3388e7a7e441d0f'
+SOURCE_95_CONTENT_TYPES='source code'
+SOURCE_95_LANGUAGES='C'
+SOURCE_95_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_95_COPYRIGHTED='yes'
+SOURCE_95_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_96_ID='kyleneideck-backgroundmusic'
+SOURCE_96_PATH='kyleneideck-backgroundmusic'
+SOURCE_96_LICENSE='GPL-2.0-only'
+SOURCE_96_NAME='kyleneideck/BackgroundMusic'
+SOURCE_96_VERSION='8c25450e9b0d3867417c4872018b03fb30c0c85c'
+SOURCE_96_URL='https://github.com/kyleneideck/BackgroundMusic'
+SOURCE_96_CATEGORY='public-dataset'
+SOURCE_96_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_96_LICENSE_URL='https://api.github.com/repos/kyleneideck/BackgroundMusic/license?ref=8c25450e9b0d3867417c4872018b03fb30c0c85c'
+SOURCE_96_CONTENT_TYPES='source code'
+SOURCE_96_LANGUAGES='C++'
+SOURCE_96_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_96_COPYRIGHTED='yes'
+SOURCE_96_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_97_ID='mikf-gallery-dl'
+SOURCE_97_PATH='mikf-gallery-dl'
+SOURCE_97_LICENSE='GPL-2.0-only'
+SOURCE_97_NAME='mikf/gallery-dl'
+SOURCE_97_VERSION='86047cf67a12bdb6ff1085774f8ad9fc347e8da9'
+SOURCE_97_URL='https://github.com/mikf/gallery-dl'
+SOURCE_97_CATEGORY='public-dataset'
+SOURCE_97_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_97_LICENSE_URL='https://api.github.com/repos/mikf/gallery-dl/license?ref=86047cf67a12bdb6ff1085774f8ad9fc347e8da9'
+SOURCE_97_CONTENT_TYPES='source code'
+SOURCE_97_LANGUAGES='Python'
+SOURCE_97_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_97_COPYRIGHTED='yes'
+SOURCE_97_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_98_ID='copytranslator-copytranslator'
+SOURCE_98_PATH='copytranslator-copytranslator'
+SOURCE_98_LICENSE='GPL-2.0-only'
+SOURCE_98_NAME='CopyTranslator/CopyTranslator'
+SOURCE_98_VERSION='5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef'
+SOURCE_98_URL='https://github.com/CopyTranslator/CopyTranslator'
+SOURCE_98_CATEGORY='public-dataset'
+SOURCE_98_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_98_LICENSE_URL='https://api.github.com/repos/CopyTranslator/CopyTranslator/license?ref=5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef'
+SOURCE_98_CONTENT_TYPES='source code'
+SOURCE_98_LANGUAGES='TypeScript'
+SOURCE_98_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_98_COPYRIGHTED='yes'
+SOURCE_98_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_99_ID='gnachman-iterm2'
+SOURCE_99_PATH='gnachman-iterm2'
+SOURCE_99_LICENSE='GPL-2.0-only'
+SOURCE_99_NAME='gnachman/iTerm2'
+SOURCE_99_VERSION='3ec57866cd9bcf932f2675f7ca47183793a37b79'
+SOURCE_99_URL='https://github.com/gnachman/iTerm2'
+SOURCE_99_CATEGORY='public-dataset'
+SOURCE_99_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_99_LICENSE_URL='https://api.github.com/repos/gnachman/iTerm2/license?ref=3ec57866cd9bcf932f2675f7ca47183793a37b79'
+SOURCE_99_CONTENT_TYPES='source code'
+SOURCE_99_LANGUAGES='Objective-C'
+SOURCE_99_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_99_COPYRIGHTED='yes'
+SOURCE_99_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_100_ID='reactos-reactos'
+SOURCE_100_PATH='reactos-reactos'
+SOURCE_100_LICENSE='GPL-2.0-only'
+SOURCE_100_NAME='reactos/reactos'
+SOURCE_100_VERSION='a318b6228a24cda9b752501470e61550e925f657'
+SOURCE_100_URL='https://github.com/reactos/reactos'
+SOURCE_100_CATEGORY='public-dataset'
+SOURCE_100_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_100_LICENSE_URL='https://api.github.com/repos/reactos/reactos/license?ref=a318b6228a24cda9b752501470e61550e925f657'
+SOURCE_100_CONTENT_TYPES='source code'
+SOURCE_100_LANGUAGES='C'
+SOURCE_100_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_100_COPYRIGHTED='yes'
+SOURCE_100_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_101_ID='systemd-systemd'
+SOURCE_101_PATH='systemd-systemd'
+SOURCE_101_LICENSE='GPL-2.0-only'
+SOURCE_101_NAME='systemd/systemd'
+SOURCE_101_VERSION='06cb8fbe618604f43c9a9a638e6fc3df920daa0c'
+SOURCE_101_URL='https://github.com/systemd/systemd'
+SOURCE_101_CATEGORY='public-dataset'
+SOURCE_101_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_101_LICENSE_URL='https://api.github.com/repos/systemd/systemd/license?ref=06cb8fbe618604f43c9a9a638e6fc3df920daa0c'
+SOURCE_101_CONTENT_TYPES='source code'
+SOURCE_101_LANGUAGES='C'
+SOURCE_101_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_101_COPYRIGHTED='yes'
+SOURCE_101_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_102_ID='xournalpp-xournalpp'
+SOURCE_102_PATH='xournalpp-xournalpp'
+SOURCE_102_LICENSE='GPL-2.0-only'
+SOURCE_102_NAME='xournalpp/xournalpp'
+SOURCE_102_VERSION='89bc8dbb45277ff18e888711c4e5b824400a13b4'
+SOURCE_102_URL='https://github.com/xournalpp/xournalpp'
+SOURCE_102_CATEGORY='public-dataset'
+SOURCE_102_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_102_LICENSE_URL='https://api.github.com/repos/xournalpp/xournalpp/license?ref=89bc8dbb45277ff18e888711c4e5b824400a13b4'
+SOURCE_102_CONTENT_TYPES='source code'
+SOURCE_102_LANGUAGES='C++'
+SOURCE_102_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_102_COPYRIGHTED='yes'
+SOURCE_102_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_103_ID='xcanwin-keepchatgpt'
+SOURCE_103_PATH='xcanwin-keepchatgpt'
+SOURCE_103_LICENSE='GPL-2.0-only'
+SOURCE_103_NAME='xcanwin/KeepChatGPT'
+SOURCE_103_VERSION='bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3'
+SOURCE_103_URL='https://github.com/xcanwin/KeepChatGPT'
+SOURCE_103_CATEGORY='public-dataset'
+SOURCE_103_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_103_LICENSE_URL='https://api.github.com/repos/xcanwin/KeepChatGPT/license?ref=bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3'
+SOURCE_103_CONTENT_TYPES='source code'
+SOURCE_103_LANGUAGES='JavaScript'
+SOURCE_103_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_103_COPYRIGHTED='yes'
+SOURCE_103_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_104_ID='bailicangdu-vue2-manage'
+SOURCE_104_PATH='bailicangdu-vue2-manage'
+SOURCE_104_LICENSE='GPL-2.0-only'
+SOURCE_104_NAME='bailicangdu/vue2-manage'
+SOURCE_104_VERSION='dca263e3a8411ec47b5814a01470162d907d6964'
+SOURCE_104_URL='https://github.com/bailicangdu/vue2-manage'
+SOURCE_104_CATEGORY='public-dataset'
+SOURCE_104_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_104_LICENSE_URL='https://api.github.com/repos/bailicangdu/vue2-manage/license?ref=dca263e3a8411ec47b5814a01470162d907d6964'
+SOURCE_104_CONTENT_TYPES='source code'
+SOURCE_104_LANGUAGES='Vue'
+SOURCE_104_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_104_COPYRIGHTED='yes'
+SOURCE_104_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_105_ID='jonas-tig'
+SOURCE_105_PATH='jonas-tig'
+SOURCE_105_LICENSE='GPL-2.0-only'
+SOURCE_105_NAME='jonas/tig'
+SOURCE_105_VERSION='1b86f070a1f6d4c686a09b997fd4249d52a2a272'
+SOURCE_105_URL='https://github.com/jonas/tig'
+SOURCE_105_CATEGORY='public-dataset'
+SOURCE_105_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_105_LICENSE_URL='https://api.github.com/repos/jonas/tig/license?ref=1b86f070a1f6d4c686a09b997fd4249d52a2a272'
+SOURCE_105_CONTENT_TYPES='source code'
+SOURCE_105_LANGUAGES='C'
+SOURCE_105_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_105_COPYRIGHTED='yes'
+SOURCE_105_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_106_ID='autohotkey-autohotkey'
+SOURCE_106_PATH='autohotkey-autohotkey'
+SOURCE_106_LICENSE='GPL-2.0-only'
+SOURCE_106_NAME='AutoHotkey/AutoHotkey'
+SOURCE_106_VERSION='34b170115414dd69f1dfaf54893c150deade6bd2'
+SOURCE_106_URL='https://github.com/AutoHotkey/AutoHotkey'
+SOURCE_106_CATEGORY='public-dataset'
+SOURCE_106_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_106_LICENSE_URL='https://api.github.com/repos/AutoHotkey/AutoHotkey/license?ref=34b170115414dd69f1dfaf54893c150deade6bd2'
+SOURCE_106_CONTENT_TYPES='source code'
+SOURCE_106_LANGUAGES='C++'
+SOURCE_106_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_106_COPYRIGHTED='yes'
+SOURCE_106_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_107_ID='stremio-stremio-web'
+SOURCE_107_PATH='stremio-stremio-web'
+SOURCE_107_LICENSE='GPL-2.0-only'
+SOURCE_107_NAME='Stremio/stremio-web'
+SOURCE_107_VERSION='de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9'
+SOURCE_107_URL='https://github.com/Stremio/stremio-web'
+SOURCE_107_CATEGORY='public-dataset'
+SOURCE_107_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_107_LICENSE_URL='https://api.github.com/repos/Stremio/stremio-web/license?ref=de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9'
+SOURCE_107_CONTENT_TYPES='source code'
+SOURCE_107_LANGUAGES='JavaScript'
+SOURCE_107_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_107_COPYRIGHTED='yes'
+SOURCE_107_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_108_ID='automattic-wp-calypso'
+SOURCE_108_PATH='automattic-wp-calypso'
+SOURCE_108_LICENSE='GPL-2.0-only'
+SOURCE_108_NAME='Automattic/wp-calypso'
+SOURCE_108_VERSION='329b3647ba759c0a8f3e5034aee5e83c861cab54'
+SOURCE_108_URL='https://github.com/Automattic/wp-calypso'
+SOURCE_108_CATEGORY='public-dataset'
+SOURCE_108_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_108_LICENSE_URL='https://api.github.com/repos/Automattic/wp-calypso/license?ref=329b3647ba759c0a8f3e5034aee5e83c861cab54'
+SOURCE_108_CONTENT_TYPES='source code'
+SOURCE_108_LANGUAGES='TypeScript'
+SOURCE_108_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_108_COPYRIGHTED='yes'
+SOURCE_108_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_109_ID='secdev-scapy'
+SOURCE_109_PATH='secdev-scapy'
+SOURCE_109_LICENSE='GPL-2.0-only'
+SOURCE_109_NAME='secdev/scapy'
+SOURCE_109_VERSION='d8f7b272b1eb3e989920ba2a84bbae1a847660bd'
+SOURCE_109_URL='https://github.com/secdev/scapy'
+SOURCE_109_CATEGORY='public-dataset'
+SOURCE_109_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_109_LICENSE_URL='https://api.github.com/repos/secdev/scapy/license?ref=d8f7b272b1eb3e989920ba2a84bbae1a847660bd'
+SOURCE_109_CONTENT_TYPES='source code'
+SOURCE_109_LANGUAGES='Python'
+SOURCE_109_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_109_COPYRIGHTED='yes'
+SOURCE_109_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_110_ID='typecho-typecho'
+SOURCE_110_PATH='typecho-typecho'
+SOURCE_110_LICENSE='GPL-2.0-only'
+SOURCE_110_NAME='typecho/typecho'
+SOURCE_110_VERSION='56f4c6f33955a87969c399b5d5912d7f9fd7347c'
+SOURCE_110_URL='https://github.com/typecho/typecho'
+SOURCE_110_CATEGORY='public-dataset'
+SOURCE_110_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_110_LICENSE_URL='https://api.github.com/repos/typecho/typecho/license?ref=56f4c6f33955a87969c399b5d5912d7f9fd7347c'
+SOURCE_110_CONTENT_TYPES='source code'
+SOURCE_110_LANGUAGES='PHP'
+SOURCE_110_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_110_COPYRIGHTED='yes'
+SOURCE_110_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_111_ID='bailicangdu-node-elm'
+SOURCE_111_PATH='bailicangdu-node-elm'
+SOURCE_111_LICENSE='GPL-2.0-only'
+SOURCE_111_NAME='bailicangdu/node-elm'
+SOURCE_111_VERSION='32ea999c63f59db4f6fb05e3227bc305663782f0'
+SOURCE_111_URL='https://github.com/bailicangdu/node-elm'
+SOURCE_111_CATEGORY='public-dataset'
+SOURCE_111_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_111_LICENSE_URL='https://api.github.com/repos/bailicangdu/node-elm/license?ref=32ea999c63f59db4f6fb05e3227bc305663782f0'
+SOURCE_111_CONTENT_TYPES='source code'
+SOURCE_111_LANGUAGES='JavaScript'
+SOURCE_111_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_111_COPYRIGHTED='yes'
+SOURCE_111_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_112_ID='daybreak-u-chineseocr_lite'
+SOURCE_112_PATH='daybreak-u-chineseocr_lite'
+SOURCE_112_LICENSE='GPL-2.0-only'
+SOURCE_112_NAME='DayBreak-u/chineseocr_lite'
+SOURCE_112_VERSION='54a3df53af823f3bffdde9393d0c021b4f6d94cd'
+SOURCE_112_URL='https://github.com/DayBreak-u/chineseocr_lite'
+SOURCE_112_CATEGORY='public-dataset'
+SOURCE_112_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_112_LICENSE_URL='https://api.github.com/repos/DayBreak-u/chineseocr_lite/license?ref=54a3df53af823f3bffdde9393d0c021b4f6d94cd'
+SOURCE_112_CONTENT_TYPES='source code'
+SOURCE_112_LANGUAGES='C++'
+SOURCE_112_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_112_COPYRIGHTED='yes'
+SOURCE_112_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_113_ID='lostindark-driverstoreexplorer'
+SOURCE_113_PATH='lostindark-driverstoreexplorer'
+SOURCE_113_LICENSE='GPL-2.0-only'
+SOURCE_113_NAME='lostindark/DriverStoreExplorer'
+SOURCE_113_VERSION='d983831f2838b2871255cd5e915dd1a5c07bb6c9'
+SOURCE_113_URL='https://github.com/lostindark/DriverStoreExplorer'
+SOURCE_113_CATEGORY='public-dataset'
+SOURCE_113_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_113_LICENSE_URL='https://api.github.com/repos/lostindark/DriverStoreExplorer/license?ref=d983831f2838b2871255cd5e915dd1a5c07bb6c9'
+SOURCE_113_CONTENT_TYPES='source code'
+SOURCE_113_LANGUAGES='C#'
+SOURCE_113_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_113_COPYRIGHTED='yes'
+SOURCE_113_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_114_ID='mremoteng-mremoteng'
+SOURCE_114_PATH='mremoteng-mremoteng'
+SOURCE_114_LICENSE='GPL-2.0-only'
+SOURCE_114_NAME='mRemoteNG/mRemoteNG'
+SOURCE_114_VERSION='87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007'
+SOURCE_114_URL='https://github.com/mRemoteNG/mRemoteNG'
+SOURCE_114_CATEGORY='public-dataset'
+SOURCE_114_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_114_LICENSE_URL='https://api.github.com/repos/mRemoteNG/mRemoteNG/license?ref=87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007'
+SOURCE_114_CONTENT_TYPES='source code'
+SOURCE_114_LANGUAGES='C#'
+SOURCE_114_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_114_COPYRIGHTED='yes'
+SOURCE_114_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_115_ID='aboul3la-sublist3r'
+SOURCE_115_PATH='aboul3la-sublist3r'
+SOURCE_115_LICENSE='GPL-2.0-only'
+SOURCE_115_NAME='aboul3la/Sublist3r'
+SOURCE_115_VERSION='729d649ec5370730172bf6f5314aafd68c874124'
+SOURCE_115_URL='https://github.com/aboul3la/Sublist3r'
+SOURCE_115_CATEGORY='public-dataset'
+SOURCE_115_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_115_LICENSE_URL='https://api.github.com/repos/aboul3la/Sublist3r/license?ref=729d649ec5370730172bf6f5314aafd68c874124'
+SOURCE_115_CONTENT_TYPES='source code'
+SOURCE_115_LANGUAGES='Python'
+SOURCE_115_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_115_COPYRIGHTED='yes'
+SOURCE_115_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_116_ID='trinitycore-trinitycore'
+SOURCE_116_PATH='trinitycore-trinitycore'
+SOURCE_116_LICENSE='GPL-2.0-only'
+SOURCE_116_NAME='TrinityCore/TrinityCore'
+SOURCE_116_VERSION='fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165'
+SOURCE_116_URL='https://github.com/TrinityCore/TrinityCore'
+SOURCE_116_CATEGORY='public-dataset'
+SOURCE_116_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_116_LICENSE_URL='https://api.github.com/repos/TrinityCore/TrinityCore/license?ref=fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165'
+SOURCE_116_CONTENT_TYPES='source code'
+SOURCE_116_LANGUAGES='C++'
+SOURCE_116_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_116_COPYRIGHTED='yes'
+SOURCE_116_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_117_ID='rofl0r-proxychains-ng'
+SOURCE_117_PATH='rofl0r-proxychains-ng'
+SOURCE_117_LICENSE='GPL-2.0-only'
+SOURCE_117_NAME='rofl0r/proxychains-ng'
+SOURCE_117_VERSION='e6313ce408645b70b60881130fb2dae9c538b306'
+SOURCE_117_URL='https://github.com/rofl0r/proxychains-ng'
+SOURCE_117_CATEGORY='public-dataset'
+SOURCE_117_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_117_LICENSE_URL='https://api.github.com/repos/rofl0r/proxychains-ng/license?ref=e6313ce408645b70b60881130fb2dae9c538b306'
+SOURCE_117_CONTENT_TYPES='source code'
+SOURCE_117_LANGUAGES='C'
+SOURCE_117_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_117_COPYRIGHTED='yes'
+SOURCE_117_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_118_ID='taojy123-keymousego'
+SOURCE_118_PATH='taojy123-keymousego'
+SOURCE_118_LICENSE='GPL-2.0-only'
+SOURCE_118_NAME='taojy123/KeymouseGo'
+SOURCE_118_VERSION='49577ed0877a0739eef84b2d09f95fca1bbbb416'
+SOURCE_118_URL='https://github.com/taojy123/KeymouseGo'
+SOURCE_118_CATEGORY='public-dataset'
+SOURCE_118_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_118_LICENSE_URL='https://api.github.com/repos/taojy123/KeymouseGo/license?ref=49577ed0877a0739eef84b2d09f95fca1bbbb416'
+SOURCE_118_CONTENT_TYPES='source code'
+SOURCE_118_LANGUAGES='Python'
+SOURCE_118_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_118_COPYRIGHTED='yes'
+SOURCE_118_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_119_ID='lmms-lmms'
+SOURCE_119_PATH='lmms-lmms'
+SOURCE_119_LICENSE='GPL-2.0-only'
+SOURCE_119_NAME='LMMS/lmms'
+SOURCE_119_VERSION='067c3ad4124af9114d8aa186923550e51e1b8e5a'
+SOURCE_119_URL='https://github.com/LMMS/lmms'
+SOURCE_119_CATEGORY='public-dataset'
+SOURCE_119_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_119_LICENSE_URL='https://api.github.com/repos/LMMS/lmms/license?ref=067c3ad4124af9114d8aa186923550e51e1b8e5a'
+SOURCE_119_CONTENT_TYPES='source code'
+SOURCE_119_LANGUAGES='C++'
+SOURCE_119_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_119_COPYRIGHTED='yes'
+SOURCE_119_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_120_ID='s3fs-fuse-s3fs-fuse'
+SOURCE_120_PATH='s3fs-fuse-s3fs-fuse'
+SOURCE_120_LICENSE='GPL-2.0-only'
+SOURCE_120_NAME='s3fs-fuse/s3fs-fuse'
+SOURCE_120_VERSION='c12124a4e1194375511efb35c04d473b26b7f853'
+SOURCE_120_URL='https://github.com/s3fs-fuse/s3fs-fuse'
+SOURCE_120_CATEGORY='public-dataset'
+SOURCE_120_LICENSE_DECLARATION='GPL-2.0-only'
+SOURCE_120_LICENSE_URL='https://api.github.com/repos/s3fs-fuse/s3fs-fuse/license?ref=c12124a4e1194375511efb35c04d473b26b7f853'
+SOURCE_120_CONTENT_TYPES='source code'
+SOURCE_120_LANGUAGES='C++'
+SOURCE_120_SELECTION='Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_120_COPYRIGHTED='yes'
+SOURCE_120_ACQUISITION_BASIS='Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API.'
+
+SOURCE_121_ID='gnu-bash'
+SOURCE_121_PATH='gnu-bash'
+SOURCE_121_LICENSE='GPL-3.0-or-later'
+SOURCE_121_NAME='gnu/bash'
+SOURCE_121_VERSION='b460816602167718f78a6233164e8875f49b75b2'
+SOURCE_121_URL='https://git.savannah.gnu.org/cgit/bash.git'
+SOURCE_121_CATEGORY='public-dataset'
+SOURCE_121_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_121_LICENSE_URL='https://git.savannah.gnu.org/cgit/bash.git/tree/COPYING?id=b460816602167718f78a6233164e8875f49b75b2'
+SOURCE_121_CONTENT_TYPES='source code'
+SOURCE_121_LANGUAGES='C'
+SOURCE_121_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_121_COPYRIGHTED='yes'
+SOURCE_121_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_122_ID='gnu-coreutils'
+SOURCE_122_PATH='gnu-coreutils'
+SOURCE_122_LICENSE='GPL-3.0-or-later'
+SOURCE_122_NAME='gnu/coreutils'
+SOURCE_122_VERSION='786488adef22c477d8e3c8b562f9c4cb02288014'
+SOURCE_122_URL='https://git.savannah.gnu.org/cgit/coreutils.git'
+SOURCE_122_CATEGORY='public-dataset'
+SOURCE_122_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_122_LICENSE_URL='https://git.savannah.gnu.org/cgit/coreutils.git/tree/COPYING?id=786488adef22c477d8e3c8b562f9c4cb02288014'
+SOURCE_122_CONTENT_TYPES='source code'
+SOURCE_122_LANGUAGES='C'
+SOURCE_122_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_122_COPYRIGHTED='yes'
+SOURCE_122_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_123_ID='gnu-diffutils'
+SOURCE_123_PATH='gnu-diffutils'
+SOURCE_123_LICENSE='GPL-3.0-or-later'
+SOURCE_123_NAME='gnu/diffutils'
+SOURCE_123_VERSION='ba490bf17c1938e7cd0c2309a08d9a59b962bdff'
+SOURCE_123_URL='https://git.savannah.gnu.org/cgit/diffutils.git'
+SOURCE_123_CATEGORY='public-dataset'
+SOURCE_123_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_123_LICENSE_URL='https://git.savannah.gnu.org/cgit/diffutils.git/tree/COPYING?id=ba490bf17c1938e7cd0c2309a08d9a59b962bdff'
+SOURCE_123_CONTENT_TYPES='source code'
+SOURCE_123_LANGUAGES='C'
+SOURCE_123_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_123_COPYRIGHTED='yes'
+SOURCE_123_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_124_ID='gnu-emacs'
+SOURCE_124_PATH='gnu-emacs'
+SOURCE_124_LICENSE='GPL-3.0-or-later'
+SOURCE_124_NAME='gnu/emacs'
+SOURCE_124_VERSION='b157d8e96a26e7509136bf93fad2c7ec49c0ee88'
+SOURCE_124_URL='https://git.savannah.gnu.org/cgit/emacs.git'
+SOURCE_124_CATEGORY='public-dataset'
+SOURCE_124_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_124_LICENSE_URL='https://git.savannah.gnu.org/cgit/emacs.git/tree/COPYING?id=b157d8e96a26e7509136bf93fad2c7ec49c0ee88'
+SOURCE_124_CONTENT_TYPES='source code'
+SOURCE_124_LANGUAGES='C'
+SOURCE_124_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_124_COPYRIGHTED='yes'
+SOURCE_124_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_125_ID='gnu-findutils'
+SOURCE_125_PATH='gnu-findutils'
+SOURCE_125_LICENSE='GPL-3.0-or-later'
+SOURCE_125_NAME='gnu/findutils'
+SOURCE_125_VERSION='eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3'
+SOURCE_125_URL='https://git.savannah.gnu.org/cgit/findutils.git'
+SOURCE_125_CATEGORY='public-dataset'
+SOURCE_125_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_125_LICENSE_URL='https://git.savannah.gnu.org/cgit/findutils.git/tree/COPYING?id=eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3'
+SOURCE_125_CONTENT_TYPES='source code'
+SOURCE_125_LANGUAGES='C'
+SOURCE_125_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_125_COPYRIGHTED='yes'
+SOURCE_125_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_126_ID='gnu-gawk'
+SOURCE_126_PATH='gnu-gawk'
+SOURCE_126_LICENSE='GPL-3.0-or-later'
+SOURCE_126_NAME='gnu/gawk'
+SOURCE_126_VERSION='65929a5cdba54e1e044c91218b0dd845bf50455a'
+SOURCE_126_URL='https://git.savannah.gnu.org/cgit/gawk.git'
+SOURCE_126_CATEGORY='public-dataset'
+SOURCE_126_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_126_LICENSE_URL='https://git.savannah.gnu.org/cgit/gawk.git/tree/COPYING?id=65929a5cdba54e1e044c91218b0dd845bf50455a'
+SOURCE_126_CONTENT_TYPES='source code'
+SOURCE_126_LANGUAGES='C'
+SOURCE_126_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_126_COPYRIGHTED='yes'
+SOURCE_126_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_127_ID='gnu-grep'
+SOURCE_127_PATH='gnu-grep'
+SOURCE_127_LICENSE='GPL-3.0-or-later'
+SOURCE_127_NAME='gnu/grep'
+SOURCE_127_VERSION='79da8e07613966b9e53c7ef31b4765d39f98044d'
+SOURCE_127_URL='https://git.savannah.gnu.org/cgit/grep.git'
+SOURCE_127_CATEGORY='public-dataset'
+SOURCE_127_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_127_LICENSE_URL='https://git.savannah.gnu.org/cgit/grep.git/tree/COPYING?id=79da8e07613966b9e53c7ef31b4765d39f98044d'
+SOURCE_127_CONTENT_TYPES='source code'
+SOURCE_127_LANGUAGES='C'
+SOURCE_127_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_127_COPYRIGHTED='yes'
+SOURCE_127_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_128_ID='gnu-gzip'
+SOURCE_128_PATH='gnu-gzip'
+SOURCE_128_LICENSE='GPL-3.0-or-later'
+SOURCE_128_NAME='gnu/gzip'
+SOURCE_128_VERSION='5f62db44b781b01a3d6d8436babcf8113f32efd2'
+SOURCE_128_URL='https://git.savannah.gnu.org/cgit/gzip.git'
+SOURCE_128_CATEGORY='public-dataset'
+SOURCE_128_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_128_LICENSE_URL='https://git.savannah.gnu.org/cgit/gzip.git/tree/COPYING?id=5f62db44b781b01a3d6d8436babcf8113f32efd2'
+SOURCE_128_CONTENT_TYPES='source code'
+SOURCE_128_LANGUAGES='C'
+SOURCE_128_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_128_COPYRIGHTED='yes'
+SOURCE_128_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_129_ID='gnu-make'
+SOURCE_129_PATH='gnu-make'
+SOURCE_129_LICENSE='GPL-3.0-or-later'
+SOURCE_129_NAME='gnu/make'
+SOURCE_129_VERSION='b3802782de3eff2c0f1eda9e7c0befd8cd142162'
+SOURCE_129_URL='https://git.savannah.gnu.org/cgit/make.git'
+SOURCE_129_CATEGORY='public-dataset'
+SOURCE_129_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_129_LICENSE_URL='https://git.savannah.gnu.org/cgit/make.git/tree/COPYING?id=b3802782de3eff2c0f1eda9e7c0befd8cd142162'
+SOURCE_129_CONTENT_TYPES='source code'
+SOURCE_129_LANGUAGES='C'
+SOURCE_129_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_129_COPYRIGHTED='yes'
+SOURCE_129_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_130_ID='gnu-nano'
+SOURCE_130_PATH='gnu-nano'
+SOURCE_130_LICENSE='GPL-3.0-or-later'
+SOURCE_130_NAME='gnu/nano'
+SOURCE_130_VERSION='8e6360d1663998c62ddd0cf934923d1f18004e3e'
+SOURCE_130_URL='https://git.savannah.gnu.org/cgit/nano.git'
+SOURCE_130_CATEGORY='public-dataset'
+SOURCE_130_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_130_LICENSE_URL='https://git.savannah.gnu.org/cgit/nano.git/tree/COPYING?id=8e6360d1663998c62ddd0cf934923d1f18004e3e'
+SOURCE_130_CONTENT_TYPES='source code'
+SOURCE_130_LANGUAGES='C'
+SOURCE_130_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_130_COPYRIGHTED='yes'
+SOURCE_130_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_131_ID='gnu-patch'
+SOURCE_131_PATH='gnu-patch'
+SOURCE_131_LICENSE='GPL-3.0-or-later'
+SOURCE_131_NAME='gnu/patch'
+SOURCE_131_VERSION='a2b192295d7046bafc18d54973436bb3faa659d7'
+SOURCE_131_URL='https://git.savannah.gnu.org/cgit/patch.git'
+SOURCE_131_CATEGORY='public-dataset'
+SOURCE_131_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_131_LICENSE_URL='https://git.savannah.gnu.org/cgit/patch.git/tree/COPYING?id=a2b192295d7046bafc18d54973436bb3faa659d7'
+SOURCE_131_CONTENT_TYPES='source code'
+SOURCE_131_LANGUAGES='C'
+SOURCE_131_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_131_COPYRIGHTED='yes'
+SOURCE_131_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_132_ID='gnu-sed'
+SOURCE_132_PATH='gnu-sed'
+SOURCE_132_LICENSE='GPL-3.0-or-later'
+SOURCE_132_NAME='gnu/sed'
+SOURCE_132_VERSION='31df9f71cb62e423311985b3bf352ee84c4a9e54'
+SOURCE_132_URL='https://git.savannah.gnu.org/cgit/sed.git'
+SOURCE_132_CATEGORY='public-dataset'
+SOURCE_132_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_132_LICENSE_URL='https://git.savannah.gnu.org/cgit/sed.git/tree/COPYING?id=31df9f71cb62e423311985b3bf352ee84c4a9e54'
+SOURCE_132_CONTENT_TYPES='source code'
+SOURCE_132_LANGUAGES='C'
+SOURCE_132_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_132_COPYRIGHTED='yes'
+SOURCE_132_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_133_ID='gnu-tar'
+SOURCE_133_PATH='gnu-tar'
+SOURCE_133_LICENSE='GPL-3.0-or-later'
+SOURCE_133_NAME='gnu/tar'
+SOURCE_133_VERSION='d1df7f403de05bfbe11527a5b570469fb1011fda'
+SOURCE_133_URL='https://git.savannah.gnu.org/cgit/tar.git'
+SOURCE_133_CATEGORY='public-dataset'
+SOURCE_133_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_133_LICENSE_URL='https://git.savannah.gnu.org/cgit/tar.git/tree/COPYING?id=d1df7f403de05bfbe11527a5b570469fb1011fda'
+SOURCE_133_CONTENT_TYPES='source code'
+SOURCE_133_LANGUAGES='C'
+SOURCE_133_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_133_COPYRIGHTED='yes'
+SOURCE_133_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+SOURCE_134_ID='gnu-wget'
+SOURCE_134_PATH='gnu-wget'
+SOURCE_134_LICENSE='GPL-3.0-or-later'
+SOURCE_134_NAME='gnu/wget'
+SOURCE_134_VERSION='705e9e3a749f9f0430c1fad9892227c210c66dee'
+SOURCE_134_URL='https://git.savannah.gnu.org/cgit/wget.git'
+SOURCE_134_CATEGORY='public-dataset'
+SOURCE_134_LICENSE_DECLARATION='GPL-3.0-or-later'
+SOURCE_134_LICENSE_URL='https://git.savannah.gnu.org/cgit/wget.git/tree/COPYING?id=705e9e3a749f9f0430c1fad9892227c210c66dee'
+SOURCE_134_CONTENT_TYPES='source code'
+SOURCE_134_LANGUAGES='C'
+SOURCE_134_SELECTION='Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.'
+SOURCE_134_COPYRIGHTED='yes'
+SOURCE_134_ACQUISITION_BASIS='Official public GNU Git repository at the pinned commit.'
+
+FETCHER_OUTPUT=${1-}
+FETCHER_ARGUMENT_COUNT=$#
+FETCHER_SIZE='100G'
+FETCH_COUNT='134'
+FETCH_1_METHOD='git'
+FETCH_1_SOURCE='1'
+FETCH_1_PATH='clash-verge-rev-clash-verge-rev'
+FETCH_1_URL='https://github.com/clash-verge-rev/clash-verge-rev.git'
+FETCH_1_REF='c34781e1677d29422940c57e10fbf254c5f215ff'
+FETCH_1_REVISION='c34781e1677d29422940c57e10fbf254c5f215ff'
+FETCH_1_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_2_METHOD='git'
+FETCH_2_SOURCE='2'
+FETCH_2_PATH='comfy-org-comfyui'
+FETCH_2_URL='https://github.com/Comfy-Org/ComfyUI.git'
+FETCH_2_REF='a683fa6e577f3f73ab8a0b4d7434173ccaec9c12'
+FETCH_2_REVISION='a683fa6e577f3f73ab8a0b4d7434173ccaec9c12'
+FETCH_2_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_3_METHOD='git'
+FETCH_3_SOURCE='3'
+FETCH_3_PATH='2dust-v2rayn'
+FETCH_3_URL='https://github.com/2dust/v2rayN.git'
+FETCH_3_REF='31044f449db5562aedb871daf69c0873e4b8a768'
+FETCH_3_REVISION='31044f449db5562aedb871daf69c0873e4b8a768'
+FETCH_3_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_4_METHOD='git'
+FETCH_4_SOURCE='4'
+FETCH_4_PATH='netdata-netdata'
+FETCH_4_URL='https://github.com/netdata/netdata.git'
+FETCH_4_REF='58d3948c3af4f15bfd1c146b40e7f419675f2dbe'
+FETCH_4_REVISION='58d3948c3af4f15bfd1c146b40e7f419675f2dbe'
+FETCH_4_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_5_METHOD='git'
+FETCH_5_SOURCE='5'
+FETCH_5_PATH='ventoy-ventoy'
+FETCH_5_URL='https://github.com/ventoy/Ventoy.git'
+FETCH_5_REF='6568972abca37e33e031e1f2651a68a86491082b'
+FETCH_5_REVISION='6568972abca37e33e031e1f2651a68a86491082b'
+FETCH_5_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_6_METHOD='git'
+FETCH_6_SOURCE='6'
+FETCH_6_PATH='obsproject-obs-studio'
+FETCH_6_URL='https://github.com/obsproject/obs-studio.git'
+FETCH_6_REF='220a16378fb9079b0ebd008ee994f5cb298de90d'
+FETCH_6_REVISION='220a16378fb9079b0ebd008ee994f5cb298de90d'
+FETCH_6_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_7_METHOD='git'
+FETCH_7_SOURCE='7'
+FETCH_7_PATH='binary-husky-gpt_academic'
+FETCH_7_URL='https://github.com/binary-husky/gpt_academic.git'
+FETCH_7_REF='d6bde0fa54373309bd05823a49bda8da019d2c77'
+FETCH_7_REVISION='d6bde0fa54373309bd05823a49bda8da019d2c77'
+FETCH_7_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_8_METHOD='git'
+FETCH_8_SOURCE='8'
+FETCH_8_PATH='ansible-ansible'
+FETCH_8_URL='https://github.com/ansible/ansible.git'
+FETCH_8_REF='c5ecb46c3f8c135a76ee86584f4b77b50184e5a6'
+FETCH_8_REVISION='c5ecb46c3f8c135a76ee86584f4b77b50184e5a6'
+FETCH_8_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_9_METHOD='git'
+FETCH_9_SOURCE='9'
+FETCH_9_PATH='gorhill-ublock'
+FETCH_9_URL='https://github.com/gorhill/uBlock.git'
+FETCH_9_REF='6bc5ee892d7b135d1d230d658520c46ab2cbb2e8'
+FETCH_9_REVISION='6bc5ee892d7b135d1d230d658520c46ab2cbb2e8'
+FETCH_9_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_10_METHOD='git'
+FETCH_10_SOURCE='10'
+FETCH_10_PATH='xtekky-gpt4free'
+FETCH_10_URL='https://github.com/xtekky/gpt4free.git'
+FETCH_10_REF='8b4edf83622eabe445d28df313e704c9cdd342ff'
+FETCH_10_REVISION='8b4edf83622eabe445d28df313e704c9cdd342ff'
+FETCH_10_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_11_METHOD='git'
+FETCH_11_SOURCE='11'
+FETCH_11_PATH='topjohnwu-magisk'
+FETCH_11_URL='https://github.com/topjohnwu/Magisk.git'
+FETCH_11_REF='ede844bdaa4d673617c0f14a991a79542c95967c'
+FETCH_11_REVISION='ede844bdaa4d673617c0f14a991a79542c95967c'
+FETCH_11_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_12_METHOD='git'
+FETCH_12_SOURCE='12'
+FETCH_12_PATH='2dust-v2rayng'
+FETCH_12_URL='https://github.com/2dust/v2rayNG.git'
+FETCH_12_REF='f63f649477fe884ae6101ccb2c6fb172832e0d03'
+FETCH_12_REVISION='f63f649477fe884ae6101ccb2c6fb172832e0d03'
+FETCH_12_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_13_METHOD='git'
+FETCH_13_SOURCE='13'
+FETCH_13_PATH='tw93-pake'
+FETCH_13_URL='https://github.com/tw93/Pake.git'
+FETCH_13_REF='c01afad4e258de6a27fa483908dfdeb6df3914ad'
+FETCH_13_REVISION='c01afad4e258de6a27fa483908dfdeb6df3914ad'
+FETCH_13_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_14_METHOD='git'
+FETCH_14_SOURCE='14'
+FETCH_14_PATH='deepfakes-faceswap'
+FETCH_14_URL='https://github.com/deepfakes/faceswap.git'
+FETCH_14_REF='f530cb7508ae670f6474f8a7d9c4df94705cf96b'
+FETCH_14_REVISION='f530cb7508ae670f6474f8a7d9c4df94705cf96b'
+FETCH_14_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_15_METHOD='git'
+FETCH_15_SOURCE='15'
+FETCH_15_PATH='jellyfin-jellyfin'
+FETCH_15_URL='https://github.com/jellyfin/jellyfin.git'
+FETCH_15_REF='fb763c47bfc88b1661f8dd1f3f7a4340d140380e'
+FETCH_15_REVISION='fb763c47bfc88b1661f8dd1f3f7a4340d140380e'
+FETCH_15_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_16_METHOD='git'
+FETCH_16_SOURCE='16'
+FETCH_16_PATH='werwolv-imhex'
+FETCH_16_URL='https://github.com/WerWolv/ImHex.git'
+FETCH_16_REF='bb938c41fb29aed576180384d534cf2476bc8ebb'
+FETCH_16_REVISION='bb938c41fb29aed576180384d534cf2476bc8ebb'
+FETCH_16_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_17_METHOD='git'
+FETCH_17_SOURCE='17'
+FETCH_17_PATH='freqtrade-freqtrade'
+FETCH_17_URL='https://github.com/freqtrade/freqtrade.git'
+FETCH_17_REF='89d469fe638eaf116d45a8f92598aeed4d9f6dde'
+FETCH_17_REVISION='89d469fe638eaf116d45a8f92598aeed4d9f6dde'
+FETCH_17_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_18_METHOD='git'
+FETCH_18_SOURCE='18'
+FETCH_18_PATH='sickcodes-docker-osx'
+FETCH_18_URL='https://github.com/sickcodes/Docker-OSX.git'
+FETCH_18_REF='aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3'
+FETCH_18_REVISION='aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3'
+FETCH_18_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_19_METHOD='git'
+FETCH_19_SOURCE='19'
+FETCH_19_PATH='justjavac-wechat-miniapp-radar'
+FETCH_19_URL='https://github.com/justjavac/wechat-miniapp-radar.git'
+FETCH_19_REF='02a010ecea0320b7aa975bb62a5dde271ae630c9'
+FETCH_19_REVISION='02a010ecea0320b7aa975bb62a5dde271ae630c9'
+FETCH_19_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_20_METHOD='git'
+FETCH_20_SOURCE='20'
+FETCH_20_PATH='chen08209-flclash'
+FETCH_20_URL='https://github.com/chen08209/FlClash.git'
+FETCH_20_REF='7c831855efedceb1a72bd0b4c18da026593d0853'
+FETCH_20_REVISION='7c831855efedceb1a72bd0b4c18da026593d0853'
+FETCH_20_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_21_METHOD='git'
+FETCH_21_SOURCE='21'
+FETCH_21_PATH='acmesh-official-acme.sh'
+FETCH_21_URL='https://github.com/acmesh-official/acme.sh.git'
+FETCH_21_REF='2feb392bd0e3964d9bf68871ae804578d9d5ca80'
+FETCH_21_REVISION='2feb392bd0e3964d9bf68871ae804578d9d5ca80'
+FETCH_21_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_22_METHOD='git'
+FETCH_22_SOURCE='22'
+FETCH_22_PATH='iina-iina'
+FETCH_22_URL='https://github.com/iina/iina.git'
+FETCH_22_REF='a25ed1390eff00cbed5f2eca045ee8dccd28d791'
+FETCH_22_REVISION='a25ed1390eff00cbed5f2eca045ee8dccd28d791'
+FETCH_22_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_23_METHOD='git'
+FETCH_23_SOURCE='23'
+FETCH_23_PATH='jgm-pandoc'
+FETCH_23_URL='https://github.com/jgm/pandoc.git'
+FETCH_23_REF='87bc462713209420f9beac0041b47c42935f7a1d'
+FETCH_23_REVISION='87bc462713209420f9beac0041b47c42935f7a1d'
+FETCH_23_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_24_METHOD='git'
+FETCH_24_SOURCE='24'
+FETCH_24_PATH='mhsanaei-3x-ui'
+FETCH_24_URL='https://github.com/MHSanaei/3x-ui.git'
+FETCH_24_REF='ece16559397f756513d7338f59168049dd6e2e51'
+FETCH_24_REVISION='ece16559397f756513d7338f59168049dd6e2e51'
+FETCH_24_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_25_METHOD='git'
+FETCH_25_SOURCE='25'
+FETCH_25_PATH='paperless-ngx-paperless-ngx'
+FETCH_25_URL='https://github.com/paperless-ngx/paperless-ngx.git'
+FETCH_25_REF='17dc482872cf62e12965f6207772c83d1deb651b'
+FETCH_25_REVISION='17dc482872cf62e12965f6207772c83d1deb651b'
+FETCH_25_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_26_METHOD='git'
+FETCH_26_SOURCE='26'
+FETCH_26_PATH='mifi-lossless-cut'
+FETCH_26_URL='https://github.com/mifi/lossless-cut.git'
+FETCH_26_REF='3b9a59c288bf6e11076b583c932cfa48ddab3b02'
+FETCH_26_REVISION='3b9a59c288bf6e11076b583c932cfa48ddab3b02'
+FETCH_26_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_27_METHOD='git'
+FETCH_27_SOURCE='27'
+FETCH_27_PATH='666ghj-bettafish'
+FETCH_27_URL='https://github.com/666ghj/BettaFish.git'
+FETCH_27_REF='dcd309dfc08480708e41af0c9f7b2e68db191a25'
+FETCH_27_REVISION='dcd309dfc08480708e41af0c9f7b2e68db191a25'
+FETCH_27_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_28_METHOD='git'
+FETCH_28_SOURCE='28'
+FETCH_28_PATH='aria2-aria2'
+FETCH_28_URL='https://github.com/aria2/aria2.git'
+FETCH_28_REF='9e7273583f83e881e3ec067b523ba88724088d2f'
+FETCH_28_REVISION='9e7273583f83e881e3ec067b523ba88724088d2f'
+FETCH_28_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_29_METHOD='git'
+FETCH_29_SOURCE='29'
+FETCH_29_PATH='chatboxai-chatbox'
+FETCH_29_URL='https://github.com/chatboxai/chatbox.git'
+FETCH_29_REF='5c7e38828699aefa4efd17b44f817aa263c8f900'
+FETCH_29_REVISION='5c7e38828699aefa4efd17b44f817aa263c8f900'
+FETCH_29_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_30_METHOD='git'
+FETCH_30_SOURCE='30'
+FETCH_30_PATH='bailicangdu-vue2-elm'
+FETCH_30_URL='https://github.com/bailicangdu/vue2-elm.git'
+FETCH_30_REF='b85ff0220366be863868269177a4abf74c7a85ca'
+FETCH_30_REVISION='b85ff0220366be863868269177a4abf74c7a85ca'
+FETCH_30_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_31_METHOD='git'
+FETCH_31_SOURCE='31'
+FETCH_31_PATH='corentinth-it-tools'
+FETCH_31_URL='https://github.com/CorentinTh/it-tools.git'
+FETCH_31_REF='d505845f918e946ec300af7b36efc107e2f66e9e'
+FETCH_31_REVISION='d505845f918e946ec300af7b36efc107e2f66e9e'
+FETCH_31_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_32_METHOD='git'
+FETCH_32_SOURCE='32'
+FETCH_32_PATH='lizardbyte-sunshine'
+FETCH_32_URL='https://github.com/LizardByte/Sunshine.git'
+FETCH_32_REF='25c06d79b54f3d092d3fedd5f5ba44989f394692'
+FETCH_32_REVISION='25c06d79b54f3d092d3fedd5f5ba44989f394692'
+FETCH_32_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_33_METHOD='git'
+FETCH_33_SOURCE='33'
+FETCH_33_PATH='koalaman-shellcheck'
+FETCH_33_URL='https://github.com/koalaman/shellcheck.git'
+FETCH_33_REF='9af7ee28ce587baadd950b85dd6826a16b9c068d'
+FETCH_33_REVISION='9af7ee28ce587baadd950b85dd6826a16b9c068d'
+FETCH_33_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_34_METHOD='git'
+FETCH_34_SOURCE='34'
+FETCH_34_PATH='halo-dev-halo'
+FETCH_34_URL='https://github.com/halo-dev/halo.git'
+FETCH_34_REF='815292f426d8f216d02398a2813dc9a52d881775'
+FETCH_34_REVISION='815292f426d8f216d02398a2813dc9a52d881775'
+FETCH_34_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_35_METHOD='git'
+FETCH_35_SOURCE='35'
+FETCH_35_PATH='teamnewpipe-newpipe'
+FETCH_35_URL='https://github.com/TeamNewPipe/NewPipe.git'
+FETCH_35_REF='89d2423692918653134e79a841d96e065175e976'
+FETCH_35_REVISION='89d2423692918653134e79a841d96e065175e976'
+FETCH_35_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_36_METHOD='git'
+FETCH_36_SOURCE='36'
+FETCH_36_PATH='sharex-sharex'
+FETCH_36_URL='https://github.com/ShareX/ShareX.git'
+FETCH_36_REF='b1a388ebd428e49fd9909e9319c2ce8e93577f67'
+FETCH_36_REVISION='b1a388ebd428e49fd9909e9319c2ce8e93577f67'
+FETCH_36_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_37_METHOD='git'
+FETCH_37_SOURCE='37'
+FETCH_37_PATH='huiyadanli-revokemsgpatcher'
+FETCH_37_URL='https://github.com/huiyadanli/RevokeMsgPatcher.git'
+FETCH_37_REF='939dfaf00a2fcec90674c4ffddb37b6773460c51'
+FETCH_37_REVISION='939dfaf00a2fcec90674c4ffddb37b6773460c51'
+FETCH_37_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_38_METHOD='git'
+FETCH_38_SOURCE='38'
+FETCH_38_PATH='frappe-erpnext'
+FETCH_38_URL='https://github.com/frappe/erpnext.git'
+FETCH_38_REF='53d3ba7a7820e3c09b24a698149a63ecfc523e84'
+FETCH_38_REVISION='53d3ba7a7820e3c09b24a698149a63ecfc523e84'
+FETCH_38_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_39_METHOD='git'
+FETCH_39_SOURCE='39'
+FETCH_39_PATH='pbatard-rufus'
+FETCH_39_URL='https://github.com/pbatard/rufus.git'
+FETCH_39_REF='6d8fbf98305ff37eb531c45cbd6ff44563c53917'
+FETCH_39_REVISION='6d8fbf98305ff37eb531c45cbd6ff44563c53917'
+FETCH_39_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_40_METHOD='git'
+FETCH_40_SOURCE='40'
+FETCH_40_PATH='1panel-dev-1panel'
+FETCH_40_URL='https://github.com/1Panel-dev/1Panel.git'
+FETCH_40_REF='d1558c5eaea9bcafef5f3a885af279ad5ccd8d25'
+FETCH_40_REVISION='d1558c5eaea9bcafef5f3a885af279ad5ccd8d25'
+FETCH_40_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_41_METHOD='git'
+FETCH_41_SOURCE='41'
+FETCH_41_PATH='zuodaotech-everyone-can-use-english'
+FETCH_41_URL='https://github.com/ZuodaoTech/everyone-can-use-english.git'
+FETCH_41_REF='3d799132046993eade5a364ddd1e557906854eda'
+FETCH_41_REVISION='3d799132046993eade5a364ddd1e557906854eda'
+FETCH_41_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_42_METHOD='git'
+FETCH_42_SOURCE='42'
+FETCH_42_PATH='alvarotrigo-fullpage.js'
+FETCH_42_URL='https://github.com/alvarotrigo/fullPage.js.git'
+FETCH_42_REF='49f15effa7b195def295a36f872c28153cf9fb00'
+FETCH_42_REVISION='49f15effa7b195def295a36f872c28153cf9fb00'
+FETCH_42_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_43_METHOD='git'
+FETCH_43_SOURCE='43'
+FETCH_43_PATH='kovidgoyal-kitty'
+FETCH_43_URL='https://github.com/kovidgoyal/kitty.git'
+FETCH_43_REF='a6d5e7145a3fc36822bcf5296e4b1f1194239f48'
+FETCH_43_REVISION='a6d5e7145a3fc36822bcf5296e4b1f1194239f48'
+FETCH_43_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_44_METHOD='git'
+FETCH_44_SOURCE='44'
+FETCH_44_PATH='ehang-io-nps'
+FETCH_44_URL='https://github.com/ehang-io/nps.git'
+FETCH_44_REF='ab648d6f0c618c690a7a79948a7ebd686e1cdafc'
+FETCH_44_REVISION='ab648d6f0c618c690a7a79948a7ebd686e1cdafc'
+FETCH_44_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_45_METHOD='git'
+FETCH_45_SOURCE='45'
+FETCH_45_PATH='valinet-explorerpatcher'
+FETCH_45_URL='https://github.com/valinet/ExplorerPatcher.git'
+FETCH_45_REF='0a88a6e0ef6b1752fea36e581cffff1097e862b0'
+FETCH_45_REVISION='0a88a6e0ef6b1752fea36e581cffff1097e862b0'
+FETCH_45_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_46_METHOD='git'
+FETCH_46_SOURCE='46'
+FETCH_46_PATH='bilibili-ijkplayer'
+FETCH_46_URL='https://github.com/bilibili/ijkplayer.git'
+FETCH_46_REF='30eb9441945da795079492041a791c121d2b8206'
+FETCH_46_REVISION='30eb9441945da795079492041a791c121d2b8206'
+FETCH_46_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_47_METHOD='git'
+FETCH_47_SOURCE='47'
+FETCH_47_PATH='shadowsocks-shadowsocksx-ng'
+FETCH_47_URL='https://github.com/shadowsocks/ShadowsocksX-NG.git'
+FETCH_47_REF='719203afc60e1dbab00e459ebcfecc468e7700bd'
+FETCH_47_REVISION='719203afc60e1dbab00e459ebcfecc468e7700bd'
+FETCH_47_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_48_METHOD='git'
+FETCH_48_SOURCE='48'
+FETCH_48_PATH='shadps4-emu-shadps4'
+FETCH_48_URL='https://github.com/shadps4-emu/shadPS4.git'
+FETCH_48_REF='c5ae3c681276bd884b9b714c2099d55796c36154'
+FETCH_48_REVISION='c5ae3c681276bd884b9b714c2099d55796c36154'
+FETCH_48_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_49_METHOD='git'
+FETCH_49_SOURCE='49'
+FETCH_49_PATH='facebook-rocksdb'
+FETCH_49_URL='https://github.com/facebook/rocksdb.git'
+FETCH_49_REF='1dfa7297933df05237ac11376d6cb69d32591b1d'
+FETCH_49_REVISION='1dfa7297933df05237ac11376d6cb69d32591b1d'
+FETCH_49_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_50_METHOD='git'
+FETCH_50_SOURCE='50'
+FETCH_50_PATH='gethomepage-homepage'
+FETCH_50_URL='https://github.com/gethomepage/homepage.git'
+FETCH_50_REF='1a047d1dfc135fd3c904699f562dd9ea892088e6'
+FETCH_50_REVISION='1a047d1dfc135fd3c904699f562dd9ea892088e6'
+FETCH_50_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_51_METHOD='git'
+FETCH_51_SOURCE='51'
+FETCH_51_PATH='jumpserver-jumpserver'
+FETCH_51_URL='https://github.com/jumpserver/jumpserver.git'
+FETCH_51_REF='93214a3067ad80b04d036122eeab33f2539e3633'
+FETCH_51_REVISION='93214a3067ad80b04d036122eeab33f2539e3633'
+FETCH_51_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_52_METHOD='git'
+FETCH_52_SOURCE='52'
+FETCH_52_PATH='flameshot-org-flameshot'
+FETCH_52_URL='https://github.com/flameshot-org/flameshot.git'
+FETCH_52_REF='52260408e3a3b810095d8e7661ca2911cb46ea57'
+FETCH_52_REVISION='52260408e3a3b810095d8e7661ca2911cb46ea57'
+FETCH_52_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_53_METHOD='git'
+FETCH_53_SOURCE='53'
+FETCH_53_PATH='maboloshi-github-chinese'
+FETCH_53_URL='https://github.com/maboloshi/github-chinese.git'
+FETCH_53_REF='bf852c09a2ee1e4d832af62d50e4f839ad3514e1'
+FETCH_53_REVISION='bf852c09a2ee1e4d832af62d50e4f839ad3514e1'
+FETCH_53_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_54_METHOD='git'
+FETCH_54_SOURCE='54'
+FETCH_54_PATH='xuxueli-xxl-job'
+FETCH_54_URL='https://github.com/xuxueli/xxl-job.git'
+FETCH_54_REF='e74c784f68f81fa89cb350913ef15794865d7b12'
+FETCH_54_REVISION='e74c784f68f81fa89cb350913ef15794865d7b12'
+FETCH_54_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_55_METHOD='git'
+FETCH_55_SOURCE='55'
+FETCH_55_PATH='drklo-telegram'
+FETCH_55_URL='https://github.com/DrKLO/Telegram.git'
+FETCH_55_REF='45ab8f4308496e1f01026a97fcdb0d58a5274474'
+FETCH_55_REVISION='45ab8f4308496e1f01026a97fcdb0d58a5274474'
+FETCH_55_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_56_METHOD='git'
+FETCH_56_SOURCE='56'
+FETCH_56_PATH='233boy-v2ray'
+FETCH_56_URL='https://github.com/233boy/v2ray.git'
+FETCH_56_REF='707ecf7601ff49f91c2d12dd22b98e8f89588d1c'
+FETCH_56_REVISION='707ecf7601ff49f91c2d12dd22b98e8f89588d1c'
+FETCH_56_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_57_METHOD='git'
+FETCH_57_SOURCE='57'
+FETCH_57_PATH='python-telegram-bot-python-telegram-bot'
+FETCH_57_URL='https://github.com/python-telegram-bot/python-telegram-bot.git'
+FETCH_57_REF='377f5effb3afc2d9b1e7e1de1b908b26cc87fd17'
+FETCH_57_REVISION='377f5effb3afc2d9b1e7e1de1b908b26cc87fd17'
+FETCH_57_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_58_METHOD='git'
+FETCH_58_SOURCE='58'
+FETCH_58_PATH='slymnoyann-hey-1'
+FETCH_58_URL='https://github.com/slymnoyann/hey-1.git'
+FETCH_58_REF='88c8f9d55340d57a37846ff72f55c2c604e3a566'
+FETCH_58_REVISION='88c8f9d55340d57a37846ff72f55c2c604e3a566'
+FETCH_58_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_59_METHOD='git'
+FETCH_59_SOURCE='59'
+FETCH_59_PATH='librepods-org-librepods'
+FETCH_59_URL='https://github.com/librepods-org/librepods.git'
+FETCH_59_REF='b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25'
+FETCH_59_REVISION='b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25'
+FETCH_59_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_60_METHOD='git'
+FETCH_60_SOURCE='60'
+FETCH_60_PATH='jordanbaird-ice'
+FETCH_60_URL='https://github.com/jordanbaird/Ice.git'
+FETCH_60_REF='11edd39115f3f43a83ae114b5348df6a0e1741cf'
+FETCH_60_REVISION='11edd39115f3f43a83ae114b5348df6a0e1741cf'
+FETCH_60_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_61_METHOD='git'
+FETCH_61_SOURCE='61'
+FETCH_61_PATH='revanced-revanced-manager'
+FETCH_61_URL='https://github.com/ReVanced/revanced-manager.git'
+FETCH_61_REF='2a88257b71d35c9f141907ffea67c87e51bbb0db'
+FETCH_61_REVISION='2a88257b71d35c9f141907ffea67c87e51bbb0db'
+FETCH_61_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_62_METHOD='git'
+FETCH_62_SOURCE='62'
+FETCH_62_PATH='predidit-kazumi'
+FETCH_62_URL='https://github.com/Predidit/Kazumi.git'
+FETCH_62_REF='c5e3feb43bcdb576d9639649991ebad77c1ab31f'
+FETCH_62_REVISION='c5e3feb43bcdb576d9639649991ebad77c1ab31f'
+FETCH_62_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_63_METHOD='git'
+FETCH_63_SOURCE='63'
+FETCH_63_PATH='anuken-mindustry'
+FETCH_63_URL='https://github.com/Anuken/Mindustry.git'
+FETCH_63_REF='269a3f58415cda92af1b55038924f5865bc17a0e'
+FETCH_63_REVISION='269a3f58415cda92af1b55038924f5865bc17a0e'
+FETCH_63_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_64_METHOD='git'
+FETCH_64_SOURCE='64'
+FETCH_64_PATH='cloudreve-cloudreve'
+FETCH_64_URL='https://github.com/cloudreve/cloudreve.git'
+FETCH_64_REF='20c95ad73f3a8bcb72887fea91ff31ab24fa1011'
+FETCH_64_REVISION='20c95ad73f3a8bcb72887fea91ff31ab24fa1011'
+FETCH_64_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_65_METHOD='git'
+FETCH_65_SOURCE='65'
+FETCH_65_PATH='nvchad-nvchad'
+FETCH_65_URL='https://github.com/NvChad/NvChad.git'
+FETCH_65_REF='add44b952d631981614bbb8cfc6f7002f296dfe6'
+FETCH_65_REVISION='add44b952d631981614bbb8cfc6f7002f296dfe6'
+FETCH_65_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_66_METHOD='git'
+FETCH_66_SOURCE='66'
+FETCH_66_PATH='fanmingming-live'
+FETCH_66_URL='https://github.com/fanmingming/live.git'
+FETCH_66_REF='b085d39e05d126f91709d7a545604bd667a6f026'
+FETCH_66_REVISION='b085d39e05d126f91709d7a545604bd667a6f026'
+FETCH_66_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_67_METHOD='git'
+FETCH_67_SOURCE='67'
+FETCH_67_PATH='junkfood02-seal'
+FETCH_67_URL='https://github.com/JunkFood02/Seal.git'
+FETCH_67_REF='44e0d2e6fc26177e0da4cb1948223baa13b0887f'
+FETCH_67_REVISION='44e0d2e6fc26177e0da4cb1948223baa13b0887f'
+FETCH_67_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_68_METHOD='git'
+FETCH_68_SOURCE='68'
+FETCH_68_PATH='deskflow-deskflow'
+FETCH_68_URL='https://github.com/deskflow/deskflow.git'
+FETCH_68_REF='f765e829f2373f055331e910d69b8c8b8006952b'
+FETCH_68_REVISION='f765e829f2373f055331e910d69b8c8b8006952b'
+FETCH_68_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_69_METHOD='git'
+FETCH_69_SOURCE='69'
+FETCH_69_PATH='wox-launcher-wox'
+FETCH_69_URL='https://github.com/Wox-launcher/Wox.git'
+FETCH_69_REF='2e1db9c38a7bb03ecbd67cec4c47bf39c3633880'
+FETCH_69_REVISION='2e1db9c38a7bb03ecbd67cec4c47bf39c3633880'
+FETCH_69_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_70_METHOD='git'
+FETCH_70_SOURCE='70'
+FETCH_70_PATH='niri-wm-niri'
+FETCH_70_URL='https://github.com/niri-wm/niri.git'
+FETCH_70_REF='59a10015610bb7d068a82ce1c386fcd8b44f6c52'
+FETCH_70_REVISION='59a10015610bb7d068a82ce1c386fcd8b44f6c52'
+FETCH_70_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_71_METHOD='git'
+FETCH_71_SOURCE='71'
+FETCH_71_PATH='schniz-fnm'
+FETCH_71_URL='https://github.com/Schniz/fnm.git'
+FETCH_71_REF='86adc9676ceb2a509b21e75e74048b93c89f097d'
+FETCH_71_REVISION='86adc9676ceb2a509b21e75e74048b93c89f097d'
+FETCH_71_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_72_METHOD='git'
+FETCH_72_SOURCE='72'
+FETCH_72_PATH='beyonddimension-steamtools'
+FETCH_72_URL='https://github.com/BeyondDimension/SteamTools.git'
+FETCH_72_REF='c16ffa08e03b192d23ada290c4969e77f9201f3d'
+FETCH_72_REVISION='c16ffa08e03b192d23ada290c4969e77f9201f3d'
+FETCH_72_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_73_METHOD='git'
+FETCH_73_SOURCE='73'
+FETCH_73_PATH='typesense-typesense'
+FETCH_73_URL='https://github.com/typesense/typesense.git'
+FETCH_73_REF='2b1ea8002cfa6febc212123deec6c6bed66837b3'
+FETCH_73_REVISION='2b1ea8002cfa6febc212123deec6c6bed66837b3'
+FETCH_73_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_74_METHOD='git'
+FETCH_74_SOURCE='74'
+FETCH_74_PATH='ycm-core-youcompleteme'
+FETCH_74_URL='https://github.com/ycm-core/YouCompleteMe.git'
+FETCH_74_REF='d4c91430b70a21ce471c8572400b647d313995b4'
+FETCH_74_REVISION='d4c91430b70a21ce471c8572400b647d313995b4'
+FETCH_74_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_75_METHOD='git'
+FETCH_75_SOURCE='75'
+FETCH_75_PATH='mihomo-party-org-clash-party'
+FETCH_75_URL='https://github.com/mihomo-party-org/clash-party.git'
+FETCH_75_REF='8af583e771b218d33174e3897ac7b5bdec1cb302'
+FETCH_75_REVISION='8af583e771b218d33174e3897ac7b5bdec1cb302'
+FETCH_75_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_76_METHOD='git'
+FETCH_76_SOURCE='76'
+FETCH_76_PATH='zhaoolee-chromeappheroes'
+FETCH_76_URL='https://github.com/zhaoolee/ChromeAppHeroes.git'
+FETCH_76_REF='abe715d5059c415225e2a1e42ecf67d0aa65b5a1'
+FETCH_76_REVISION='abe715d5059c415225e2a1e42ecf67d0aa65b5a1'
+FETCH_76_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_77_METHOD='git'
+FETCH_77_SOURCE='77'
+FETCH_77_PATH='gopeedlab-gopeed'
+FETCH_77_URL='https://github.com/GopeedLab/gopeed.git'
+FETCH_77_REF='fdfc6902a7750a3628735e8bf37d739bfda9549c'
+FETCH_77_REVISION='fdfc6902a7750a3628735e8bf37d739bfda9549c'
+FETCH_77_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_78_METHOD='git'
+FETCH_78_SOURCE='78'
+FETCH_78_PATH='argotorg-solidity'
+FETCH_78_URL='https://github.com/argotorg/solidity.git'
+FETCH_78_REF='9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a'
+FETCH_78_REVISION='9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a'
+FETCH_78_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_79_METHOD='git'
+FETCH_79_SOURCE='79'
+FETCH_79_PATH='syl20bnr-spacemacs'
+FETCH_79_URL='https://github.com/syl20bnr/spacemacs.git'
+FETCH_79_REF='47c09c5777a33ecd59ea0456829041464883135a'
+FETCH_79_REVISION='47c09c5777a33ecd59ea0456829041464883135a'
+FETCH_79_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_80_METHOD='git'
+FETCH_80_SOURCE='80'
+FETCH_80_PATH='ql-win-quicklook'
+FETCH_80_URL='https://github.com/QL-Win/QuickLook.git'
+FETCH_80_REF='cb5d9c429c81d9796fac469da2a68efb5626946d'
+FETCH_80_REVISION='cb5d9c429c81d9796fac469da2a68efb5626946d'
+FETCH_80_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_81_METHOD='git'
+FETCH_81_SOURCE='81'
+FETCH_81_PATH='lsposed-lsposed'
+FETCH_81_URL='https://github.com/LSPosed/LSPosed.git'
+FETCH_81_REF='df74d83eb03a44cc6ad268841ac2ada28d077c77'
+FETCH_81_REVISION='df74d83eb03a44cc6ad268841ac2ada28d077c77'
+FETCH_81_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_82_METHOD='git'
+FETCH_82_SOURCE='82'
+FETCH_82_PATH='dataease-dataease'
+FETCH_82_URL='https://github.com/dataease/dataease.git'
+FETCH_82_REF='9f37143899b47c570a1d3769368641db1a2f5a5c'
+FETCH_82_REVISION='9f37143899b47c570a1d3769368641db1a2f5a5c'
+FETCH_82_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_83_METHOD='git'
+FETCH_83_SOURCE='83'
+FETCH_83_PATH='air-verse-air'
+FETCH_83_URL='https://github.com/air-verse/air.git'
+FETCH_83_REF='9f19e52511f7bb697036e6ee2c12a212e742199d'
+FETCH_83_REVISION='9f19e52511f7bb697036e6ee2c12a212e742199d'
+FETCH_83_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_84_METHOD='git'
+FETCH_84_SOURCE='84'
+FETCH_84_PATH='aldanial-cloc'
+FETCH_84_URL='https://github.com/AlDanial/cloc.git'
+FETCH_84_REF='e94e6ec247b7a30290024d546d0fc86f3ce89261'
+FETCH_84_REVISION='e94e6ec247b7a30290024d546d0fc86f3ce89261'
+FETCH_84_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_85_METHOD='git'
+FETCH_85_SOURCE='85'
+FETCH_85_PATH='openjdk-jdk'
+FETCH_85_URL='https://github.com/openjdk/jdk.git'
+FETCH_85_REF='20ccb7cfbde76b7ce2bb0e635934c252a187f702'
+FETCH_85_REVISION='20ccb7cfbde76b7ce2bb0e635934c252a187f702'
+FETCH_85_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_86_METHOD='git'
+FETCH_86_SOURCE='86'
+FETCH_86_PATH='navidrome-navidrome'
+FETCH_86_URL='https://github.com/navidrome/navidrome.git'
+FETCH_86_REF='a0bf78cdeab4d0f316edcd37094f03d09f0ede8e'
+FETCH_86_REVISION='a0bf78cdeab4d0f316edcd37094f03d09f0ede8e'
+FETCH_86_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_87_METHOD='git'
+FETCH_87_SOURCE='87'
+FETCH_87_PATH='mementum-backtrader'
+FETCH_87_URL='https://github.com/mementum/backtrader.git'
+FETCH_87_REF='b853d7c90b6721476eb5a5ea3135224e33db1f14'
+FETCH_87_REVISION='b853d7c90b6721476eb5a5ea3135224e33db1f14'
+FETCH_87_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_88_METHOD='git'
+FETCH_88_SOURCE='88'
+FETCH_88_PATH='feliscatus-switchyomega'
+FETCH_88_URL='https://github.com/FelisCatus/SwitchyOmega.git'
+FETCH_88_REF='19f9d73f20125b6164fb95d17cd4cc6659df147c'
+FETCH_88_REVISION='19f9d73f20125b6164fb95d17cd4cc6659df147c'
+FETCH_88_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_89_METHOD='git'
+FETCH_89_SOURCE='89'
+FETCH_89_PATH='1panel-dev-maxkb'
+FETCH_89_URL='https://github.com/1Panel-dev/MaxKB.git'
+FETCH_89_REF='01b21db88145278d98bf5e9bd55e6abd6b3aad43'
+FETCH_89_REVISION='01b21db88145278d98bf5e9bd55e6abd6b3aad43'
+FETCH_89_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_90_METHOD='git'
+FETCH_90_SOURCE='90'
+FETCH_90_PATH='chaitin-safeline'
+FETCH_90_URL='https://github.com/chaitin/SafeLine.git'
+FETCH_90_REF='2f27406501973da4bf8543bc9623beb624330215'
+FETCH_90_REVISION='2f27406501973da4bf8543bc9623beb624330215'
+FETCH_90_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_91_METHOD='git'
+FETCH_91_SOURCE='91'
+FETCH_91_PATH='darkflippers-unleashed-firmware'
+FETCH_91_URL='https://github.com/DarkFlippers/unleashed-firmware.git'
+FETCH_91_REF='9d4dae48fad0aaebaf87254cd0707ed6fff073de'
+FETCH_91_REVISION='9d4dae48fad0aaebaf87254cd0707ed6fff073de'
+FETCH_91_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_92_METHOD='git'
+FETCH_92_SOURCE='92'
+FETCH_92_PATH='qmk-qmk_firmware'
+FETCH_92_URL='https://github.com/qmk/qmk_firmware.git'
+FETCH_92_REF='9caa5f871ddb9813c7370708be62d7a3e1cfeb75'
+FETCH_92_REVISION='9caa5f871ddb9813c7370708be62d7a3e1cfeb75'
+FETCH_92_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_93_METHOD='git'
+FETCH_93_SOURCE='93'
+FETCH_93_PATH='atmosphere-nx-atmosphere'
+FETCH_93_URL='https://github.com/Atmosphere-NX/Atmosphere.git'
+FETCH_93_REF='e468f59c9d369b8ebbffa040f4c9fc201b9f75a8'
+FETCH_93_REVISION='e468f59c9d369b8ebbffa040f4c9fc201b9f75a8'
+FETCH_93_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_94_METHOD='git'
+FETCH_94_SOURCE='94'
+FETCH_94_PATH='rpcs3-rpcs3'
+FETCH_94_URL='https://github.com/RPCS3/rpcs3.git'
+FETCH_94_REF='8d034a36e8119165a581c0f7c6c76c5f156886e3'
+FETCH_94_REVISION='8d034a36e8119165a581c0f7c6c76c5f156886e3'
+FETCH_94_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_95_METHOD='git'
+FETCH_95_SOURCE='95'
+FETCH_95_PATH='videolan-vlc'
+FETCH_95_URL='https://github.com/videolan/vlc.git'
+FETCH_95_REF='329ed3135eeabd85d2f190b8e3388e7a7e441d0f'
+FETCH_95_REVISION='329ed3135eeabd85d2f190b8e3388e7a7e441d0f'
+FETCH_95_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_96_METHOD='git'
+FETCH_96_SOURCE='96'
+FETCH_96_PATH='kyleneideck-backgroundmusic'
+FETCH_96_URL='https://github.com/kyleneideck/BackgroundMusic.git'
+FETCH_96_REF='8c25450e9b0d3867417c4872018b03fb30c0c85c'
+FETCH_96_REVISION='8c25450e9b0d3867417c4872018b03fb30c0c85c'
+FETCH_96_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_97_METHOD='git'
+FETCH_97_SOURCE='97'
+FETCH_97_PATH='mikf-gallery-dl'
+FETCH_97_URL='https://github.com/mikf/gallery-dl.git'
+FETCH_97_REF='86047cf67a12bdb6ff1085774f8ad9fc347e8da9'
+FETCH_97_REVISION='86047cf67a12bdb6ff1085774f8ad9fc347e8da9'
+FETCH_97_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_98_METHOD='git'
+FETCH_98_SOURCE='98'
+FETCH_98_PATH='copytranslator-copytranslator'
+FETCH_98_URL='https://github.com/CopyTranslator/CopyTranslator.git'
+FETCH_98_REF='5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef'
+FETCH_98_REVISION='5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef'
+FETCH_98_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_99_METHOD='git'
+FETCH_99_SOURCE='99'
+FETCH_99_PATH='gnachman-iterm2'
+FETCH_99_URL='https://github.com/gnachman/iTerm2.git'
+FETCH_99_REF='3ec57866cd9bcf932f2675f7ca47183793a37b79'
+FETCH_99_REVISION='3ec57866cd9bcf932f2675f7ca47183793a37b79'
+FETCH_99_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_100_METHOD='git'
+FETCH_100_SOURCE='100'
+FETCH_100_PATH='reactos-reactos'
+FETCH_100_URL='https://github.com/reactos/reactos.git'
+FETCH_100_REF='a318b6228a24cda9b752501470e61550e925f657'
+FETCH_100_REVISION='a318b6228a24cda9b752501470e61550e925f657'
+FETCH_100_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_101_METHOD='git'
+FETCH_101_SOURCE='101'
+FETCH_101_PATH='systemd-systemd'
+FETCH_101_URL='https://github.com/systemd/systemd.git'
+FETCH_101_REF='06cb8fbe618604f43c9a9a638e6fc3df920daa0c'
+FETCH_101_REVISION='06cb8fbe618604f43c9a9a638e6fc3df920daa0c'
+FETCH_101_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_102_METHOD='git'
+FETCH_102_SOURCE='102'
+FETCH_102_PATH='xournalpp-xournalpp'
+FETCH_102_URL='https://github.com/xournalpp/xournalpp.git'
+FETCH_102_REF='89bc8dbb45277ff18e888711c4e5b824400a13b4'
+FETCH_102_REVISION='89bc8dbb45277ff18e888711c4e5b824400a13b4'
+FETCH_102_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_103_METHOD='git'
+FETCH_103_SOURCE='103'
+FETCH_103_PATH='xcanwin-keepchatgpt'
+FETCH_103_URL='https://github.com/xcanwin/KeepChatGPT.git'
+FETCH_103_REF='bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3'
+FETCH_103_REVISION='bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3'
+FETCH_103_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_104_METHOD='git'
+FETCH_104_SOURCE='104'
+FETCH_104_PATH='bailicangdu-vue2-manage'
+FETCH_104_URL='https://github.com/bailicangdu/vue2-manage.git'
+FETCH_104_REF='dca263e3a8411ec47b5814a01470162d907d6964'
+FETCH_104_REVISION='dca263e3a8411ec47b5814a01470162d907d6964'
+FETCH_104_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_105_METHOD='git'
+FETCH_105_SOURCE='105'
+FETCH_105_PATH='jonas-tig'
+FETCH_105_URL='https://github.com/jonas/tig.git'
+FETCH_105_REF='1b86f070a1f6d4c686a09b997fd4249d52a2a272'
+FETCH_105_REVISION='1b86f070a1f6d4c686a09b997fd4249d52a2a272'
+FETCH_105_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_106_METHOD='git'
+FETCH_106_SOURCE='106'
+FETCH_106_PATH='autohotkey-autohotkey'
+FETCH_106_URL='https://github.com/AutoHotkey/AutoHotkey.git'
+FETCH_106_REF='34b170115414dd69f1dfaf54893c150deade6bd2'
+FETCH_106_REVISION='34b170115414dd69f1dfaf54893c150deade6bd2'
+FETCH_106_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_107_METHOD='git'
+FETCH_107_SOURCE='107'
+FETCH_107_PATH='stremio-stremio-web'
+FETCH_107_URL='https://github.com/Stremio/stremio-web.git'
+FETCH_107_REF='de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9'
+FETCH_107_REVISION='de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9'
+FETCH_107_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_108_METHOD='git'
+FETCH_108_SOURCE='108'
+FETCH_108_PATH='automattic-wp-calypso'
+FETCH_108_URL='https://github.com/Automattic/wp-calypso.git'
+FETCH_108_REF='329b3647ba759c0a8f3e5034aee5e83c861cab54'
+FETCH_108_REVISION='329b3647ba759c0a8f3e5034aee5e83c861cab54'
+FETCH_108_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_109_METHOD='git'
+FETCH_109_SOURCE='109'
+FETCH_109_PATH='secdev-scapy'
+FETCH_109_URL='https://github.com/secdev/scapy.git'
+FETCH_109_REF='d8f7b272b1eb3e989920ba2a84bbae1a847660bd'
+FETCH_109_REVISION='d8f7b272b1eb3e989920ba2a84bbae1a847660bd'
+FETCH_109_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_110_METHOD='git'
+FETCH_110_SOURCE='110'
+FETCH_110_PATH='typecho-typecho'
+FETCH_110_URL='https://github.com/typecho/typecho.git'
+FETCH_110_REF='56f4c6f33955a87969c399b5d5912d7f9fd7347c'
+FETCH_110_REVISION='56f4c6f33955a87969c399b5d5912d7f9fd7347c'
+FETCH_110_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_111_METHOD='git'
+FETCH_111_SOURCE='111'
+FETCH_111_PATH='bailicangdu-node-elm'
+FETCH_111_URL='https://github.com/bailicangdu/node-elm.git'
+FETCH_111_REF='32ea999c63f59db4f6fb05e3227bc305663782f0'
+FETCH_111_REVISION='32ea999c63f59db4f6fb05e3227bc305663782f0'
+FETCH_111_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_112_METHOD='git'
+FETCH_112_SOURCE='112'
+FETCH_112_PATH='daybreak-u-chineseocr_lite'
+FETCH_112_URL='https://github.com/DayBreak-u/chineseocr_lite.git'
+FETCH_112_REF='54a3df53af823f3bffdde9393d0c021b4f6d94cd'
+FETCH_112_REVISION='54a3df53af823f3bffdde9393d0c021b4f6d94cd'
+FETCH_112_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_113_METHOD='git'
+FETCH_113_SOURCE='113'
+FETCH_113_PATH='lostindark-driverstoreexplorer'
+FETCH_113_URL='https://github.com/lostindark/DriverStoreExplorer.git'
+FETCH_113_REF='d983831f2838b2871255cd5e915dd1a5c07bb6c9'
+FETCH_113_REVISION='d983831f2838b2871255cd5e915dd1a5c07bb6c9'
+FETCH_113_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_114_METHOD='git'
+FETCH_114_SOURCE='114'
+FETCH_114_PATH='mremoteng-mremoteng'
+FETCH_114_URL='https://github.com/mRemoteNG/mRemoteNG.git'
+FETCH_114_REF='87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007'
+FETCH_114_REVISION='87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007'
+FETCH_114_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_115_METHOD='git'
+FETCH_115_SOURCE='115'
+FETCH_115_PATH='aboul3la-sublist3r'
+FETCH_115_URL='https://github.com/aboul3la/Sublist3r.git'
+FETCH_115_REF='729d649ec5370730172bf6f5314aafd68c874124'
+FETCH_115_REVISION='729d649ec5370730172bf6f5314aafd68c874124'
+FETCH_115_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_116_METHOD='git'
+FETCH_116_SOURCE='116'
+FETCH_116_PATH='trinitycore-trinitycore'
+FETCH_116_URL='https://github.com/TrinityCore/TrinityCore.git'
+FETCH_116_REF='fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165'
+FETCH_116_REVISION='fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165'
+FETCH_116_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_117_METHOD='git'
+FETCH_117_SOURCE='117'
+FETCH_117_PATH='rofl0r-proxychains-ng'
+FETCH_117_URL='https://github.com/rofl0r/proxychains-ng.git'
+FETCH_117_REF='e6313ce408645b70b60881130fb2dae9c538b306'
+FETCH_117_REVISION='e6313ce408645b70b60881130fb2dae9c538b306'
+FETCH_117_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_118_METHOD='git'
+FETCH_118_SOURCE='118'
+FETCH_118_PATH='taojy123-keymousego'
+FETCH_118_URL='https://github.com/taojy123/KeymouseGo.git'
+FETCH_118_REF='49577ed0877a0739eef84b2d09f95fca1bbbb416'
+FETCH_118_REVISION='49577ed0877a0739eef84b2d09f95fca1bbbb416'
+FETCH_118_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_119_METHOD='git'
+FETCH_119_SOURCE='119'
+FETCH_119_PATH='lmms-lmms'
+FETCH_119_URL='https://github.com/LMMS/lmms.git'
+FETCH_119_REF='067c3ad4124af9114d8aa186923550e51e1b8e5a'
+FETCH_119_REVISION='067c3ad4124af9114d8aa186923550e51e1b8e5a'
+FETCH_119_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_120_METHOD='git'
+FETCH_120_SOURCE='120'
+FETCH_120_PATH='s3fs-fuse-s3fs-fuse'
+FETCH_120_URL='https://github.com/s3fs-fuse/s3fs-fuse.git'
+FETCH_120_REF='c12124a4e1194375511efb35c04d473b26b7f853'
+FETCH_120_REVISION='c12124a4e1194375511efb35c04d473b26b7f853'
+FETCH_120_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_121_METHOD='git'
+FETCH_121_SOURCE='121'
+FETCH_121_PATH='gnu-bash'
+FETCH_121_URL='https://git.savannah.gnu.org/git/bash.git'
+FETCH_121_REF='b460816602167718f78a6233164e8875f49b75b2'
+FETCH_121_REVISION='b460816602167718f78a6233164e8875f49b75b2'
+FETCH_121_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_122_METHOD='git'
+FETCH_122_SOURCE='122'
+FETCH_122_PATH='gnu-coreutils'
+FETCH_122_URL='https://git.savannah.gnu.org/git/coreutils.git'
+FETCH_122_REF='786488adef22c477d8e3c8b562f9c4cb02288014'
+FETCH_122_REVISION='786488adef22c477d8e3c8b562f9c4cb02288014'
+FETCH_122_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_123_METHOD='git'
+FETCH_123_SOURCE='123'
+FETCH_123_PATH='gnu-diffutils'
+FETCH_123_URL='https://git.savannah.gnu.org/git/diffutils.git'
+FETCH_123_REF='ba490bf17c1938e7cd0c2309a08d9a59b962bdff'
+FETCH_123_REVISION='ba490bf17c1938e7cd0c2309a08d9a59b962bdff'
+FETCH_123_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_124_METHOD='git'
+FETCH_124_SOURCE='124'
+FETCH_124_PATH='gnu-emacs'
+FETCH_124_URL='https://git.savannah.gnu.org/git/emacs.git'
+FETCH_124_REF='b157d8e96a26e7509136bf93fad2c7ec49c0ee88'
+FETCH_124_REVISION='b157d8e96a26e7509136bf93fad2c7ec49c0ee88'
+FETCH_124_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_125_METHOD='git'
+FETCH_125_SOURCE='125'
+FETCH_125_PATH='gnu-findutils'
+FETCH_125_URL='https://git.savannah.gnu.org/git/findutils.git'
+FETCH_125_REF='eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3'
+FETCH_125_REVISION='eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3'
+FETCH_125_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_126_METHOD='git'
+FETCH_126_SOURCE='126'
+FETCH_126_PATH='gnu-gawk'
+FETCH_126_URL='https://git.savannah.gnu.org/git/gawk.git'
+FETCH_126_REF='65929a5cdba54e1e044c91218b0dd845bf50455a'
+FETCH_126_REVISION='65929a5cdba54e1e044c91218b0dd845bf50455a'
+FETCH_126_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_127_METHOD='git'
+FETCH_127_SOURCE='127'
+FETCH_127_PATH='gnu-grep'
+FETCH_127_URL='https://git.savannah.gnu.org/git/grep.git'
+FETCH_127_REF='79da8e07613966b9e53c7ef31b4765d39f98044d'
+FETCH_127_REVISION='79da8e07613966b9e53c7ef31b4765d39f98044d'
+FETCH_127_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_128_METHOD='git'
+FETCH_128_SOURCE='128'
+FETCH_128_PATH='gnu-gzip'
+FETCH_128_URL='https://git.savannah.gnu.org/git/gzip.git'
+FETCH_128_REF='5f62db44b781b01a3d6d8436babcf8113f32efd2'
+FETCH_128_REVISION='5f62db44b781b01a3d6d8436babcf8113f32efd2'
+FETCH_128_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_129_METHOD='git'
+FETCH_129_SOURCE='129'
+FETCH_129_PATH='gnu-make'
+FETCH_129_URL='https://git.savannah.gnu.org/git/make.git'
+FETCH_129_REF='b3802782de3eff2c0f1eda9e7c0befd8cd142162'
+FETCH_129_REVISION='b3802782de3eff2c0f1eda9e7c0befd8cd142162'
+FETCH_129_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_130_METHOD='git'
+FETCH_130_SOURCE='130'
+FETCH_130_PATH='gnu-nano'
+FETCH_130_URL='https://git.savannah.gnu.org/git/nano.git'
+FETCH_130_REF='8e6360d1663998c62ddd0cf934923d1f18004e3e'
+FETCH_130_REVISION='8e6360d1663998c62ddd0cf934923d1f18004e3e'
+FETCH_130_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_131_METHOD='git'
+FETCH_131_SOURCE='131'
+FETCH_131_PATH='gnu-patch'
+FETCH_131_URL='https://git.savannah.gnu.org/git/patch.git'
+FETCH_131_REF='a2b192295d7046bafc18d54973436bb3faa659d7'
+FETCH_131_REVISION='a2b192295d7046bafc18d54973436bb3faa659d7'
+FETCH_131_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_132_METHOD='git'
+FETCH_132_SOURCE='132'
+FETCH_132_PATH='gnu-sed'
+FETCH_132_URL='https://git.savannah.gnu.org/git/sed.git'
+FETCH_132_REF='31df9f71cb62e423311985b3bf352ee84c4a9e54'
+FETCH_132_REVISION='31df9f71cb62e423311985b3bf352ee84c4a9e54'
+FETCH_132_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_133_METHOD='git'
+FETCH_133_SOURCE='133'
+FETCH_133_PATH='gnu-tar'
+FETCH_133_URL='https://git.savannah.gnu.org/git/tar.git'
+FETCH_133_REF='d1df7f403de05bfbe11527a5b570469fb1011fda'
+FETCH_133_REVISION='d1df7f403de05bfbe11527a5b570469fb1011fda'
+FETCH_133_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
+FETCH_134_METHOD='git'
+FETCH_134_SOURCE='134'
+FETCH_134_PATH='gnu-wget'
+FETCH_134_URL='https://git.savannah.gnu.org/git/wget.git'
+FETCH_134_REF='705e9e3a749f9f0430c1fad9892227c210c66dee'
+FETCH_134_REVISION='705e9e3a749f9f0430c1fad9892227c210c66dee'
+FETCH_134_OPTIONS='--skip-symlinks
+--filter-blobs
+--source-code'
+
 script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 . "$script_dir/../functions.sh"
-
-fetcher_begin "$@"
-fetcher_require jq find sort awk wc git tar
-fetcher_size 100G
-fetcher_git 'clash-verge-rev-clash-verge-rev' 'https://github.com/clash-verge-rev/clash-verge-rev.git' 'c34781e1677d29422940c57e10fbf254c5f215ff' 'c34781e1677d29422940c57e10fbf254c5f215ff' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'comfy-org-comfyui' 'https://github.com/Comfy-Org/ComfyUI.git' 'a683fa6e577f3f73ab8a0b4d7434173ccaec9c12' 'a683fa6e577f3f73ab8a0b4d7434173ccaec9c12' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git '2dust-v2rayn' 'https://github.com/2dust/v2rayN.git' '31044f449db5562aedb871daf69c0873e4b8a768' '31044f449db5562aedb871daf69c0873e4b8a768' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'netdata-netdata' 'https://github.com/netdata/netdata.git' '58d3948c3af4f15bfd1c146b40e7f419675f2dbe' '58d3948c3af4f15bfd1c146b40e7f419675f2dbe' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ventoy-ventoy' 'https://github.com/ventoy/Ventoy.git' '6568972abca37e33e031e1f2651a68a86491082b' '6568972abca37e33e031e1f2651a68a86491082b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'obsproject-obs-studio' 'https://github.com/obsproject/obs-studio.git' '220a16378fb9079b0ebd008ee994f5cb298de90d' '220a16378fb9079b0ebd008ee994f5cb298de90d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'binary-husky-gpt_academic' 'https://github.com/binary-husky/gpt_academic.git' 'd6bde0fa54373309bd05823a49bda8da019d2c77' 'd6bde0fa54373309bd05823a49bda8da019d2c77' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ansible-ansible' 'https://github.com/ansible/ansible.git' 'c5ecb46c3f8c135a76ee86584f4b77b50184e5a6' 'c5ecb46c3f8c135a76ee86584f4b77b50184e5a6' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gorhill-ublock' 'https://github.com/gorhill/uBlock.git' '6bc5ee892d7b135d1d230d658520c46ab2cbb2e8' '6bc5ee892d7b135d1d230d658520c46ab2cbb2e8' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'xtekky-gpt4free' 'https://github.com/xtekky/gpt4free.git' '8b4edf83622eabe445d28df313e704c9cdd342ff' '8b4edf83622eabe445d28df313e704c9cdd342ff' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'topjohnwu-magisk' 'https://github.com/topjohnwu/Magisk.git' 'ede844bdaa4d673617c0f14a991a79542c95967c' 'ede844bdaa4d673617c0f14a991a79542c95967c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git '2dust-v2rayng' 'https://github.com/2dust/v2rayNG.git' 'f63f649477fe884ae6101ccb2c6fb172832e0d03' 'f63f649477fe884ae6101ccb2c6fb172832e0d03' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'tw93-pake' 'https://github.com/tw93/Pake.git' 'c01afad4e258de6a27fa483908dfdeb6df3914ad' 'c01afad4e258de6a27fa483908dfdeb6df3914ad' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'deepfakes-faceswap' 'https://github.com/deepfakes/faceswap.git' 'f530cb7508ae670f6474f8a7d9c4df94705cf96b' 'f530cb7508ae670f6474f8a7d9c4df94705cf96b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jellyfin-jellyfin' 'https://github.com/jellyfin/jellyfin.git' 'fb763c47bfc88b1661f8dd1f3f7a4340d140380e' 'fb763c47bfc88b1661f8dd1f3f7a4340d140380e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'werwolv-imhex' 'https://github.com/WerWolv/ImHex.git' 'bb938c41fb29aed576180384d534cf2476bc8ebb' 'bb938c41fb29aed576180384d534cf2476bc8ebb' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'freqtrade-freqtrade' 'https://github.com/freqtrade/freqtrade.git' '89d469fe638eaf116d45a8f92598aeed4d9f6dde' '89d469fe638eaf116d45a8f92598aeed4d9f6dde' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'sickcodes-docker-osx' 'https://github.com/sickcodes/Docker-OSX.git' 'aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3' 'aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'justjavac-wechat-miniapp-radar' 'https://github.com/justjavac/wechat-miniapp-radar.git' '02a010ecea0320b7aa975bb62a5dde271ae630c9' '02a010ecea0320b7aa975bb62a5dde271ae630c9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'chen08209-flclash' 'https://github.com/chen08209/FlClash.git' '7c831855efedceb1a72bd0b4c18da026593d0853' '7c831855efedceb1a72bd0b4c18da026593d0853' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'acmesh-official-acme.sh' 'https://github.com/acmesh-official/acme.sh.git' '2feb392bd0e3964d9bf68871ae804578d9d5ca80' '2feb392bd0e3964d9bf68871ae804578d9d5ca80' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'iina-iina' 'https://github.com/iina/iina.git' 'a25ed1390eff00cbed5f2eca045ee8dccd28d791' 'a25ed1390eff00cbed5f2eca045ee8dccd28d791' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jgm-pandoc' 'https://github.com/jgm/pandoc.git' '87bc462713209420f9beac0041b47c42935f7a1d' '87bc462713209420f9beac0041b47c42935f7a1d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mhsanaei-3x-ui' 'https://github.com/MHSanaei/3x-ui.git' 'ece16559397f756513d7338f59168049dd6e2e51' 'ece16559397f756513d7338f59168049dd6e2e51' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'paperless-ngx-paperless-ngx' 'https://github.com/paperless-ngx/paperless-ngx.git' '17dc482872cf62e12965f6207772c83d1deb651b' '17dc482872cf62e12965f6207772c83d1deb651b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mifi-lossless-cut' 'https://github.com/mifi/lossless-cut.git' '3b9a59c288bf6e11076b583c932cfa48ddab3b02' '3b9a59c288bf6e11076b583c932cfa48ddab3b02' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git '666ghj-bettafish' 'https://github.com/666ghj/BettaFish.git' 'dcd309dfc08480708e41af0c9f7b2e68db191a25' 'dcd309dfc08480708e41af0c9f7b2e68db191a25' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'aria2-aria2' 'https://github.com/aria2/aria2.git' '9e7273583f83e881e3ec067b523ba88724088d2f' '9e7273583f83e881e3ec067b523ba88724088d2f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'chatboxai-chatbox' 'https://github.com/chatboxai/chatbox.git' '5c7e38828699aefa4efd17b44f817aa263c8f900' '5c7e38828699aefa4efd17b44f817aa263c8f900' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bailicangdu-vue2-elm' 'https://github.com/bailicangdu/vue2-elm.git' 'b85ff0220366be863868269177a4abf74c7a85ca' 'b85ff0220366be863868269177a4abf74c7a85ca' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'corentinth-it-tools' 'https://github.com/CorentinTh/it-tools.git' 'd505845f918e946ec300af7b36efc107e2f66e9e' 'd505845f918e946ec300af7b36efc107e2f66e9e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'lizardbyte-sunshine' 'https://github.com/LizardByte/Sunshine.git' '25c06d79b54f3d092d3fedd5f5ba44989f394692' '25c06d79b54f3d092d3fedd5f5ba44989f394692' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'koalaman-shellcheck' 'https://github.com/koalaman/shellcheck.git' '9af7ee28ce587baadd950b85dd6826a16b9c068d' '9af7ee28ce587baadd950b85dd6826a16b9c068d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'halo-dev-halo' 'https://github.com/halo-dev/halo.git' '815292f426d8f216d02398a2813dc9a52d881775' '815292f426d8f216d02398a2813dc9a52d881775' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'teamnewpipe-newpipe' 'https://github.com/TeamNewPipe/NewPipe.git' '89d2423692918653134e79a841d96e065175e976' '89d2423692918653134e79a841d96e065175e976' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'sharex-sharex' 'https://github.com/ShareX/ShareX.git' 'b1a388ebd428e49fd9909e9319c2ce8e93577f67' 'b1a388ebd428e49fd9909e9319c2ce8e93577f67' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'huiyadanli-revokemsgpatcher' 'https://github.com/huiyadanli/RevokeMsgPatcher.git' '939dfaf00a2fcec90674c4ffddb37b6773460c51' '939dfaf00a2fcec90674c4ffddb37b6773460c51' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'frappe-erpnext' 'https://github.com/frappe/erpnext.git' '53d3ba7a7820e3c09b24a698149a63ecfc523e84' '53d3ba7a7820e3c09b24a698149a63ecfc523e84' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'pbatard-rufus' 'https://github.com/pbatard/rufus.git' '6d8fbf98305ff37eb531c45cbd6ff44563c53917' '6d8fbf98305ff37eb531c45cbd6ff44563c53917' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git '1panel-dev-1panel' 'https://github.com/1Panel-dev/1Panel.git' 'd1558c5eaea9bcafef5f3a885af279ad5ccd8d25' 'd1558c5eaea9bcafef5f3a885af279ad5ccd8d25' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'zuodaotech-everyone-can-use-english' 'https://github.com/ZuodaoTech/everyone-can-use-english.git' '3d799132046993eade5a364ddd1e557906854eda' '3d799132046993eade5a364ddd1e557906854eda' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'alvarotrigo-fullpage.js' 'https://github.com/alvarotrigo/fullPage.js.git' '49f15effa7b195def295a36f872c28153cf9fb00' '49f15effa7b195def295a36f872c28153cf9fb00' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'kovidgoyal-kitty' 'https://github.com/kovidgoyal/kitty.git' 'a6d5e7145a3fc36822bcf5296e4b1f1194239f48' 'a6d5e7145a3fc36822bcf5296e4b1f1194239f48' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ehang-io-nps' 'https://github.com/ehang-io/nps.git' 'ab648d6f0c618c690a7a79948a7ebd686e1cdafc' 'ab648d6f0c618c690a7a79948a7ebd686e1cdafc' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'valinet-explorerpatcher' 'https://github.com/valinet/ExplorerPatcher.git' '0a88a6e0ef6b1752fea36e581cffff1097e862b0' '0a88a6e0ef6b1752fea36e581cffff1097e862b0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bilibili-ijkplayer' 'https://github.com/bilibili/ijkplayer.git' '30eb9441945da795079492041a791c121d2b8206' '30eb9441945da795079492041a791c121d2b8206' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'shadowsocks-shadowsocksx-ng' 'https://github.com/shadowsocks/ShadowsocksX-NG.git' '719203afc60e1dbab00e459ebcfecc468e7700bd' '719203afc60e1dbab00e459ebcfecc468e7700bd' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'shadps4-emu-shadps4' 'https://github.com/shadps4-emu/shadPS4.git' 'c5ae3c681276bd884b9b714c2099d55796c36154' 'c5ae3c681276bd884b9b714c2099d55796c36154' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'facebook-rocksdb' 'https://github.com/facebook/rocksdb.git' '1dfa7297933df05237ac11376d6cb69d32591b1d' '1dfa7297933df05237ac11376d6cb69d32591b1d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gethomepage-homepage' 'https://github.com/gethomepage/homepage.git' '1a047d1dfc135fd3c904699f562dd9ea892088e6' '1a047d1dfc135fd3c904699f562dd9ea892088e6' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jumpserver-jumpserver' 'https://github.com/jumpserver/jumpserver.git' '93214a3067ad80b04d036122eeab33f2539e3633' '93214a3067ad80b04d036122eeab33f2539e3633' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'flameshot-org-flameshot' 'https://github.com/flameshot-org/flameshot.git' '52260408e3a3b810095d8e7661ca2911cb46ea57' '52260408e3a3b810095d8e7661ca2911cb46ea57' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'maboloshi-github-chinese' 'https://github.com/maboloshi/github-chinese.git' 'bf852c09a2ee1e4d832af62d50e4f839ad3514e1' 'bf852c09a2ee1e4d832af62d50e4f839ad3514e1' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'xuxueli-xxl-job' 'https://github.com/xuxueli/xxl-job.git' 'e74c784f68f81fa89cb350913ef15794865d7b12' 'e74c784f68f81fa89cb350913ef15794865d7b12' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'drklo-telegram' 'https://github.com/DrKLO/Telegram.git' '45ab8f4308496e1f01026a97fcdb0d58a5274474' '45ab8f4308496e1f01026a97fcdb0d58a5274474' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git '233boy-v2ray' 'https://github.com/233boy/v2ray.git' '707ecf7601ff49f91c2d12dd22b98e8f89588d1c' '707ecf7601ff49f91c2d12dd22b98e8f89588d1c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'python-telegram-bot-python-telegram-bot' 'https://github.com/python-telegram-bot/python-telegram-bot.git' '377f5effb3afc2d9b1e7e1de1b908b26cc87fd17' '377f5effb3afc2d9b1e7e1de1b908b26cc87fd17' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'slymnoyann-hey-1' 'https://github.com/slymnoyann/hey-1.git' '88c8f9d55340d57a37846ff72f55c2c604e3a566' '88c8f9d55340d57a37846ff72f55c2c604e3a566' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'librepods-org-librepods' 'https://github.com/librepods-org/librepods.git' 'b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25' 'b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jordanbaird-ice' 'https://github.com/jordanbaird/Ice.git' '11edd39115f3f43a83ae114b5348df6a0e1741cf' '11edd39115f3f43a83ae114b5348df6a0e1741cf' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'revanced-revanced-manager' 'https://github.com/ReVanced/revanced-manager.git' '2a88257b71d35c9f141907ffea67c87e51bbb0db' '2a88257b71d35c9f141907ffea67c87e51bbb0db' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'predidit-kazumi' 'https://github.com/Predidit/Kazumi.git' 'c5e3feb43bcdb576d9639649991ebad77c1ab31f' 'c5e3feb43bcdb576d9639649991ebad77c1ab31f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'anuken-mindustry' 'https://github.com/Anuken/Mindustry.git' '269a3f58415cda92af1b55038924f5865bc17a0e' '269a3f58415cda92af1b55038924f5865bc17a0e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'cloudreve-cloudreve' 'https://github.com/cloudreve/cloudreve.git' '20c95ad73f3a8bcb72887fea91ff31ab24fa1011' '20c95ad73f3a8bcb72887fea91ff31ab24fa1011' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'nvchad-nvchad' 'https://github.com/NvChad/NvChad.git' 'add44b952d631981614bbb8cfc6f7002f296dfe6' 'add44b952d631981614bbb8cfc6f7002f296dfe6' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'fanmingming-live' 'https://github.com/fanmingming/live.git' 'b085d39e05d126f91709d7a545604bd667a6f026' 'b085d39e05d126f91709d7a545604bd667a6f026' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'junkfood02-seal' 'https://github.com/JunkFood02/Seal.git' '44e0d2e6fc26177e0da4cb1948223baa13b0887f' '44e0d2e6fc26177e0da4cb1948223baa13b0887f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'deskflow-deskflow' 'https://github.com/deskflow/deskflow.git' 'f765e829f2373f055331e910d69b8c8b8006952b' 'f765e829f2373f055331e910d69b8c8b8006952b' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'wox-launcher-wox' 'https://github.com/Wox-launcher/Wox.git' '2e1db9c38a7bb03ecbd67cec4c47bf39c3633880' '2e1db9c38a7bb03ecbd67cec4c47bf39c3633880' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'niri-wm-niri' 'https://github.com/niri-wm/niri.git' '59a10015610bb7d068a82ce1c386fcd8b44f6c52' '59a10015610bb7d068a82ce1c386fcd8b44f6c52' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'schniz-fnm' 'https://github.com/Schniz/fnm.git' '86adc9676ceb2a509b21e75e74048b93c89f097d' '86adc9676ceb2a509b21e75e74048b93c89f097d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'beyonddimension-steamtools' 'https://github.com/BeyondDimension/SteamTools.git' 'c16ffa08e03b192d23ada290c4969e77f9201f3d' 'c16ffa08e03b192d23ada290c4969e77f9201f3d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'typesense-typesense' 'https://github.com/typesense/typesense.git' '2b1ea8002cfa6febc212123deec6c6bed66837b3' '2b1ea8002cfa6febc212123deec6c6bed66837b3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ycm-core-youcompleteme' 'https://github.com/ycm-core/YouCompleteMe.git' 'd4c91430b70a21ce471c8572400b647d313995b4' 'd4c91430b70a21ce471c8572400b647d313995b4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mihomo-party-org-clash-party' 'https://github.com/mihomo-party-org/clash-party.git' '8af583e771b218d33174e3897ac7b5bdec1cb302' '8af583e771b218d33174e3897ac7b5bdec1cb302' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'zhaoolee-chromeappheroes' 'https://github.com/zhaoolee/ChromeAppHeroes.git' 'abe715d5059c415225e2a1e42ecf67d0aa65b5a1' 'abe715d5059c415225e2a1e42ecf67d0aa65b5a1' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gopeedlab-gopeed' 'https://github.com/GopeedLab/gopeed.git' 'fdfc6902a7750a3628735e8bf37d739bfda9549c' 'fdfc6902a7750a3628735e8bf37d739bfda9549c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'argotorg-solidity' 'https://github.com/argotorg/solidity.git' '9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a' '9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'syl20bnr-spacemacs' 'https://github.com/syl20bnr/spacemacs.git' '47c09c5777a33ecd59ea0456829041464883135a' '47c09c5777a33ecd59ea0456829041464883135a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'ql-win-quicklook' 'https://github.com/QL-Win/QuickLook.git' 'cb5d9c429c81d9796fac469da2a68efb5626946d' 'cb5d9c429c81d9796fac469da2a68efb5626946d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'lsposed-lsposed' 'https://github.com/LSPosed/LSPosed.git' 'df74d83eb03a44cc6ad268841ac2ada28d077c77' 'df74d83eb03a44cc6ad268841ac2ada28d077c77' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'dataease-dataease' 'https://github.com/dataease/dataease.git' '9f37143899b47c570a1d3769368641db1a2f5a5c' '9f37143899b47c570a1d3769368641db1a2f5a5c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'air-verse-air' 'https://github.com/air-verse/air.git' '9f19e52511f7bb697036e6ee2c12a212e742199d' '9f19e52511f7bb697036e6ee2c12a212e742199d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'aldanial-cloc' 'https://github.com/AlDanial/cloc.git' 'e94e6ec247b7a30290024d546d0fc86f3ce89261' 'e94e6ec247b7a30290024d546d0fc86f3ce89261' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'openjdk-jdk' 'https://github.com/openjdk/jdk.git' '20ccb7cfbde76b7ce2bb0e635934c252a187f702' '20ccb7cfbde76b7ce2bb0e635934c252a187f702' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'navidrome-navidrome' 'https://github.com/navidrome/navidrome.git' 'a0bf78cdeab4d0f316edcd37094f03d09f0ede8e' 'a0bf78cdeab4d0f316edcd37094f03d09f0ede8e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mementum-backtrader' 'https://github.com/mementum/backtrader.git' 'b853d7c90b6721476eb5a5ea3135224e33db1f14' 'b853d7c90b6721476eb5a5ea3135224e33db1f14' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'feliscatus-switchyomega' 'https://github.com/FelisCatus/SwitchyOmega.git' '19f9d73f20125b6164fb95d17cd4cc6659df147c' '19f9d73f20125b6164fb95d17cd4cc6659df147c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git '1panel-dev-maxkb' 'https://github.com/1Panel-dev/MaxKB.git' '01b21db88145278d98bf5e9bd55e6abd6b3aad43' '01b21db88145278d98bf5e9bd55e6abd6b3aad43' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'chaitin-safeline' 'https://github.com/chaitin/SafeLine.git' '2f27406501973da4bf8543bc9623beb624330215' '2f27406501973da4bf8543bc9623beb624330215' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'darkflippers-unleashed-firmware' 'https://github.com/DarkFlippers/unleashed-firmware.git' '9d4dae48fad0aaebaf87254cd0707ed6fff073de' '9d4dae48fad0aaebaf87254cd0707ed6fff073de' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'qmk-qmk_firmware' 'https://github.com/qmk/qmk_firmware.git' '9caa5f871ddb9813c7370708be62d7a3e1cfeb75' '9caa5f871ddb9813c7370708be62d7a3e1cfeb75' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'atmosphere-nx-atmosphere' 'https://github.com/Atmosphere-NX/Atmosphere.git' 'e468f59c9d369b8ebbffa040f4c9fc201b9f75a8' 'e468f59c9d369b8ebbffa040f4c9fc201b9f75a8' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'rpcs3-rpcs3' 'https://github.com/RPCS3/rpcs3.git' '8d034a36e8119165a581c0f7c6c76c5f156886e3' '8d034a36e8119165a581c0f7c6c76c5f156886e3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'videolan-vlc' 'https://github.com/videolan/vlc.git' '329ed3135eeabd85d2f190b8e3388e7a7e441d0f' '329ed3135eeabd85d2f190b8e3388e7a7e441d0f' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'kyleneideck-backgroundmusic' 'https://github.com/kyleneideck/BackgroundMusic.git' '8c25450e9b0d3867417c4872018b03fb30c0c85c' '8c25450e9b0d3867417c4872018b03fb30c0c85c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mikf-gallery-dl' 'https://github.com/mikf/gallery-dl.git' '86047cf67a12bdb6ff1085774f8ad9fc347e8da9' '86047cf67a12bdb6ff1085774f8ad9fc347e8da9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'copytranslator-copytranslator' 'https://github.com/CopyTranslator/CopyTranslator.git' '5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef' '5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnachman-iterm2' 'https://github.com/gnachman/iTerm2.git' '3ec57866cd9bcf932f2675f7ca47183793a37b79' '3ec57866cd9bcf932f2675f7ca47183793a37b79' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'reactos-reactos' 'https://github.com/reactos/reactos.git' 'a318b6228a24cda9b752501470e61550e925f657' 'a318b6228a24cda9b752501470e61550e925f657' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'systemd-systemd' 'https://github.com/systemd/systemd.git' '06cb8fbe618604f43c9a9a638e6fc3df920daa0c' '06cb8fbe618604f43c9a9a638e6fc3df920daa0c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'xournalpp-xournalpp' 'https://github.com/xournalpp/xournalpp.git' '89bc8dbb45277ff18e888711c4e5b824400a13b4' '89bc8dbb45277ff18e888711c4e5b824400a13b4' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'xcanwin-keepchatgpt' 'https://github.com/xcanwin/KeepChatGPT.git' 'bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3' 'bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bailicangdu-vue2-manage' 'https://github.com/bailicangdu/vue2-manage.git' 'dca263e3a8411ec47b5814a01470162d907d6964' 'dca263e3a8411ec47b5814a01470162d907d6964' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'jonas-tig' 'https://github.com/jonas/tig.git' '1b86f070a1f6d4c686a09b997fd4249d52a2a272' '1b86f070a1f6d4c686a09b997fd4249d52a2a272' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'autohotkey-autohotkey' 'https://github.com/AutoHotkey/AutoHotkey.git' '34b170115414dd69f1dfaf54893c150deade6bd2' '34b170115414dd69f1dfaf54893c150deade6bd2' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'stremio-stremio-web' 'https://github.com/Stremio/stremio-web.git' 'de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9' 'de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'automattic-wp-calypso' 'https://github.com/Automattic/wp-calypso.git' '329b3647ba759c0a8f3e5034aee5e83c861cab54' '329b3647ba759c0a8f3e5034aee5e83c861cab54' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'secdev-scapy' 'https://github.com/secdev/scapy.git' 'd8f7b272b1eb3e989920ba2a84bbae1a847660bd' 'd8f7b272b1eb3e989920ba2a84bbae1a847660bd' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'typecho-typecho' 'https://github.com/typecho/typecho.git' '56f4c6f33955a87969c399b5d5912d7f9fd7347c' '56f4c6f33955a87969c399b5d5912d7f9fd7347c' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'bailicangdu-node-elm' 'https://github.com/bailicangdu/node-elm.git' '32ea999c63f59db4f6fb05e3227bc305663782f0' '32ea999c63f59db4f6fb05e3227bc305663782f0' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'daybreak-u-chineseocr_lite' 'https://github.com/DayBreak-u/chineseocr_lite.git' '54a3df53af823f3bffdde9393d0c021b4f6d94cd' '54a3df53af823f3bffdde9393d0c021b4f6d94cd' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'lostindark-driverstoreexplorer' 'https://github.com/lostindark/DriverStoreExplorer.git' 'd983831f2838b2871255cd5e915dd1a5c07bb6c9' 'd983831f2838b2871255cd5e915dd1a5c07bb6c9' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'mremoteng-mremoteng' 'https://github.com/mRemoteNG/mRemoteNG.git' '87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007' '87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'aboul3la-sublist3r' 'https://github.com/aboul3la/Sublist3r.git' '729d649ec5370730172bf6f5314aafd68c874124' '729d649ec5370730172bf6f5314aafd68c874124' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'trinitycore-trinitycore' 'https://github.com/TrinityCore/TrinityCore.git' 'fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165' 'fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'rofl0r-proxychains-ng' 'https://github.com/rofl0r/proxychains-ng.git' 'e6313ce408645b70b60881130fb2dae9c538b306' 'e6313ce408645b70b60881130fb2dae9c538b306' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'taojy123-keymousego' 'https://github.com/taojy123/KeymouseGo.git' '49577ed0877a0739eef84b2d09f95fca1bbbb416' '49577ed0877a0739eef84b2d09f95fca1bbbb416' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'lmms-lmms' 'https://github.com/LMMS/lmms.git' '067c3ad4124af9114d8aa186923550e51e1b8e5a' '067c3ad4124af9114d8aa186923550e51e1b8e5a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 's3fs-fuse-s3fs-fuse' 'https://github.com/s3fs-fuse/s3fs-fuse.git' 'c12124a4e1194375511efb35c04d473b26b7f853' 'c12124a4e1194375511efb35c04d473b26b7f853' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-bash' 'https://git.savannah.gnu.org/git/bash.git' 'b460816602167718f78a6233164e8875f49b75b2' 'b460816602167718f78a6233164e8875f49b75b2' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-coreutils' 'https://git.savannah.gnu.org/git/coreutils.git' '786488adef22c477d8e3c8b562f9c4cb02288014' '786488adef22c477d8e3c8b562f9c4cb02288014' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-diffutils' 'https://git.savannah.gnu.org/git/diffutils.git' 'ba490bf17c1938e7cd0c2309a08d9a59b962bdff' 'ba490bf17c1938e7cd0c2309a08d9a59b962bdff' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-emacs' 'https://git.savannah.gnu.org/git/emacs.git' 'b157d8e96a26e7509136bf93fad2c7ec49c0ee88' 'b157d8e96a26e7509136bf93fad2c7ec49c0ee88' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-findutils' 'https://git.savannah.gnu.org/git/findutils.git' 'eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3' 'eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-gawk' 'https://git.savannah.gnu.org/git/gawk.git' '65929a5cdba54e1e044c91218b0dd845bf50455a' '65929a5cdba54e1e044c91218b0dd845bf50455a' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-grep' 'https://git.savannah.gnu.org/git/grep.git' '79da8e07613966b9e53c7ef31b4765d39f98044d' '79da8e07613966b9e53c7ef31b4765d39f98044d' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-gzip' 'https://git.savannah.gnu.org/git/gzip.git' '5f62db44b781b01a3d6d8436babcf8113f32efd2' '5f62db44b781b01a3d6d8436babcf8113f32efd2' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-make' 'https://git.savannah.gnu.org/git/make.git' 'b3802782de3eff2c0f1eda9e7c0befd8cd142162' 'b3802782de3eff2c0f1eda9e7c0befd8cd142162' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-nano' 'https://git.savannah.gnu.org/git/nano.git' '8e6360d1663998c62ddd0cf934923d1f18004e3e' '8e6360d1663998c62ddd0cf934923d1f18004e3e' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-patch' 'https://git.savannah.gnu.org/git/patch.git' 'a2b192295d7046bafc18d54973436bb3faa659d7' 'a2b192295d7046bafc18d54973436bb3faa659d7' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-sed' 'https://git.savannah.gnu.org/git/sed.git' '31df9f71cb62e423311985b3bf352ee84c4a9e54' '31df9f71cb62e423311985b3bf352ee84c4a9e54' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-tar' 'https://git.savannah.gnu.org/git/tar.git' 'd1df7f403de05bfbe11527a5b570469fb1011fda' 'd1df7f403de05bfbe11527a5b570469fb1011fda' '--skip-symlinks' '--filter-blobs' '--source-code'
-fetcher_git 'gnu-wget' 'https://git.savannah.gnu.org/git/wget.git' '705e9e3a749f9f0430c1fad9892227c210c66dee' '705e9e3a749f9f0430c1fad9892227c210c66dee' '--skip-symlinks' '--filter-blobs' '--source-code'
-
-# shellcheck disable=SC2119
-fetcher_manifest <<'JSON'
-{
-  "corpus": {
-    "id": "copyleft",
-    "title": "Copyleft-Licensed Project Code",
-    "description": "Project-owned files from immutable open-source repository commits, with text, structured, and binary assets retained while common vendored, generated, dependency, fixture, and build-output trees are excluded.",
-    "destination": "code/copyleft"
-  },
-  "sources": [
-    {
-      "id": "clash-verge-rev-clash-verge-rev",
-      "path": "clash-verge-rev-clash-verge-rev",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "clash-verge-rev/clash-verge-rev",
-        "version": "c34781e1677d29422940c57e10fbf254c5f215ff",
-        "url": "https://github.com/clash-verge-rev/clash-verge-rev",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/clash-verge-rev/clash-verge-rev/license?ref=c34781e1677d29422940c57e10fbf254c5f215ff",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/clash-verge-rev/clash-verge-rev.git",
-          "revision": "c34781e1677d29422940c57e10fbf254c5f215ff",
-          "ref": "c34781e1677d29422940c57e10fbf254c5f215ff"
-        }
-      ]
-    },
-    {
-      "id": "comfy-org-comfyui",
-      "path": "comfy-org-comfyui",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "Comfy-Org/ComfyUI",
-        "version": "a683fa6e577f3f73ab8a0b4d7434173ccaec9c12",
-        "url": "https://github.com/Comfy-Org/ComfyUI",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Comfy-Org/ComfyUI/license?ref=a683fa6e577f3f73ab8a0b4d7434173ccaec9c12",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Comfy-Org/ComfyUI.git",
-          "revision": "a683fa6e577f3f73ab8a0b4d7434173ccaec9c12",
-          "ref": "a683fa6e577f3f73ab8a0b4d7434173ccaec9c12"
-        }
-      ]
-    },
-    {
-      "id": "2dust-v2rayn",
-      "path": "2dust-v2rayn",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "2dust/v2rayN",
-        "version": "31044f449db5562aedb871daf69c0873e4b8a768",
-        "url": "https://github.com/2dust/v2rayN",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/2dust/v2rayN/license?ref=31044f449db5562aedb871daf69c0873e4b8a768",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/2dust/v2rayN.git",
-          "revision": "31044f449db5562aedb871daf69c0873e4b8a768",
-          "ref": "31044f449db5562aedb871daf69c0873e4b8a768"
-        }
-      ]
-    },
-    {
-      "id": "netdata-netdata",
-      "path": "netdata-netdata",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "netdata/netdata",
-        "version": "58d3948c3af4f15bfd1c146b40e7f419675f2dbe",
-        "url": "https://github.com/netdata/netdata",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/netdata/netdata/license?ref=58d3948c3af4f15bfd1c146b40e7f419675f2dbe",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/netdata/netdata.git",
-          "revision": "58d3948c3af4f15bfd1c146b40e7f419675f2dbe",
-          "ref": "58d3948c3af4f15bfd1c146b40e7f419675f2dbe"
-        }
-      ]
-    },
-    {
-      "id": "ventoy-ventoy",
-      "path": "ventoy-ventoy",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "ventoy/Ventoy",
-        "version": "6568972abca37e33e031e1f2651a68a86491082b",
-        "url": "https://github.com/ventoy/Ventoy",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ventoy/Ventoy/license?ref=6568972abca37e33e031e1f2651a68a86491082b",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ventoy/Ventoy.git",
-          "revision": "6568972abca37e33e031e1f2651a68a86491082b",
-          "ref": "6568972abca37e33e031e1f2651a68a86491082b"
-        }
-      ]
-    },
-    {
-      "id": "obsproject-obs-studio",
-      "path": "obsproject-obs-studio",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "obsproject/obs-studio",
-        "version": "220a16378fb9079b0ebd008ee994f5cb298de90d",
-        "url": "https://github.com/obsproject/obs-studio",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/obsproject/obs-studio/license?ref=220a16378fb9079b0ebd008ee994f5cb298de90d",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/obsproject/obs-studio.git",
-          "revision": "220a16378fb9079b0ebd008ee994f5cb298de90d",
-          "ref": "220a16378fb9079b0ebd008ee994f5cb298de90d"
-        }
-      ]
-    },
-    {
-      "id": "binary-husky-gpt_academic",
-      "path": "binary-husky-gpt_academic",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "binary-husky/gpt_academic",
-        "version": "d6bde0fa54373309bd05823a49bda8da019d2c77",
-        "url": "https://github.com/binary-husky/gpt_academic",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/binary-husky/gpt_academic/license?ref=d6bde0fa54373309bd05823a49bda8da019d2c77",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/binary-husky/gpt_academic.git",
-          "revision": "d6bde0fa54373309bd05823a49bda8da019d2c77",
-          "ref": "d6bde0fa54373309bd05823a49bda8da019d2c77"
-        }
-      ]
-    },
-    {
-      "id": "ansible-ansible",
-      "path": "ansible-ansible",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "ansible/ansible",
-        "version": "c5ecb46c3f8c135a76ee86584f4b77b50184e5a6",
-        "url": "https://github.com/ansible/ansible",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ansible/ansible/license?ref=c5ecb46c3f8c135a76ee86584f4b77b50184e5a6",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ansible/ansible.git",
-          "revision": "c5ecb46c3f8c135a76ee86584f4b77b50184e5a6",
-          "ref": "c5ecb46c3f8c135a76ee86584f4b77b50184e5a6"
-        }
-      ]
-    },
-    {
-      "id": "gorhill-ublock",
-      "path": "gorhill-ublock",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "gorhill/uBlock",
-        "version": "6bc5ee892d7b135d1d230d658520c46ab2cbb2e8",
-        "url": "https://github.com/gorhill/uBlock",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/gorhill/uBlock/license?ref=6bc5ee892d7b135d1d230d658520c46ab2cbb2e8",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/gorhill/uBlock.git",
-          "revision": "6bc5ee892d7b135d1d230d658520c46ab2cbb2e8",
-          "ref": "6bc5ee892d7b135d1d230d658520c46ab2cbb2e8"
-        }
-      ]
-    },
-    {
-      "id": "xtekky-gpt4free",
-      "path": "xtekky-gpt4free",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "xtekky/gpt4free",
-        "version": "8b4edf83622eabe445d28df313e704c9cdd342ff",
-        "url": "https://github.com/xtekky/gpt4free",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/xtekky/gpt4free/license?ref=8b4edf83622eabe445d28df313e704c9cdd342ff",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/xtekky/gpt4free.git",
-          "revision": "8b4edf83622eabe445d28df313e704c9cdd342ff",
-          "ref": "8b4edf83622eabe445d28df313e704c9cdd342ff"
-        }
-      ]
-    },
-    {
-      "id": "topjohnwu-magisk",
-      "path": "topjohnwu-magisk",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "topjohnwu/Magisk",
-        "version": "ede844bdaa4d673617c0f14a991a79542c95967c",
-        "url": "https://github.com/topjohnwu/Magisk",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/topjohnwu/Magisk/license?ref=ede844bdaa4d673617c0f14a991a79542c95967c",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Kotlin"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/topjohnwu/Magisk.git",
-          "revision": "ede844bdaa4d673617c0f14a991a79542c95967c",
-          "ref": "ede844bdaa4d673617c0f14a991a79542c95967c"
-        }
-      ]
-    },
-    {
-      "id": "2dust-v2rayng",
-      "path": "2dust-v2rayng",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "2dust/v2rayNG",
-        "version": "f63f649477fe884ae6101ccb2c6fb172832e0d03",
-        "url": "https://github.com/2dust/v2rayNG",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/2dust/v2rayNG/license?ref=f63f649477fe884ae6101ccb2c6fb172832e0d03",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Kotlin"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/2dust/v2rayNG.git",
-          "revision": "f63f649477fe884ae6101ccb2c6fb172832e0d03",
-          "ref": "f63f649477fe884ae6101ccb2c6fb172832e0d03"
-        }
-      ]
-    },
-    {
-      "id": "tw93-pake",
-      "path": "tw93-pake",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "tw93/Pake",
-        "version": "c01afad4e258de6a27fa483908dfdeb6df3914ad",
-        "url": "https://github.com/tw93/Pake",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/tw93/Pake/license?ref=c01afad4e258de6a27fa483908dfdeb6df3914ad",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/tw93/Pake.git",
-          "revision": "c01afad4e258de6a27fa483908dfdeb6df3914ad",
-          "ref": "c01afad4e258de6a27fa483908dfdeb6df3914ad"
-        }
-      ]
-    },
-    {
-      "id": "deepfakes-faceswap",
-      "path": "deepfakes-faceswap",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "deepfakes/faceswap",
-        "version": "f530cb7508ae670f6474f8a7d9c4df94705cf96b",
-        "url": "https://github.com/deepfakes/faceswap",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/deepfakes/faceswap/license?ref=f530cb7508ae670f6474f8a7d9c4df94705cf96b",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/deepfakes/faceswap.git",
-          "revision": "f530cb7508ae670f6474f8a7d9c4df94705cf96b",
-          "ref": "f530cb7508ae670f6474f8a7d9c4df94705cf96b"
-        }
-      ]
-    },
-    {
-      "id": "jellyfin-jellyfin",
-      "path": "jellyfin-jellyfin",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "jellyfin/jellyfin",
-        "version": "fb763c47bfc88b1661f8dd1f3f7a4340d140380e",
-        "url": "https://github.com/jellyfin/jellyfin",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jellyfin/jellyfin/license?ref=fb763c47bfc88b1661f8dd1f3f7a4340d140380e",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jellyfin/jellyfin.git",
-          "revision": "fb763c47bfc88b1661f8dd1f3f7a4340d140380e",
-          "ref": "fb763c47bfc88b1661f8dd1f3f7a4340d140380e"
-        }
-      ]
-    },
-    {
-      "id": "werwolv-imhex",
-      "path": "werwolv-imhex",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "WerWolv/ImHex",
-        "version": "bb938c41fb29aed576180384d534cf2476bc8ebb",
-        "url": "https://github.com/WerWolv/ImHex",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/WerWolv/ImHex/license?ref=bb938c41fb29aed576180384d534cf2476bc8ebb",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/WerWolv/ImHex.git",
-          "revision": "bb938c41fb29aed576180384d534cf2476bc8ebb",
-          "ref": "bb938c41fb29aed576180384d534cf2476bc8ebb"
-        }
-      ]
-    },
-    {
-      "id": "freqtrade-freqtrade",
-      "path": "freqtrade-freqtrade",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "freqtrade/freqtrade",
-        "version": "89d469fe638eaf116d45a8f92598aeed4d9f6dde",
-        "url": "https://github.com/freqtrade/freqtrade",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/freqtrade/freqtrade/license?ref=89d469fe638eaf116d45a8f92598aeed4d9f6dde",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/freqtrade/freqtrade.git",
-          "revision": "89d469fe638eaf116d45a8f92598aeed4d9f6dde",
-          "ref": "89d469fe638eaf116d45a8f92598aeed4d9f6dde"
-        }
-      ]
-    },
-    {
-      "id": "sickcodes-docker-osx",
-      "path": "sickcodes-docker-osx",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "sickcodes/Docker-OSX",
-        "version": "aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3",
-        "url": "https://github.com/sickcodes/Docker-OSX",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/sickcodes/Docker-OSX/license?ref=aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Shell"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/sickcodes/Docker-OSX.git",
-          "revision": "aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3",
-          "ref": "aa05a2c9a06aabfc8542c1c373ad1ad0af74ede3"
-        }
-      ]
-    },
-    {
-      "id": "justjavac-wechat-miniapp-radar",
-      "path": "justjavac-wechat-miniapp-radar",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "justjavac/wechat-miniapp-radar",
-        "version": "02a010ecea0320b7aa975bb62a5dde271ae630c9",
-        "url": "https://github.com/justjavac/wechat-miniapp-radar",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/justjavac/wechat-miniapp-radar/license?ref=02a010ecea0320b7aa975bb62a5dde271ae630c9",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/justjavac/wechat-miniapp-radar.git",
-          "revision": "02a010ecea0320b7aa975bb62a5dde271ae630c9",
-          "ref": "02a010ecea0320b7aa975bb62a5dde271ae630c9"
-        }
-      ]
-    },
-    {
-      "id": "chen08209-flclash",
-      "path": "chen08209-flclash",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "chen08209/FlClash",
-        "version": "7c831855efedceb1a72bd0b4c18da026593d0853",
-        "url": "https://github.com/chen08209/FlClash",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/chen08209/FlClash/license?ref=7c831855efedceb1a72bd0b4c18da026593d0853",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Dart"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/chen08209/FlClash.git",
-          "revision": "7c831855efedceb1a72bd0b4c18da026593d0853",
-          "ref": "7c831855efedceb1a72bd0b4c18da026593d0853"
-        }
-      ]
-    },
-    {
-      "id": "acmesh-official-acme.sh",
-      "path": "acmesh-official-acme.sh",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "acmesh-official/acme.sh",
-        "version": "2feb392bd0e3964d9bf68871ae804578d9d5ca80",
-        "url": "https://github.com/acmesh-official/acme.sh",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/acmesh-official/acme.sh/license?ref=2feb392bd0e3964d9bf68871ae804578d9d5ca80",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Shell"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/acmesh-official/acme.sh.git",
-          "revision": "2feb392bd0e3964d9bf68871ae804578d9d5ca80",
-          "ref": "2feb392bd0e3964d9bf68871ae804578d9d5ca80"
-        }
-      ]
-    },
-    {
-      "id": "iina-iina",
-      "path": "iina-iina",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "iina/iina",
-        "version": "a25ed1390eff00cbed5f2eca045ee8dccd28d791",
-        "url": "https://github.com/iina/iina",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/iina/iina/license?ref=a25ed1390eff00cbed5f2eca045ee8dccd28d791",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Swift"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/iina/iina.git",
-          "revision": "a25ed1390eff00cbed5f2eca045ee8dccd28d791",
-          "ref": "a25ed1390eff00cbed5f2eca045ee8dccd28d791"
-        }
-      ]
-    },
-    {
-      "id": "jgm-pandoc",
-      "path": "jgm-pandoc",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "jgm/pandoc",
-        "version": "87bc462713209420f9beac0041b47c42935f7a1d",
-        "url": "https://github.com/jgm/pandoc",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jgm/pandoc/license?ref=87bc462713209420f9beac0041b47c42935f7a1d",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Haskell"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jgm/pandoc.git",
-          "revision": "87bc462713209420f9beac0041b47c42935f7a1d",
-          "ref": "87bc462713209420f9beac0041b47c42935f7a1d"
-        }
-      ]
-    },
-    {
-      "id": "mhsanaei-3x-ui",
-      "path": "mhsanaei-3x-ui",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "MHSanaei/3x-ui",
-        "version": "ece16559397f756513d7338f59168049dd6e2e51",
-        "url": "https://github.com/MHSanaei/3x-ui",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/MHSanaei/3x-ui/license?ref=ece16559397f756513d7338f59168049dd6e2e51",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/MHSanaei/3x-ui.git",
-          "revision": "ece16559397f756513d7338f59168049dd6e2e51",
-          "ref": "ece16559397f756513d7338f59168049dd6e2e51"
-        }
-      ]
-    },
-    {
-      "id": "paperless-ngx-paperless-ngx",
-      "path": "paperless-ngx-paperless-ngx",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "paperless-ngx/paperless-ngx",
-        "version": "17dc482872cf62e12965f6207772c83d1deb651b",
-        "url": "https://github.com/paperless-ngx/paperless-ngx",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/paperless-ngx/paperless-ngx/license?ref=17dc482872cf62e12965f6207772c83d1deb651b",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/paperless-ngx/paperless-ngx.git",
-          "revision": "17dc482872cf62e12965f6207772c83d1deb651b",
-          "ref": "17dc482872cf62e12965f6207772c83d1deb651b"
-        }
-      ]
-    },
-    {
-      "id": "mifi-lossless-cut",
-      "path": "mifi-lossless-cut",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "mifi/lossless-cut",
-        "version": "3b9a59c288bf6e11076b583c932cfa48ddab3b02",
-        "url": "https://github.com/mifi/lossless-cut",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mifi/lossless-cut/license?ref=3b9a59c288bf6e11076b583c932cfa48ddab3b02",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mifi/lossless-cut.git",
-          "revision": "3b9a59c288bf6e11076b583c932cfa48ddab3b02",
-          "ref": "3b9a59c288bf6e11076b583c932cfa48ddab3b02"
-        }
-      ]
-    },
-    {
-      "id": "666ghj-bettafish",
-      "path": "666ghj-bettafish",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "666ghj/BettaFish",
-        "version": "dcd309dfc08480708e41af0c9f7b2e68db191a25",
-        "url": "https://github.com/666ghj/BettaFish",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/666ghj/BettaFish/license?ref=dcd309dfc08480708e41af0c9f7b2e68db191a25",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/666ghj/BettaFish.git",
-          "revision": "dcd309dfc08480708e41af0c9f7b2e68db191a25",
-          "ref": "dcd309dfc08480708e41af0c9f7b2e68db191a25"
-        }
-      ]
-    },
-    {
-      "id": "aria2-aria2",
-      "path": "aria2-aria2",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "aria2/aria2",
-        "version": "9e7273583f83e881e3ec067b523ba88724088d2f",
-        "url": "https://github.com/aria2/aria2",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/aria2/aria2/license?ref=9e7273583f83e881e3ec067b523ba88724088d2f",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/aria2/aria2.git",
-          "revision": "9e7273583f83e881e3ec067b523ba88724088d2f",
-          "ref": "9e7273583f83e881e3ec067b523ba88724088d2f"
-        }
-      ]
-    },
-    {
-      "id": "chatboxai-chatbox",
-      "path": "chatboxai-chatbox",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "chatboxai/chatbox",
-        "version": "5c7e38828699aefa4efd17b44f817aa263c8f900",
-        "url": "https://github.com/chatboxai/chatbox",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/chatboxai/chatbox/license?ref=5c7e38828699aefa4efd17b44f817aa263c8f900",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/chatboxai/chatbox.git",
-          "revision": "5c7e38828699aefa4efd17b44f817aa263c8f900",
-          "ref": "5c7e38828699aefa4efd17b44f817aa263c8f900"
-        }
-      ]
-    },
-    {
-      "id": "bailicangdu-vue2-elm",
-      "path": "bailicangdu-vue2-elm",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "bailicangdu/vue2-elm",
-        "version": "b85ff0220366be863868269177a4abf74c7a85ca",
-        "url": "https://github.com/bailicangdu/vue2-elm",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/bailicangdu/vue2-elm/license?ref=b85ff0220366be863868269177a4abf74c7a85ca",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Vue"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/bailicangdu/vue2-elm.git",
-          "revision": "b85ff0220366be863868269177a4abf74c7a85ca",
-          "ref": "b85ff0220366be863868269177a4abf74c7a85ca"
-        }
-      ]
-    },
-    {
-      "id": "corentinth-it-tools",
-      "path": "corentinth-it-tools",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "CorentinTh/it-tools",
-        "version": "d505845f918e946ec300af7b36efc107e2f66e9e",
-        "url": "https://github.com/CorentinTh/it-tools",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/CorentinTh/it-tools/license?ref=d505845f918e946ec300af7b36efc107e2f66e9e",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Vue"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/CorentinTh/it-tools.git",
-          "revision": "d505845f918e946ec300af7b36efc107e2f66e9e",
-          "ref": "d505845f918e946ec300af7b36efc107e2f66e9e"
-        }
-      ]
-    },
-    {
-      "id": "lizardbyte-sunshine",
-      "path": "lizardbyte-sunshine",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "LizardByte/Sunshine",
-        "version": "25c06d79b54f3d092d3fedd5f5ba44989f394692",
-        "url": "https://github.com/LizardByte/Sunshine",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/LizardByte/Sunshine/license?ref=25c06d79b54f3d092d3fedd5f5ba44989f394692",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/LizardByte/Sunshine.git",
-          "revision": "25c06d79b54f3d092d3fedd5f5ba44989f394692",
-          "ref": "25c06d79b54f3d092d3fedd5f5ba44989f394692"
-        }
-      ]
-    },
-    {
-      "id": "koalaman-shellcheck",
-      "path": "koalaman-shellcheck",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "koalaman/shellcheck",
-        "version": "9af7ee28ce587baadd950b85dd6826a16b9c068d",
-        "url": "https://github.com/koalaman/shellcheck",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/koalaman/shellcheck/license?ref=9af7ee28ce587baadd950b85dd6826a16b9c068d",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Haskell"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/koalaman/shellcheck.git",
-          "revision": "9af7ee28ce587baadd950b85dd6826a16b9c068d",
-          "ref": "9af7ee28ce587baadd950b85dd6826a16b9c068d"
-        }
-      ]
-    },
-    {
-      "id": "halo-dev-halo",
-      "path": "halo-dev-halo",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "halo-dev/halo",
-        "version": "815292f426d8f216d02398a2813dc9a52d881775",
-        "url": "https://github.com/halo-dev/halo",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/halo-dev/halo/license?ref=815292f426d8f216d02398a2813dc9a52d881775",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/halo-dev/halo.git",
-          "revision": "815292f426d8f216d02398a2813dc9a52d881775",
-          "ref": "815292f426d8f216d02398a2813dc9a52d881775"
-        }
-      ]
-    },
-    {
-      "id": "teamnewpipe-newpipe",
-      "path": "teamnewpipe-newpipe",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "TeamNewPipe/NewPipe",
-        "version": "89d2423692918653134e79a841d96e065175e976",
-        "url": "https://github.com/TeamNewPipe/NewPipe",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/TeamNewPipe/NewPipe/license?ref=89d2423692918653134e79a841d96e065175e976",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/TeamNewPipe/NewPipe.git",
-          "revision": "89d2423692918653134e79a841d96e065175e976",
-          "ref": "89d2423692918653134e79a841d96e065175e976"
-        }
-      ]
-    },
-    {
-      "id": "sharex-sharex",
-      "path": "sharex-sharex",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "ShareX/ShareX",
-        "version": "b1a388ebd428e49fd9909e9319c2ce8e93577f67",
-        "url": "https://github.com/ShareX/ShareX",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ShareX/ShareX/license?ref=b1a388ebd428e49fd9909e9319c2ce8e93577f67",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ShareX/ShareX.git",
-          "revision": "b1a388ebd428e49fd9909e9319c2ce8e93577f67",
-          "ref": "b1a388ebd428e49fd9909e9319c2ce8e93577f67"
-        }
-      ]
-    },
-    {
-      "id": "huiyadanli-revokemsgpatcher",
-      "path": "huiyadanli-revokemsgpatcher",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "huiyadanli/RevokeMsgPatcher",
-        "version": "939dfaf00a2fcec90674c4ffddb37b6773460c51",
-        "url": "https://github.com/huiyadanli/RevokeMsgPatcher",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/huiyadanli/RevokeMsgPatcher/license?ref=939dfaf00a2fcec90674c4ffddb37b6773460c51",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/huiyadanli/RevokeMsgPatcher.git",
-          "revision": "939dfaf00a2fcec90674c4ffddb37b6773460c51",
-          "ref": "939dfaf00a2fcec90674c4ffddb37b6773460c51"
-        }
-      ]
-    },
-    {
-      "id": "frappe-erpnext",
-      "path": "frappe-erpnext",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "frappe/erpnext",
-        "version": "53d3ba7a7820e3c09b24a698149a63ecfc523e84",
-        "url": "https://github.com/frappe/erpnext",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/frappe/erpnext/license?ref=53d3ba7a7820e3c09b24a698149a63ecfc523e84",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/frappe/erpnext.git",
-          "revision": "53d3ba7a7820e3c09b24a698149a63ecfc523e84",
-          "ref": "53d3ba7a7820e3c09b24a698149a63ecfc523e84"
-        }
-      ]
-    },
-    {
-      "id": "pbatard-rufus",
-      "path": "pbatard-rufus",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "pbatard/rufus",
-        "version": "6d8fbf98305ff37eb531c45cbd6ff44563c53917",
-        "url": "https://github.com/pbatard/rufus",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/pbatard/rufus/license?ref=6d8fbf98305ff37eb531c45cbd6ff44563c53917",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/pbatard/rufus.git",
-          "revision": "6d8fbf98305ff37eb531c45cbd6ff44563c53917",
-          "ref": "6d8fbf98305ff37eb531c45cbd6ff44563c53917"
-        }
-      ]
-    },
-    {
-      "id": "1panel-dev-1panel",
-      "path": "1panel-dev-1panel",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "1Panel-dev/1Panel",
-        "version": "d1558c5eaea9bcafef5f3a885af279ad5ccd8d25",
-        "url": "https://github.com/1Panel-dev/1Panel",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/1Panel-dev/1Panel/license?ref=d1558c5eaea9bcafef5f3a885af279ad5ccd8d25",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/1Panel-dev/1Panel.git",
-          "revision": "d1558c5eaea9bcafef5f3a885af279ad5ccd8d25",
-          "ref": "d1558c5eaea9bcafef5f3a885af279ad5ccd8d25"
-        }
-      ]
-    },
-    {
-      "id": "zuodaotech-everyone-can-use-english",
-      "path": "zuodaotech-everyone-can-use-english",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "ZuodaoTech/everyone-can-use-english",
-        "version": "3d799132046993eade5a364ddd1e557906854eda",
-        "url": "https://github.com/ZuodaoTech/everyone-can-use-english",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ZuodaoTech/everyone-can-use-english/license?ref=3d799132046993eade5a364ddd1e557906854eda",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ZuodaoTech/everyone-can-use-english.git",
-          "revision": "3d799132046993eade5a364ddd1e557906854eda",
-          "ref": "3d799132046993eade5a364ddd1e557906854eda"
-        }
-      ]
-    },
-    {
-      "id": "alvarotrigo-fullpage.js",
-      "path": "alvarotrigo-fullpage.js",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "alvarotrigo/fullPage.js",
-        "version": "49f15effa7b195def295a36f872c28153cf9fb00",
-        "url": "https://github.com/alvarotrigo/fullPage.js",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/alvarotrigo/fullPage.js/license?ref=49f15effa7b195def295a36f872c28153cf9fb00",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/alvarotrigo/fullPage.js.git",
-          "revision": "49f15effa7b195def295a36f872c28153cf9fb00",
-          "ref": "49f15effa7b195def295a36f872c28153cf9fb00"
-        }
-      ]
-    },
-    {
-      "id": "kovidgoyal-kitty",
-      "path": "kovidgoyal-kitty",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "kovidgoyal/kitty",
-        "version": "a6d5e7145a3fc36822bcf5296e4b1f1194239f48",
-        "url": "https://github.com/kovidgoyal/kitty",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/kovidgoyal/kitty/license?ref=a6d5e7145a3fc36822bcf5296e4b1f1194239f48",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/kovidgoyal/kitty.git",
-          "revision": "a6d5e7145a3fc36822bcf5296e4b1f1194239f48",
-          "ref": "a6d5e7145a3fc36822bcf5296e4b1f1194239f48"
-        }
-      ]
-    },
-    {
-      "id": "ehang-io-nps",
-      "path": "ehang-io-nps",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "ehang-io/nps",
-        "version": "ab648d6f0c618c690a7a79948a7ebd686e1cdafc",
-        "url": "https://github.com/ehang-io/nps",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ehang-io/nps/license?ref=ab648d6f0c618c690a7a79948a7ebd686e1cdafc",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ehang-io/nps.git",
-          "revision": "ab648d6f0c618c690a7a79948a7ebd686e1cdafc",
-          "ref": "ab648d6f0c618c690a7a79948a7ebd686e1cdafc"
-        }
-      ]
-    },
-    {
-      "id": "valinet-explorerpatcher",
-      "path": "valinet-explorerpatcher",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "valinet/ExplorerPatcher",
-        "version": "0a88a6e0ef6b1752fea36e581cffff1097e862b0",
-        "url": "https://github.com/valinet/ExplorerPatcher",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/valinet/ExplorerPatcher/license?ref=0a88a6e0ef6b1752fea36e581cffff1097e862b0",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/valinet/ExplorerPatcher.git",
-          "revision": "0a88a6e0ef6b1752fea36e581cffff1097e862b0",
-          "ref": "0a88a6e0ef6b1752fea36e581cffff1097e862b0"
-        }
-      ]
-    },
-    {
-      "id": "bilibili-ijkplayer",
-      "path": "bilibili-ijkplayer",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "bilibili/ijkplayer",
-        "version": "30eb9441945da795079492041a791c121d2b8206",
-        "url": "https://github.com/bilibili/ijkplayer",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/bilibili/ijkplayer/license?ref=30eb9441945da795079492041a791c121d2b8206",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/bilibili/ijkplayer.git",
-          "revision": "30eb9441945da795079492041a791c121d2b8206",
-          "ref": "30eb9441945da795079492041a791c121d2b8206"
-        }
-      ]
-    },
-    {
-      "id": "shadowsocks-shadowsocksx-ng",
-      "path": "shadowsocks-shadowsocksx-ng",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "shadowsocks/ShadowsocksX-NG",
-        "version": "719203afc60e1dbab00e459ebcfecc468e7700bd",
-        "url": "https://github.com/shadowsocks/ShadowsocksX-NG",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/shadowsocks/ShadowsocksX-NG/license?ref=719203afc60e1dbab00e459ebcfecc468e7700bd",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Swift"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/shadowsocks/ShadowsocksX-NG.git",
-          "revision": "719203afc60e1dbab00e459ebcfecc468e7700bd",
-          "ref": "719203afc60e1dbab00e459ebcfecc468e7700bd"
-        }
-      ]
-    },
-    {
-      "id": "shadps4-emu-shadps4",
-      "path": "shadps4-emu-shadps4",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "shadps4-emu/shadPS4",
-        "version": "c5ae3c681276bd884b9b714c2099d55796c36154",
-        "url": "https://github.com/shadps4-emu/shadPS4",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/shadps4-emu/shadPS4/license?ref=c5ae3c681276bd884b9b714c2099d55796c36154",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/shadps4-emu/shadPS4.git",
-          "revision": "c5ae3c681276bd884b9b714c2099d55796c36154",
-          "ref": "c5ae3c681276bd884b9b714c2099d55796c36154"
-        }
-      ]
-    },
-    {
-      "id": "facebook-rocksdb",
-      "path": "facebook-rocksdb",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "facebook/rocksdb",
-        "version": "1dfa7297933df05237ac11376d6cb69d32591b1d",
-        "url": "https://github.com/facebook/rocksdb",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/facebook/rocksdb/license?ref=1dfa7297933df05237ac11376d6cb69d32591b1d",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/facebook/rocksdb.git",
-          "revision": "1dfa7297933df05237ac11376d6cb69d32591b1d",
-          "ref": "1dfa7297933df05237ac11376d6cb69d32591b1d"
-        }
-      ]
-    },
-    {
-      "id": "gethomepage-homepage",
-      "path": "gethomepage-homepage",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "gethomepage/homepage",
-        "version": "1a047d1dfc135fd3c904699f562dd9ea892088e6",
-        "url": "https://github.com/gethomepage/homepage",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/gethomepage/homepage/license?ref=1a047d1dfc135fd3c904699f562dd9ea892088e6",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/gethomepage/homepage.git",
-          "revision": "1a047d1dfc135fd3c904699f562dd9ea892088e6",
-          "ref": "1a047d1dfc135fd3c904699f562dd9ea892088e6"
-        }
-      ]
-    },
-    {
-      "id": "jumpserver-jumpserver",
-      "path": "jumpserver-jumpserver",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "jumpserver/jumpserver",
-        "version": "93214a3067ad80b04d036122eeab33f2539e3633",
-        "url": "https://github.com/jumpserver/jumpserver",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jumpserver/jumpserver/license?ref=93214a3067ad80b04d036122eeab33f2539e3633",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jumpserver/jumpserver.git",
-          "revision": "93214a3067ad80b04d036122eeab33f2539e3633",
-          "ref": "93214a3067ad80b04d036122eeab33f2539e3633"
-        }
-      ]
-    },
-    {
-      "id": "flameshot-org-flameshot",
-      "path": "flameshot-org-flameshot",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "flameshot-org/flameshot",
-        "version": "52260408e3a3b810095d8e7661ca2911cb46ea57",
-        "url": "https://github.com/flameshot-org/flameshot",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/flameshot-org/flameshot/license?ref=52260408e3a3b810095d8e7661ca2911cb46ea57",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/flameshot-org/flameshot.git",
-          "revision": "52260408e3a3b810095d8e7661ca2911cb46ea57",
-          "ref": "52260408e3a3b810095d8e7661ca2911cb46ea57"
-        }
-      ]
-    },
-    {
-      "id": "maboloshi-github-chinese",
-      "path": "maboloshi-github-chinese",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "maboloshi/github-chinese",
-        "version": "bf852c09a2ee1e4d832af62d50e4f839ad3514e1",
-        "url": "https://github.com/maboloshi/github-chinese",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/maboloshi/github-chinese/license?ref=bf852c09a2ee1e4d832af62d50e4f839ad3514e1",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/maboloshi/github-chinese.git",
-          "revision": "bf852c09a2ee1e4d832af62d50e4f839ad3514e1",
-          "ref": "bf852c09a2ee1e4d832af62d50e4f839ad3514e1"
-        }
-      ]
-    },
-    {
-      "id": "xuxueli-xxl-job",
-      "path": "xuxueli-xxl-job",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "xuxueli/xxl-job",
-        "version": "e74c784f68f81fa89cb350913ef15794865d7b12",
-        "url": "https://github.com/xuxueli/xxl-job",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/xuxueli/xxl-job/license?ref=e74c784f68f81fa89cb350913ef15794865d7b12",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/xuxueli/xxl-job.git",
-          "revision": "e74c784f68f81fa89cb350913ef15794865d7b12",
-          "ref": "e74c784f68f81fa89cb350913ef15794865d7b12"
-        }
-      ]
-    },
-    {
-      "id": "drklo-telegram",
-      "path": "drklo-telegram",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "DrKLO/Telegram",
-        "version": "45ab8f4308496e1f01026a97fcdb0d58a5274474",
-        "url": "https://github.com/DrKLO/Telegram",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/DrKLO/Telegram/license?ref=45ab8f4308496e1f01026a97fcdb0d58a5274474",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/DrKLO/Telegram.git",
-          "revision": "45ab8f4308496e1f01026a97fcdb0d58a5274474",
-          "ref": "45ab8f4308496e1f01026a97fcdb0d58a5274474"
-        }
-      ]
-    },
-    {
-      "id": "233boy-v2ray",
-      "path": "233boy-v2ray",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "233boy/v2ray",
-        "version": "707ecf7601ff49f91c2d12dd22b98e8f89588d1c",
-        "url": "https://github.com/233boy/v2ray",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/233boy/v2ray/license?ref=707ecf7601ff49f91c2d12dd22b98e8f89588d1c",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Shell"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/233boy/v2ray.git",
-          "revision": "707ecf7601ff49f91c2d12dd22b98e8f89588d1c",
-          "ref": "707ecf7601ff49f91c2d12dd22b98e8f89588d1c"
-        }
-      ]
-    },
-    {
-      "id": "python-telegram-bot-python-telegram-bot",
-      "path": "python-telegram-bot-python-telegram-bot",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "python-telegram-bot/python-telegram-bot",
-        "version": "377f5effb3afc2d9b1e7e1de1b908b26cc87fd17",
-        "url": "https://github.com/python-telegram-bot/python-telegram-bot",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/python-telegram-bot/python-telegram-bot/license?ref=377f5effb3afc2d9b1e7e1de1b908b26cc87fd17",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/python-telegram-bot/python-telegram-bot.git",
-          "revision": "377f5effb3afc2d9b1e7e1de1b908b26cc87fd17",
-          "ref": "377f5effb3afc2d9b1e7e1de1b908b26cc87fd17"
-        }
-      ]
-    },
-    {
-      "id": "slymnoyann-hey-1",
-      "path": "slymnoyann-hey-1",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "slymnoyann/hey-1",
-        "version": "88c8f9d55340d57a37846ff72f55c2c604e3a566",
-        "url": "https://github.com/slymnoyann/hey-1",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/slymnoyann/hey-1/license?ref=88c8f9d55340d57a37846ff72f55c2c604e3a566",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/slymnoyann/hey-1.git",
-          "revision": "88c8f9d55340d57a37846ff72f55c2c604e3a566",
-          "ref": "88c8f9d55340d57a37846ff72f55c2c604e3a566"
-        }
-      ]
-    },
-    {
-      "id": "librepods-org-librepods",
-      "path": "librepods-org-librepods",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "librepods-org/librepods",
-        "version": "b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25",
-        "url": "https://github.com/librepods-org/librepods",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/librepods-org/librepods/license?ref=b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Kotlin"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/librepods-org/librepods.git",
-          "revision": "b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25",
-          "ref": "b5a3eaee8fbe5a0c83c360bb0fdcd6705a59cc25"
-        }
-      ]
-    },
-    {
-      "id": "jordanbaird-ice",
-      "path": "jordanbaird-ice",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "jordanbaird/Ice",
-        "version": "11edd39115f3f43a83ae114b5348df6a0e1741cf",
-        "url": "https://github.com/jordanbaird/Ice",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jordanbaird/Ice/license?ref=11edd39115f3f43a83ae114b5348df6a0e1741cf",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Swift"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jordanbaird/Ice.git",
-          "revision": "11edd39115f3f43a83ae114b5348df6a0e1741cf",
-          "ref": "11edd39115f3f43a83ae114b5348df6a0e1741cf"
-        }
-      ]
-    },
-    {
-      "id": "revanced-revanced-manager",
-      "path": "revanced-revanced-manager",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "ReVanced/revanced-manager",
-        "version": "2a88257b71d35c9f141907ffea67c87e51bbb0db",
-        "url": "https://github.com/ReVanced/revanced-manager",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ReVanced/revanced-manager/license?ref=2a88257b71d35c9f141907ffea67c87e51bbb0db",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Kotlin"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ReVanced/revanced-manager.git",
-          "revision": "2a88257b71d35c9f141907ffea67c87e51bbb0db",
-          "ref": "2a88257b71d35c9f141907ffea67c87e51bbb0db"
-        }
-      ]
-    },
-    {
-      "id": "predidit-kazumi",
-      "path": "predidit-kazumi",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "Predidit/Kazumi",
-        "version": "c5e3feb43bcdb576d9639649991ebad77c1ab31f",
-        "url": "https://github.com/Predidit/Kazumi",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Predidit/Kazumi/license?ref=c5e3feb43bcdb576d9639649991ebad77c1ab31f",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Dart"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Predidit/Kazumi.git",
-          "revision": "c5e3feb43bcdb576d9639649991ebad77c1ab31f",
-          "ref": "c5e3feb43bcdb576d9639649991ebad77c1ab31f"
-        }
-      ]
-    },
-    {
-      "id": "anuken-mindustry",
-      "path": "anuken-mindustry",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "Anuken/Mindustry",
-        "version": "269a3f58415cda92af1b55038924f5865bc17a0e",
-        "url": "https://github.com/Anuken/Mindustry",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Anuken/Mindustry/license?ref=269a3f58415cda92af1b55038924f5865bc17a0e",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Anuken/Mindustry.git",
-          "revision": "269a3f58415cda92af1b55038924f5865bc17a0e",
-          "ref": "269a3f58415cda92af1b55038924f5865bc17a0e"
-        }
-      ]
-    },
-    {
-      "id": "cloudreve-cloudreve",
-      "path": "cloudreve-cloudreve",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "cloudreve/cloudreve",
-        "version": "20c95ad73f3a8bcb72887fea91ff31ab24fa1011",
-        "url": "https://github.com/cloudreve/cloudreve",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/cloudreve/cloudreve/license?ref=20c95ad73f3a8bcb72887fea91ff31ab24fa1011",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/cloudreve/cloudreve.git",
-          "revision": "20c95ad73f3a8bcb72887fea91ff31ab24fa1011",
-          "ref": "20c95ad73f3a8bcb72887fea91ff31ab24fa1011"
-        }
-      ]
-    },
-    {
-      "id": "nvchad-nvchad",
-      "path": "nvchad-nvchad",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "NvChad/NvChad",
-        "version": "add44b952d631981614bbb8cfc6f7002f296dfe6",
-        "url": "https://github.com/NvChad/NvChad",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/NvChad/NvChad/license?ref=add44b952d631981614bbb8cfc6f7002f296dfe6",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Lua"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/NvChad/NvChad.git",
-          "revision": "add44b952d631981614bbb8cfc6f7002f296dfe6",
-          "ref": "add44b952d631981614bbb8cfc6f7002f296dfe6"
-        }
-      ]
-    },
-    {
-      "id": "fanmingming-live",
-      "path": "fanmingming-live",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "fanmingming/live",
-        "version": "b085d39e05d126f91709d7a545604bd667a6f026",
-        "url": "https://github.com/fanmingming/live",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/fanmingming/live/license?ref=b085d39e05d126f91709d7a545604bd667a6f026",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/fanmingming/live.git",
-          "revision": "b085d39e05d126f91709d7a545604bd667a6f026",
-          "ref": "b085d39e05d126f91709d7a545604bd667a6f026"
-        }
-      ]
-    },
-    {
-      "id": "junkfood02-seal",
-      "path": "junkfood02-seal",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "JunkFood02/Seal",
-        "version": "44e0d2e6fc26177e0da4cb1948223baa13b0887f",
-        "url": "https://github.com/JunkFood02/Seal",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/JunkFood02/Seal/license?ref=44e0d2e6fc26177e0da4cb1948223baa13b0887f",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Kotlin"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/JunkFood02/Seal.git",
-          "revision": "44e0d2e6fc26177e0da4cb1948223baa13b0887f",
-          "ref": "44e0d2e6fc26177e0da4cb1948223baa13b0887f"
-        }
-      ]
-    },
-    {
-      "id": "deskflow-deskflow",
-      "path": "deskflow-deskflow",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "deskflow/deskflow",
-        "version": "f765e829f2373f055331e910d69b8c8b8006952b",
-        "url": "https://github.com/deskflow/deskflow",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/deskflow/deskflow/license?ref=f765e829f2373f055331e910d69b8c8b8006952b",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/deskflow/deskflow.git",
-          "revision": "f765e829f2373f055331e910d69b8c8b8006952b",
-          "ref": "f765e829f2373f055331e910d69b8c8b8006952b"
-        }
-      ]
-    },
-    {
-      "id": "wox-launcher-wox",
-      "path": "wox-launcher-wox",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "Wox-launcher/Wox",
-        "version": "2e1db9c38a7bb03ecbd67cec4c47bf39c3633880",
-        "url": "https://github.com/Wox-launcher/Wox",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Wox-launcher/Wox/license?ref=2e1db9c38a7bb03ecbd67cec4c47bf39c3633880",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Wox-launcher/Wox.git",
-          "revision": "2e1db9c38a7bb03ecbd67cec4c47bf39c3633880",
-          "ref": "2e1db9c38a7bb03ecbd67cec4c47bf39c3633880"
-        }
-      ]
-    },
-    {
-      "id": "niri-wm-niri",
-      "path": "niri-wm-niri",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "niri-wm/niri",
-        "version": "59a10015610bb7d068a82ce1c386fcd8b44f6c52",
-        "url": "https://github.com/niri-wm/niri",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/niri-wm/niri/license?ref=59a10015610bb7d068a82ce1c386fcd8b44f6c52",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/niri-wm/niri.git",
-          "revision": "59a10015610bb7d068a82ce1c386fcd8b44f6c52",
-          "ref": "59a10015610bb7d068a82ce1c386fcd8b44f6c52"
-        }
-      ]
-    },
-    {
-      "id": "schniz-fnm",
-      "path": "schniz-fnm",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "Schniz/fnm",
-        "version": "86adc9676ceb2a509b21e75e74048b93c89f097d",
-        "url": "https://github.com/Schniz/fnm",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Schniz/fnm/license?ref=86adc9676ceb2a509b21e75e74048b93c89f097d",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Rust"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Schniz/fnm.git",
-          "revision": "86adc9676ceb2a509b21e75e74048b93c89f097d",
-          "ref": "86adc9676ceb2a509b21e75e74048b93c89f097d"
-        }
-      ]
-    },
-    {
-      "id": "beyonddimension-steamtools",
-      "path": "beyonddimension-steamtools",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "BeyondDimension/SteamTools",
-        "version": "c16ffa08e03b192d23ada290c4969e77f9201f3d",
-        "url": "https://github.com/BeyondDimension/SteamTools",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/BeyondDimension/SteamTools/license?ref=c16ffa08e03b192d23ada290c4969e77f9201f3d",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/BeyondDimension/SteamTools.git",
-          "revision": "c16ffa08e03b192d23ada290c4969e77f9201f3d",
-          "ref": "c16ffa08e03b192d23ada290c4969e77f9201f3d"
-        }
-      ]
-    },
-    {
-      "id": "typesense-typesense",
-      "path": "typesense-typesense",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "typesense/typesense",
-        "version": "2b1ea8002cfa6febc212123deec6c6bed66837b3",
-        "url": "https://github.com/typesense/typesense",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/typesense/typesense/license?ref=2b1ea8002cfa6febc212123deec6c6bed66837b3",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/typesense/typesense.git",
-          "revision": "2b1ea8002cfa6febc212123deec6c6bed66837b3",
-          "ref": "2b1ea8002cfa6febc212123deec6c6bed66837b3"
-        }
-      ]
-    },
-    {
-      "id": "ycm-core-youcompleteme",
-      "path": "ycm-core-youcompleteme",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "ycm-core/YouCompleteMe",
-        "version": "d4c91430b70a21ce471c8572400b647d313995b4",
-        "url": "https://github.com/ycm-core/YouCompleteMe",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/ycm-core/YouCompleteMe/license?ref=d4c91430b70a21ce471c8572400b647d313995b4",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/ycm-core/YouCompleteMe.git",
-          "revision": "d4c91430b70a21ce471c8572400b647d313995b4",
-          "ref": "d4c91430b70a21ce471c8572400b647d313995b4"
-        }
-      ]
-    },
-    {
-      "id": "mihomo-party-org-clash-party",
-      "path": "mihomo-party-org-clash-party",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "mihomo-party-org/clash-party",
-        "version": "8af583e771b218d33174e3897ac7b5bdec1cb302",
-        "url": "https://github.com/mihomo-party-org/clash-party",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mihomo-party-org/clash-party/license?ref=8af583e771b218d33174e3897ac7b5bdec1cb302",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mihomo-party-org/clash-party.git",
-          "revision": "8af583e771b218d33174e3897ac7b5bdec1cb302",
-          "ref": "8af583e771b218d33174e3897ac7b5bdec1cb302"
-        }
-      ]
-    },
-    {
-      "id": "zhaoolee-chromeappheroes",
-      "path": "zhaoolee-chromeappheroes",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "zhaoolee/ChromeAppHeroes",
-        "version": "abe715d5059c415225e2a1e42ecf67d0aa65b5a1",
-        "url": "https://github.com/zhaoolee/ChromeAppHeroes",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/zhaoolee/ChromeAppHeroes/license?ref=abe715d5059c415225e2a1e42ecf67d0aa65b5a1",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/zhaoolee/ChromeAppHeroes.git",
-          "revision": "abe715d5059c415225e2a1e42ecf67d0aa65b5a1",
-          "ref": "abe715d5059c415225e2a1e42ecf67d0aa65b5a1"
-        }
-      ]
-    },
-    {
-      "id": "gopeedlab-gopeed",
-      "path": "gopeedlab-gopeed",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "GopeedLab/gopeed",
-        "version": "fdfc6902a7750a3628735e8bf37d739bfda9549c",
-        "url": "https://github.com/GopeedLab/gopeed",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/GopeedLab/gopeed/license?ref=fdfc6902a7750a3628735e8bf37d739bfda9549c",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/GopeedLab/gopeed.git",
-          "revision": "fdfc6902a7750a3628735e8bf37d739bfda9549c",
-          "ref": "fdfc6902a7750a3628735e8bf37d739bfda9549c"
-        }
-      ]
-    },
-    {
-      "id": "argotorg-solidity",
-      "path": "argotorg-solidity",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "argotorg/solidity",
-        "version": "9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a",
-        "url": "https://github.com/argotorg/solidity",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/argotorg/solidity/license?ref=9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/argotorg/solidity.git",
-          "revision": "9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a",
-          "ref": "9b2f86bebbbc22c7c9f5ca41884d47fcc1d0639a"
-        }
-      ]
-    },
-    {
-      "id": "syl20bnr-spacemacs",
-      "path": "syl20bnr-spacemacs",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "syl20bnr/spacemacs",
-        "version": "47c09c5777a33ecd59ea0456829041464883135a",
-        "url": "https://github.com/syl20bnr/spacemacs",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/syl20bnr/spacemacs/license?ref=47c09c5777a33ecd59ea0456829041464883135a",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Emacs Lisp"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/syl20bnr/spacemacs.git",
-          "revision": "47c09c5777a33ecd59ea0456829041464883135a",
-          "ref": "47c09c5777a33ecd59ea0456829041464883135a"
-        }
-      ]
-    },
-    {
-      "id": "ql-win-quicklook",
-      "path": "ql-win-quicklook",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "QL-Win/QuickLook",
-        "version": "cb5d9c429c81d9796fac469da2a68efb5626946d",
-        "url": "https://github.com/QL-Win/QuickLook",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/QL-Win/QuickLook/license?ref=cb5d9c429c81d9796fac469da2a68efb5626946d",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/QL-Win/QuickLook.git",
-          "revision": "cb5d9c429c81d9796fac469da2a68efb5626946d",
-          "ref": "cb5d9c429c81d9796fac469da2a68efb5626946d"
-        }
-      ]
-    },
-    {
-      "id": "lsposed-lsposed",
-      "path": "lsposed-lsposed",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "LSPosed/LSPosed",
-        "version": "df74d83eb03a44cc6ad268841ac2ada28d077c77",
-        "url": "https://github.com/LSPosed/LSPosed",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/LSPosed/LSPosed/license?ref=df74d83eb03a44cc6ad268841ac2ada28d077c77",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/LSPosed/LSPosed.git",
-          "revision": "df74d83eb03a44cc6ad268841ac2ada28d077c77",
-          "ref": "df74d83eb03a44cc6ad268841ac2ada28d077c77"
-        }
-      ]
-    },
-    {
-      "id": "dataease-dataease",
-      "path": "dataease-dataease",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "dataease/dataease",
-        "version": "9f37143899b47c570a1d3769368641db1a2f5a5c",
-        "url": "https://github.com/dataease/dataease",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/dataease/dataease/license?ref=9f37143899b47c570a1d3769368641db1a2f5a5c",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/dataease/dataease.git",
-          "revision": "9f37143899b47c570a1d3769368641db1a2f5a5c",
-          "ref": "9f37143899b47c570a1d3769368641db1a2f5a5c"
-        }
-      ]
-    },
-    {
-      "id": "air-verse-air",
-      "path": "air-verse-air",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "air-verse/air",
-        "version": "9f19e52511f7bb697036e6ee2c12a212e742199d",
-        "url": "https://github.com/air-verse/air",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/air-verse/air/license?ref=9f19e52511f7bb697036e6ee2c12a212e742199d",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/air-verse/air.git",
-          "revision": "9f19e52511f7bb697036e6ee2c12a212e742199d",
-          "ref": "9f19e52511f7bb697036e6ee2c12a212e742199d"
-        }
-      ]
-    },
-    {
-      "id": "aldanial-cloc",
-      "path": "aldanial-cloc",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "AlDanial/cloc",
-        "version": "e94e6ec247b7a30290024d546d0fc86f3ce89261",
-        "url": "https://github.com/AlDanial/cloc",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/AlDanial/cloc/license?ref=e94e6ec247b7a30290024d546d0fc86f3ce89261",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Perl"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/AlDanial/cloc.git",
-          "revision": "e94e6ec247b7a30290024d546d0fc86f3ce89261",
-          "ref": "e94e6ec247b7a30290024d546d0fc86f3ce89261"
-        }
-      ]
-    },
-    {
-      "id": "openjdk-jdk",
-      "path": "openjdk-jdk",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "openjdk/jdk",
-        "version": "20ccb7cfbde76b7ce2bb0e635934c252a187f702",
-        "url": "https://github.com/openjdk/jdk",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/openjdk/jdk/license?ref=20ccb7cfbde76b7ce2bb0e635934c252a187f702",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Java"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/openjdk/jdk.git",
-          "revision": "20ccb7cfbde76b7ce2bb0e635934c252a187f702",
-          "ref": "20ccb7cfbde76b7ce2bb0e635934c252a187f702"
-        }
-      ]
-    },
-    {
-      "id": "navidrome-navidrome",
-      "path": "navidrome-navidrome",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "navidrome/navidrome",
-        "version": "a0bf78cdeab4d0f316edcd37094f03d09f0ede8e",
-        "url": "https://github.com/navidrome/navidrome",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/navidrome/navidrome/license?ref=a0bf78cdeab4d0f316edcd37094f03d09f0ede8e",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/navidrome/navidrome.git",
-          "revision": "a0bf78cdeab4d0f316edcd37094f03d09f0ede8e",
-          "ref": "a0bf78cdeab4d0f316edcd37094f03d09f0ede8e"
-        }
-      ]
-    },
-    {
-      "id": "mementum-backtrader",
-      "path": "mementum-backtrader",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "mementum/backtrader",
-        "version": "b853d7c90b6721476eb5a5ea3135224e33db1f14",
-        "url": "https://github.com/mementum/backtrader",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mementum/backtrader/license?ref=b853d7c90b6721476eb5a5ea3135224e33db1f14",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mementum/backtrader.git",
-          "revision": "b853d7c90b6721476eb5a5ea3135224e33db1f14",
-          "ref": "b853d7c90b6721476eb5a5ea3135224e33db1f14"
-        }
-      ]
-    },
-    {
-      "id": "feliscatus-switchyomega",
-      "path": "feliscatus-switchyomega",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "FelisCatus/SwitchyOmega",
-        "version": "19f9d73f20125b6164fb95d17cd4cc6659df147c",
-        "url": "https://github.com/FelisCatus/SwitchyOmega",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/FelisCatus/SwitchyOmega/license?ref=19f9d73f20125b6164fb95d17cd4cc6659df147c",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "CoffeeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/FelisCatus/SwitchyOmega.git",
-          "revision": "19f9d73f20125b6164fb95d17cd4cc6659df147c",
-          "ref": "19f9d73f20125b6164fb95d17cd4cc6659df147c"
-        }
-      ]
-    },
-    {
-      "id": "1panel-dev-maxkb",
-      "path": "1panel-dev-maxkb",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "1Panel-dev/MaxKB",
-        "version": "01b21db88145278d98bf5e9bd55e6abd6b3aad43",
-        "url": "https://github.com/1Panel-dev/MaxKB",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/1Panel-dev/MaxKB/license?ref=01b21db88145278d98bf5e9bd55e6abd6b3aad43",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/1Panel-dev/MaxKB.git",
-          "revision": "01b21db88145278d98bf5e9bd55e6abd6b3aad43",
-          "ref": "01b21db88145278d98bf5e9bd55e6abd6b3aad43"
-        }
-      ]
-    },
-    {
-      "id": "chaitin-safeline",
-      "path": "chaitin-safeline",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "chaitin/SafeLine",
-        "version": "2f27406501973da4bf8543bc9623beb624330215",
-        "url": "https://github.com/chaitin/SafeLine",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/chaitin/SafeLine/license?ref=2f27406501973da4bf8543bc9623beb624330215",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Go"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/chaitin/SafeLine.git",
-          "revision": "2f27406501973da4bf8543bc9623beb624330215",
-          "ref": "2f27406501973da4bf8543bc9623beb624330215"
-        }
-      ]
-    },
-    {
-      "id": "darkflippers-unleashed-firmware",
-      "path": "darkflippers-unleashed-firmware",
-      "license": "GPL-3.0-only",
-      "source": {
-        "name": "DarkFlippers/unleashed-firmware",
-        "version": "9d4dae48fad0aaebaf87254cd0707ed6fff073de",
-        "url": "https://github.com/DarkFlippers/unleashed-firmware",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/DarkFlippers/unleashed-firmware/license?ref=9d4dae48fad0aaebaf87254cd0707ed6fff073de",
-          "declaration": "GPL-3.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/DarkFlippers/unleashed-firmware.git",
-          "revision": "9d4dae48fad0aaebaf87254cd0707ed6fff073de",
-          "ref": "9d4dae48fad0aaebaf87254cd0707ed6fff073de"
-        }
-      ]
-    },
-    {
-      "id": "qmk-qmk_firmware",
-      "path": "qmk-qmk_firmware",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "qmk/qmk_firmware",
-        "version": "9caa5f871ddb9813c7370708be62d7a3e1cfeb75",
-        "url": "https://github.com/qmk/qmk_firmware",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/qmk/qmk_firmware/license?ref=9caa5f871ddb9813c7370708be62d7a3e1cfeb75",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/qmk/qmk_firmware.git",
-          "revision": "9caa5f871ddb9813c7370708be62d7a3e1cfeb75",
-          "ref": "9caa5f871ddb9813c7370708be62d7a3e1cfeb75"
-        }
-      ]
-    },
-    {
-      "id": "atmosphere-nx-atmosphere",
-      "path": "atmosphere-nx-atmosphere",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "Atmosphere-NX/Atmosphere",
-        "version": "e468f59c9d369b8ebbffa040f4c9fc201b9f75a8",
-        "url": "https://github.com/Atmosphere-NX/Atmosphere",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Atmosphere-NX/Atmosphere/license?ref=e468f59c9d369b8ebbffa040f4c9fc201b9f75a8",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Atmosphere-NX/Atmosphere.git",
-          "revision": "e468f59c9d369b8ebbffa040f4c9fc201b9f75a8",
-          "ref": "e468f59c9d369b8ebbffa040f4c9fc201b9f75a8"
-        }
-      ]
-    },
-    {
-      "id": "rpcs3-rpcs3",
-      "path": "rpcs3-rpcs3",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "RPCS3/rpcs3",
-        "version": "8d034a36e8119165a581c0f7c6c76c5f156886e3",
-        "url": "https://github.com/RPCS3/rpcs3",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/RPCS3/rpcs3/license?ref=8d034a36e8119165a581c0f7c6c76c5f156886e3",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/RPCS3/rpcs3.git",
-          "revision": "8d034a36e8119165a581c0f7c6c76c5f156886e3",
-          "ref": "8d034a36e8119165a581c0f7c6c76c5f156886e3"
-        }
-      ]
-    },
-    {
-      "id": "videolan-vlc",
-      "path": "videolan-vlc",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "videolan/vlc",
-        "version": "329ed3135eeabd85d2f190b8e3388e7a7e441d0f",
-        "url": "https://github.com/videolan/vlc",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/videolan/vlc/license?ref=329ed3135eeabd85d2f190b8e3388e7a7e441d0f",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/videolan/vlc.git",
-          "revision": "329ed3135eeabd85d2f190b8e3388e7a7e441d0f",
-          "ref": "329ed3135eeabd85d2f190b8e3388e7a7e441d0f"
-        }
-      ]
-    },
-    {
-      "id": "kyleneideck-backgroundmusic",
-      "path": "kyleneideck-backgroundmusic",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "kyleneideck/BackgroundMusic",
-        "version": "8c25450e9b0d3867417c4872018b03fb30c0c85c",
-        "url": "https://github.com/kyleneideck/BackgroundMusic",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/kyleneideck/BackgroundMusic/license?ref=8c25450e9b0d3867417c4872018b03fb30c0c85c",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/kyleneideck/BackgroundMusic.git",
-          "revision": "8c25450e9b0d3867417c4872018b03fb30c0c85c",
-          "ref": "8c25450e9b0d3867417c4872018b03fb30c0c85c"
-        }
-      ]
-    },
-    {
-      "id": "mikf-gallery-dl",
-      "path": "mikf-gallery-dl",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "mikf/gallery-dl",
-        "version": "86047cf67a12bdb6ff1085774f8ad9fc347e8da9",
-        "url": "https://github.com/mikf/gallery-dl",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mikf/gallery-dl/license?ref=86047cf67a12bdb6ff1085774f8ad9fc347e8da9",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mikf/gallery-dl.git",
-          "revision": "86047cf67a12bdb6ff1085774f8ad9fc347e8da9",
-          "ref": "86047cf67a12bdb6ff1085774f8ad9fc347e8da9"
-        }
-      ]
-    },
-    {
-      "id": "copytranslator-copytranslator",
-      "path": "copytranslator-copytranslator",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "CopyTranslator/CopyTranslator",
-        "version": "5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef",
-        "url": "https://github.com/CopyTranslator/CopyTranslator",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/CopyTranslator/CopyTranslator/license?ref=5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/CopyTranslator/CopyTranslator.git",
-          "revision": "5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef",
-          "ref": "5b73e4262625cdcd0b4621d0e6d5f59ed08de4ef"
-        }
-      ]
-    },
-    {
-      "id": "gnachman-iterm2",
-      "path": "gnachman-iterm2",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "gnachman/iTerm2",
-        "version": "3ec57866cd9bcf932f2675f7ca47183793a37b79",
-        "url": "https://github.com/gnachman/iTerm2",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/gnachman/iTerm2/license?ref=3ec57866cd9bcf932f2675f7ca47183793a37b79",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Objective-C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/gnachman/iTerm2.git",
-          "revision": "3ec57866cd9bcf932f2675f7ca47183793a37b79",
-          "ref": "3ec57866cd9bcf932f2675f7ca47183793a37b79"
-        }
-      ]
-    },
-    {
-      "id": "reactos-reactos",
-      "path": "reactos-reactos",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "reactos/reactos",
-        "version": "a318b6228a24cda9b752501470e61550e925f657",
-        "url": "https://github.com/reactos/reactos",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/reactos/reactos/license?ref=a318b6228a24cda9b752501470e61550e925f657",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/reactos/reactos.git",
-          "revision": "a318b6228a24cda9b752501470e61550e925f657",
-          "ref": "a318b6228a24cda9b752501470e61550e925f657"
-        }
-      ]
-    },
-    {
-      "id": "systemd-systemd",
-      "path": "systemd-systemd",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "systemd/systemd",
-        "version": "06cb8fbe618604f43c9a9a638e6fc3df920daa0c",
-        "url": "https://github.com/systemd/systemd",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/systemd/systemd/license?ref=06cb8fbe618604f43c9a9a638e6fc3df920daa0c",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/systemd/systemd.git",
-          "revision": "06cb8fbe618604f43c9a9a638e6fc3df920daa0c",
-          "ref": "06cb8fbe618604f43c9a9a638e6fc3df920daa0c"
-        }
-      ]
-    },
-    {
-      "id": "xournalpp-xournalpp",
-      "path": "xournalpp-xournalpp",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "xournalpp/xournalpp",
-        "version": "89bc8dbb45277ff18e888711c4e5b824400a13b4",
-        "url": "https://github.com/xournalpp/xournalpp",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/xournalpp/xournalpp/license?ref=89bc8dbb45277ff18e888711c4e5b824400a13b4",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/xournalpp/xournalpp.git",
-          "revision": "89bc8dbb45277ff18e888711c4e5b824400a13b4",
-          "ref": "89bc8dbb45277ff18e888711c4e5b824400a13b4"
-        }
-      ]
-    },
-    {
-      "id": "xcanwin-keepchatgpt",
-      "path": "xcanwin-keepchatgpt",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "xcanwin/KeepChatGPT",
-        "version": "bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3",
-        "url": "https://github.com/xcanwin/KeepChatGPT",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/xcanwin/KeepChatGPT/license?ref=bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/xcanwin/KeepChatGPT.git",
-          "revision": "bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3",
-          "ref": "bdc253cb96bdf7f4741d9bf87c4c6532967ffdb3"
-        }
-      ]
-    },
-    {
-      "id": "bailicangdu-vue2-manage",
-      "path": "bailicangdu-vue2-manage",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "bailicangdu/vue2-manage",
-        "version": "dca263e3a8411ec47b5814a01470162d907d6964",
-        "url": "https://github.com/bailicangdu/vue2-manage",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/bailicangdu/vue2-manage/license?ref=dca263e3a8411ec47b5814a01470162d907d6964",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Vue"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/bailicangdu/vue2-manage.git",
-          "revision": "dca263e3a8411ec47b5814a01470162d907d6964",
-          "ref": "dca263e3a8411ec47b5814a01470162d907d6964"
-        }
-      ]
-    },
-    {
-      "id": "jonas-tig",
-      "path": "jonas-tig",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "jonas/tig",
-        "version": "1b86f070a1f6d4c686a09b997fd4249d52a2a272",
-        "url": "https://github.com/jonas/tig",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/jonas/tig/license?ref=1b86f070a1f6d4c686a09b997fd4249d52a2a272",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/jonas/tig.git",
-          "revision": "1b86f070a1f6d4c686a09b997fd4249d52a2a272",
-          "ref": "1b86f070a1f6d4c686a09b997fd4249d52a2a272"
-        }
-      ]
-    },
-    {
-      "id": "autohotkey-autohotkey",
-      "path": "autohotkey-autohotkey",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "AutoHotkey/AutoHotkey",
-        "version": "34b170115414dd69f1dfaf54893c150deade6bd2",
-        "url": "https://github.com/AutoHotkey/AutoHotkey",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/AutoHotkey/AutoHotkey/license?ref=34b170115414dd69f1dfaf54893c150deade6bd2",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/AutoHotkey/AutoHotkey.git",
-          "revision": "34b170115414dd69f1dfaf54893c150deade6bd2",
-          "ref": "34b170115414dd69f1dfaf54893c150deade6bd2"
-        }
-      ]
-    },
-    {
-      "id": "stremio-stremio-web",
-      "path": "stremio-stremio-web",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "Stremio/stremio-web",
-        "version": "de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9",
-        "url": "https://github.com/Stremio/stremio-web",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Stremio/stremio-web/license?ref=de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Stremio/stremio-web.git",
-          "revision": "de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9",
-          "ref": "de0e1cdff7ab34c31a5e33fca19ad8de0ebba6e9"
-        }
-      ]
-    },
-    {
-      "id": "automattic-wp-calypso",
-      "path": "automattic-wp-calypso",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "Automattic/wp-calypso",
-        "version": "329b3647ba759c0a8f3e5034aee5e83c861cab54",
-        "url": "https://github.com/Automattic/wp-calypso",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/Automattic/wp-calypso/license?ref=329b3647ba759c0a8f3e5034aee5e83c861cab54",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "TypeScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/Automattic/wp-calypso.git",
-          "revision": "329b3647ba759c0a8f3e5034aee5e83c861cab54",
-          "ref": "329b3647ba759c0a8f3e5034aee5e83c861cab54"
-        }
-      ]
-    },
-    {
-      "id": "secdev-scapy",
-      "path": "secdev-scapy",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "secdev/scapy",
-        "version": "d8f7b272b1eb3e989920ba2a84bbae1a847660bd",
-        "url": "https://github.com/secdev/scapy",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/secdev/scapy/license?ref=d8f7b272b1eb3e989920ba2a84bbae1a847660bd",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/secdev/scapy.git",
-          "revision": "d8f7b272b1eb3e989920ba2a84bbae1a847660bd",
-          "ref": "d8f7b272b1eb3e989920ba2a84bbae1a847660bd"
-        }
-      ]
-    },
-    {
-      "id": "typecho-typecho",
-      "path": "typecho-typecho",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "typecho/typecho",
-        "version": "56f4c6f33955a87969c399b5d5912d7f9fd7347c",
-        "url": "https://github.com/typecho/typecho",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/typecho/typecho/license?ref=56f4c6f33955a87969c399b5d5912d7f9fd7347c",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "PHP"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/typecho/typecho.git",
-          "revision": "56f4c6f33955a87969c399b5d5912d7f9fd7347c",
-          "ref": "56f4c6f33955a87969c399b5d5912d7f9fd7347c"
-        }
-      ]
-    },
-    {
-      "id": "bailicangdu-node-elm",
-      "path": "bailicangdu-node-elm",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "bailicangdu/node-elm",
-        "version": "32ea999c63f59db4f6fb05e3227bc305663782f0",
-        "url": "https://github.com/bailicangdu/node-elm",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/bailicangdu/node-elm/license?ref=32ea999c63f59db4f6fb05e3227bc305663782f0",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "JavaScript"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/bailicangdu/node-elm.git",
-          "revision": "32ea999c63f59db4f6fb05e3227bc305663782f0",
-          "ref": "32ea999c63f59db4f6fb05e3227bc305663782f0"
-        }
-      ]
-    },
-    {
-      "id": "daybreak-u-chineseocr_lite",
-      "path": "daybreak-u-chineseocr_lite",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "DayBreak-u/chineseocr_lite",
-        "version": "54a3df53af823f3bffdde9393d0c021b4f6d94cd",
-        "url": "https://github.com/DayBreak-u/chineseocr_lite",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/DayBreak-u/chineseocr_lite/license?ref=54a3df53af823f3bffdde9393d0c021b4f6d94cd",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/DayBreak-u/chineseocr_lite.git",
-          "revision": "54a3df53af823f3bffdde9393d0c021b4f6d94cd",
-          "ref": "54a3df53af823f3bffdde9393d0c021b4f6d94cd"
-        }
-      ]
-    },
-    {
-      "id": "lostindark-driverstoreexplorer",
-      "path": "lostindark-driverstoreexplorer",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "lostindark/DriverStoreExplorer",
-        "version": "d983831f2838b2871255cd5e915dd1a5c07bb6c9",
-        "url": "https://github.com/lostindark/DriverStoreExplorer",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/lostindark/DriverStoreExplorer/license?ref=d983831f2838b2871255cd5e915dd1a5c07bb6c9",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/lostindark/DriverStoreExplorer.git",
-          "revision": "d983831f2838b2871255cd5e915dd1a5c07bb6c9",
-          "ref": "d983831f2838b2871255cd5e915dd1a5c07bb6c9"
-        }
-      ]
-    },
-    {
-      "id": "mremoteng-mremoteng",
-      "path": "mremoteng-mremoteng",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "mRemoteNG/mRemoteNG",
-        "version": "87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007",
-        "url": "https://github.com/mRemoteNG/mRemoteNG",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/mRemoteNG/mRemoteNG/license?ref=87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C#"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/mRemoteNG/mRemoteNG.git",
-          "revision": "87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007",
-          "ref": "87ebe87ad735f9bfd0578e2d4d3e4c71ec1ad007"
-        }
-      ]
-    },
-    {
-      "id": "aboul3la-sublist3r",
-      "path": "aboul3la-sublist3r",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "aboul3la/Sublist3r",
-        "version": "729d649ec5370730172bf6f5314aafd68c874124",
-        "url": "https://github.com/aboul3la/Sublist3r",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/aboul3la/Sublist3r/license?ref=729d649ec5370730172bf6f5314aafd68c874124",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/aboul3la/Sublist3r.git",
-          "revision": "729d649ec5370730172bf6f5314aafd68c874124",
-          "ref": "729d649ec5370730172bf6f5314aafd68c874124"
-        }
-      ]
-    },
-    {
-      "id": "trinitycore-trinitycore",
-      "path": "trinitycore-trinitycore",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "TrinityCore/TrinityCore",
-        "version": "fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165",
-        "url": "https://github.com/TrinityCore/TrinityCore",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/TrinityCore/TrinityCore/license?ref=fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/TrinityCore/TrinityCore.git",
-          "revision": "fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165",
-          "ref": "fcf3b8ec1c9bb4a20b491454df79d29c3ae4c165"
-        }
-      ]
-    },
-    {
-      "id": "rofl0r-proxychains-ng",
-      "path": "rofl0r-proxychains-ng",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "rofl0r/proxychains-ng",
-        "version": "e6313ce408645b70b60881130fb2dae9c538b306",
-        "url": "https://github.com/rofl0r/proxychains-ng",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/rofl0r/proxychains-ng/license?ref=e6313ce408645b70b60881130fb2dae9c538b306",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/rofl0r/proxychains-ng.git",
-          "revision": "e6313ce408645b70b60881130fb2dae9c538b306",
-          "ref": "e6313ce408645b70b60881130fb2dae9c538b306"
-        }
-      ]
-    },
-    {
-      "id": "taojy123-keymousego",
-      "path": "taojy123-keymousego",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "taojy123/KeymouseGo",
-        "version": "49577ed0877a0739eef84b2d09f95fca1bbbb416",
-        "url": "https://github.com/taojy123/KeymouseGo",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/taojy123/KeymouseGo/license?ref=49577ed0877a0739eef84b2d09f95fca1bbbb416",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "Python"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/taojy123/KeymouseGo.git",
-          "revision": "49577ed0877a0739eef84b2d09f95fca1bbbb416",
-          "ref": "49577ed0877a0739eef84b2d09f95fca1bbbb416"
-        }
-      ]
-    },
-    {
-      "id": "lmms-lmms",
-      "path": "lmms-lmms",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "LMMS/lmms",
-        "version": "067c3ad4124af9114d8aa186923550e51e1b8e5a",
-        "url": "https://github.com/LMMS/lmms",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/LMMS/lmms/license?ref=067c3ad4124af9114d8aa186923550e51e1b8e5a",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/LMMS/lmms.git",
-          "revision": "067c3ad4124af9114d8aa186923550e51e1b8e5a",
-          "ref": "067c3ad4124af9114d8aa186923550e51e1b8e5a"
-        }
-      ]
-    },
-    {
-      "id": "s3fs-fuse-s3fs-fuse",
-      "path": "s3fs-fuse-s3fs-fuse",
-      "license": "GPL-2.0-only",
-      "source": {
-        "name": "s3fs-fuse/s3fs-fuse",
-        "version": "c12124a4e1194375511efb35c04d473b26b7f853",
-        "url": "https://github.com/s3fs-fuse/s3fs-fuse",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://api.github.com/repos/s3fs-fuse/s3fs-fuse/license?ref=c12124a4e1194375511efb35c04d473b26b7f853",
-          "declaration": "GPL-2.0-only"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C++"
-          ],
-          "selection": "Tracked project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Public Git repository at the pinned commit; SPDX license matched from the repository license file by the GitHub License API."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://github.com/s3fs-fuse/s3fs-fuse.git",
-          "revision": "c12124a4e1194375511efb35c04d473b26b7f853",
-          "ref": "c12124a4e1194375511efb35c04d473b26b7f853"
-        }
-      ]
-    },
-    {
-      "id": "gnu-bash",
-      "path": "gnu-bash",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/bash",
-        "version": "b460816602167718f78a6233164e8875f49b75b2",
-        "url": "https://git.savannah.gnu.org/cgit/bash.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/bash.git/tree/COPYING?id=b460816602167718f78a6233164e8875f49b75b2",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/bash.git",
-          "revision": "b460816602167718f78a6233164e8875f49b75b2",
-          "ref": "b460816602167718f78a6233164e8875f49b75b2"
-        }
-      ]
-    },
-    {
-      "id": "gnu-coreutils",
-      "path": "gnu-coreutils",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/coreutils",
-        "version": "786488adef22c477d8e3c8b562f9c4cb02288014",
-        "url": "https://git.savannah.gnu.org/cgit/coreutils.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/coreutils.git/tree/COPYING?id=786488adef22c477d8e3c8b562f9c4cb02288014",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/coreutils.git",
-          "revision": "786488adef22c477d8e3c8b562f9c4cb02288014",
-          "ref": "786488adef22c477d8e3c8b562f9c4cb02288014"
-        }
-      ]
-    },
-    {
-      "id": "gnu-diffutils",
-      "path": "gnu-diffutils",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/diffutils",
-        "version": "ba490bf17c1938e7cd0c2309a08d9a59b962bdff",
-        "url": "https://git.savannah.gnu.org/cgit/diffutils.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/diffutils.git/tree/COPYING?id=ba490bf17c1938e7cd0c2309a08d9a59b962bdff",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/diffutils.git",
-          "revision": "ba490bf17c1938e7cd0c2309a08d9a59b962bdff",
-          "ref": "ba490bf17c1938e7cd0c2309a08d9a59b962bdff"
-        }
-      ]
-    },
-    {
-      "id": "gnu-emacs",
-      "path": "gnu-emacs",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/emacs",
-        "version": "b157d8e96a26e7509136bf93fad2c7ec49c0ee88",
-        "url": "https://git.savannah.gnu.org/cgit/emacs.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/emacs.git/tree/COPYING?id=b157d8e96a26e7509136bf93fad2c7ec49c0ee88",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/emacs.git",
-          "revision": "b157d8e96a26e7509136bf93fad2c7ec49c0ee88",
-          "ref": "b157d8e96a26e7509136bf93fad2c7ec49c0ee88"
-        }
-      ]
-    },
-    {
-      "id": "gnu-findutils",
-      "path": "gnu-findutils",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/findutils",
-        "version": "eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3",
-        "url": "https://git.savannah.gnu.org/cgit/findutils.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/findutils.git/tree/COPYING?id=eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/findutils.git",
-          "revision": "eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3",
-          "ref": "eaa3ba5a63b569dbf1a4b1389963f734ebe7edd3"
-        }
-      ]
-    },
-    {
-      "id": "gnu-gawk",
-      "path": "gnu-gawk",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/gawk",
-        "version": "65929a5cdba54e1e044c91218b0dd845bf50455a",
-        "url": "https://git.savannah.gnu.org/cgit/gawk.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/gawk.git/tree/COPYING?id=65929a5cdba54e1e044c91218b0dd845bf50455a",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/gawk.git",
-          "revision": "65929a5cdba54e1e044c91218b0dd845bf50455a",
-          "ref": "65929a5cdba54e1e044c91218b0dd845bf50455a"
-        }
-      ]
-    },
-    {
-      "id": "gnu-grep",
-      "path": "gnu-grep",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/grep",
-        "version": "79da8e07613966b9e53c7ef31b4765d39f98044d",
-        "url": "https://git.savannah.gnu.org/cgit/grep.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/grep.git/tree/COPYING?id=79da8e07613966b9e53c7ef31b4765d39f98044d",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/grep.git",
-          "revision": "79da8e07613966b9e53c7ef31b4765d39f98044d",
-          "ref": "79da8e07613966b9e53c7ef31b4765d39f98044d"
-        }
-      ]
-    },
-    {
-      "id": "gnu-gzip",
-      "path": "gnu-gzip",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/gzip",
-        "version": "5f62db44b781b01a3d6d8436babcf8113f32efd2",
-        "url": "https://git.savannah.gnu.org/cgit/gzip.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/gzip.git/tree/COPYING?id=5f62db44b781b01a3d6d8436babcf8113f32efd2",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/gzip.git",
-          "revision": "5f62db44b781b01a3d6d8436babcf8113f32efd2",
-          "ref": "5f62db44b781b01a3d6d8436babcf8113f32efd2"
-        }
-      ]
-    },
-    {
-      "id": "gnu-make",
-      "path": "gnu-make",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/make",
-        "version": "b3802782de3eff2c0f1eda9e7c0befd8cd142162",
-        "url": "https://git.savannah.gnu.org/cgit/make.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/make.git/tree/COPYING?id=b3802782de3eff2c0f1eda9e7c0befd8cd142162",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/make.git",
-          "revision": "b3802782de3eff2c0f1eda9e7c0befd8cd142162",
-          "ref": "b3802782de3eff2c0f1eda9e7c0befd8cd142162"
-        }
-      ]
-    },
-    {
-      "id": "gnu-nano",
-      "path": "gnu-nano",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/nano",
-        "version": "8e6360d1663998c62ddd0cf934923d1f18004e3e",
-        "url": "https://git.savannah.gnu.org/cgit/nano.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/nano.git/tree/COPYING?id=8e6360d1663998c62ddd0cf934923d1f18004e3e",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/nano.git",
-          "revision": "8e6360d1663998c62ddd0cf934923d1f18004e3e",
-          "ref": "8e6360d1663998c62ddd0cf934923d1f18004e3e"
-        }
-      ]
-    },
-    {
-      "id": "gnu-patch",
-      "path": "gnu-patch",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/patch",
-        "version": "a2b192295d7046bafc18d54973436bb3faa659d7",
-        "url": "https://git.savannah.gnu.org/cgit/patch.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/patch.git/tree/COPYING?id=a2b192295d7046bafc18d54973436bb3faa659d7",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/patch.git",
-          "revision": "a2b192295d7046bafc18d54973436bb3faa659d7",
-          "ref": "a2b192295d7046bafc18d54973436bb3faa659d7"
-        }
-      ]
-    },
-    {
-      "id": "gnu-sed",
-      "path": "gnu-sed",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/sed",
-        "version": "31df9f71cb62e423311985b3bf352ee84c4a9e54",
-        "url": "https://git.savannah.gnu.org/cgit/sed.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/sed.git/tree/COPYING?id=31df9f71cb62e423311985b3bf352ee84c4a9e54",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/sed.git",
-          "revision": "31df9f71cb62e423311985b3bf352ee84c4a9e54",
-          "ref": "31df9f71cb62e423311985b3bf352ee84c4a9e54"
-        }
-      ]
-    },
-    {
-      "id": "gnu-tar",
-      "path": "gnu-tar",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/tar",
-        "version": "d1df7f403de05bfbe11527a5b570469fb1011fda",
-        "url": "https://git.savannah.gnu.org/cgit/tar.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/tar.git/tree/COPYING?id=d1df7f403de05bfbe11527a5b570469fb1011fda",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/tar.git",
-          "revision": "d1df7f403de05bfbe11527a5b570469fb1011fda",
-          "ref": "d1df7f403de05bfbe11527a5b570469fb1011fda"
-        }
-      ]
-    },
-    {
-      "id": "gnu-wget",
-      "path": "gnu-wget",
-      "license": "GPL-3.0-or-later",
-      "source": {
-        "name": "gnu/wget",
-        "version": "705e9e3a749f9f0430c1fad9892227c210c66dee",
-        "url": "https://git.savannah.gnu.org/cgit/wget.git",
-        "category": "public-dataset",
-        "license_evidence": {
-          "url": "https://git.savannah.gnu.org/cgit/wget.git/tree/COPYING?id=705e9e3a749f9f0430c1fad9892227c210c66dee",
-          "declaration": "GPL-3.0-or-later"
-        },
-        "content": {
-          "types": [
-            "source code"
-          ],
-          "languages": [
-            "C"
-          ],
-          "selection": "Tracked GNU project files selected by the reviewed --source-code profile; text, structured, and binary assets retained while common dependency, generated, fixture, and build-output trees are excluded.",
-          "copyrighted": "yes"
-        },
-        "acquisition": {
-          "basis": "Official public GNU Git repository at the pinned commit."
-        }
-      },
-      "input": {
-      },
-      "artifacts": [
-        {
-          "url": "https://git.savannah.gnu.org/git/wget.git",
-          "revision": "705e9e3a749f9f0430c1fad9892227c210c66dee",
-          "ref": "705e9e3a749f9f0430c1fad9892227c210c66dee"
-        }
-      ]
-    }
-  ]
-}
-JSON
+fetcher_main

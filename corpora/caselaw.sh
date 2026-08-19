@@ -1,57 +1,33 @@
 #!/bin/sh
 set -eu
 
+CORPUS_ID='caselaw'
+CORPUS_TITLE='United States Caselaw'
+CORPUS_DESCRIPTION='Published decisions of United States federal and state courts, digitized by the Harvard Law School Library.'
+CORPUS_DESTINATION='law/caselaw'
+
+SOURCE_ID='caselaw'
+SOURCE_PATH=''
+SOURCE_LICENSE='LicenseRef-Public-Domain'
+SOURCE_NAME='harvard-cap'
+SOURCE_URL='https://static.case.law/'
+SOURCE_CATEGORY='public-dataset'
+SOURCE_LICENSE_DECLARATION='LicenseRef-Public-Domain'
+SOURCE_LICENSE_URL='https://static.case.law/'
+INPUT_TYPE='record-map'
+INPUT_TEXT_FIELDS='casebody.head_matter
+casebody.opinions[].text'
+INPUT_DATE='decision_date'
+
+FETCHER_OUTPUT=${1-}
+FETCHER_ARGUMENT_COUNT=$#
+FETCHER_SIZE='100G'
+FETCH_METHOD='cap'
+FETCH_ARG_COUNT='3'
+FETCH_ARG_1=''
+FETCH_ARG_2='https://static.case.law'
+FETCH_ARG_3='-all'
+
 script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 . "$script_dir/../functions.sh"
-
-fetcher_begin "$@"
-fetcher_require jq find sort awk wc curl tar gzip
-fetcher_size 100G
-fetcher_cap '' 'https://static.case.law' '-all'
-
-# shellcheck disable=SC2119
-fetcher_manifest <<'JSON'
-{
-  "corpus": {
-    "id": "caselaw",
-    "title": "United States Caselaw",
-    "description": "Published decisions of United States federal and state courts, digitized by the Harvard Law School Library.",
-    "destination": "law/caselaw"
-  },
-  "sources": [
-    {
-      "id": "caselaw",
-      "path": "",
-      "license": "LicenseRef-Public-Domain",
-      "source": {
-        "name": "harvard-cap",
-        "url": "https://static.case.law/",
-        "category": "public-dataset",
-        "license_evidence": {
-          "declaration": "LicenseRef-Public-Domain",
-          "url": "https://static.case.law/"
-        }
-      },
-      "input": {
-        "type": "record-map",
-        "fields": {
-          "text": [
-            "casebody.head_matter",
-            "casebody.opinions[].text"
-          ],
-          "date": "decision_date"
-        }
-      },
-      "artifacts": [
-        {
-          "method": "cap",
-          "arguments": [
-            "https://static.case.law",
-            "-all"
-          ]
-        }
-      ]
-    }
-  ]
-}
-JSON
+fetcher_main

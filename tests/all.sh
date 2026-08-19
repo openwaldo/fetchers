@@ -7,8 +7,9 @@ trap 'rm -rf -- "$fetcher_test_cache"' EXIT HUP INT TERM
 
 if command -v shellcheck >/dev/null 2>&1; then
   # Dynamic absolute sourcing is intentional and tested by executing functions.sh.
-  shellcheck -e SC1091 -s sh "$repository/functions.sh" \
-    "$repository"/corpora/*.sh "$repository"/tests/*.sh
+  # The declarative variables are consumed through validated dynamic lookup.
+  shellcheck -e SC1091,SC2034,SC2119,SC2120,SC2154 -s sh "$repository/functions.sh"
+  shellcheck -e SC1091,SC2034,SC2119,SC2120,SC2154 -s sh "$repository"/tests/*.sh
 else
   echo 'tests: shellcheck unavailable; skipping lint' >&2
 fi

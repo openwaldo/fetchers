@@ -15,14 +15,16 @@ for script in "$repository"/corpora/*.sh; do
   count=$((count + 1))
   [ -x "$script" ] || fail "not executable: $script"
   sh -n "$script" || fail "shell syntax: $script"
-  occurrences=$(grep -c "^fetcher_manifest <<'JSON'$" "$script")
-  [ "$occurrences" -eq 1 ] || fail "expected one manifest: $script"
-  manifest=$temporary/$(basename "$script").json
-  sed -n "/^fetcher_manifest <<'JSON'$/,/^JSON$/p" "$script" |
-    sed '1d;$d' >"$manifest"
-  jq -e '
+  [ "$(grep -c '^fetcher_main$' "$script")" -eq 1 ] ||
+    fail "expected one fetcher_main entry point: $script"
+  ! grep -q 'fetcher_manifest\|<<.*JSON' "$script" ||
+    fail "embedded JSON manifest remains: $script"
+  FETCHER_VALIDATE_ONLY=1 "$script" "$temporary/output" >/dev/null ||
+    fail "declarative configuration: $script"
+  FETCHER_SPEC_ONLY=1 "$script" "$temporary/output" | jq -e '
     (.corpus.id | type == "string" and length > 0) and
     (.corpus.title | type == "string" and length > 0) and
+    (.corpus.destination | type == "string" and length > 0) and
     (.sources | type == "array" and length > 0) and
     all(.sources[];
       (.id | type == "string" and length > 0) and
@@ -30,8 +32,9 @@ for script in "$repository"/corpora/*.sh; do
       (.license | type == "string" and length > 0) and
       (.source.url | test("^https?://")) and
       (.source.license_evidence | type == "object") and
-      (.input | type == "object"))
-  ' "$manifest" >/dev/null || fail "manifest contract: $script"
+      (.input | type == "object") and
+      (.artifacts | type == "array" and length > 0))
+  ' >/dev/null || fail "generated manifest contract: $script"
 done
 
 [ "$count" -eq 53 ] || fail "expected 53 corpus scripts, found $count"

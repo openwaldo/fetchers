@@ -916,3 +916,399 @@ fetcher_manifest() {
   printf 'fetcher: wrote %s (%s files, %s bytes)\n' \
     "$FETCHER_MANIFEST" "$fetcher_files" "$fetcher_bytes" >&2
 }
+
+# Return an indexed configuration value. All variable names are constructed by
+# this file, never from downloaded content.
+fetcher_config_value() {
+  fetcher_config_name=$1
+  eval "fetcher_config_result=\${$fetcher_config_name-}"
+  printf '%s' "$fetcher_config_result"
+}
+
+fetcher_config_required() {
+  for fetcher_config_name do
+    fetcher_config_result=$(fetcher_config_value "$fetcher_config_name")
+    [ -n "$fetcher_config_result" ] || {
+      fetcher_error "required fetcher variable is unset: $fetcher_config_name"
+      return 2
+    }
+  done
+}
+
+fetcher_config_copy_if_unset() {
+  fetcher_config_target=$1
+  fetcher_config_origin=$2
+  eval "fetcher_config_target_set=\${$fetcher_config_target+x}"
+  [ "$fetcher_config_target_set" = x ] && return 0
+  eval "fetcher_config_origin_set=\${$fetcher_config_origin+x}"
+  [ "$fetcher_config_origin_set" = x ] || return 0
+  fetcher_config_result=$(fetcher_config_value "$fetcher_config_origin")
+  eval "$fetcher_config_target=\$fetcher_config_result"
+}
+
+fetcher_config_normalize() {
+  if [ -z "${SOURCE_COUNT-}" ]; then
+    SOURCE_COUNT=1
+  fi
+  if [ "$SOURCE_COUNT" = 1 ]; then
+    for fetcher_config_suffix in ID PATH LICENSE NAME VERSION URL CATEGORY \
+      LICENSE_DECLARATION LICENSE_URL CONTENT_TYPES LANGUAGES FROM TO SELECTION \
+      COPYRIGHTED MACHINE_GENERATED PERSONAL_DATA ACQUISITION_BASIS; do
+      fetcher_config_copy_if_unset "SOURCE_1_$fetcher_config_suffix" "SOURCE_$fetcher_config_suffix"
+    done
+    for fetcher_config_suffix in TYPE ON_EMPTY NUL TEXT_FIELDS TEXT_FALLBACK ID DATE \
+      LICENSE SOURCE LANGUAGE CONTEXT RESPONSE META_FIELDS LICENSE_INCLUDE MAIN_CONTENT \
+      MESSAGES_CONTENT MESSAGES_ROLE MESSAGES_TOOLS ROLE_ALIASES TREE_ROOT TREE_REPLIES \
+      TREE_TEXT TREE_ROLE TREE_ASSISTANT_ROLE TREE_RANK TREE_MISSING_RANK BOUNDS_START \
+      BOUNDS_END XML_ON_MALFORMED XML_EXCLUDE; do
+      fetcher_config_copy_if_unset "SOURCE_1_INPUT_$fetcher_config_suffix" "INPUT_$fetcher_config_suffix"
+    done
+  fi
+  if [ -z "${FETCH_COUNT-}" ]; then
+    FETCH_COUNT=1
+  fi
+  if [ "$FETCH_COUNT" = 1 ]; then
+    fetcher_config_copy_if_unset FETCH_1_METHOD FETCH_METHOD
+    fetcher_config_copy_if_unset FETCH_1_SOURCE FETCH_SOURCE
+    fetcher_config_copy_if_unset FETCH_1_ARG_COUNT FETCH_ARG_COUNT
+    fetcher_config_args=$(fetcher_config_value FETCH_1_ARG_COUNT)
+    case $fetcher_config_args in ''|*[!0-9]*) ;;
+      *)
+        fetcher_config_arg=1
+        while [ "$fetcher_config_arg" -le "$fetcher_config_args" ]; do
+          fetcher_config_copy_if_unset "FETCH_1_ARG_$fetcher_config_arg" "FETCH_ARG_$fetcher_config_arg"
+          fetcher_config_arg=$((fetcher_config_arg + 1))
+        done
+        ;;
+    esac
+  fi
+  fetcher_config_job=1
+  while [ "$fetcher_config_job" -le "$FETCH_COUNT" ]; do
+    eval "fetcher_config_source_set=\${FETCH_${fetcher_config_job}_SOURCE+x}"
+    [ "$fetcher_config_source_set" = x ] || eval "FETCH_${fetcher_config_job}_SOURCE=1"
+    fetcher_config_method=$(fetcher_config_value "FETCH_${fetcher_config_job}_METHOD")
+    case $fetcher_config_method in
+      download)
+        fetcher_config_arg_names='URL PATH SHA256'
+        ;;
+      huggingface)
+        fetcher_config_arg_names='SOURCE_PATH BASE_URL DATASET REVISION SUFFIX PREFIX'
+        ;;
+      git)
+        fetcher_config_arg_names='PATH URL REF REVISION'
+        ;;
+      *)
+        fetcher_config_job=$((fetcher_config_job + 1))
+        continue
+        ;;
+    esac
+    fetcher_config_arg=0
+    for fetcher_config_suffix in $fetcher_config_arg_names; do
+      fetcher_config_arg=$((fetcher_config_arg + 1))
+      fetcher_config_origin=FETCH_${fetcher_config_job}_$fetcher_config_suffix
+      if [ "$FETCH_COUNT" = 1 ]; then
+        fetcher_config_copy_if_unset "$fetcher_config_origin" "FETCH_$fetcher_config_suffix"
+      fi
+      fetcher_config_copy_if_unset "FETCH_${fetcher_config_job}_ARG_${fetcher_config_arg}" "$fetcher_config_origin"
+    done
+    if [ "$fetcher_config_method" = git ]; then
+      fetcher_config_options=$(fetcher_config_value "FETCH_${fetcher_config_job}_OPTIONS")
+      if [ -z "$fetcher_config_options" ] && [ "$FETCH_COUNT" = 1 ]; then
+        fetcher_config_options=$(fetcher_config_value FETCH_OPTIONS)
+      fi
+      for fetcher_config_result in $fetcher_config_options; do
+        fetcher_config_arg=$((fetcher_config_arg + 1))
+        eval "FETCH_${fetcher_config_job}_ARG_${fetcher_config_arg}=\$fetcher_config_result"
+      done
+    fi
+    if [ "$fetcher_config_method" = download ] &&
+       [ -z "$(fetcher_config_value "FETCH_${fetcher_config_job}_ARG_3")" ]; then
+      fetcher_config_arg=2
+    fi
+    if [ "$fetcher_config_method" = huggingface ] &&
+       [ -z "$(fetcher_config_value "FETCH_${fetcher_config_job}_ARG_6")" ]; then
+      fetcher_config_arg=5
+    fi
+    eval "FETCH_${fetcher_config_job}_ARG_COUNT=$fetcher_config_arg"
+    fetcher_config_job=$((fetcher_config_job + 1))
+  done
+}
+
+fetcher_config_validate() {
+  fetcher_config_normalize || return
+  fetcher_config_required CORPUS_ID CORPUS_TITLE CORPUS_DESCRIPTION \
+    CORPUS_DESTINATION FETCHER_OUTPUT FETCHER_SIZE FETCH_COUNT SOURCE_COUNT || return
+  [ "${FETCHER_ARGUMENT_COUNT-}" = 1 ] || {
+    fetcher_error "usage: $(basename "$0") OUTPUT_DIRECTORY"
+    return 2
+  }
+  case $FETCH_COUNT:$SOURCE_COUNT in
+    *[!0-9:]*) fetcher_error 'FETCH_COUNT and SOURCE_COUNT must be positive integers'; return 2 ;;
+  esac
+  [ "$FETCH_COUNT" -gt 0 ] && [ "$SOURCE_COUNT" -gt 0 ] || {
+    fetcher_error 'FETCH_COUNT and SOURCE_COUNT must be positive integers'
+    return 2
+  }
+  fetcher_config_source=1
+  while [ "$fetcher_config_source" -le "$SOURCE_COUNT" ]; do
+    fetcher_config_required \
+      "SOURCE_${fetcher_config_source}_ID" \
+      "SOURCE_${fetcher_config_source}_LICENSE" \
+      "SOURCE_${fetcher_config_source}_NAME" \
+      "SOURCE_${fetcher_config_source}_URL" \
+      "SOURCE_${fetcher_config_source}_CATEGORY" \
+      "SOURCE_${fetcher_config_source}_LICENSE_DECLARATION" || return
+    fetcher_config_source=$((fetcher_config_source + 1))
+  done
+  fetcher_config_job=1
+  while [ "$fetcher_config_job" -le "$FETCH_COUNT" ]; do
+    fetcher_config_required "FETCH_${fetcher_config_job}_METHOD" \
+      "FETCH_${fetcher_config_job}_SOURCE" "FETCH_${fetcher_config_job}_ARG_COUNT" || return
+    fetcher_config_method=$(fetcher_config_value "FETCH_${fetcher_config_job}_METHOD")
+    case $fetcher_config_method in
+      *[!a-z0-9_]*|'') fetcher_error "invalid fetch method: $fetcher_config_method"; return 2 ;;
+    esac
+    fetcher_config_source=$(fetcher_config_value "FETCH_${fetcher_config_job}_SOURCE")
+    case $fetcher_config_source in *[!0-9]*|'') fetcher_error 'invalid fetch source index'; return 2 ;; esac
+    [ "$fetcher_config_source" -ge 1 ] && [ "$fetcher_config_source" -le "$SOURCE_COUNT" ] || {
+      fetcher_error "FETCH_${fetcher_config_job}_SOURCE is out of range"
+      return 2
+    }
+    fetcher_config_args=$(fetcher_config_value "FETCH_${fetcher_config_job}_ARG_COUNT")
+    case $fetcher_config_args in *[!0-9]*|'') fetcher_error 'invalid fetch argument count'; return 2 ;; esac
+    fetcher_config_arg=1
+    while [ "$fetcher_config_arg" -le "$fetcher_config_args" ]; do
+      fetcher_config_name=FETCH_${fetcher_config_job}_ARG_${fetcher_config_arg}
+      eval "fetcher_config_present=\${$fetcher_config_name+x}"
+      [ "$fetcher_config_present" = x ] || {
+        fetcher_error "required fetcher variable is unset: $fetcher_config_name"
+        return 2
+      }
+      fetcher_config_arg=$((fetcher_config_arg + 1))
+    done
+    fetcher_config_job=$((fetcher_config_job + 1))
+  done
+}
+
+fetcher_run_configured() {
+  fetcher_config_job=1
+  while [ "$fetcher_config_job" -le "$FETCH_COUNT" ]; do
+    fetcher_config_method=$(fetcher_config_value "FETCH_${fetcher_config_job}_METHOD")
+    fetcher_config_args=$(fetcher_config_value "FETCH_${fetcher_config_job}_ARG_COUNT")
+    set --
+    fetcher_config_arg=1
+    while [ "$fetcher_config_arg" -le "$fetcher_config_args" ]; do
+      fetcher_config_result=$(fetcher_config_value "FETCH_${fetcher_config_job}_ARG_${fetcher_config_arg}")
+      set -- "$@" "$fetcher_config_result"
+      fetcher_config_arg=$((fetcher_config_arg + 1))
+    done
+    "fetcher_$fetcher_config_method" "$@" || return
+    fetcher_config_job=$((fetcher_config_job + 1))
+  done
+}
+
+fetcher_input_json() {
+  fetcher_input_prefix=SOURCE_${1}_INPUT_
+  fetcher_input_type=$(fetcher_config_value "${fetcher_input_prefix}TYPE")
+  fetcher_input_on_empty=$(fetcher_config_value "${fetcher_input_prefix}ON_EMPTY")
+  fetcher_input_nul=$(fetcher_config_value "${fetcher_input_prefix}NUL")
+  fetcher_input_text=$(fetcher_config_value "${fetcher_input_prefix}TEXT_FIELDS")
+  fetcher_input_fallback=$(fetcher_config_value "${fetcher_input_prefix}TEXT_FALLBACK")
+  fetcher_input_meta=$(fetcher_config_value "${fetcher_input_prefix}META_FIELDS")
+  fetcher_input_include=$(fetcher_config_value "${fetcher_input_prefix}LICENSE_INCLUDE")
+  fetcher_input_main=$(fetcher_config_value "${fetcher_input_prefix}MAIN_CONTENT")
+  fetcher_input_exclude=$(fetcher_config_value "${fetcher_input_prefix}XML_EXCLUDE")
+  jq -n \
+    --arg type "$fetcher_input_type" --arg on_empty "$fetcher_input_on_empty" --arg nul "$fetcher_input_nul" \
+    --arg text "$fetcher_input_text" --arg fallback "$fetcher_input_fallback" --arg meta "$fetcher_input_meta" \
+    --arg include "$fetcher_input_include" --arg main "$fetcher_input_main" \
+    --arg id "$(fetcher_config_value "${fetcher_input_prefix}ID")" \
+    --arg date "$(fetcher_config_value "${fetcher_input_prefix}DATE")" \
+    --arg license "$(fetcher_config_value "${fetcher_input_prefix}LICENSE")" \
+    --arg source "$(fetcher_config_value "${fetcher_input_prefix}SOURCE")" \
+    --arg language "$(fetcher_config_value "${fetcher_input_prefix}LANGUAGE")" \
+    --arg context "$(fetcher_config_value "${fetcher_input_prefix}CONTEXT")" \
+    --arg response "$(fetcher_config_value "${fetcher_input_prefix}RESPONSE")" \
+    --arg messages_content "$(fetcher_config_value "${fetcher_input_prefix}MESSAGES_CONTENT")" \
+    --arg messages_role "$(fetcher_config_value "${fetcher_input_prefix}MESSAGES_ROLE")" \
+    --arg messages_tools "$(fetcher_config_value "${fetcher_input_prefix}MESSAGES_TOOLS")" \
+    --arg role_aliases "$(fetcher_config_value "${fetcher_input_prefix}ROLE_ALIASES")" \
+    --arg tree_root "$(fetcher_config_value "${fetcher_input_prefix}TREE_ROOT")" \
+    --arg tree_replies "$(fetcher_config_value "${fetcher_input_prefix}TREE_REPLIES")" \
+    --arg tree_text "$(fetcher_config_value "${fetcher_input_prefix}TREE_TEXT")" \
+    --arg tree_role "$(fetcher_config_value "${fetcher_input_prefix}TREE_ROLE")" \
+    --arg tree_assistant "$(fetcher_config_value "${fetcher_input_prefix}TREE_ASSISTANT_ROLE")" \
+    --arg tree_rank "$(fetcher_config_value "${fetcher_input_prefix}TREE_RANK")" \
+    --arg tree_missing "$(fetcher_config_value "${fetcher_input_prefix}TREE_MISSING_RANK")" \
+    --arg bounds_start "$(fetcher_config_value "${fetcher_input_prefix}BOUNDS_START")" \
+    --arg bounds_end "$(fetcher_config_value "${fetcher_input_prefix}BOUNDS_END")" \
+    --arg xml_malformed "$(fetcher_config_value "${fetcher_input_prefix}XML_ON_MALFORMED")" \
+    --arg xml_exclude "$fetcher_input_exclude" '
+      def lines($v): $v | split("\n") | map(select(length > 0));
+      def pairs($v): $v | split("\n") | map(select(length > 0) |
+        capture("^(?<key>[^=]+)=(?<value>.*)$")) | from_entries;
+      def typed_pairs($v): $v | split("\n") | map(select(length > 0) |
+        capture("^(?<key>[^=]+)=(?<raw>.*)$") |
+        {key: .key, value: (.raw | fromjson)}) | from_entries;
+      def put($key; $value): if $value == "" then . else . + {($key): $value} end;
+      ({}) | put("type"; $type) | put("on_empty"; $on_empty) | put("nul"; $nul) |
+      . + ([$text,$fallback,$id,$date,$license,$source,$language,$context,$response,$meta] |
+        if any(. != "") then {fields:
+          (({} | if $text == "" then . else .text=lines($text) end |
+            if $fallback == "" then . else .text_fallback=lines($fallback) end |
+            put("id";$id) | put("date";$date) | put("license";$license) |
+            put("source";$source) | put("language";$language) |
+            put("context";$context) | put("response";$response)) +
+            (if $meta == "" then {} else {meta:pairs($meta)} end))}
+        else {} end) |
+      . + (if $include == "" then {} else {license_policy:{include:lines($include)}} end) |
+      . + (if $main == "" then {} else {main_content:typed_pairs($main)} end) |
+      . + (if $messages_content == "" and $messages_role == "" then {} else
+        {messages: (({} | put("content";$messages_content) | put("role";$messages_role) |
+          put("tools";$messages_tools)) +
+          (if $role_aliases == "" then {} else {role_aliases:pairs($role_aliases)} end))} end) |
+      . + (if $tree_root == "" then {} else {tree:
+        ({} | put("root";$tree_root) | put("replies";$tree_replies) |
+          put("text";$tree_text) | put("role";$tree_role) |
+          put("assistant_role";$tree_assistant) | put("rank";$tree_rank) |
+          put("missing_rank";$tree_missing))} end) |
+      . + (if $bounds_start == "" and $bounds_end == "" then {} else
+        {bounds:({} | put("start_pattern";$bounds_start) | put("end_pattern";$bounds_end))} end) |
+      . + (if $xml_malformed == "" and $xml_exclude == "" then {} else
+        {xml:({} | put("on_malformed";$xml_malformed) |
+          if $xml_exclude == "" then . else .exclude=lines($xml_exclude) end)} end)'
+}
+
+fetcher_artifacts_json() {
+  fetcher_artifact_source=$1
+  fetcher_artifact_job=1
+  fetcher_artifact_last=$FETCH_COUNT
+  if [ "$FETCH_COUNT" -eq "$SOURCE_COUNT" ] &&
+     [ "$(fetcher_config_value "FETCH_${fetcher_artifact_source}_SOURCE")" = "$fetcher_artifact_source" ]; then
+    fetcher_artifact_job=$fetcher_artifact_source
+    fetcher_artifact_last=$fetcher_artifact_source
+  fi
+  while [ "$fetcher_artifact_job" -le "$fetcher_artifact_last" ]; do
+    [ "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_SOURCE")" = "$fetcher_artifact_source" ] || {
+      fetcher_artifact_job=$((fetcher_artifact_job + 1))
+      continue
+    }
+    fetcher_artifact_method=$(fetcher_config_value "FETCH_${fetcher_artifact_job}_METHOD")
+    fetcher_artifact_args=$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_COUNT")
+    case $fetcher_artifact_method in
+      download)
+        jq -n --arg url "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_1")" \
+          --arg path "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_2")" \
+          --arg sha "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_3")" '
+          {url:$url,path:$path} + (if $sha == "" then {} else {sha256:$sha} end)'
+        ;;
+      git)
+        jq -n --arg url "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_2")" \
+          --arg ref "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_3")" \
+          --arg revision "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_4")" \
+          '{url:$url,revision:$revision,ref:$ref}'
+        ;;
+      huggingface)
+        jq -n --arg base "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_2")" \
+          --arg dataset "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_3")" \
+          --arg revision "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_4")" \
+          --arg suffix "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_5")" \
+          --arg prefix "$(fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_6")" '
+          {url:($base+"/datasets/"+$dataset),revision:$revision,
+           selection:({suffix:$suffix} + (if $prefix == "" then {} else {prefix:$prefix} end))}'
+        ;;
+      *)
+        fetcher_artifact_arguments=$(mktemp "${TMPDIR:-/tmp}/waldo-fetcher-arguments.XXXXXX") || return
+        fetcher_artifact_arg=2
+        while [ "$fetcher_artifact_arg" -le "$fetcher_artifact_args" ]; do
+          fetcher_config_value "FETCH_${fetcher_artifact_job}_ARG_${fetcher_artifact_arg}" |
+            jq -Rs . >>"$fetcher_artifact_arguments"
+          fetcher_artifact_arg=$((fetcher_artifact_arg + 1))
+        done
+        fetcher_artifact_label=$(printf '%s' "$fetcher_artifact_method" | tr '_' '-')
+        jq -s --arg method "$fetcher_artifact_label" '{method:$method,arguments:.}' \
+          "$fetcher_artifact_arguments"
+        rm -f -- "$fetcher_artifact_arguments"
+        ;;
+    esac
+    fetcher_artifact_job=$((fetcher_artifact_job + 1))
+  done | jq -s .
+}
+
+fetcher_sources_json() {
+  fetcher_source_index=1
+  while [ "$fetcher_source_index" -le "$SOURCE_COUNT" ]; do
+    fetcher_source_input=$(fetcher_input_json "$fetcher_source_index") || return
+    fetcher_source_artifacts=$(fetcher_artifacts_json "$fetcher_source_index") || return
+    fetcher_source_prefix=SOURCE_${fetcher_source_index}_
+    jq -n \
+      --arg id "$(fetcher_config_value "${fetcher_source_prefix}ID")" \
+      --arg path "$(fetcher_config_value "${fetcher_source_prefix}PATH")" \
+      --arg license "$(fetcher_config_value "${fetcher_source_prefix}LICENSE")" \
+      --arg name "$(fetcher_config_value "${fetcher_source_prefix}NAME")" \
+      --arg version "$(fetcher_config_value "${fetcher_source_prefix}VERSION")" \
+      --arg url "$(fetcher_config_value "${fetcher_source_prefix}URL")" \
+      --arg category "$(fetcher_config_value "${fetcher_source_prefix}CATEGORY")" \
+      --arg declaration "$(fetcher_config_value "${fetcher_source_prefix}LICENSE_DECLARATION")" \
+      --arg evidence_url "$(fetcher_config_value "${fetcher_source_prefix}LICENSE_URL")" \
+      --arg types "$(fetcher_config_value "${fetcher_source_prefix}CONTENT_TYPES")" \
+      --arg languages "$(fetcher_config_value "${fetcher_source_prefix}LANGUAGES")" \
+      --arg from "$(fetcher_config_value "${fetcher_source_prefix}FROM")" \
+      --arg to "$(fetcher_config_value "${fetcher_source_prefix}TO")" \
+      --arg selection "$(fetcher_config_value "${fetcher_source_prefix}SELECTION")" \
+      --arg copyrighted "$(fetcher_config_value "${fetcher_source_prefix}COPYRIGHTED")" \
+      --arg machine "$(fetcher_config_value "${fetcher_source_prefix}MACHINE_GENERATED")" \
+      --arg personal "$(fetcher_config_value "${fetcher_source_prefix}PERSONAL_DATA")" \
+      --arg basis "$(fetcher_config_value "${fetcher_source_prefix}ACQUISITION_BASIS")" \
+      --argjson input "$fetcher_source_input" --argjson artifacts "$fetcher_source_artifacts" '
+        def lines($v): $v | split("\n") | map(select(length > 0));
+        def scalar($v): if $v == "true" then true elif $v == "false" then false else $v end;
+        def put($key; $value): if $value == "" then . else . + {($key):$value} end;
+        {id:$id,path:$path,license:$license,
+         source:({name:$name,url:$url,category:$category,
+           license_evidence:({declaration:$declaration} | put("url";$evidence_url))} |
+           put("version";$version) |
+           . + (if [$types,$languages,$from,$to,$selection,$copyrighted,$machine,$personal] | any(. != "")
+             then {content:({} |
+               if $types == "" then . else .types=lines($types) end |
+               if $languages == "" then . else .languages=lines($languages) end |
+               put("from";$from) | put("to";$to) | put("selection";$selection) |
+               if $copyrighted == "" then . else .copyrighted=scalar($copyrighted) end |
+               if $machine == "" then . else .machine_generated=scalar($machine) end |
+               if $personal == "" then . else .personal_data=scalar($personal) end)}
+             else {} end) |
+           . + (if $basis == "" then {} else {acquisition:{basis:$basis}} end)),
+         input:$input,artifacts:$artifacts}'
+    fetcher_source_index=$((fetcher_source_index + 1))
+  done | jq -s .
+}
+
+fetcher_spec_json() {
+  fetcher_sources=$(fetcher_sources_json) || return
+  jq -n --arg id "$CORPUS_ID" --arg title "$CORPUS_TITLE" \
+    --arg description "$CORPUS_DESCRIPTION" --arg destination "$CORPUS_DESTINATION" \
+    --argjson sources "$fetcher_sources" '
+      {corpus:{id:$id,title:$title,description:$description,destination:$destination},sources:$sources}'
+}
+
+write_manifest() {
+  fetcher_spec_json | fetcher_manifest
+}
+
+fetcher_main() {
+  fetcher_require jq find sort awk wc || return
+  fetcher_config_validate || return
+  if [ "${FETCHER_SPEC_ONLY-}" = 1 ]; then
+    fetcher_spec_json
+    return
+  fi
+  [ "${FETCHER_VALIDATE_ONLY-}" != 1 ] || return 0
+  fetcher_begin "$FETCHER_OUTPUT" || return
+  if [ -n "${FETCHER_REQUIRED_FREE-}" ]; then
+    fetcher_size "$FETCHER_SIZE" "$FETCHER_REQUIRED_FREE" || return
+  else
+    fetcher_size "$FETCHER_SIZE" || return
+  fi
+  fetcher_run_configured || return
+  write_manifest
+}

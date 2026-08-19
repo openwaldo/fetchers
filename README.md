@@ -7,9 +7,9 @@ transform, shard, upload, schedule, or train anything.
 ## Usage
 
 ```sh
-./corpora/pep.sh /path/to/output
+./corpora/python-enhancement-proposals.sh /path/to/output
 # Later, as a separate process:
-waldo index ingest /path/to/output /index/destination
+waldo index ingest /path/to/output
 ```
 
 A successful fetch creates this handoff:
@@ -37,23 +37,52 @@ evaluation.
 
 ## Script contract
 
-Every script is POSIX shell, lives in `corpora/`, and begins with:
+Every script is POSIX shell, lives in `corpora/`, and reads like a declarative
+corpus header followed by one entry point:
 
 ```sh
 #!/bin/sh
 set -eu
-. "$(dirname "$0")/../functions.sh"
 
-fetcher_begin "$@"                 # requires exactly one output directory
-fetcher_require curl                # required programs, checked before work
-fetcher_require_env PROVIDER_TOKEN  # only when the source requires it
-fetcher_size 10G                    # estimate raw bytes and check free space
+CORPUS_ID=example
+CORPUS_TITLE='Example corpus'
+CORPUS_DESCRIPTION='Raw example records.'
+CORPUS_DESTINATION=core/example
+
+SOURCE_ID=example
+SOURCE_NAME='Example publisher'
+SOURCE_URL=https://example.org/data
+SOURCE_CATEGORY=public-dataset
+SOURCE_LICENSE=CC0-1.0
+SOURCE_LICENSE_DECLARATION=CC0-1.0
+SOURCE_LICENSE_URL=https://example.org/license
+
+INPUT_TYPE=record-map
+INPUT_TEXT_FIELDS=text
+
+FETCHER_OUTPUT=${1-}
+FETCHER_ARGUMENT_COUNT=$#
+FETCHER_SIZE=10G
+FETCH_METHOD=download
+FETCH_URL=https://example.org/data/records.jsonl.gz
+FETCH_PATH=records.jsonl.gz
+FETCH_SHA256=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
+
+script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
+. "$script_dir/../functions.sh"
+fetcher_main
 ```
 
-`fetcher_size SIZE` requires free space for twice the estimated raw size plus
-1 GiB. This covers a partial download and ordinary ingestion buffers.
-Compressed archives or unusually expensive preparation must declare a larger
-total explicitly with `fetcher_size RAW_SIZE REQUIRED_FREE_SIZE`.
+`fetcher_main` takes no arguments. The script assigns its one positional
+argument to `FETCHER_OUTPUT`; `${1-}` allows the shared validation to report a
+clear missing-argument error under `set -u`. A second positional argument is an
+error. Required corpus variables are validated before the output directory is
+created or any network request starts.
+
+`FETCHER_SIZE` requires free space for twice the estimated raw size plus 1 GiB.
+This covers a partial download and ordinary ingestion buffers. Compressed
+archives or unusually expensive preparation may also set
+`FETCHER_REQUIRED_FREE` explicitly.
 
 All validation runs before network access. A fetcher must:
 
@@ -85,10 +114,11 @@ It records:
 - retrieval time, fetcher script identity, raw file count and byte count; and
 - one deterministic aggregate SHA-256 for the complete raw tree.
 
-One corpus may contain several independently licensed sources. Each source then
-has its own non-overlapping path and metadata entry. Static corpus facts live in
-the script; `functions.sh` writes and validates the final JSON so scripts do not
-hand-roll manifests. Secrets and machine-local paths are never recorded.
+One corpus may contain several independently licensed sources. Such scripts use
+numbered `SOURCE_1_*`, `SOURCE_2_*`, and matching `FETCH_1_*` variables. Static
+corpus facts live as named shell variables in the script; `write_manifest`
+reads them and writes the formal JSON. Fetcher scripts never contain JSON
+heredocs. Secrets and machine-local paths are never recorded.
 
 WALDO treats the manifest as source metadata, excludes it from raw record
 probing, independently hashes every raw file, and persists the relevant

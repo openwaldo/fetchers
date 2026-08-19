@@ -1,84 +1,55 @@
 #!/bin/sh
 set -eu
 
+CORPUS_ID='plos'
+CORPUS_TITLE='PLOS Articles'
+CORPUS_DESCRIPTION='Peer-reviewed research articles published by the Public Library of Science.'
+CORPUS_DESTINATION='science/plos'
+
+SOURCE_ID='plos'
+SOURCE_PATH=''
+SOURCE_LICENSE='CC-BY-4.0'
+SOURCE_NAME='plos'
+SOURCE_URL='https://allof.plos.org/allofplos.zip'
+SOURCE_CATEGORY='public-dataset'
+SOURCE_LICENSE_DECLARATION='CC-BY-4.0'
+SOURCE_LICENSE_URL='https://allof.plos.org/allofplos.zip'
+INPUT_TYPE='xml-record'
+INPUT_TEXT_FIELDS='/article/front/article-meta/title-group/article-title
+/article/front/article-meta/abstract
+/article/body'
+INPUT_META_FIELDS='journal=/article/front/journal-meta/journal-title-group/journal-title'
+INPUT_XML_ON_MALFORMED='skip'
+INPUT_XML_EXCLUDE='//sub-article
+//table-wrap
+//fig
+//disp-formula
+//inline-formula
+//tex-math
+//math
+//supplementary-material
+//ref-list
+//object-id
+//graphic
+//media
+//front-stub'
+
+FETCHER_OUTPUT=${1-}
+FETCHER_ARGUMENT_COUNT=$#
+FETCHER_SIZE='50G'
+FETCH_COUNT='2'
+FETCH_1_METHOD='download'
+FETCH_1_URL='https://allof.plos.org/allofplos.zip'
+FETCH_1_PATH='allofplos.zip'
+FETCH_1_SHA256=''
+
+FETCH_2_METHOD='zip_extract'
+FETCH_2_ARG_COUNT='4'
+FETCH_2_ARG_1=''
+FETCH_2_ARG_2='allofplos.zip'
+FETCH_2_ARG_3='.xml'
+FETCH_2_ARG_4='articles'
+
 script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 . "$script_dir/../functions.sh"
-
-fetcher_begin "$@"
-fetcher_require jq find sort awk wc curl unzip
-fetcher_size 50G
-fetcher_download 'https://allof.plos.org/allofplos.zip' 'allofplos.zip'
-fetcher_zip_extract '' 'allofplos.zip' '.xml' 'articles'
-
-# shellcheck disable=SC2119
-fetcher_manifest <<'JSON'
-{
-  "corpus": {
-    "id": "plos",
-    "title": "PLOS Articles",
-    "description": "Peer-reviewed research articles published by the Public Library of Science.",
-    "destination": "science/plos"
-  },
-  "sources": [
-    {
-      "id": "plos",
-      "path": "",
-      "license": "CC-BY-4.0",
-      "source": {
-        "name": "plos",
-        "url": "https://allof.plos.org/allofplos.zip",
-        "category": "public-dataset",
-        "license_evidence": {
-          "declaration": "CC-BY-4.0",
-          "url": "https://allof.plos.org/allofplos.zip"
-        }
-      },
-      "input": {
-        "type": "xml-record",
-        "fields": {
-          "text": [
-            "/article/front/article-meta/title-group/article-title",
-            "/article/front/article-meta/abstract",
-            "/article/body"
-          ],
-          "meta": {
-            "journal": "/article/front/journal-meta/journal-title-group/journal-title"
-          }
-        },
-        "xml": {
-          "on_malformed": "skip",
-          "exclude": [
-            "//sub-article",
-            "//table-wrap",
-            "//fig",
-            "//disp-formula",
-            "//inline-formula",
-            "//tex-math",
-            "//math",
-            "//supplementary-material",
-            "//ref-list",
-            "//object-id",
-            "//graphic",
-            "//media",
-            "//front-stub"
-          ]
-        }
-      },
-      "artifacts": [
-        {
-          "url": "https://allof.plos.org/allofplos.zip",
-          "path": "allofplos.zip"
-        },
-        {
-          "method": "zip-extract",
-          "arguments": [
-            "allofplos.zip",
-            ".xml",
-            "articles"
-          ]
-        }
-      ]
-    }
-  ]
-}
-JSON
+fetcher_main

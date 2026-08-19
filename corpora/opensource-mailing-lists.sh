@@ -1,239 +1,178 @@
 #!/bin/sh
 set -eu
 
+CORPUS_ID='opensource-mailing-lists'
+CORPUS_TITLE='Open Source Community Mailing Lists'
+CORPUS_DESCRIPTION='Checksum-pinned 2025 public discussions from the Beowulf and Open Source Initiative communities.'
+CORPUS_DESTINATION='community/opensource-mailing-lists'
+
+SOURCE_COUNT='3'
+SOURCE_1_ID='beowulf'
+SOURCE_1_PATH='beowulf'
+SOURCE_1_LICENSE='LicenseRef-Publicly-Archived-Forum'
+SOURCE_1_NAME='Beowulf Mailing List'
+SOURCE_1_VERSION='2025'
+SOURCE_1_URL='https://beowulf.org/pipermail/beowulf/'
+SOURCE_1_CATEGORY='public-dataset'
+SOURCE_1_LICENSE_DECLARATION='The project identifies Beowulf as a public mailing list and provides downloadable monthly text archives; no blanket content license is stated.'
+SOURCE_1_LICENSE_URL='https://beowulf.org/cgi-bin/mailman/listinfo/'
+SOURCE_1_CONTENT_TYPES='high-performance computing
+mailing list
+user community support'
+SOURCE_1_LANGUAGES='en'
+SOURCE_1_FROM='2025-01'
+SOURCE_1_TO='2025-11'
+SOURCE_1_SELECTION='All six non-empty monthly text exports published for calendar year 2025.'
+SOURCE_1_COPYRIGHTED='yes'
+SOURCE_1_MACHINE_GENERATED='unknown'
+SOURCE_1_ACQUISITION_BASIS='Official public Mailman archive with each available monthly gzip text export checksum-pinned.'
+SOURCE_1_INPUT_TYPE='mbox'
+
+SOURCE_2_ID='osi-license-review'
+SOURCE_2_PATH='osi-license-review'
+SOURCE_2_LICENSE='LicenseRef-OSI-Public-Forum'
+SOURCE_2_NAME='OSI License Review'
+SOURCE_2_VERSION='2025'
+SOURCE_2_URL='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/'
+SOURCE_2_CATEGORY='public-dataset'
+SOURCE_2_LICENSE_DECLARATION='OSI deems public-forum communications published by the sender and made public without condition.'
+SOURCE_2_LICENSE_URL='https://opensource.org/public_archives_policy/'
+SOURCE_2_CONTENT_TYPES='license review
+mailing list
+open source governance'
+SOURCE_2_LANGUAGES='en'
+SOURCE_2_FROM='2025-01'
+SOURCE_2_TO='2025-12'
+SOURCE_2_SELECTION='All twelve monthly gzip text exports for calendar year 2025.'
+SOURCE_2_COPYRIGHTED='yes'
+SOURCE_2_MACHINE_GENERATED='unknown'
+SOURCE_2_ACQUISITION_BASIS='Official public Mailman archive with each monthly export checksum-pinned.'
+SOURCE_2_INPUT_TYPE='mbox'
+
+SOURCE_3_ID='osi-license-discuss'
+SOURCE_3_PATH='osi-license-discuss'
+SOURCE_3_LICENSE='LicenseRef-OSI-Public-Forum'
+SOURCE_3_NAME='OSI License Discuss'
+SOURCE_3_VERSION='2025'
+SOURCE_3_URL='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/'
+SOURCE_3_CATEGORY='public-dataset'
+SOURCE_3_LICENSE_DECLARATION='OSI deems public-forum communications published by the sender and made public without condition.'
+SOURCE_3_LICENSE_URL='https://opensource.org/public_archives_policy/'
+SOURCE_3_CONTENT_TYPES='license discussion
+mailing list
+open source governance'
+SOURCE_3_LANGUAGES='en'
+SOURCE_3_FROM='2025-02'
+SOURCE_3_TO='2025-12'
+SOURCE_3_SELECTION='All ten non-empty monthly gzip text exports published for calendar year 2025.'
+SOURCE_3_COPYRIGHTED='yes'
+SOURCE_3_MACHINE_GENERATED='unknown'
+SOURCE_3_ACQUISITION_BASIS='Official public Mailman archive with each available monthly export checksum-pinned.'
+SOURCE_3_INPUT_TYPE='mbox'
+
+FETCHER_OUTPUT=${1-}
+FETCHER_ARGUMENT_COUNT=$#
+FETCHER_SIZE='25G'
+FETCH_COUNT='3'
+FETCH_1_METHOD='mailman_text_set'
+FETCH_1_SOURCE='1'
+FETCH_1_ARG_COUNT='19'
+FETCH_1_ARG_1='beowulf'
+FETCH_1_ARG_2='https://beowulf.org/pipermail/beowulf/2025-January.txt.gz'
+FETCH_1_ARG_3='2025-01.txt'
+FETCH_1_ARG_4='bc72a2bfcfa69e18f3e6cdbbb96aeadb15667043b9ac5969726397224c57795f'
+FETCH_1_ARG_5='https://beowulf.org/pipermail/beowulf/2025-February.txt.gz'
+FETCH_1_ARG_6='2025-02.txt'
+FETCH_1_ARG_7='83166d9338a81bf3a42a86f0d9a219636e5c68766e13fe20dcff02451ed0f57d'
+FETCH_1_ARG_8='https://beowulf.org/pipermail/beowulf/2025-March.txt.gz'
+FETCH_1_ARG_9='2025-03.txt'
+FETCH_1_ARG_10='cf0ed7d46e8ddbdceafef0a2dea9d50a393ba16e37e0842a68f74ba197bfa5aa'
+FETCH_1_ARG_11='https://beowulf.org/pipermail/beowulf/2025-June.txt.gz'
+FETCH_1_ARG_12='2025-06.txt'
+FETCH_1_ARG_13='35c803cecfe0dbec50aa8bfc1423305fd62fa68a59dcc06d3f39517f3c19b457'
+FETCH_1_ARG_14='https://beowulf.org/pipermail/beowulf/2025-October.txt.gz'
+FETCH_1_ARG_15='2025-10.txt'
+FETCH_1_ARG_16='7801698e2397a3823154cf7b736f21a52965054d238dd91787f018e478b5182b'
+FETCH_1_ARG_17='https://beowulf.org/pipermail/beowulf/2025-November.txt.gz'
+FETCH_1_ARG_18='2025-11.txt'
+FETCH_1_ARG_19='0bdcc90a080a2d65a884f279f3e15398e6d8af537d2b0bab523973c71378cb1c'
+
+FETCH_2_METHOD='mailman_text_set'
+FETCH_2_SOURCE='2'
+FETCH_2_ARG_COUNT='37'
+FETCH_2_ARG_1='osi-license-review'
+FETCH_2_ARG_2='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-January.txt.gz'
+FETCH_2_ARG_3='2025-01.txt'
+FETCH_2_ARG_4='116bbe116b5aa7b7f03e5ba196c0150c04c4eb16bda190cd57466b916e2bb2e6'
+FETCH_2_ARG_5='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-February.txt.gz'
+FETCH_2_ARG_6='2025-02.txt'
+FETCH_2_ARG_7='6c8a3adb125f8b0c537e2871c1fa1bde18747294eee43c23c182cc55ec62947f'
+FETCH_2_ARG_8='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March.txt.gz'
+FETCH_2_ARG_9='2025-03.txt'
+FETCH_2_ARG_10='7ba0dad2dadc8ef2d9cb80305b6cf326cc75af92bc39278a2e8c86d493b1367e'
+FETCH_2_ARG_11='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-April.txt.gz'
+FETCH_2_ARG_12='2025-04.txt'
+FETCH_2_ARG_13='1c250a6c2f9adada5958a40881898393e9e921b0ff41aca2e84db489c29eab1f'
+FETCH_2_ARG_14='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-May.txt.gz'
+FETCH_2_ARG_15='2025-05.txt'
+FETCH_2_ARG_16='d7fbb9f92b214f4f34670d0060ffff1579319d30f05889abb2560a1de3b992bb'
+FETCH_2_ARG_17='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-June.txt.gz'
+FETCH_2_ARG_18='2025-06.txt'
+FETCH_2_ARG_19='313a2e71fd52b915b8b09280fc8621d6ffbaa88ef7d50d18969206e92a35583a'
+FETCH_2_ARG_20='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-July.txt.gz'
+FETCH_2_ARG_21='2025-07.txt'
+FETCH_2_ARG_22='e761496fa972cfbbf1f9f58a71802d752a48646f012afb27d8fb2b3c5cac3d55'
+FETCH_2_ARG_23='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-August.txt.gz'
+FETCH_2_ARG_24='2025-08.txt'
+FETCH_2_ARG_25='c0cbf6a2ce315e39d6735cfd48b25dff587cb312aa5210ed444fe331eff453f5'
+FETCH_2_ARG_26='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-September.txt.gz'
+FETCH_2_ARG_27='2025-09.txt'
+FETCH_2_ARG_28='fdfb78090ee44e70a24fd72dacec04e4f6bcd7eefb00c5ff86f65a5ed15603b7'
+FETCH_2_ARG_29='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-October.txt.gz'
+FETCH_2_ARG_30='2025-10.txt'
+FETCH_2_ARG_31='5e0963aea0db9dc913a23ac080b13ee7f6179573cf19476a62fb19e4aed4e7d5'
+FETCH_2_ARG_32='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-November.txt.gz'
+FETCH_2_ARG_33='2025-11.txt'
+FETCH_2_ARG_34='dcd0f1ea9c80cbdd699e2e4cd1a4291f0b378e77e4a919938a01c6523da11c3d'
+FETCH_2_ARG_35='https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-December.txt.gz'
+FETCH_2_ARG_36='2025-12.txt'
+FETCH_2_ARG_37='b8f3ddcb4b0b1aabdb4d2e9008405fae1a7cf447f03ca54c23193eb19e102f70'
+
+FETCH_3_METHOD='mailman_text_set'
+FETCH_3_SOURCE='3'
+FETCH_3_ARG_COUNT='31'
+FETCH_3_ARG_1='osi-license-discuss'
+FETCH_3_ARG_2='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-February.txt.gz'
+FETCH_3_ARG_3='2025-02.txt'
+FETCH_3_ARG_4='3a1bb5c7d27068879a8f1cd405efe1af1975b19fa1aaaade9921b19754b08c2c'
+FETCH_3_ARG_5='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-March.txt.gz'
+FETCH_3_ARG_6='2025-03.txt'
+FETCH_3_ARG_7='447fd831c98be32c1b90b07c4a07974c9c52ebb62a738c4a250b1bd727892d2a'
+FETCH_3_ARG_8='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-April.txt.gz'
+FETCH_3_ARG_9='2025-04.txt'
+FETCH_3_ARG_10='9c93bfd729ac7528514f078c0a5060c602ece3c0ac3447580c10afecd39082b7'
+FETCH_3_ARG_11='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-May.txt.gz'
+FETCH_3_ARG_12='2025-05.txt'
+FETCH_3_ARG_13='223d0b3c0d6deddc3139a61dcf99da091f68afc2bdf589d75d2ccc1a6d368592'
+FETCH_3_ARG_14='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-June.txt.gz'
+FETCH_3_ARG_15='2025-06.txt'
+FETCH_3_ARG_16='b47deae623d5a83cea24ea3372065b8d442c465e580f12f931f648352b958e13'
+FETCH_3_ARG_17='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-July.txt.gz'
+FETCH_3_ARG_18='2025-07.txt'
+FETCH_3_ARG_19='ba010d98c4314ef7e21493e59f30b9ccb8b7c7911b5ab4ab2cc31a5a458a4d5c'
+FETCH_3_ARG_20='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-September.txt.gz'
+FETCH_3_ARG_21='2025-09.txt'
+FETCH_3_ARG_22='f432193853ed1cad23b188d42e73db3dab1b8473e063e091ef47e4d67f046016'
+FETCH_3_ARG_23='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-October.txt.gz'
+FETCH_3_ARG_24='2025-10.txt'
+FETCH_3_ARG_25='c048727d6ae548d4dacaf064dad1446a1af3e5c2d192464e59bfb0d4a564074e'
+FETCH_3_ARG_26='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-November.txt.gz'
+FETCH_3_ARG_27='2025-11.txt'
+FETCH_3_ARG_28='7067c6dfe1aee8a4e494edda267979427623bf1164e6f05eb4667efa6ef4f3b5'
+FETCH_3_ARG_29='https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-December.txt.gz'
+FETCH_3_ARG_30='2025-12.txt'
+FETCH_3_ARG_31='82f4c7a37a54030a17a98a3aa3fa73a1b5cb74a8d5cd9f8e1b4ba609d45f8dd5'
+
 script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 . "$script_dir/../functions.sh"
-
-fetcher_begin "$@"
-fetcher_require jq find sort awk wc curl gzip
-fetcher_size 25G
-fetcher_mailman_text_set 'beowulf' 'https://beowulf.org/pipermail/beowulf/2025-January.txt.gz' '2025-01.txt' 'bc72a2bfcfa69e18f3e6cdbbb96aeadb15667043b9ac5969726397224c57795f' 'https://beowulf.org/pipermail/beowulf/2025-February.txt.gz' '2025-02.txt' '83166d9338a81bf3a42a86f0d9a219636e5c68766e13fe20dcff02451ed0f57d' 'https://beowulf.org/pipermail/beowulf/2025-March.txt.gz' '2025-03.txt' 'cf0ed7d46e8ddbdceafef0a2dea9d50a393ba16e37e0842a68f74ba197bfa5aa' 'https://beowulf.org/pipermail/beowulf/2025-June.txt.gz' '2025-06.txt' '35c803cecfe0dbec50aa8bfc1423305fd62fa68a59dcc06d3f39517f3c19b457' 'https://beowulf.org/pipermail/beowulf/2025-October.txt.gz' '2025-10.txt' '7801698e2397a3823154cf7b736f21a52965054d238dd91787f018e478b5182b' 'https://beowulf.org/pipermail/beowulf/2025-November.txt.gz' '2025-11.txt' '0bdcc90a080a2d65a884f279f3e15398e6d8af537d2b0bab523973c71378cb1c'
-fetcher_mailman_text_set 'osi-license-review' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-January.txt.gz' '2025-01.txt' '116bbe116b5aa7b7f03e5ba196c0150c04c4eb16bda190cd57466b916e2bb2e6' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-February.txt.gz' '2025-02.txt' '6c8a3adb125f8b0c537e2871c1fa1bde18747294eee43c23c182cc55ec62947f' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March.txt.gz' '2025-03.txt' '7ba0dad2dadc8ef2d9cb80305b6cf326cc75af92bc39278a2e8c86d493b1367e' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-April.txt.gz' '2025-04.txt' '1c250a6c2f9adada5958a40881898393e9e921b0ff41aca2e84db489c29eab1f' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-May.txt.gz' '2025-05.txt' 'd7fbb9f92b214f4f34670d0060ffff1579319d30f05889abb2560a1de3b992bb' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-June.txt.gz' '2025-06.txt' '313a2e71fd52b915b8b09280fc8621d6ffbaa88ef7d50d18969206e92a35583a' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-July.txt.gz' '2025-07.txt' 'e761496fa972cfbbf1f9f58a71802d752a48646f012afb27d8fb2b3c5cac3d55' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-August.txt.gz' '2025-08.txt' 'c0cbf6a2ce315e39d6735cfd48b25dff587cb312aa5210ed444fe331eff453f5' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-September.txt.gz' '2025-09.txt' 'fdfb78090ee44e70a24fd72dacec04e4f6bcd7eefb00c5ff86f65a5ed15603b7' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-October.txt.gz' '2025-10.txt' '5e0963aea0db9dc913a23ac080b13ee7f6179573cf19476a62fb19e4aed4e7d5' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-November.txt.gz' '2025-11.txt' 'dcd0f1ea9c80cbdd699e2e4cd1a4291f0b378e77e4a919938a01c6523da11c3d' 'https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-December.txt.gz' '2025-12.txt' 'b8f3ddcb4b0b1aabdb4d2e9008405fae1a7cf447f03ca54c23193eb19e102f70'
-fetcher_mailman_text_set 'osi-license-discuss' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-February.txt.gz' '2025-02.txt' '3a1bb5c7d27068879a8f1cd405efe1af1975b19fa1aaaade9921b19754b08c2c' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-March.txt.gz' '2025-03.txt' '447fd831c98be32c1b90b07c4a07974c9c52ebb62a738c4a250b1bd727892d2a' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-April.txt.gz' '2025-04.txt' '9c93bfd729ac7528514f078c0a5060c602ece3c0ac3447580c10afecd39082b7' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-May.txt.gz' '2025-05.txt' '223d0b3c0d6deddc3139a61dcf99da091f68afc2bdf589d75d2ccc1a6d368592' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-June.txt.gz' '2025-06.txt' 'b47deae623d5a83cea24ea3372065b8d442c465e580f12f931f648352b958e13' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-July.txt.gz' '2025-07.txt' 'ba010d98c4314ef7e21493e59f30b9ccb8b7c7911b5ab4ab2cc31a5a458a4d5c' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-September.txt.gz' '2025-09.txt' 'f432193853ed1cad23b188d42e73db3dab1b8473e063e091ef47e4d67f046016' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-October.txt.gz' '2025-10.txt' 'c048727d6ae548d4dacaf064dad1446a1af3e5c2d192464e59bfb0d4a564074e' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-November.txt.gz' '2025-11.txt' '7067c6dfe1aee8a4e494edda267979427623bf1164e6f05eb4667efa6ef4f3b5' 'https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-December.txt.gz' '2025-12.txt' '82f4c7a37a54030a17a98a3aa3fa73a1b5cb74a8d5cd9f8e1b4ba609d45f8dd5'
-
-# shellcheck disable=SC2119
-fetcher_manifest <<'JSON'
-{
-  "corpus": {
-    "id": "opensource-mailing-lists",
-    "title": "Open Source Community Mailing Lists",
-    "description": "Checksum-pinned 2025 public discussions from the Beowulf and Open Source Initiative communities.",
-    "destination": "community/opensource-mailing-lists"
-  },
-  "sources": [
-    {
-      "id": "beowulf",
-      "path": "beowulf",
-      "license": "LicenseRef-Publicly-Archived-Forum",
-      "source": {
-        "name": "Beowulf Mailing List",
-        "version": "2025",
-        "url": "https://beowulf.org/pipermail/beowulf/",
-        "category": "public-dataset",
-        "license_evidence": {
-          "declaration": "The project identifies Beowulf as a public mailing list and provides downloadable monthly text archives; no blanket content license is stated.",
-          "url": "https://beowulf.org/cgi-bin/mailman/listinfo/"
-        },
-        "content": {
-          "types": [
-            "high-performance computing",
-            "mailing list",
-            "user community support"
-          ],
-          "languages": [
-            "en"
-          ],
-          "from": "2025-01",
-          "to": "2025-11",
-          "selection": "All six non-empty monthly text exports published for calendar year 2025.",
-          "copyrighted": "yes",
-          "machine_generated": "unknown"
-        },
-        "acquisition": {
-          "basis": "Official public Mailman archive with each available monthly gzip text export checksum-pinned."
-        }
-      },
-      "input": {
-        "type": "mbox"
-      },
-      "artifacts": [
-        {
-          "method": "mailman-text-set",
-          "arguments": [
-            "https://beowulf.org/pipermail/beowulf/2025-January.txt.gz",
-            "2025-01.txt",
-            "bc72a2bfcfa69e18f3e6cdbbb96aeadb15667043b9ac5969726397224c57795f",
-            "https://beowulf.org/pipermail/beowulf/2025-February.txt.gz",
-            "2025-02.txt",
-            "83166d9338a81bf3a42a86f0d9a219636e5c68766e13fe20dcff02451ed0f57d",
-            "https://beowulf.org/pipermail/beowulf/2025-March.txt.gz",
-            "2025-03.txt",
-            "cf0ed7d46e8ddbdceafef0a2dea9d50a393ba16e37e0842a68f74ba197bfa5aa",
-            "https://beowulf.org/pipermail/beowulf/2025-June.txt.gz",
-            "2025-06.txt",
-            "35c803cecfe0dbec50aa8bfc1423305fd62fa68a59dcc06d3f39517f3c19b457",
-            "https://beowulf.org/pipermail/beowulf/2025-October.txt.gz",
-            "2025-10.txt",
-            "7801698e2397a3823154cf7b736f21a52965054d238dd91787f018e478b5182b",
-            "https://beowulf.org/pipermail/beowulf/2025-November.txt.gz",
-            "2025-11.txt",
-            "0bdcc90a080a2d65a884f279f3e15398e6d8af537d2b0bab523973c71378cb1c"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "osi-license-review",
-      "path": "osi-license-review",
-      "license": "LicenseRef-OSI-Public-Forum",
-      "source": {
-        "name": "OSI License Review",
-        "version": "2025",
-        "url": "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/",
-        "category": "public-dataset",
-        "license_evidence": {
-          "declaration": "OSI deems public-forum communications published by the sender and made public without condition.",
-          "url": "https://opensource.org/public_archives_policy/"
-        },
-        "content": {
-          "types": [
-            "license review",
-            "mailing list",
-            "open source governance"
-          ],
-          "languages": [
-            "en"
-          ],
-          "from": "2025-01",
-          "to": "2025-12",
-          "selection": "All twelve monthly gzip text exports for calendar year 2025.",
-          "copyrighted": "yes",
-          "machine_generated": "unknown"
-        },
-        "acquisition": {
-          "basis": "Official public Mailman archive with each monthly export checksum-pinned."
-        }
-      },
-      "input": {
-        "type": "mbox"
-      },
-      "artifacts": [
-        {
-          "method": "mailman-text-set",
-          "arguments": [
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-January.txt.gz",
-            "2025-01.txt",
-            "116bbe116b5aa7b7f03e5ba196c0150c04c4eb16bda190cd57466b916e2bb2e6",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-February.txt.gz",
-            "2025-02.txt",
-            "6c8a3adb125f8b0c537e2871c1fa1bde18747294eee43c23c182cc55ec62947f",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-March.txt.gz",
-            "2025-03.txt",
-            "7ba0dad2dadc8ef2d9cb80305b6cf326cc75af92bc39278a2e8c86d493b1367e",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-April.txt.gz",
-            "2025-04.txt",
-            "1c250a6c2f9adada5958a40881898393e9e921b0ff41aca2e84db489c29eab1f",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-May.txt.gz",
-            "2025-05.txt",
-            "d7fbb9f92b214f4f34670d0060ffff1579319d30f05889abb2560a1de3b992bb",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-June.txt.gz",
-            "2025-06.txt",
-            "313a2e71fd52b915b8b09280fc8621d6ffbaa88ef7d50d18969206e92a35583a",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-July.txt.gz",
-            "2025-07.txt",
-            "e761496fa972cfbbf1f9f58a71802d752a48646f012afb27d8fb2b3c5cac3d55",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-August.txt.gz",
-            "2025-08.txt",
-            "c0cbf6a2ce315e39d6735cfd48b25dff587cb312aa5210ed444fe331eff453f5",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-September.txt.gz",
-            "2025-09.txt",
-            "fdfb78090ee44e70a24fd72dacec04e4f6bcd7eefb00c5ff86f65a5ed15603b7",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-October.txt.gz",
-            "2025-10.txt",
-            "5e0963aea0db9dc913a23ac080b13ee7f6179573cf19476a62fb19e4aed4e7d5",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-November.txt.gz",
-            "2025-11.txt",
-            "dcd0f1ea9c80cbdd699e2e4cd1a4291f0b378e77e4a919938a01c6523da11c3d",
-            "https://lists.opensource.org/pipermail/license-review_lists.opensource.org/2025-December.txt.gz",
-            "2025-12.txt",
-            "b8f3ddcb4b0b1aabdb4d2e9008405fae1a7cf447f03ca54c23193eb19e102f70"
-          ]
-        }
-      ]
-    },
-    {
-      "id": "osi-license-discuss",
-      "path": "osi-license-discuss",
-      "license": "LicenseRef-OSI-Public-Forum",
-      "source": {
-        "name": "OSI License Discuss",
-        "version": "2025",
-        "url": "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/",
-        "category": "public-dataset",
-        "license_evidence": {
-          "declaration": "OSI deems public-forum communications published by the sender and made public without condition.",
-          "url": "https://opensource.org/public_archives_policy/"
-        },
-        "content": {
-          "types": [
-            "license discussion",
-            "mailing list",
-            "open source governance"
-          ],
-          "languages": [
-            "en"
-          ],
-          "from": "2025-02",
-          "to": "2025-12",
-          "selection": "All ten non-empty monthly gzip text exports published for calendar year 2025.",
-          "copyrighted": "yes",
-          "machine_generated": "unknown"
-        },
-        "acquisition": {
-          "basis": "Official public Mailman archive with each available monthly export checksum-pinned."
-        }
-      },
-      "input": {
-        "type": "mbox"
-      },
-      "artifacts": [
-        {
-          "method": "mailman-text-set",
-          "arguments": [
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-February.txt.gz",
-            "2025-02.txt",
-            "3a1bb5c7d27068879a8f1cd405efe1af1975b19fa1aaaade9921b19754b08c2c",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-March.txt.gz",
-            "2025-03.txt",
-            "447fd831c98be32c1b90b07c4a07974c9c52ebb62a738c4a250b1bd727892d2a",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-April.txt.gz",
-            "2025-04.txt",
-            "9c93bfd729ac7528514f078c0a5060c602ece3c0ac3447580c10afecd39082b7",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-May.txt.gz",
-            "2025-05.txt",
-            "223d0b3c0d6deddc3139a61dcf99da091f68afc2bdf589d75d2ccc1a6d368592",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-June.txt.gz",
-            "2025-06.txt",
-            "b47deae623d5a83cea24ea3372065b8d442c465e580f12f931f648352b958e13",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-July.txt.gz",
-            "2025-07.txt",
-            "ba010d98c4314ef7e21493e59f30b9ccb8b7c7911b5ab4ab2cc31a5a458a4d5c",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-September.txt.gz",
-            "2025-09.txt",
-            "f432193853ed1cad23b188d42e73db3dab1b8473e063e091ef47e4d67f046016",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-October.txt.gz",
-            "2025-10.txt",
-            "c048727d6ae548d4dacaf064dad1446a1af3e5c2d192464e59bfb0d4a564074e",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-November.txt.gz",
-            "2025-11.txt",
-            "7067c6dfe1aee8a4e494edda267979427623bf1164e6f05eb4667efa6ef4f3b5",
-            "https://lists.opensource.org/pipermail/license-discuss_lists.opensource.org/2025-December.txt.gz",
-            "2025-12.txt",
-            "82f4c7a37a54030a17a98a3aa3fa73a1b5cb74a8d5cd9f8e1b4ba609d45f8dd5"
-          ]
-        }
-      ]
-    }
-  ]
-}
-JSON
+fetcher_main
