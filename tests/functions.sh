@@ -42,7 +42,7 @@ fetcher_manifest <<'JSON'
         "category": "public-dataset",
         "license_evidence": {"declaration": "CC0-1.0"}
       },
-      "input": {"type": "text"}
+      "input": {}
     }
   ]
 }

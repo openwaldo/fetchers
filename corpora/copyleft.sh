@@ -180,7 +180,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -218,7 +217,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -256,7 +254,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -294,7 +291,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -332,7 +328,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -370,7 +365,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -408,7 +402,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -446,7 +439,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -484,7 +476,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -522,7 +513,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -560,7 +550,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -598,7 +587,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -636,7 +624,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -674,7 +661,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -712,7 +698,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -750,7 +735,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -788,7 +772,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -826,7 +809,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -864,7 +846,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -902,7 +883,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -940,7 +920,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -978,7 +957,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1016,7 +994,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1054,7 +1031,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1092,7 +1068,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1130,7 +1105,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1168,7 +1142,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1206,7 +1179,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1244,7 +1216,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1282,7 +1253,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1320,7 +1290,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1358,7 +1327,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1396,7 +1364,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1434,7 +1401,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1472,7 +1438,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1510,7 +1475,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1548,7 +1512,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1586,7 +1549,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1624,7 +1586,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1662,7 +1623,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1700,7 +1660,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1738,7 +1697,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1776,7 +1734,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1814,7 +1771,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1852,7 +1808,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1890,7 +1845,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1928,7 +1882,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -1966,7 +1919,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2004,7 +1956,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2042,7 +1993,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2080,7 +2030,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2118,7 +2067,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2156,7 +2104,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2194,7 +2141,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2232,7 +2178,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2270,7 +2215,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2308,7 +2252,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2346,7 +2289,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2384,7 +2326,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2422,7 +2363,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2460,7 +2400,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2498,7 +2437,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2536,7 +2474,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2574,7 +2511,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2612,7 +2548,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2650,7 +2585,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2688,7 +2622,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2726,7 +2659,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2764,7 +2696,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2802,7 +2733,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2840,7 +2770,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2878,7 +2807,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2916,7 +2844,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2954,7 +2881,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -2992,7 +2918,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3030,7 +2955,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3068,7 +2992,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3106,7 +3029,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3144,7 +3066,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3182,7 +3103,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3220,7 +3140,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3258,7 +3177,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3296,7 +3214,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3334,7 +3251,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3372,7 +3288,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3410,7 +3325,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3448,7 +3362,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3486,7 +3399,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3524,7 +3436,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3562,7 +3473,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3600,7 +3510,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3638,7 +3547,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3676,7 +3584,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3714,7 +3621,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3752,7 +3658,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3790,7 +3695,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3828,7 +3732,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3866,7 +3769,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3904,7 +3806,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3942,7 +3843,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -3980,7 +3880,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4018,7 +3917,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4056,7 +3954,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4094,7 +3991,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4132,7 +4028,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4170,7 +4065,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4208,7 +4102,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4246,7 +4139,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4284,7 +4176,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4322,7 +4213,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4360,7 +4250,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4398,7 +4287,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4436,7 +4324,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4474,7 +4361,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4512,7 +4398,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4550,7 +4435,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4588,7 +4472,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4626,7 +4509,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4664,7 +4546,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4702,7 +4583,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4740,7 +4620,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4778,7 +4657,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4816,7 +4694,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4854,7 +4731,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4892,7 +4768,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4930,7 +4805,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -4968,7 +4842,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -5006,7 +4879,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -5044,7 +4916,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -5082,7 +4953,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -5120,7 +4990,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -5158,7 +5027,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -5196,7 +5064,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
@@ -5234,7 +5101,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {

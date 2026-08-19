@@ -875,9 +875,11 @@ fetcher_manifest() {
 
   fetcher_repo=$(CDPATH='' cd -- "$(dirname -- "$FETCHER_SCRIPT")/.." && pwd -P)
   fetcher_revision=
+  fetcher_repository=
   fetcher_dirty=true
   if command -v git >/dev/null 2>&1 && git -C "$fetcher_repo" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     fetcher_revision=$(git -C "$fetcher_repo" rev-parse HEAD 2>/dev/null || true)
+    fetcher_repository=$(git -C "$fetcher_repo" remote get-url origin 2>/dev/null || true)
     if [ -z "$(git -C "$fetcher_repo" status --porcelain)" ]; then
       fetcher_dirty=false
     fi
@@ -888,6 +890,7 @@ fetcher_manifest() {
     --arg script "$fetcher_script_name" \
     --arg script_sha256 "$fetcher_script_sha" \
     --arg revision "$fetcher_revision" \
+    --arg repository "$fetcher_repository" \
     --argjson dirty "$fetcher_dirty" \
     --argjson file_count "$fetcher_files" \
     --argjson byte_count "$fetcher_bytes" \
@@ -897,7 +900,8 @@ fetcher_manifest() {
         schema: 1,
         retrieved_at: $retrieved_at,
         fetcher: ({script: $script, sha256: $script_sha256, dirty: $dirty} +
-          (if $revision == "" then {} else {revision: $revision} end)),
+          (if $revision == "" then {} else {revision: $revision} end) +
+          (if $repository == "" then {} else {repository: $repository} end)),
         raw: {
           path: "raw",
           file_count: $file_count,

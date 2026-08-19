@@ -30,7 +30,7 @@ for script in "$repository"/corpora/*.sh; do
       (.license | type == "string" and length > 0) and
       (.source.url | test("^https?://")) and
       (.source.license_evidence | type == "object") and
-      (.input.type | type == "string" and length > 0))
+      (.input | type == "object"))
   ' "$manifest" >/dev/null || fail "manifest contract: $script"
 done
 

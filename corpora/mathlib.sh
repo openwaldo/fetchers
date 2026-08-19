@@ -34,7 +34,6 @@ fetcher_manifest <<'JSON'
         }
       },
       "input": {
-        "type": "auto"
       },
       "artifacts": [
         {
