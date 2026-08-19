@@ -17,6 +17,23 @@ Ingestion is a separate operation:
 waldo index ingest /path/to/handoff community/linux-kernel-mailing-list
 ```
 
+## End-to-end smoke test
+
+Run the traced smoke test from any directory:
+
+```sh
+./smoke-test.sh
+```
+
+It fetches a local HTTP fixture, ingests it into a disposable index and local
+lookaside, applies the generated contribution, and trains a one-step model with
+WALDO's automatically selected real backend. It does not touch the configured
+index, lookaside, or model store.
+
+Use `WALDO_SMOKE_BACKEND=fake ./smoke-test.sh` for a lifecycle-only test on a
+machine without MLX or PyTorch. Use `WALDO_SMOKE_KEEP=1` to retain its temporary
+workspace for inspection.
+
 ## Handoff layout
 
 A corpus containing one source is written directly into the handoff directory:
