@@ -229,6 +229,212 @@ fetcher_download() {
   mv -- "$fetcher_partial" "$fetcher_output" || return
 }
 
+fetcher_huggingface() {
+  [ "$#" -ge 5 ] && [ "$#" -le 6 ] || {
+    fetcher_error 'fetcher_huggingface requires SOURCE_PATH, BASE_URL, ORG/DATASET, REVISION, SUFFIX, and optional PREFIX'
+    return 2
+  }
+  fetcher_assert_ready || return
+  fetcher_require curl jq || return
+  fetcher_source_path=$1
+  fetcher_hf_base=${2%/}
+  fetcher_hf_dataset=$3
+  fetcher_hf_revision=$4
+  fetcher_hf_suffix=$5
+  fetcher_hf_prefix=${6-}
+  [ -z "$fetcher_source_path" ] || fetcher_safe_relative_path "$fetcher_source_path" || {
+    fetcher_error "unsafe source path: $fetcher_source_path"
+    return 2
+  }
+  case $fetcher_hf_base in http://*|https://*) ;; *) fetcher_error 'Hugging Face base URL must use HTTP or HTTPS'; return 2 ;; esac
+  case $fetcher_hf_dataset in */*) ;; *) fetcher_error 'Hugging Face dataset must be ORG/NAME'; return 2 ;; esac
+  case $fetcher_hf_dataset in *[!A-Za-z0-9._/-]*|*..*|/*|*/|*/*/*) fetcher_error 'unsafe Hugging Face dataset'; return 2 ;; esac
+  case $fetcher_hf_revision in *[!0-9a-f]*|'') fetcher_error 'Hugging Face revision must be a 40-character lowercase commit'; return 2 ;; esac
+  [ "${#fetcher_hf_revision}" -eq 40 ] || {
+    fetcher_error 'Hugging Face revision must be a 40-character lowercase commit'
+    return 2
+  }
+  case $fetcher_hf_suffix in json|jsonl|json.gz|jsonl.gz|parquet) ;; *) fetcher_error "unsupported Hugging Face suffix: $fetcher_hf_suffix"; return 2 ;; esac
+  case $fetcher_hf_prefix in *[!A-Za-z0-9._/-]*|*..*|/*) fetcher_error 'unsafe Hugging Face prefix'; return 2 ;; esac
+
+  mkdir -p "$FETCHER_OUTPUT/.work"
+  fetcher_hf_metadata=$FETCHER_OUTPUT/.work/huggingface.$$.json
+  fetcher_hf_api="$fetcher_hf_base/api/datasets/$fetcher_hf_dataset/revision/$fetcher_hf_revision?blobs=true"
+  curl --fail --silent --show-error --location \
+    --proto '=http,https' --proto-redir '=http,https' \
+    --connect-timeout 15 --max-time 180 --retry 5 --retry-delay 1 \
+    --retry-connrefused --output "$fetcher_hf_metadata" "$fetcher_hf_api" || {
+    fetcher_error "could not read pinned Hugging Face metadata for $fetcher_hf_dataset"
+    return 1
+  }
+  jq -e --arg revision "$fetcher_hf_revision" --arg suffix ".$fetcher_hf_suffix" --arg prefix "$fetcher_hf_prefix" '
+    .sha == $revision and
+    ([.siblings[] | select(.rfilename | endswith($suffix)) |
+      select($prefix == "" or (.rfilename | startswith($prefix)))] | length) > 0 and
+    all(.siblings[] | select(.rfilename | endswith($suffix)) |
+      select($prefix == "" or (.rfilename | startswith($prefix)));
+      (.rfilename | test("^[A-Za-z0-9._/-]+$") and (contains("..") | not)) and
+      (.size | type == "number" and . > 0) and
+      (.lfs.sha256 | type == "string" and test("^[0-9a-f]{64}$")))
+  ' "$fetcher_hf_metadata" >/dev/null || {
+    fetcher_error "Hugging Face metadata is incomplete or revision drifted for $fetcher_hf_dataset"
+    return 1
+  }
+  fetcher_hf_duplicates=$(jq -r --arg suffix ".$fetcher_hf_suffix" --arg prefix "$fetcher_hf_prefix" '
+    [.siblings[] | select(.rfilename | endswith($suffix)) |
+      select($prefix == "" or (.rfilename | startswith($prefix))) |
+      .rfilename | split("/")[-1]] |
+    group_by(.)[] | select(length > 1) | .[0]
+  ' "$fetcher_hf_metadata")
+  [ -z "$fetcher_hf_duplicates" ] || {
+    fetcher_error "selected Hugging Face files have duplicate basenames: $fetcher_hf_duplicates"
+    return 1
+  }
+  jq -r --arg suffix ".$fetcher_hf_suffix" --arg prefix "$fetcher_hf_prefix" '
+    .siblings[] | select(.rfilename | endswith($suffix)) |
+    select($prefix == "" or (.rfilename | startswith($prefix))) |
+    [.rfilename, .lfs.sha256] | @tsv
+  ' "$fetcher_hf_metadata" | LC_ALL=C sort | while IFS="$(printf '\t')" read -r fetcher_hf_remote fetcher_hf_checksum; do
+    fetcher_hf_output=${fetcher_hf_remote##*/}
+    case $fetcher_hf_output in *.json.gz) fetcher_hf_output=${fetcher_hf_output%.json.gz}.jsonl.gz ;; esac
+    fetcher_hf_encoded=$(printf '%s' "$fetcher_hf_remote" | jq -sRr @uri)
+    if [ -n "$fetcher_source_path" ]; then
+      fetcher_hf_output=$fetcher_source_path/$fetcher_hf_output
+    fi
+    fetcher_download "$fetcher_hf_base/datasets/$fetcher_hf_dataset/resolve/$fetcher_hf_revision/$fetcher_hf_encoded?download=true" \
+      "$fetcher_hf_output" "$fetcher_hf_checksum" || exit
+  done || return
+  rm -f -- "$fetcher_hf_metadata"
+  rmdir "$FETCHER_OUTPUT/.work" 2>/dev/null || true
+}
+
+fetcher_git() {
+  [ "$#" -ge 5 ] || {
+    fetcher_error 'fetcher_git requires SOURCE_PATH, REPOSITORY, REVISION, COMMIT, and a path selection'
+    return 2
+  }
+  fetcher_assert_ready || return
+  fetcher_require git tar || return
+  fetcher_git_source=$1
+  fetcher_git_repository=$2
+  fetcher_git_revision=$3
+  fetcher_git_expected=$4
+  shift 4
+  fetcher_safe_relative_path "$fetcher_git_source" || {
+    fetcher_error "Git sources require a non-empty safe source path: $fetcher_git_source"
+    return 2
+  }
+  case $fetcher_git_repository in http://*|https://*|git://*|ssh://*|git@*:*|file://*) ;; *) fetcher_error "unsupported Git repository URL: $fetcher_git_repository"; return 2 ;; esac
+  case $fetcher_git_expected in *[!0-9a-f]*|'') fetcher_error 'expected Git commit must be 40 lowercase hexadecimal characters'; return 2 ;; esac
+  [ "${#fetcher_git_expected}" -eq 40 ] || {
+    fetcher_error 'expected Git commit must be 40 lowercase hexadecimal characters'
+    return 2
+  }
+
+  fetcher_git_symlinks=reject
+  fetcher_git_filter=false
+  fetcher_git_source_code=false
+  while [ "$#" -gt 0 ]; do
+    case $1 in
+      --skip-symlinks) fetcher_git_symlinks=skip; shift ;;
+      --filter-blobs) fetcher_git_filter=true; shift ;;
+      --source-code) fetcher_git_source_code=true; shift ;;
+      *) break ;;
+    esac
+  done
+  if [ "$fetcher_git_source_code" = true ]; then
+    set -- \
+      '/*' \
+      '!**/vendor/**' '!**/vendors/**' '!**/third_party/**' '!**/third-party/**' \
+      '!**/external/**' '!**/node_modules/**' '!**/.venv/**' '!**/dist/**' \
+      '!**/build/**' '!**/target/**' '!**/generated/**' '!**/testdata/**' \
+      '!**/*.min.js' '!**/*.pb.go' '!**/*.pb.gw.go' '!**/*.swagger.go' \
+      '!**/*_generated.go' '!**/zz_generated.*' '!**/generated.pb.*' \
+      '!**/generated.deepcopy.*' '!**/generated.conversion.*' '!**/generated.defaults.*'
+  fi
+  [ "$#" -gt 0 ] || {
+    fetcher_error 'fetcher_git requires at least one tracked-file pathspec'
+    return 2
+  }
+
+  fetcher_git_output=$FETCHER_RAW/$fetcher_git_source
+  if [ -e "$fetcher_git_output" ]; then
+    [ -d "$fetcher_git_output" ] && [ ! -L "$fetcher_git_output" ] || {
+      fetcher_error "existing Git output is unsafe: $fetcher_git_output"
+      return 1
+    }
+    [ "$FETCHER_EXISTING_MANIFEST" = true ] || {
+      fetcher_error "cannot verify existing Git output without a prior manifest: $fetcher_git_source"
+      return 1
+    }
+    printf 'fetcher: reusing Git source %s\n' "$fetcher_git_source" >&2
+    return 0
+  fi
+
+  fetcher_git_work=$FETCHER_OUTPUT/.work/$fetcher_git_source
+  fetcher_git_clone=$fetcher_git_work/repository.git
+  fetcher_git_archive=$fetcher_git_work/repository.tar
+  fetcher_git_partial=$fetcher_git_work/output
+  mkdir -p "$fetcher_git_work"
+  if [ ! -d "$fetcher_git_clone" ]; then
+    git init -q "$fetcher_git_clone" || return
+    git -C "$fetcher_git_clone" remote add origin "$fetcher_git_repository" || return
+  fi
+  printf 'fetcher: fetching %s at %s\n' "$fetcher_git_repository" "$fetcher_git_revision" >&2
+  fetcher_git_attempt=1
+  while :; do
+    if [ "$fetcher_git_filter" = true ]; then
+      git -C "$fetcher_git_clone" fetch -q --depth=1 --no-tags --filter=blob:none origin "$fetcher_git_revision" && break
+    else
+      git -C "$fetcher_git_clone" fetch -q --depth=1 --no-tags origin "$fetcher_git_revision" && break
+    fi
+    [ "$fetcher_git_attempt" -lt 4 ] || {
+      fetcher_error "Git fetch failed after $fetcher_git_attempt attempts; work preserved at $fetcher_git_work"
+      return 1
+    }
+    sleep $((fetcher_git_attempt * 2))
+    fetcher_git_attempt=$((fetcher_git_attempt + 1))
+  done
+  fetcher_git_actual=$(git -C "$fetcher_git_clone" rev-parse 'FETCH_HEAD^{commit}') || return
+  [ "$fetcher_git_actual" = "$fetcher_git_expected" ] || {
+    fetcher_error "Git revision resolved to $fetcher_git_actual, expected $fetcher_git_expected"
+    return 1
+  }
+  [ ! -e "$fetcher_git_partial" ] || {
+    fetcher_error "partial Git export already exists; inspect it before retrying: $fetcher_git_partial"
+    return 1
+  }
+  mkdir "$fetcher_git_partial"
+  if [ "$fetcher_git_source_code" = true ]; then
+    git -C "$fetcher_git_clone" sparse-checkout init --no-cone || return
+    git -C "$fetcher_git_clone" sparse-checkout set --no-cone "$@" || return
+    git -C "$fetcher_git_clone" checkout -q --detach "$fetcher_git_actual" || return
+    tar -cf "$fetcher_git_archive" --exclude=.git -C "$fetcher_git_clone" . || return
+  else
+    git -C "$fetcher_git_clone" archive --format=tar --output="$fetcher_git_archive" \
+      "$fetcher_git_actual" -- "$@" || return
+  fi
+  tar -xf "$fetcher_git_archive" -C "$fetcher_git_partial" || return
+  fetcher_git_symlink=$(find "$fetcher_git_partial" -type l -print -quit)
+  if [ -n "$fetcher_git_symlink" ]; then
+    if [ "$fetcher_git_symlinks" = reject ]; then
+      fetcher_error "selected Git content contains a symlink: ${fetcher_git_symlink#"$fetcher_git_partial"/}"
+      return 1
+    fi
+    find "$fetcher_git_partial" -type l -delete
+  fi
+  fetcher_git_count=$(find "$fetcher_git_partial" -type f | wc -l | tr -d ' ')
+  [ "$fetcher_git_count" -gt 0 ] || {
+    fetcher_error "Git source selection produced no files: $fetcher_git_source"
+    return 1
+  }
+  mkdir -p "$(dirname -- "$fetcher_git_output")"
+  mv -- "$fetcher_git_partial" "$fetcher_git_output" || return
+  rm -rf -- "$fetcher_git_work"
+  rmdir "$FETCHER_OUTPUT/.work" 2>/dev/null || true
+  printf 'fetcher: published %s files from %s\n' "$fetcher_git_count" "$fetcher_git_actual" >&2
+}
+
 fetcher_manifest() {
   [ "$#" -eq 0 ] || {
     fetcher_error 'fetcher_manifest reads its JSON specification from standard input'
@@ -282,6 +488,13 @@ fetcher_manifest() {
   fetcher_files=$(wc -l <"$fetcher_inventory" | tr -d ' ')
   fetcher_bytes=$(awk -F '\t' '{sum += $2} END {printf "%.0f", sum}' "$fetcher_inventory")
   fetcher_tree_sha=$(fetcher_sha256 "$fetcher_inventory") || return
+
+  fetcher_unfinished=$(find "$FETCHER_OUTPUT" -mindepth 1 -maxdepth 1 \
+    ! -name raw ! -name manifest.json ! -name '.manifest.*' -print -quit)
+  [ -z "$fetcher_unfinished" ] || {
+    fetcher_error "unfinished acquisition state remains: $fetcher_unfinished"
+    return 1
+  }
   fetcher_script_sha=$(fetcher_sha256 "$FETCHER_SCRIPT") || return
   fetcher_retrieved=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
   fetcher_script_name=corpora/$(basename -- "$FETCHER_SCRIPT")
