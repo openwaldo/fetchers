@@ -166,12 +166,17 @@ func (file File) Validate() error {
 		if input.One("type") == "" {
 			return fmt.Errorf("input %q requires type", id)
 		}
+		allowed := fields("type on-empty nul id date language license source context response role content tools tree-root replies rank missing-rank assistant-role start-pattern end-pattern on-malformed source-prefix")
+		lists := fields("text text-fallback meta exclude")
+		if err := validateFields(input, allowed, lists); err != nil {
+			return err
+		}
 	}
 	return nil
 }
 
 func validateFetch(section Section) error {
-	common := fields("fetcher url estimated-size source sha256 revision ref prefix suffix path selection manifest manifest-sha256 year list base-url reporters limit count language ids exclude-ids")
+	common := fields("fetcher url estimated-size source sha256 revision ref prefix suffix path selection manifest manifest-sha256 year list base-url reporters limit count language ids exclude-ids style")
 	lists := fields("pathspec epoch checksum artifact")
 	if err := validateFields(section, common, lists); err != nil {
 		return err
@@ -182,7 +187,7 @@ func validateFetch(section Section) error {
 		if section.One("revision") == "" {
 			return fmt.Errorf("git fetch %q requires revision", section.Name)
 		}
-	case "huggingface", "public-inbox", "monthly-mbox", "hyperkitty", "gutenberg", "cap", "zip":
+	case "huggingface", "public-inbox", "monthly-mbox", "hyperkitty", "gutenberg", "cap", "zip", "sourcehut", "http-set":
 	default:
 		return fmt.Errorf("fetch %q uses unknown fetcher %q", section.Name, section.One("fetcher"))
 	}

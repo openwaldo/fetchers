@@ -6,6 +6,8 @@
 package config
 
 import (
+	"os"
+	"path/filepath"
 	"strings"
 	"testing"
 )
@@ -33,6 +35,28 @@ estimated-size = 1G
 	}
 	if file.Corpus.One("id") != "example" || len(file.Sources) != 1 || len(file.Fetches) != 1 {
 		t.Fatalf("file = %+v", file)
+	}
+}
+
+func TestCorpusCatalogParses(t *testing.T) {
+	paths, err := filepath.Glob(filepath.Join("..", "..", "corpora", "*.ini"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(paths) == 0 {
+		t.Fatal("corpus catalog is empty")
+	}
+	for _, path := range paths {
+		t.Run(filepath.Base(path), func(t *testing.T) {
+			file, err := os.Open(path)
+			if err != nil {
+				t.Fatal(err)
+			}
+			defer file.Close()
+			if _, err := Parse(file); err != nil {
+				t.Fatal(err)
+			}
+		})
 	}
 }
 

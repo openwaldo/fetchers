@@ -25,6 +25,7 @@ import (
 	"strconv"
 	"strings"
 	"syscall"
+	"time"
 
 	"github.com/openwaldo/fetchers/internal/config"
 )
@@ -75,6 +76,42 @@ func (runner Runner) Run(ctx context.Context, cfg config.File, output string) er
 			}
 		case "git":
 			if err := runner.fetchGit(ctx, fetch, destination, root, position); err != nil {
+				return err
+			}
+		case "huggingface":
+			if err := runner.fetchHuggingFace(ctx, fetch, destination, position); err != nil {
+				return err
+			}
+		case "http-set":
+			if err := runner.fetchHTTPSet(ctx, fetch, destination, position); err != nil {
+				return err
+			}
+		case "monthly-mbox":
+			if err := runner.fetchMonthlyMbox(ctx, fetch, destination, position); err != nil {
+				return err
+			}
+		case "public-inbox":
+			if err := runner.fetchPublicInbox(ctx, fetch, destination, root, position); err != nil {
+				return err
+			}
+		case "hyperkitty":
+			if err := runner.fetchHyperKitty(ctx, fetch, destination, root, position); err != nil {
+				return err
+			}
+		case "sourcehut":
+			if err := runner.fetchSourceHut(ctx, fetch, destination); err != nil {
+				return err
+			}
+		case "zip":
+			if err := fetchZIP(fetch, destination); err != nil {
+				return err
+			}
+		case "gutenberg":
+			if err := runner.fetchGutenberg(ctx, fetch, destination, position); err != nil {
+				return err
+			}
+		case "cap":
+			if err := runner.fetchCAP(ctx, fetch, destination, root, position); err != nil {
 				return err
 			}
 		default:
@@ -174,12 +211,15 @@ func (runner Runner) fetchHTTP(ctx context.Context, fetch config.Section, destin
 	if err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") || parsed.Host == "" {
 		return fmt.Errorf("invalid HTTP URL %q", fetch.One("url"))
 	}
-	name := safeFilename(filepath.Base(parsed.Path))
-	if name == "" || name == "." {
-		name = fmt.Sprintf("artifact-%04d", position+1)
+	name := fetch.One("_filename")
+	if name == "" {
+		name = safeFilename(filepath.Base(parsed.Path))
 	}
-	if fetch.Name != "" {
-		name = safeFilename(fetch.Name) + "-" + name
+	if name == "" || name == "." {
+		name = safeFilename(fetch.Name)
+		if name == "" {
+			name = fmt.Sprintf("artifact-%04d", position+1)
+		}
 	}
 	final := filepath.Join(destination, name)
 	partial := final + ".partial"
@@ -413,6 +453,7 @@ func safeFilename(value string) string {
 
 func writeManifests(cfg config.File, root string) error {
 	multiple := len(cfg.Sources) > 1
+	fetcherEvidence := map[string]any{"name": Version, "retrieved_at": time.Now().UTC().Format(time.RFC3339)}
 	if multiple {
 		rootManifest := map[string]any{
 			"kind": "waldo-corpus-directory", "schema": 1,
@@ -430,7 +471,7 @@ func writeManifests(cfg config.File, root string) error {
 			if err != nil {
 				return err
 			}
-			manifest := map[string]any{"kind": "waldo-source-directory", "schema": 1, "source": sourceManifest(cfg, source), "raw": raw, "fetcher": map[string]any{"name": Version}}
+			manifest := map[string]any{"kind": "waldo-source-directory", "schema": 1, "source": sourceManifest(cfg, source), "raw": raw, "fetcher": fetcherEvidence}
 			if err := writeJSONAtomic(filepath.Join(directory, "manifest.json"), manifest); err != nil {
 				return err
 			}
@@ -444,7 +485,7 @@ func writeManifests(cfg config.File, root string) error {
 	}
 	manifest := map[string]any{
 		"kind": "waldo-corpus-directory", "schema": 1, "corpus": corpusManifest(cfg),
-		"source": sourceManifest(cfg, source), "raw": raw, "fetcher": map[string]any{"name": Version},
+		"source": sourceManifest(cfg, source), "raw": raw, "fetcher": fetcherEvidence,
 	}
 	return writeJSONAtomic(filepath.Join(root, "manifest.json"), manifest)
 }
@@ -475,6 +516,22 @@ func sourceManifest(cfg config.File, section config.Section) map[string]any {
 		upstream["acquisition"] = map[string]any{"basis": basis}
 	}
 	result := map[string]any{"id": id, "license": section.One("license"), "source": upstream}
+	var artifacts []map[string]any
+	for _, fetch := range cfg.Fetches {
+		fetchSource := cfg.Corpus.One("id")
+		if len(cfg.Sources) > 1 {
+			fetchSource = fetch.One("source")
+		}
+		if fetchSource != id {
+			continue
+		}
+		artifacts = append(artifacts, compactMap(map[string]any{
+			"fetcher": fetch.One("fetcher"), "url": fetch.One("url"), "revision": fetch.One("revision"), "sha256": fetch.One("sha256"),
+		}))
+	}
+	if len(artifacts) > 0 {
+		result["artifacts"] = artifacts
+	}
 	if input := inputManifest(cfg, id); len(input) > 0 {
 		result["input"] = input
 	}
@@ -497,6 +554,12 @@ func inputManifest(cfg config.File, sourceID string) map[string]any {
 		return nil
 	}
 	result := map[string]any{"type": section.One("type")}
+	if value := section.One("on-empty"); value != "" {
+		result["on_empty"] = value
+	}
+	if value := section.One("nul"); value != "" {
+		result["nul"] = value
+	}
 	fields := map[string]any{}
 	for _, name := range []string{"text", "text-fallback"} {
 		if values := section.Values[name]; len(values) > 0 {
@@ -508,8 +571,46 @@ func inputManifest(cfg config.File, sourceID string) map[string]any {
 			fields[name] = value
 		}
 	}
+	if values := section.Values["meta"]; len(values) > 0 {
+		metadata := map[string]string{}
+		for _, value := range values {
+			name, path, found := strings.Cut(value, "=")
+			if !found || strings.TrimSpace(name) == "" || strings.TrimSpace(path) == "" {
+				continue
+			}
+			metadata[strings.TrimSpace(name)] = strings.TrimSpace(path)
+		}
+		if len(metadata) > 0 {
+			fields["meta"] = metadata
+		}
+	}
 	if len(fields) > 0 {
 		result["fields"] = fields
+	}
+	switch section.One("type") {
+	case "chat-messages":
+		messages := compactMap(map[string]any{"role": section.One("role"), "content": section.One("content"), "tools": section.One("tools")})
+		if len(messages) > 0 {
+			result["messages"] = messages
+		}
+	case "ranked-conversation-tree":
+		tree := compactMap(map[string]any{"root": section.One("tree-root"), "replies": section.One("replies"), "text": section.One("text"), "rank": section.One("rank"), "missing_rank": section.One("missing-rank"), "role": section.One("role"), "assistant_role": section.One("assistant-role")})
+		if len(tree) > 0 {
+			result["tree"] = tree
+		}
+		if mapped, ok := result["fields"].(map[string]any); ok {
+			delete(mapped, "text")
+			if len(mapped) == 0 {
+				delete(result, "fields")
+			}
+		}
+	case "bounded-text":
+		result["bounds"] = compactMap(map[string]any{"start_pattern": section.One("start-pattern"), "end_pattern": section.One("end-pattern")})
+	case "xml-record":
+		xml := compactMap(map[string]any{"on_malformed": section.One("on-malformed"), "source_prefix": section.One("source-prefix"), "exclude": section.Values["exclude"]})
+		if len(xml) > 0 {
+			result["xml"] = xml
+		}
 	}
 	return result
 }
