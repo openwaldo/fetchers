@@ -5,15 +5,36 @@ set -eux
 repository=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
 waldo_repository=$(CDPATH='' cd -- "$repository/../waldo" && pwd -P)
 temporary_base=${TMPDIR:-/tmp}
+
+if [ "$#" -gt 1 ]; then
+  echo "usage: $0 [corpus.ini]" >&2
+  exit 2
+fi
+
+config_input=${1:-$repository/corpora/python-enhancement-proposals.ini}
+if [ ! -f "$config_input" ]; then
+  echo "corpus configuration does not exist: $config_input" >&2
+  exit 2
+fi
+config=$(CDPATH='' cd -- "$(dirname -- "$config_input")" && pwd -P)/$(basename -- "$config_input")
+corpus_id=$(awk -F= '
+  /^\[corpus\][[:space:]]*$/ { in_corpus=1; next }
+  /^\[/ { in_corpus=0 }
+  in_corpus && $1 ~ /^[[:space:]]*id[[:space:]]*$/ {
+    value=$2
+    gsub(/^[[:space:]]+|[[:space:]]+$/, "", value)
+    print value
+    exit
+  }
+' "$config")
+if [ -z "$corpus_id" ]; then
+  echo "corpus configuration has no [corpus] id: $config" >&2
+  exit 2
+fi
+
 work=$(mktemp -d "$temporary_base/waldo-fetcher-smoke.XXXXXX")
-server_pid=
-backend=${WALDO_SMOKE_BACKEND:-auto}
 
 cleanup() {
-  if [ -n "$server_pid" ]; then
-    kill "$server_pid" 2>/dev/null || true
-    wait "$server_pid" 2>/dev/null || true
-  fi
   if [ "${WALDO_SMOKE_KEEP:-0}" = "1" ]; then
     echo "preserved smoke-test workspace: $work"
     return
@@ -26,90 +47,33 @@ cleanup() {
 trap cleanup EXIT HUP INT TERM
 
 command -v go
-command -v gzip
-command -v python3
 
-mkdir -p "$work/upstream"
-cat >"$work/upstream/records.jsonl" <<'EOF'
-{"text":"A small language model learns to predict the next token from the tokens that came before it."}
-{"text":"Clear questions and direct answers make technical conversations easier to understand and verify."}
-{"text":"A corpus is a reviewed collection of source material used to teach or evaluate a model."}
-{"text":"Reproducible ingestion records the source, license, checksums, document counts, and token counts."}
-{"text":"Local smoke tests use disposable files so they never alter a maintainer's real index or object store."}
-{"text":"The final training step writes model provenance and artifacts into a temporary model directory."}
-EOF
-gzip -c "$work/upstream/records.jsonl" >"$work/upstream/records.jsonl.gz"
-
-cat >"$work/server.py" <<'PY'
-import http.server
-import pathlib
-import socketserver
-import sys
-
-root, port_file = sys.argv[1:]
-handler = lambda *args, **kwargs: http.server.SimpleHTTPRequestHandler(
-    *args, directory=root, **kwargs
-)
-with socketserver.TCPServer(("127.0.0.1", 0), handler) as server:
-    pathlib.Path(port_file).write_text(str(server.server_address[1]))
-    server.serve_forever()
-PY
-python3 "$work/server.py" "$work/upstream" "$work/port" &
-server_pid=$!
-
-attempt=0
-while [ ! -s "$work/port" ]; do
-  attempt=$((attempt + 1))
-  if [ "$attempt" -gt 100 ]; then
-    echo "fixture server did not start" >&2
-    exit 1
-  fi
-  sleep 0.05
-done
-port=$(cat "$work/port")
-
-cat >"$work/smoke.ini" <<EOF
-[corpus]
-id = smoke-test
-title = WALDO end-to-end smoke test
-description = Disposable local records for fetch, ingest, and training verification.
-
-[source]
-name = Local smoke-test HTTP server
-url = http://127.0.0.1:$port/
-category = public-dataset
-license = CC0-1.0
-license-declaration = Disposable test fixture dedicated to the public domain.
-
-[fetch]
-fetcher = http
-url = http://127.0.0.1:$port/records.jsonl.gz
-estimated-size = 1MiB
-
-[input]
-type = record-map
-text = text
-EOF
-
-GOCACHE="$work/go-cache" go build -o "$work/fetcher" "$repository/cmd/fetcher"
-(
-  cd "$waldo_repository"
-  GOCACHE="$work/go-cache" go build -o "$work/waldo" ./cmd/waldo
-)
-
-"$work/fetcher" "$work/smoke.ini" "$work/handoff"
-
+export GOCACHE="$work/go-cache"
 export WALDO_CONFIG="$work/waldo-config.json"
-"$work/waldo" index init "$work/index"
-"$work/waldo" config set index "$work/index"
-"$work/waldo" config set lookaside "file://$work/lookaside"
-"$work/waldo" config set lookaside.cache "$work/lookaside-cache"
-"$work/waldo" config set lookaside.scratch "$work/lookaside-scratch"
-"$work/waldo" config set ingest.staging "$work/staging"
-"$work/waldo" config set model.root "$work/models"
-"$work/waldo" config set model.backend "$backend"
 
-"$work/waldo" index ingest "$work/handoff" smoke/e2e
+(
+  cd "$repository"
+  go run ./cmd/fetcher "$config" "$work/handoff"
+)
+
+waldo() {
+  (
+    cd "$waldo_repository"
+    go run ./cmd/waldo "$@"
+  )
+}
+
+waldo index init "$work/index"
+waldo config set index "$work/index"
+waldo config set lookaside "file://$work/lookaside"
+waldo config set lookaside.cache "$work/lookaside-cache"
+waldo config set lookaside.scratch "$work/lookaside-scratch"
+waldo config set ingest.staging "$work/staging"
+waldo config set model.root "$work/models"
+waldo config set model.backend auto
+
+destination="smoke/$corpus_id"
+waldo index ingest "$work/handoff" "$destination"
 
 contribution=
 for candidate in "$work/staging"/*/contribution; do
@@ -120,16 +84,24 @@ for candidate in "$work/staging"/*/contribution; do
   }
   contribution=$candidate
 done
-[ -n "$contribution" ]
+if [ -z "$contribution" ]; then
+  echo "ingest did not create a contribution overlay" >&2
+  exit 1
+fi
 cp -R "$contribution"/. "$work/index"/
 
-"$work/waldo" index audit "$work/index/smoke/e2e"
+waldo index audit "$work/index/$destination"
 lookaside_object=$(find "$work/lookaside" -type f -print -quit)
-[ -n "$lookaside_object" ]
+if [ -z "$lookaside_object" ]; then
+  echo "ingest did not publish an object to the local lookaside" >&2
+  exit 1
+fi
 
-cat >"$work/model.yaml" <<'EOF'
+cat >"$work/model.yaml" <<EOF
 kind: waldo-model-compose
 schema: 1
+interaction:
+  template: user-assistant-v1
 architecture:
   family: decoder-transformer
   context_tokens: 16
@@ -145,11 +117,14 @@ architecture:
     name: byte
     revision: builtin-byte-schema-1
 stages:
-  - name: pretrain
+  - name: smoke-train
     type: pre-training
     objective: causal-language-modeling
+    conversation:
+      template: user-assistant-v1
+      supervised_roles: [assistant]
     corpora:
-      - smoke/e2e
+      - $destination
     parameters:
       steps: 1
       batch_size: 1
@@ -160,18 +135,13 @@ stages:
       evaluate_every: 1
 EOF
 
-"$work/waldo" model train smoke-test "$work/model.yaml"
-"$work/waldo" model summary smoke-test
-"$work/waldo" --json model summary smoke-test | tee "$work/model-summary.json"
-grep -Eq '"state"[[:space:]]*:[[:space:]]*"complete"' "$work/model-summary.json"
+waldo model train "smoke-$corpus_id" "$work/model.yaml"
+waldo model summary "smoke-$corpus_id"
 
-if [ "$backend" = "fake" ]; then
-  grep -Eq '"simulated"[[:space:]]*:[[:space:]]*true' "$work/model-summary.json"
-else
-  grep -Eq '"simulated"[[:space:]]*:[[:space:]]*false' "$work/model-summary.json"
-  weights=$(find "$work/models/smoke-test" -type f -name model.safetensors -print -quit)
-  [ -n "$weights" ]
-  [ -s "$weights" ]
+weights=$(find "$work/models/smoke-$corpus_id" -type f -name model.safetensors -print -quit)
+if [ -z "$weights" ] || [ ! -s "$weights" ]; then
+  echo "real training did not produce model.safetensors" >&2
+  exit 1
 fi
 
-echo "smoke test passed: fetched, ingested, published locally, and trained with backend $backend"
+echo "smoke test passed: fetched $corpus_id, ingested it locally, and trained real model weights"

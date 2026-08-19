@@ -25,14 +25,20 @@ Run the traced smoke test from any directory:
 ./smoke-test.sh
 ```
 
-It fetches a local HTTP fixture, ingests it into a disposable index and local
+The default is the small Python Enhancement Proposals corpus. Pass any corpus
+INI file to test a different real fetcher:
+
+```sh
+./smoke-test.sh corpora/dolly.ini
+```
+
+The script uses `go run ./cmd/fetcher`, fetches the real upstream corpus,
+ingests it with `go run ./cmd/waldo` into a disposable index and local
 lookaside, applies the generated contribution, and trains a one-step model with
 WALDO's automatically selected real backend. It does not touch the configured
-index, lookaside, or model store.
-
-Use `WALDO_SMOKE_BACKEND=fake ./smoke-test.sh` for a lifecycle-only test on a
-machine without MLX or PyTorch. Use `WALDO_SMOKE_KEEP=1` to retain its temporary
-workspace for inspection.
+index, lookaside, or model store. Commands and their output are shown with shell
+tracing. Use `WALDO_SMOKE_KEEP=1` to retain the temporary workspace for
+inspection.
 
 ## Handoff layout
 
