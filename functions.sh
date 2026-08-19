@@ -55,7 +55,10 @@ fetcher_begin() {
   FETCHER_RAW=$FETCHER_OUTPUT/raw
   FETCHER_MANIFEST=$FETCHER_OUTPUT/manifest.json
   FETCHER_SCRIPT=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)/$(basename -- "$0")
+  FETCHER_REPOSITORY=$(CDPATH='' cd -- "$(dirname -- "$FETCHER_SCRIPT")/.." && pwd -P)
+  FETCHER_LIBEXEC=$FETCHER_REPOSITORY/libexec
   export FETCHER_OUTPUT FETCHER_RAW FETCHER_MANIFEST FETCHER_SCRIPT
+  export FETCHER_REPOSITORY FETCHER_LIBEXEC
 
   if [ -e "$FETCHER_RAW" ]; then
     [ -d "$FETCHER_RAW" ] && [ ! -L "$FETCHER_RAW" ] || {
@@ -435,6 +438,377 @@ fetcher_git() {
   printf 'fetcher: published %s files from %s\n' "$fetcher_git_count" "$fetcher_git_actual" >&2
 }
 
+fetcher_apache_mbox_year() {
+  [ "$#" -eq 16 ] || {
+    fetcher_error 'fetcher_apache_mbox_year requires SOURCE_PATH, BASE_URL, LIST, YEAR, and twelve SHA256 values'
+    return 2
+  }
+  fetcher_mbox_path=$1
+  fetcher_mbox_base=${2%/}
+  fetcher_mbox_list=$3
+  fetcher_mbox_year=$4
+  shift 4
+  case $fetcher_mbox_list in *@*.apache.org) ;; *) fetcher_error 'Apache list must end in @*.apache.org'; return 2 ;; esac
+  fetcher_mbox_month=1
+  for fetcher_mbox_checksum do
+    fetcher_mbox_number=$(printf '%02d' "$fetcher_mbox_month")
+    fetcher_download "$fetcher_mbox_base/api/mbox.lua?list=$fetcher_mbox_list&date=$fetcher_mbox_year-$fetcher_mbox_number" \
+      "$fetcher_mbox_path/$fetcher_mbox_year-$fetcher_mbox_number.mbox" "$fetcher_mbox_checksum" || return
+    fetcher_mbox_month=$((fetcher_mbox_month + 1))
+  done
+}
+
+fetcher_gnu_mbox_year() {
+  [ "$#" -eq 16 ] || {
+    fetcher_error 'fetcher_gnu_mbox_year requires SOURCE_PATH, BASE_URL, LIST, YEAR, and twelve SHA256 values'
+    return 2
+  }
+  fetcher_mbox_path=$1
+  fetcher_mbox_base=${2%/}
+  fetcher_mbox_list=$3
+  fetcher_mbox_year=$4
+  shift 4
+  case $fetcher_mbox_list in ''|*[!A-Za-z0-9._+-]*) fetcher_error 'unsafe GNU list name'; return 2 ;; esac
+  fetcher_mbox_month=1
+  for fetcher_mbox_checksum do
+    fetcher_mbox_number=$(printf '%02d' "$fetcher_mbox_month")
+    fetcher_download "$fetcher_mbox_base/$fetcher_mbox_list/$fetcher_mbox_year-$fetcher_mbox_number" \
+      "$fetcher_mbox_path/$fetcher_mbox_list-$fetcher_mbox_year-$fetcher_mbox_number.mbox" "$fetcher_mbox_checksum" || return
+    fetcher_mbox_month=$((fetcher_mbox_month + 1))
+  done
+}
+
+fetcher_mailman_text_set() {
+  [ "$#" -ge 4 ] && [ $((($# - 1) % 3)) -eq 0 ] || {
+    fetcher_error 'fetcher_mailman_text_set requires SOURCE_PATH and URL OUTPUT SHA256 triples'
+    return 2
+  }
+  fetcher_mailman_path=$1
+  shift
+  fetcher_require gzip || return
+  while [ "$#" -gt 0 ]; do
+    fetcher_mailman_url=$1
+    fetcher_mailman_name=$2
+    fetcher_mailman_sha=$3
+    shift 3
+    case $fetcher_mailman_name in *.txt) ;; *) fetcher_error 'Mailman output must end in .txt'; return 2 ;; esac
+    fetcher_mailman_base=${fetcher_mailman_name%.txt}.mbox
+    fetcher_mailman_compressed=$fetcher_mailman_path/$fetcher_mailman_base.gz
+    fetcher_mailman_output=$FETCHER_RAW/$fetcher_mailman_path/$fetcher_mailman_base
+    fetcher_download "$fetcher_mailman_url" "$fetcher_mailman_compressed" "$fetcher_mailman_sha" || return
+    [ ! -e "$fetcher_mailman_output" ] || {
+      [ "$FETCHER_EXISTING_MANIFEST" = true ] && continue
+      fetcher_error "cannot verify existing decompressed Mailman output: $fetcher_mailman_output"
+      return 1
+    }
+    gzip -dc -- "$FETCHER_RAW/$fetcher_mailman_compressed" >"$fetcher_mailman_output.partial" || {
+      fetcher_error "invalid Mailman gzip archive: $fetcher_mailman_compressed"
+      return 1
+    }
+    mv -- "$fetcher_mailman_output.partial" "$fetcher_mailman_output"
+    rm -f -- "$FETCHER_RAW/$fetcher_mailman_compressed"
+  done
+}
+
+fetcher_public_inbox_year() {
+  [ "$#" -ge 5 ] || {
+    fetcher_error 'fetcher_public_inbox_year requires SOURCE_PATH, BASE_URL, LIST, YEAR, and EPOCH:HEAD values'
+    return 2
+  }
+  fetcher_assert_ready || return
+  fetcher_require git python3 || return
+  fetcher_inbox_path=$1
+  fetcher_inbox_base=${2%/}
+  fetcher_inbox_list=$3
+  fetcher_inbox_year=$4
+  shift 4
+  fetcher_safe_relative_path "$fetcher_inbox_path" || { fetcher_error 'unsafe public-inbox source path'; return 2; }
+  case $fetcher_inbox_list in ''|*[!A-Za-z0-9._-]*) fetcher_error 'unsafe public-inbox list'; return 2 ;; esac
+  fetcher_inbox_output=$FETCHER_RAW/$fetcher_inbox_path
+  if [ -e "$fetcher_inbox_output" ]; then
+    [ "$FETCHER_EXISTING_MANIFEST" = true ] || {
+      fetcher_error "cannot verify existing public-inbox output: $fetcher_inbox_path"
+      return 1
+    }
+    return 0
+  fi
+  fetcher_inbox_work=$FETCHER_OUTPUT/.work/public-inbox-$fetcher_inbox_path
+  fetcher_inbox_partial=$fetcher_inbox_work/output
+  mkdir -p "$fetcher_inbox_partial"
+  for fetcher_inbox_specification do
+    fetcher_inbox_epoch=${fetcher_inbox_specification%%:*}
+    fetcher_inbox_head=${fetcher_inbox_specification#*:}
+    case $fetcher_inbox_epoch in ''|*[!0-9]*) fetcher_error 'unsafe public-inbox epoch'; return 2 ;; esac
+    case $fetcher_inbox_head in *[!0-9a-f]*|'') fetcher_error 'unsafe public-inbox head'; return 2 ;; esac
+    [ "${#fetcher_inbox_head}" -eq 40 ] || { fetcher_error 'public-inbox head must have 40 characters'; return 2; }
+    fetcher_inbox_repository=$fetcher_inbox_work/$fetcher_inbox_epoch.git
+    if [ ! -d "$fetcher_inbox_repository" ]; then
+      git init --bare --quiet "$fetcher_inbox_repository" || return
+    fi
+    git --git-dir="$fetcher_inbox_repository" fetch --quiet --no-tags \
+      "$fetcher_inbox_base/$fetcher_inbox_list/$fetcher_inbox_epoch" "$fetcher_inbox_head" || return
+    fetcher_inbox_actual=$(git --git-dir="$fetcher_inbox_repository" rev-parse FETCH_HEAD) || return
+    [ "$fetcher_inbox_actual" = "$fetcher_inbox_head" ] || { fetcher_error 'public-inbox head mismatch'; return 1; }
+    python3 "$FETCHER_LIBEXEC/public_inbox_extract.py" "$fetcher_inbox_repository" \
+      "$fetcher_inbox_head" "$fetcher_inbox_year" "$fetcher_inbox_partial" \
+      "$fetcher_inbox_list-epoch-$fetcher_inbox_epoch" || return
+  done
+  mkdir -p "$(dirname -- "$fetcher_inbox_output")"
+  mv -- "$fetcher_inbox_partial" "$fetcher_inbox_output"
+  rm -rf -- "$fetcher_inbox_work"
+  rmdir "$FETCHER_OUTPUT/.work" 2>/dev/null || true
+}
+
+fetcher_sourcehut_list_export() {
+  [ "$#" -eq 4 ] || {
+    fetcher_error 'fetcher_sourcehut_list_export requires SOURCE_PATH, LIST_URL, OUTPUT_DIR, and canonical SHA256'
+    return 2
+  }
+  fetcher_assert_ready || return
+  fetcher_require curl sed python3 || return
+  fetcher_sourcehut_path=$1
+  fetcher_sourcehut_url=${2%/}
+  fetcher_sourcehut_name=$3
+  fetcher_sourcehut_expected=$4
+  fetcher_sourcehut_output=$FETCHER_RAW/$fetcher_sourcehut_path/$fetcher_sourcehut_name
+  if [ -e "$fetcher_sourcehut_output" ]; then
+    [ "$FETCHER_EXISTING_MANIFEST" = true ] || { fetcher_error 'cannot verify existing SourceHut output'; return 1; }
+    return 0
+  fi
+  fetcher_sourcehut_work=$FETCHER_OUTPUT/.work/sourcehut-$fetcher_sourcehut_path
+  mkdir -p "$fetcher_sourcehut_work"
+  fetcher_sourcehut_page=$fetcher_sourcehut_work/page.html
+  fetcher_sourcehut_cookies=$fetcher_sourcehut_work/cookies
+  fetcher_sourcehut_raw=$fetcher_sourcehut_work/export.mbox
+  fetcher_sourcehut_canonical=$fetcher_sourcehut_work/canonical.mbox
+  fetcher_sourcehut_split=$fetcher_sourcehut_work/messages
+  curl --fail --silent --show-error --location --proto '=http,https' \
+    --connect-timeout 15 --retry 8 --retry-connrefused --cookie-jar "$fetcher_sourcehut_cookies" \
+    --output "$fetcher_sourcehut_page" "$fetcher_sourcehut_url" || return
+  fetcher_sourcehut_token=$(sed -n 's/.*name="_csrf_token"[^>]*value="\([^"]*\)".*/\1/p' "$fetcher_sourcehut_page" | head -n 1)
+  case $fetcher_sourcehut_token in ''|*[!A-Za-z0-9._-]*) fetcher_error 'missing or unsafe SourceHut CSRF token'; return 1 ;; esac
+  curl --fail --silent --show-error --location --proto '=http,https' \
+    --connect-timeout 15 --retry 8 --retry-connrefused --cookie "$fetcher_sourcehut_cookies" \
+    --data-urlencode "_csrf_token=$fetcher_sourcehut_token" --data 'days=-1' \
+    --output "$fetcher_sourcehut_raw" "$fetcher_sourcehut_url/export" || return
+  sed -E 's/^From MAILER-DAEMON .*/From MAILER-DAEMON Thu Jan 01 00:00:00 1970/' \
+    "$fetcher_sourcehut_raw" >"$fetcher_sourcehut_canonical" || return
+  fetcher_sourcehut_actual=$(fetcher_sha256 "$fetcher_sourcehut_canonical") || return
+  [ "$fetcher_sourcehut_actual" = "$fetcher_sourcehut_expected" ] || {
+    fetcher_error "SourceHut canonical verification mismatch: expected $fetcher_sourcehut_expected, got $fetcher_sourcehut_actual"
+    return 1
+  }
+  python3 "$FETCHER_LIBEXEC/mbox_split.py" "$fetcher_sourcehut_raw" "$fetcher_sourcehut_split" || return
+  mkdir -p "$(dirname -- "$fetcher_sourcehut_output")"
+  mv -- "$fetcher_sourcehut_split" "$fetcher_sourcehut_output"
+  rm -rf -- "$fetcher_sourcehut_work"
+  rmdir "$FETCHER_OUTPUT/.work" 2>/dev/null || true
+}
+
+fetcher_hyperkitty_monthly() {
+  [ "$#" -eq 6 ] || {
+    fetcher_error 'fetcher_hyperkitty_monthly requires SOURCE_PATH, BASE_URL, LIST, OUTPUT_DIR, MANIFEST, and MANIFEST_SHA256'
+    return 2
+  }
+  fetcher_assert_ready || return
+  fetcher_require curl gzip python3 || return
+  fetcher_hk_path=$1
+  fetcher_hk_base=${2%/}
+  fetcher_hk_list=$3
+  fetcher_hk_name=$4
+  fetcher_hk_manifest_name=$5
+  fetcher_hk_manifest_sha=$6
+  fetcher_hk_manifest=$FETCHER_REPOSITORY/manifests/hyperkitty/$fetcher_hk_manifest_name
+  [ "$(fetcher_sha256 "$fetcher_hk_manifest")" = "$fetcher_hk_manifest_sha" ] || {
+    fetcher_error "HyperKitty acquisition manifest checksum mismatch: $fetcher_hk_manifest_name"
+    return 1
+  }
+  fetcher_hk_output=$FETCHER_RAW/$fetcher_hk_path/$fetcher_hk_name
+  if [ -e "$fetcher_hk_output" ]; then
+    [ "$FETCHER_EXISTING_MANIFEST" = true ] || { fetcher_error 'cannot verify existing HyperKitty output'; return 1; }
+    return 0
+  fi
+  fetcher_hk_work=$FETCHER_OUTPUT/.work/hyperkitty-$fetcher_hk_path
+  fetcher_hk_partial=$fetcher_hk_work/output
+  mkdir -p "$fetcher_hk_partial"
+  fetcher_hk_tab=$(printf '\t')
+  while IFS="$fetcher_hk_tab" read -r fetcher_hk_period fetcher_hk_count fetcher_hk_sha fetcher_hk_extra; do
+    [ "$fetcher_hk_period" != period ] || continue
+    [ -z "${fetcher_hk_extra:-}" ] || { fetcher_error "malformed HyperKitty row: $fetcher_hk_period"; return 1; }
+    fetcher_hk_year=${fetcher_hk_period%-*}
+    fetcher_hk_month=${fetcher_hk_period#*-}
+    case $fetcher_hk_month in
+      01) fetcher_hk_next="$fetcher_hk_year-02" ;; 02) fetcher_hk_next="$fetcher_hk_year-03" ;;
+      03) fetcher_hk_next="$fetcher_hk_year-04" ;; 04) fetcher_hk_next="$fetcher_hk_year-05" ;;
+      05) fetcher_hk_next="$fetcher_hk_year-06" ;; 06) fetcher_hk_next="$fetcher_hk_year-07" ;;
+      07) fetcher_hk_next="$fetcher_hk_year-08" ;; 08) fetcher_hk_next="$fetcher_hk_year-09" ;;
+      09) fetcher_hk_next="$fetcher_hk_year-10" ;; 10) fetcher_hk_next="$fetcher_hk_year-11" ;;
+      11) fetcher_hk_next="$fetcher_hk_year-12" ;; 12) fetcher_hk_next="$((fetcher_hk_year + 1))-01" ;;
+      *) fetcher_error "invalid HyperKitty month: $fetcher_hk_period"; return 1 ;;
+    esac
+    fetcher_hk_archive=$fetcher_hk_work/$fetcher_hk_period.mbox.gz
+    fetcher_hk_url="$fetcher_hk_base/$fetcher_hk_list%40python.org/export/$fetcher_hk_list%40python.org-$fetcher_hk_period.mbox.gz?end=$fetcher_hk_next-01&start=$fetcher_hk_period-01"
+    curl --http1.1 --fail --silent --show-error --location --proto '=http,https' \
+      --connect-timeout 15 --retry 8 --retry-connrefused --output "$fetcher_hk_archive" "$fetcher_hk_url" || return
+    gzip -t "$fetcher_hk_archive" || return
+    python3 "$FETCHER_LIBEXEC/hyperkitty_extract.py" "$fetcher_hk_archive" \
+      "$fetcher_hk_partial/$fetcher_hk_period" "$fetcher_hk_list-$fetcher_hk_period-message" \
+      "$fetcher_hk_count" "$fetcher_hk_sha" || return
+  done <"$fetcher_hk_manifest"
+  mkdir -p "$(dirname -- "$fetcher_hk_output")"
+  mv -- "$fetcher_hk_partial" "$fetcher_hk_output"
+  rm -rf -- "$fetcher_hk_work"
+  rmdir "$FETCHER_OUTPUT/.work" 2>/dev/null || true
+}
+
+fetcher_zip_extract() {
+  [ "$#" -eq 4 ] || {
+    fetcher_error 'fetcher_zip_extract requires SOURCE_PATH, ARCHIVE, SUFFIX, and OUTPUT_DIR'
+    return 2
+  }
+  fetcher_assert_ready || return
+  fetcher_require python3 || return
+  fetcher_zip_path=$1
+  fetcher_zip_archive=$FETCHER_RAW/${fetcher_zip_path:+$fetcher_zip_path/}$2
+  fetcher_zip_suffix=$3
+  fetcher_zip_output=$FETCHER_RAW/${fetcher_zip_path:+$fetcher_zip_path/}$4
+  fetcher_zip_partial=$fetcher_zip_output.partial
+  [ -f "$fetcher_zip_archive" ] && [ ! -L "$fetcher_zip_archive" ] || { fetcher_error "ZIP archive is unavailable: $fetcher_zip_archive"; return 1; }
+  [ ! -e "$fetcher_zip_output" ] || { fetcher_error "ZIP output already exists: $fetcher_zip_output"; return 1; }
+  python3 "$FETCHER_LIBEXEC/zip_extract.py" "$fetcher_zip_archive" "$fetcher_zip_suffix" \
+    "$fetcher_zip_partial" "${WALDO_ZIP_MAX_FILES:-1000000}" \
+    "${WALDO_ZIP_MAX_BYTES:-107374182400}" || return
+  mv -- "$fetcher_zip_partial" "$fetcher_zip_output"
+  rm -f -- "$fetcher_zip_archive"
+}
+
+fetcher_gutenberg() {
+  [ "$#" -ge 2 ] || {
+    fetcher_error 'fetcher_gutenberg requires SOURCE_PATH, BASE_URL, and a selection'
+    return 2
+  }
+  fetcher_assert_ready || return
+  fetcher_require curl gzip python3 || return
+  fetcher_pg_path=$1
+  fetcher_pg_base=${2%/}
+  shift 2
+  fetcher_pg_count=0
+  fetcher_pg_ids=
+  fetcher_pg_language=
+  fetcher_pg_excluded=
+  while [ "$#" -gt 0 ]; do
+    case $1 in
+      -all) fetcher_pg_count=0; fetcher_pg_language=; shift ;;
+      -n) [ "$#" -ge 2 ] || return 2; fetcher_pg_count=$2; shift 2 ;;
+      -ids) [ "$#" -ge 2 ] || return 2; fetcher_pg_ids=$2; shift 2 ;;
+      -lang) [ "$#" -ge 2 ] || return 2; fetcher_pg_language=$2; shift 2 ;;
+      -exclude-ids) [ "$#" -ge 2 ] || return 2; fetcher_pg_excluded=$2; shift 2 ;;
+      *) fetcher_error "unknown Gutenberg selection: $1"; return 2 ;;
+    esac
+  done
+  case $fetcher_pg_count in ''|*[!0-9]*) fetcher_error 'Gutenberg count must be non-negative'; return 2 ;; esac
+  case $fetcher_pg_language in *[!A-Za-z-]*) fetcher_error 'unsafe Gutenberg language'; return 2 ;; esac
+  case $fetcher_pg_ids:$fetcher_pg_excluded in *[!0-9\ :]*) fetcher_error 'Gutenberg IDs must be space-separated integers'; return 2 ;; esac
+  fetcher_pg_catalog=${fetcher_pg_path:+$fetcher_pg_path/}.gutenberg-catalog.csv
+  fetcher_pg_work=$FETCHER_OUTPUT/.work/gutenberg
+  fetcher_pg_id_file=$fetcher_pg_work/ids
+  mkdir -p "$fetcher_pg_work"
+  if [ -z "$fetcher_pg_ids" ]; then
+    fetcher_download "$fetcher_pg_base/cache/epub/feeds/pg_catalog.csv" "$fetcher_pg_catalog" || return
+    python3 "$FETCHER_LIBEXEC/pg_catalog.py" "$FETCHER_RAW/$fetcher_pg_catalog" \
+      "$fetcher_pg_language" "$fetcher_pg_count" >"$fetcher_pg_id_file" || return
+  else
+    : >"$fetcher_pg_id_file"
+    for fetcher_pg_id in $fetcher_pg_ids; do printf '%s\n' "$fetcher_pg_id" >>"$fetcher_pg_id_file"; done
+  fi
+  [ -s "$fetcher_pg_id_file" ] || { fetcher_error 'Gutenberg selection produced no books'; return 1; }
+  fetcher_pg_books=$FETCHER_RAW/${fetcher_pg_path:+$fetcher_pg_path/}books
+  [ ! -e "$fetcher_pg_books" ] || { fetcher_error "Gutenberg output already exists: $fetcher_pg_books"; return 1; }
+  mkdir -p "$fetcher_pg_books"
+  fetcher_pg_acquired=0
+  while IFS= read -r fetcher_pg_id; do
+    fetcher_pg_skip=false
+    for fetcher_pg_excluded_id in $fetcher_pg_excluded; do
+      [ "$fetcher_pg_id" != "$fetcher_pg_excluded_id" ] || fetcher_pg_skip=true
+    done
+    [ "$fetcher_pg_skip" = false ] || continue
+    fetcher_pg_name=pg$fetcher_pg_id.txt
+    fetcher_pg_download=${fetcher_pg_path:+$fetcher_pg_path/}$fetcher_pg_name
+    if ! fetcher_download "$fetcher_pg_base/cache/epub/$fetcher_pg_id/$fetcher_pg_name" "$fetcher_pg_download"; then
+      fetcher_error "Gutenberg text is unavailable or incomplete for ID $fetcher_pg_id"
+      return 1
+    fi
+    fetcher_pg_file=$FETCHER_RAW/$fetcher_pg_download
+    fetcher_pg_magic=$(od -An -tx1 -N2 "$fetcher_pg_file" | tr -d ' \n')
+    if [ "$fetcher_pg_magic" = 1f8b ]; then
+      gzip -dc -- "$fetcher_pg_file" >"$fetcher_pg_file.decoded" || return
+      mv -- "$fetcher_pg_file.decoded" "$fetcher_pg_file"
+    fi
+    mv -- "$fetcher_pg_file" "$fetcher_pg_books/$fetcher_pg_name"
+    fetcher_pg_acquired=$((fetcher_pg_acquired + 1))
+  done <"$fetcher_pg_id_file"
+  [ "$fetcher_pg_acquired" -gt 0 ] || { fetcher_error 'Gutenberg acquired no books'; return 1; }
+  rm -f -- "$FETCHER_RAW/$fetcher_pg_catalog"
+  rm -rf -- "$fetcher_pg_work"
+  rmdir "$FETCHER_OUTPUT/.work" 2>/dev/null || true
+}
+
+fetcher_cap() {
+  [ "$#" -ge 3 ] || {
+    fetcher_error 'fetcher_cap requires SOURCE_PATH, BASE_URL, and a reporter selection'
+    return 2
+  }
+  fetcher_assert_ready || return
+  fetcher_require curl python3 || return
+  fetcher_cap_path=$1
+  fetcher_cap_base=${2%/}
+  shift 2
+  fetcher_cap_reporters=
+  fetcher_cap_all=false
+  fetcher_cap_limit=0
+  while [ "$#" -gt 0 ]; do
+    case $1 in
+      -all) fetcher_cap_all=true; shift ;;
+      -reporters) [ "$#" -ge 2 ] || return 2; fetcher_cap_reporters=$2; shift 2 ;;
+      -n) [ "$#" -ge 2 ] || return 2; fetcher_cap_limit=$2; shift 2 ;;
+      *) fetcher_error "unknown CAP selection: $1"; return 2 ;;
+    esac
+  done
+  fetcher_cap_output=$FETCHER_RAW/${fetcher_cap_path:+$fetcher_cap_path/}cases
+  [ ! -e "$fetcher_cap_output" ] || { fetcher_error "CAP output already exists: $fetcher_cap_output"; return 1; }
+  fetcher_cap_work=$FETCHER_OUTPUT/.work/cap
+  fetcher_cap_metadata=$fetcher_cap_work/metadata.json
+  fetcher_cap_volumes=$fetcher_cap_work/volumes.tsv
+  fetcher_cap_archive=$fetcher_cap_work/volume.zip
+  mkdir -p "$fetcher_cap_work" "$fetcher_cap_output"
+  if [ "$fetcher_cap_all" = true ]; then
+    curl --fail --silent --show-error --location --retry 8 --retry-connrefused \
+      --output "$fetcher_cap_metadata" "$fetcher_cap_base/ReportersMetadata.json" || return
+    fetcher_cap_reporters=$(python3 "$FETCHER_LIBEXEC/cap_metadata.py" reporters "$fetcher_cap_metadata") || return
+  fi
+  : >"$fetcher_cap_volumes"
+  for fetcher_cap_reporter in $fetcher_cap_reporters; do
+    curl --fail --silent --show-error --location --retry 8 --retry-connrefused \
+      --output "$fetcher_cap_metadata" "$fetcher_cap_base/$fetcher_cap_reporter/VolumesMetadata.json" || return
+    python3 "$FETCHER_LIBEXEC/cap_metadata.py" volumes "$fetcher_cap_metadata" \
+      "$fetcher_cap_reporter" >>"$fetcher_cap_volumes" || return
+  done
+  LC_ALL=C sort -u "$fetcher_cap_volumes" -o "$fetcher_cap_volumes"
+  [ -s "$fetcher_cap_volumes" ] || { fetcher_error 'CAP selection produced no volumes'; return 1; }
+  fetcher_cap_handled=0
+  while IFS="$(printf '\t')" read -r fetcher_cap_reporter fetcher_cap_volume; do
+    [ "$fetcher_cap_limit" -eq 0 ] || [ "$fetcher_cap_handled" -lt "$fetcher_cap_limit" ] || break
+    curl --fail --silent --show-error --location --retry 8 --retry-connrefused \
+      --output "$fetcher_cap_archive" "$fetcher_cap_base/$fetcher_cap_reporter/$fetcher_cap_volume.zip" || return
+    python3 "$FETCHER_LIBEXEC/cap_extract.py" "$fetcher_cap_archive" "$fetcher_cap_output" \
+      "$fetcher_cap_reporter" "$fetcher_cap_volume" || return
+    fetcher_cap_handled=$((fetcher_cap_handled + 1))
+  done <"$fetcher_cap_volumes"
+  [ "$fetcher_cap_handled" -gt 0 ] || { fetcher_error 'CAP acquired no volumes'; return 1; }
+  rm -rf -- "$fetcher_cap_work"
+  rmdir "$FETCHER_OUTPUT/.work" 2>/dev/null || true
+}
+
 fetcher_manifest() {
   [ "$#" -eq 0 ] || {
     fetcher_error 'fetcher_manifest reads its JSON specification from standard input'
@@ -504,8 +878,7 @@ fetcher_manifest() {
   fetcher_dirty=true
   if command -v git >/dev/null 2>&1 && git -C "$fetcher_repo" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
     fetcher_revision=$(git -C "$fetcher_repo" rev-parse HEAD 2>/dev/null || true)
-    if git -C "$fetcher_repo" diff --quiet -- "$FETCHER_SCRIPT" &&
-       git -C "$fetcher_repo" diff --cached --quiet -- "$FETCHER_SCRIPT"; then
+    if [ -z "$(git -C "$fetcher_repo" status --porcelain)" ]; then
       fetcher_dirty=false
     fi
   fi

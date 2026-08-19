@@ -57,6 +57,21 @@ jq -e '
   (.fetcher.sha256 | test("^[0-9a-f]{64}$"))
 ' "$output/manifest.json" >/dev/null || fail 'generated manifest'
 
+git_source=$temporary/git-source
+git_output=$temporary/git-output
+git init -q "$git_source"
+git -C "$git_source" config user.name 'Fetcher Test'
+git -C "$git_source" config user.email 'fetcher@example.invalid'
+printf 'raw git content\n' >"$git_source/example.txt"
+git -C "$git_source" add example.txt
+git -C "$git_source" commit -q -m fixture
+git_commit=$(git -C "$git_source" rev-parse HEAD)
+fetcher_begin "$git_output"
+fetcher_size 1B 1B
+fetcher_git source "file://$git_source" "$git_commit" "$git_commit" example.txt
+[ "$(cat "$git_output/raw/source/example.txt")" = 'raw git content' ] ||
+  fail 'pinned Git export'
+
 if fetcher_begin one two >/dev/null 2>&1; then
   fail 'extra destination argument accepted'
 fi
