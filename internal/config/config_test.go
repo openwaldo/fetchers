@@ -125,3 +125,40 @@ unknown = value
 		t.Fatalf("error = %v", err)
 	}
 }
+
+func TestParseRejectsNonReproducibleDeclarations(t *testing.T) {
+	const valid = `[corpus]
+id = example
+title = Example
+description = Example corpus.
+
+[source]
+name = Example
+url = https://example.test/source
+category = public-dataset
+license = CC0-1.0
+license-declaration = CC0 1.0
+copyrighted = yes
+
+[fetch]
+fetcher = http
+url = https://example.test/data.txt
+estimated-size = 1M
+
+[input]
+format = text
+`
+	tests := map[string]string{
+		"category":      strings.Replace(valid, "category = public-dataset", "category = public-ish", 1),
+		"tri-state":     strings.Replace(valid, "copyrighted = yes", "copyrighted = true", 1),
+		"checksum":      strings.Replace(valid, "estimated-size = 1M", "estimated-size = 1M\nsha256 = unpinned", 1),
+		"profile field": strings.Replace(valid, "format = text", "format = text\nrole = speaker", 1),
+	}
+	for name, value := range tests {
+		t.Run(name, func(t *testing.T) {
+			if _, err := Parse(strings.NewReader(value)); err == nil {
+				t.Fatal("configuration was accepted")
+			}
+		})
+	}
+}

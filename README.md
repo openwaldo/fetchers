@@ -7,8 +7,7 @@ Each corpus is described by one reviewed INI file. The fetcher validates the
 entire configuration and available disk space before making a network request.
 
 ```sh
-go build -o fetcher ./cmd/fetcher
-./fetcher corpora/linux-kernel-mailing-list.ini /path/to/handoff
+go run ./cmd/fetcher corpora/linux-kernel-mailing-list.ini /path/to/handoff
 ```
 
 Ingestion is a separate operation:
@@ -16,6 +15,84 @@ Ingestion is a separate operation:
 ```sh
 waldo index ingest /path/to/handoff community/linux-kernel-mailing-list
 ```
+
+## Prerequisites
+
+- Go 1.25 or newer.
+- Enough free space for the sum of `estimated-size` values, plus 50% and 1 GiB
+  of safety headroom.
+- Network access to the declared upstream sources.
+- `git` for `git` and `public-inbox` fetches.
+- `python3` for `public-inbox`, `hyperkitty`, and `cap` helpers.
+- The adjacent WALDO repository only when running ingestion or smoke tests.
+
+Run commands from this repository root. Some fetchers use reviewed files under
+`manifests/` or helpers under `libexec/`.
+
+## Create a corpus configuration
+
+One corpus normally requires only a new `corpora/<corpus-id>.ini`; do not write
+a new shell script or corpus-specific parser.
+
+1. Start from the closest existing INI. Use `foodista.ini` for mapped JSONL,
+   `aya.ini` for Parquet conversations, `plos.ini` for XML,
+   `gutenberg.ini` for bounded text, or a mailing-list INI for mbox.
+2. Record the corpus identity, canonical upstream page, license declaration and
+   evidence URL, source category, and exact selection.
+3. Choose the smallest existing generic fetcher that can acquire the raw data.
+   Pin a checksum, immutable commit, dataset revision, or reviewed manifest
+   whenever the upstream provides one.
+4. Inspect a representative raw file and declare its physical `format`. For
+   structured records, add a logical `type` and field mappings that match the
+   actual upstream structure.
+5. Set `estimated-size` to the expected on-disk download size. It may be a
+   conservative estimate; it must not deliberately understate the corpus.
+6. Fetch into a new directory and inspect the generated manifest:
+
+   ```sh
+   go run ./cmd/fetcher corpora/example.ini /tmp/example-handoff
+   python3 -m json.tool /tmp/example-handoff/manifest.json
+   ```
+
+7. Verify WALDO's independent probe and plan before publishing anything:
+
+   ```sh
+   waldo index ingest /tmp/example-handoff sandbox/example --dry-run
+   ```
+
+8. Run the repository tests and, for a small corpus, the complete smoke test:
+
+   ```sh
+   go test ./...
+   ./smoke-test.sh corpora/example.ini
+   ```
+
+9. Review the generated source, license, input mapping, artifact evidence,
+   file count, byte count, and raw-tree SHA-256 before committing the INI.
+
+Do not point a new run at a completed handoff: the presence of `manifest.json`
+means that snapshot is complete and immutable. Use a new output directory for
+an upstream revision or selection change.
+
+### Reproducibility checklist
+
+A reviewable corpus configuration answers all of these questions:
+
+- What exact upstream material is selected, and what is intentionally omitted?
+- Is the artifact fixed by SHA-256, a full 40-character Git commit, a pinned
+  Hugging Face revision, or another reviewed manifest?
+- Where did the effective license and upstream license declaration come from?
+- Does every source have exactly one effective license boundary?
+- Does `[input]` describe the bytes actually downloaded, not a desired future
+  conversion?
+- Can another maintainer run the same command and obtain the same raw-tree
+  SHA-256?
+
+An unchecksummed mutable HTTP URL can still be acquired, but it is not strongly
+reproducible. Add `sha256` whenever a stable artifact is available. Calculate
+it with `sha256sum FILE` on Linux or `shasum -a 256 FILE` on macOS, then verify
+that the digest is supported by upstream evidence rather than trusting an
+unreviewed download blindly.
 
 ## End-to-end smoke test
 
@@ -168,6 +245,12 @@ Every corpus requires at least one source. A single-source corpus uses
 | `license` | Effective/default license identifier for every record in this source directory. |
 | `license-declaration` | What the upstream declares, or an explicit statement that no blanket license is asserted. |
 
+`category` must be one of `public-dataset`, `commercially-licensed`,
+`private-third-party`, `web-crawl`, `user-data`, `synthetic`, or `other`.
+WALDO fails closed on unknown categories. Use `public-dataset` for an openly
+reachable curated dataset; public availability alone does not establish a
+license.
+
 Every corpus requires at least one fetch. A single fetch uses `[fetch]`.
 Multiple fetches use named sections such as `[fetch "2025-01"]`.
 
@@ -240,6 +323,10 @@ The fetcher uses a safe URL basename, a safe `Content-Disposition` filename,
 or a deterministic artifact name. Existing conflicting content is never
 silently replaced.
 
+For a reproducible static artifact, download it once for inspection, obtain or
+calculate its SHA-256, add the digest, delete the exploratory handoff, and run
+the reviewed INI into a fresh directory.
+
 ### Git
 
 ```ini
@@ -247,14 +334,24 @@ silently replaced.
 fetcher = git
 url = https://github.com/example/project.git
 revision = 0123456789abcdef0123456789abcdef01234567
+ref = optional-tag-or-branch-used-to-locate-the-commit
+pathspec = :(glob)data/**/*.jsonl
 estimated-size = 2G
 ```
 
 Required fields: `fetcher`, `url`, `revision`, and `estimated-size`.
 
-`revision` must resolve to the declared immutable commit. Optional reviewed Git
-selection fields may be added as named fields by the Git fetcher; positional
-argument arrays are not part of the INI format.
+`revision` is the required full immutable commit. When `ref` is present, it is
+fetched to locate the commit and must resolve exactly to `revision`; otherwise
+the revision itself is fetched. Repeat `pathspec` to retain only reviewed Git
+paths. Pathspecs use Git pathspec syntax and must select at least one file.
+
+Git output contains only non-empty, NUL-free UTF-8 regular files. Symlinks,
+empty files, and binary files are skipped and reported. Declare
+`content-type = source code` when a repository intentionally retains textual
+JSON, XML, HTML, or similar files as raw source text, and use `format = text`.
+A Git repository selected specifically to structured JSONL instead uses a
+restrictive `pathspec` and declares `format = jsonl` with a mapping.
 
 Additional acquisition implementations follow the same rule: each has a named
 `fetcher` value and documented, named fields. Configurations never contain
@@ -265,33 +362,35 @@ Additional acquisition implementations follow the same rule: each has a named
 Required fields: `fetcher = huggingface`, the canonical dataset `url`, pinned
 40-character `revision`, selected `suffix`, and `estimated-size`. `prefix` is
 optional. The fetcher reads pinned dataset metadata and verifies each selected
-LFS SHA-256.
+LFS SHA-256. `suffix` is written without a required leading dot, for example
+`json.gz` or `parquet`; `prefix` restricts the upstream repository path.
 
 ### Public-inbox
 
 Required fields: `fetcher = public-inbox`, `url`, `base-url`, `list`, `year`,
 one or more repeated `epoch = NUMBER:COMMIT` values, and `estimated-size`.
 Pinned Git message blobs for the requested year are retained as raw RFC 822
-messages.
+messages. `COMMIT` is a full 40-character commit for that public-inbox epoch.
 
 ### Monthly mbox
 
 Required fields: `fetcher = monthly-mbox`, `url`, `base-url`, `list`, `year`,
 `style` (`apache` or `gnu`), exactly twelve repeated `checksum` values in month
-order, and `estimated-size`.
+order from January through December, and `estimated-size`.
 
 ### HyperKitty
 
 Required fields: `fetcher = hyperkitty`, `url`, `base-url`, `list`, `manifest`,
 `manifest-sha256`, and `estimated-size`. The reviewed monthly manifest pins
 message counts and canonical verification hashes; downloaded gzip mbox files
-remain raw.
+remain raw. `manifest` names a TSV file under `manifests/hyperkitty/`.
 
 ### HTTP set
 
 Required fields: `fetcher = http-set`, `url`, one or more repeated
 `artifact = URL|NAME|SHA256` values, and `estimated-size`. This is for a fixed
-reviewed set of independently checksummed HTTP artifacts.
+reviewed set of independently checksummed HTTP artifacts. `NAME` is the safe
+local basename; each SHA-256 is mandatory.
 
 ### SourceHut list export
 
@@ -318,12 +417,75 @@ Required fields: `fetcher = zip`, `url = local:ARCHIVE`, `suffix`, and
 the same source boundary, safely retains matching regular files, and removes
 the archive only after extraction succeeds.
 
+### Adding a new acquisition method
+
+Add code only when no existing generic fetcher can acquire the upstream raw
+format. A new method must be reusable across corpora; it must not parse one
+corpus into training text or render a conversation template.
+
+The implementation checklist is:
+
+1. Add its allowed and required named INI fields to `validateFetch` in
+   `internal/config/config.go`. Reject unknown, ambiguous, or unsafe values
+   before network access.
+2. Add one dispatch case in `Runner.Run` and implement acquisition under
+   `internal/fetcher/`. Keep all writes beneath the provided source directory.
+3. Pin and verify available checksums, revisions, manifests, counts, or other
+   upstream evidence. Use `.partial` files and atomic renames where possible.
+4. Make interruption behavior explicit: resume safely or stop while preserving
+   partial state. Never silently restart a non-resumable acquisition over
+   existing bytes.
+5. Produce only one of the general raw formats documented above. Archive
+   extraction is allowed; corpus-specific content conversion is not.
+6. Report meaningful download progress and leave final format/profile
+   verification to the shared post-fetch validator.
+7. Add focused unit tests, a catalog configuration, this fetcher-field
+   reference, and an end-to-end fixture when the protocol introduces new
+   behavior.
+
+Do not add output paths, index destinations, lookaside settings, credentials,
+WALDO invocations, or positional `ARG_*` fields to corpus INIs.
+
 ## Input mappings
 
 Every source requires `[input]`. Use one unnamed section as the default for all
 sources, or `[input "source-id"]` to override a named source. `format` is always
 required. `type` and mapping fields are required only for structured records or
 bounded text.
+
+JSON, JSONL, and Parquet mappings use dotted field paths. Append `[]` to expand
+a repeated array while traversing it:
+
+```text
+text                  top-level field
+casebody.opinions[].text
+messages[].role
+```
+
+Paths name upstream fields; they never contain corpus-specific code. For
+Parquet, paths must resolve to scalar leaf columns and `[]` must agree with the
+column's repeated structure. Repeat `text` to concatenate several fields in
+declared order. `text-fallback` supplies lower-priority alternatives. Add
+metadata as repeatable `meta = OUTPUT_NAME=upstream.path` entries.
+
+Common optional policies are:
+
+| Field | Meaning |
+| --- | --- |
+| `on-empty = error|skip` | For record-map, dialogue-pair, chat-messages, or bounded-text: fail on an empty mapped record, or explicitly skip it. |
+| `nul = error|space` | For structured record profiles: fail on embedded NUL characters, or replace them with spaces. |
+| `id`, `date`, `language`, `license`, `source` | Map canonical provenance fields from each record. |
+| `meta = NAME=PATH` | Preserve an additional scalar field in canonical metadata; repeat as needed. |
+
+Map `license` only when the upstream records carry their own license value.
+WALDO preserves that raw value and otherwise uses the source-level `license` as
+the effective default; never invent per-record licenses from content.
+
+The fetcher's post-download check verifies every physical file and looks for
+each mapped path in the first 100 JSON/JSONL records. Parquet mappings are
+checked against the file schema. XML is parsed completely and its selectors
+must match. WALDO performs full conversion validation later; passing the quick
+fetcher check does not weaken WALDO's fail-closed behavior.
 
 ### Record map
 
@@ -337,8 +499,9 @@ date = created
 license = metadata.license
 ```
 
-Required fields: `type` and at least one `text`. `text` may be repeated in
-priority order. `id`, `date`, `language`, `license`, `source`, and named
+Required fields: `type` and at least one `text`. `text` is concatenated in
+declared order; `text-fallback` provides ordered alternatives when the primary
+paths are empty. `id`, `date`, `language`, `license`, `source`, and named
 metadata mappings are optional.
 
 ### Dialogue pair
@@ -365,8 +528,8 @@ role = messages[].role
 content = messages[].content
 ```
 
-Required fields: `type`, `role`, and `content`. Tool and role-alias mappings are
-optional.
+Required fields: `type`, `role`, and `content`. `tools` is an optional upstream
+path containing tool definitions.
 
 ### Ranked conversation tree
 
@@ -380,7 +543,8 @@ rank = rank
 ```
 
 Required fields: `type`, `replies`, `text`, and `rank`. Root, role,
-assistant-role, and missing-rank mappings are optional.
+assistant-role, and missing-rank mappings are optional. The only explicit
+missing-rank policy is `missing-rank = source-order`.
 
 ### Bounded text
 
@@ -392,7 +556,11 @@ start-pattern = regular expression
 end-pattern = regular expression
 ```
 
-Required fields: `type`, `start-pattern`, and `end-pattern`.
+Required fields: `type`, `start-pattern`, and `end-pattern`. Patterns are Go
+regular expressions. WALDO keeps content after the first start match through
+the point immediately before the first following end match. Use
+`on-empty = skip` only when files without both markers are intentionally
+excluded.
 
 ### XML records
 
@@ -404,7 +572,10 @@ text = /article/body
 ```
 
 Required fields: `type` and at least one `text` selector. Each physical XML
-file is one record. Exclusion and metadata selectors are optional.
+file is one record. Selectors use a strict absolute XPath subset: child and
+descendant (`//`) traversal, namespace-aware names, `*`, repeated nodes, and a
+terminal attribute. Repeat `text` for ordered concatenation. `exclude` and
+metadata selectors are optional; `on-malformed` is `error` or `skip`.
 
 ## Multi-source example
 
@@ -482,6 +653,23 @@ format = text
 - Updating an existing corpus snapshot must be explicit; incremental update
   semantics remain future work.
 
+## Failure and retry behavior
+
+The error message determines the safe next action:
+
+| Failure | What remains | Next action |
+| --- | --- | --- |
+| Configuration or disk-space validation | No network data should have been acquired. | Correct the INI or free space and rerun. |
+| Interrupted resumable HTTP download | `*.partial` file. | Rerun the identical command and output path. |
+| Interrupted non-resumable acquisition | Reported work or partial files. | Follow the specific error; the fetcher never silently overwrites them. |
+| Post-fetch format or mapping mismatch | Complete raw files plus `.fetcher-work/validation-error.txt`; no manifest. | Correct only `[input]`, then rerun the same command to revalidate without network access. |
+| Successful fetch | Complete raw files and `manifest.json`. | Treat as immutable; ingest it or use a new directory for another snapshot. |
+
+Do not manually create or edit a generated manifest to bypass validation. The
+INI is the reviewed source of corpus facts. If the upstream bytes are wrong,
+use a fresh handoff; if the declaration is wrong, correct the INI and use the
+validation retry described above.
+
 ## Repository layout
 
 ```text
@@ -504,3 +692,17 @@ go test ./...
 The end-to-end test uses a temporary localhost fixture and verifies a
 multi-source fetch containing gzip JSONL and gzip mbox through WALDO's
 canonical Parquet writer and a temporary file lookaside.
+
+## Definition of done
+
+A new corpus fetcher is complete only when:
+
+- its INI passes `go test ./...` and uses only documented fields;
+- every source has reviewed license/provenance facts and an explicit format;
+- every mutable artifact is pinned where upstream evidence permits;
+- a real fetch completes and generates a manifest without manual editing;
+- post-fetch validation agrees with the actual raw structure;
+- `waldo index ingest ... --dry-run` accepts the handoff;
+- a small representative corpus passes `smoke-test.sh`; and
+- no corpus-specific transformation, destination, credential, or ingestion
+  behavior was added to acquisition.

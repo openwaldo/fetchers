@@ -17,6 +17,8 @@ import (
 var (
 	sectionPattern = regexp.MustCompile(`^\[([a-z][a-z0-9-]*)(?:\s+"([a-z0-9._-]+)")?\]$`)
 	idPattern      = regexp.MustCompile(`^[a-z0-9][a-z0-9._-]*$`)
+	sha256Pattern  = regexp.MustCompile(`^[a-f0-9]{64}$`)
+	commitPattern  = regexp.MustCompile(`^[a-f0-9]{40}$`)
 )
 
 type File struct {
@@ -134,6 +136,15 @@ func (file File) Validate() error {
 				return fmt.Errorf("source %q requires %s", id, required)
 			}
 		}
+		if !fields("public-dataset commercially-licensed private-third-party web-crawl user-data synthetic other")[source.One("category")] {
+			return fmt.Errorf("source %q has unsupported category %q", id, source.One("category"))
+		}
+		for _, field := range []string{"copyrighted", "machine-generated", "personal-data"} {
+			value := source.One(field)
+			if value != "" && value != "yes" && value != "no" && value != "unknown" {
+				return fmt.Errorf("source %q %s must be yes, no, or unknown", id, field)
+			}
+		}
 	}
 	for _, fetch := range file.Fetches {
 		if len(file.Fetches) > 1 && fetch.Name == "" {
@@ -202,9 +213,39 @@ func validateInput(section Section) error {
 		return fmt.Errorf("unsupported format %q; use text, markdown, mbox, json, jsonl, parquet, or xml", format)
 	}
 	if section.One("type") == "" {
+		if err := validateFields(section, fields("format"), nil); err != nil {
+			return err
+		}
 		return nil
 	}
 	typeName := section.One("type")
+	profileFields := map[string]string{
+		"record-map":               "format type on-empty nul text text-fallback id date language license source meta",
+		"dialogue-pair":            "format type on-empty nul text text-fallback id date language license source context response meta",
+		"chat-messages":            "format type on-empty nul id date language license source role content tools meta",
+		"ranked-conversation-tree": "format type nul id date language license tree-root replies text rank missing-rank role assistant-role",
+		"bounded-text":             "format type on-empty start-pattern end-pattern",
+		"xml-record":               "format type text id date language license source meta exclude on-malformed source-prefix",
+	}
+	allowed, knownType := profileFields[typeName]
+	if !knownType {
+		return fmt.Errorf("unsupported type %q; omit type and mapping fields for text, Markdown, or mbox", typeName)
+	}
+	if err := validateFields(section, fields(allowed), fields("text text-fallback meta exclude")); err != nil {
+		return err
+	}
+	if value := section.One("on-empty"); value != "" && value != "error" && value != "skip" {
+		return fmt.Errorf("on-empty must be error or skip")
+	}
+	if value := section.One("nul"); value != "" && value != "error" && value != "space" {
+		return fmt.Errorf("nul must be error or space")
+	}
+	if value := section.One("missing-rank"); value != "" && value != "source-order" {
+		return fmt.Errorf("missing-rank must be source-order")
+	}
+	if value := section.One("on-malformed"); value != "" && value != "error" && value != "skip" {
+		return fmt.Errorf("on-malformed must be error or skip")
+	}
 	if typeName == "bounded-text" && format != "text" && format != "markdown" {
 		return fmt.Errorf("type bounded-text requires format text or markdown")
 	}
@@ -248,7 +289,7 @@ func validateInput(section Section) error {
 	case "xml-record":
 		return requireText()
 	default:
-		return fmt.Errorf("unsupported type %q; omit type and mapping fields for text, Markdown, or mbox", section.One("type"))
+		panic("validated input type was not handled")
 	}
 }
 
@@ -258,11 +299,17 @@ func validateFetch(section Section) error {
 	if err := validateFields(section, common, lists); err != nil {
 		return err
 	}
+	if checksum := section.One("sha256"); checksum != "" && !sha256Pattern.MatchString(checksum) {
+		return fmt.Errorf("fetch %q sha256 must be 64 lowercase hexadecimal characters", section.Name)
+	}
 	switch section.One("fetcher") {
 	case "http":
 	case "git":
 		if section.One("revision") == "" {
 			return fmt.Errorf("git fetch %q requires revision", section.Name)
+		}
+		if !commitPattern.MatchString(section.One("revision")) {
+			return fmt.Errorf("git fetch %q revision must be a full 40-character lowercase commit", section.Name)
 		}
 	case "huggingface":
 		if err := requireFetch(section, "revision", "suffix"); err != nil {
@@ -275,6 +322,12 @@ func validateFetch(section Section) error {
 		if len(section.Values["epoch"]) == 0 {
 			return fmt.Errorf("public-inbox fetch %q requires epoch", section.Name)
 		}
+		for _, value := range section.Values["epoch"] {
+			epoch, commit, found := strings.Cut(value, ":")
+			if !found || epoch == "" || !commitPattern.MatchString(commit) {
+				return fmt.Errorf("public-inbox fetch %q epoch must be NUMBER:40_CHARACTER_COMMIT", section.Name)
+			}
+		}
 	case "monthly-mbox":
 		if err := requireFetch(section, "base-url", "list", "year", "style"); err != nil {
 			return err
@@ -282,9 +335,17 @@ func validateFetch(section Section) error {
 		if len(section.Values["checksum"]) != 12 {
 			return fmt.Errorf("monthly-mbox fetch %q requires twelve checksums", section.Name)
 		}
+		for _, checksum := range section.Values["checksum"] {
+			if !sha256Pattern.MatchString(checksum) {
+				return fmt.Errorf("monthly-mbox fetch %q checksums must be 64 lowercase hexadecimal characters", section.Name)
+			}
+		}
 	case "hyperkitty":
 		if err := requireFetch(section, "base-url", "list", "manifest", "manifest-sha256"); err != nil {
 			return err
+		}
+		if !sha256Pattern.MatchString(section.One("manifest-sha256")) {
+			return fmt.Errorf("hyperkitty fetch %q manifest-sha256 must be 64 lowercase hexadecimal characters", section.Name)
 		}
 	case "gutenberg":
 		if err := requireFetch(section, "selection"); err != nil {
@@ -308,6 +369,13 @@ func validateFetch(section Section) error {
 	case "http-set":
 		if len(section.Values["artifact"]) == 0 {
 			return fmt.Errorf("HTTP-set fetch %q requires artifact", section.Name)
+		}
+		for _, artifact := range section.Values["artifact"] {
+			rawURL, remainder, found := strings.Cut(artifact, "|")
+			name, checksum, foundChecksum := strings.Cut(remainder, "|")
+			if !found || !foundChecksum || rawURL == "" || name == "" || !sha256Pattern.MatchString(checksum) {
+				return fmt.Errorf("HTTP-set fetch %q artifact must be URL|NAME|64_CHARACTER_SHA256", section.Name)
+			}
 		}
 	default:
 		return fmt.Errorf("fetch %q uses unknown fetcher %q", section.Name, section.One("fetcher"))
