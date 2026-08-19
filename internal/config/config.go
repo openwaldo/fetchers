@@ -153,26 +153,103 @@ func (file File) Validate() error {
 			return err
 		}
 	}
+	seenInputs := map[string]bool{}
 	for _, input := range file.Inputs {
-		id := file.Corpus.One("id")
-		if multiple {
-			id = input.Name
-			if !sources[id] {
-				return fmt.Errorf("input references unknown source %q", id)
-			}
-		} else if input.Name != "" {
+		id := input.Name
+		if !multiple && input.Name != "" {
 			return fmt.Errorf("single-source input must be unnamed")
 		}
-		if input.One("type") == "" {
-			return fmt.Errorf("input %q requires type", id)
+		if id != "" && !sources[id] {
+			return fmt.Errorf("input references unknown source %q", id)
 		}
-		allowed := fields("type on-empty nul id date language license source context response role content tools tree-root replies rank missing-rank assistant-role start-pattern end-pattern on-malformed source-prefix")
+		if seenInputs[id] {
+			return fmt.Errorf("duplicate input declaration %q", id)
+		}
+		seenInputs[id] = true
+		allowed := fields("format type on-empty nul id date language license source context response role content tools tree-root replies rank missing-rank assistant-role start-pattern end-pattern on-malformed source-prefix")
 		lists := fields("text text-fallback meta exclude")
 		if err := validateFields(input, allowed, lists); err != nil {
 			return err
 		}
+		if err := validateInput(input); err != nil {
+			label := id
+			if label == "" {
+				label = "default"
+			}
+			return fmt.Errorf("input %q: %w", label, err)
+		}
+	}
+	for source := range sources {
+		if _, ok := file.Input(source); !ok {
+			return fmt.Errorf("source %q requires an input declaration with format", source)
+		}
 	}
 	return nil
+}
+
+func validateInput(section Section) error {
+	format := section.One("format")
+	if format == "" {
+		return fmt.Errorf("format is required")
+	}
+	switch format {
+	case "text", "markdown", "mbox":
+	case "json", "jsonl", "parquet", "xml":
+		if section.One("type") == "" {
+			return fmt.Errorf("format %s requires type", format)
+		}
+	default:
+		return fmt.Errorf("unsupported format %q; use text, markdown, mbox, json, jsonl, parquet, or xml", format)
+	}
+	if section.One("type") == "" {
+		return nil
+	}
+	typeName := section.One("type")
+	if typeName == "bounded-text" && format != "text" && format != "markdown" {
+		return fmt.Errorf("type bounded-text requires format text or markdown")
+	}
+	if typeName == "xml-record" && format != "xml" {
+		return fmt.Errorf("type xml-record requires format xml")
+	}
+	if typeName != "bounded-text" && typeName != "xml-record" && format != "json" && format != "jsonl" && format != "parquet" {
+		return fmt.Errorf("type %s requires format json, jsonl, or parquet", typeName)
+	}
+	require := func(names ...string) error {
+		for _, name := range names {
+			if section.One(name) == "" {
+				return fmt.Errorf("type %s requires %s", section.One("type"), name)
+			}
+		}
+		return nil
+	}
+	requireText := func() error {
+		if len(section.Values["text"]) == 0 {
+			return fmt.Errorf("type %s requires text", section.One("type"))
+		}
+		return nil
+	}
+	switch section.One("type") {
+	case "record-map":
+		return requireText()
+	case "dialogue-pair":
+		if err := requireText(); err != nil {
+			return err
+		}
+		return require("response")
+	case "chat-messages":
+		return require("role", "content")
+	case "ranked-conversation-tree":
+		if err := requireText(); err != nil {
+			return err
+		}
+		return require("replies", "rank")
+	case "bounded-text":
+		return require("start-pattern", "end-pattern")
+	case "xml-record":
+		return requireText()
+	default:
+		return fmt.Errorf("unsupported type %q; omit type and mapping fields for text, Markdown, or mbox", section.One("type"))
+	}
 }
 
 func validateFetch(section Section) error {
@@ -289,6 +366,21 @@ func (file File) Source(id string) (Section, bool) {
 		}
 	}
 	return Section{}, false
+}
+
+// Input returns the source-specific declaration, falling back to the unnamed
+// declaration shared by all sources in a multi-source corpus.
+func (file File) Input(id string) (Section, bool) {
+	var fallback Section
+	for _, input := range file.Inputs {
+		if input.Name == id {
+			return input, true
+		}
+		if input.Name == "" {
+			fallback = input
+		}
+	}
+	return fallback, fallback.Values != nil
 }
 
 func (file File) SortedSources() []Section {

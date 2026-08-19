@@ -88,8 +88,12 @@ url = http://127.0.0.1:$port/messages.mbox.gz
 estimated-size = 1B
 
 [input "records"]
+format = jsonl
 type = record-map
 text = text
+
+[input "mail"]
+format = mbox
 EOF
 
 task_cache="$temporary/go-cache"

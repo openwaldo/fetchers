@@ -83,22 +83,27 @@ output filenames.
 
 ## Raw formats and ingestion profiles
 
-The manifest does not name a physical WALDO ingestor. WALDO probes each raw
-file's bytes and records the detected format in its immutable ingest plan. When
-a source has an `[input]` section, the fetcher copies that logical mapping into
-the source's `manifest.json` as `input`; WALDO uses it after detecting the
-physical container.
+Every source has an `[input]` section that declares its physical `format`. The
+fetcher copies it into `manifest.json`. After downloading, the fetcher verifies
+every file against that format and samples up to 100 structured records to
+check mapped field paths. A mismatch fails without deleting the raw files, and
+the error names the file and incorrect declaration. WALDO probes the bytes
+again during ingestion and rejects disagreement with the manifest.
+
+After correcting only the `[input]` declaration, rerun the same command and
+output path. The fetcher detects its validation-failure marker, skips network
+acquisition, and revalidates the preserved files before writing the manifest.
 
 Fetcher output intended for training must use one of these supported forms:
 
-| Raw form | Required `[input]` profile |
+| Raw form | Required `format` and profile |
 | --- | --- |
-| UTF-8 text or Markdown | None, or `bounded-text` for configurable start/end removal. |
-| Unix mbox | None. |
-| JSON, exactly one object per file | `record-map`, `dialogue-pair`, `chat-messages`, or `ranked-conversation-tree`. |
-| JSONL, one object per line | `record-map`, `dialogue-pair`, `chat-messages`, or `ranked-conversation-tree`. |
-| Parquet, one record per row | `record-map`, `dialogue-pair`, or `chat-messages`. |
-| XML | `xml-record`. |
+| UTF-8 text or Markdown | `text` or `markdown`; optional `bounded-text`. |
+| Unix mbox | `mbox`; no logical profile. |
+| JSON, exactly one object per file | `json` plus `record-map`, `dialogue-pair`, `chat-messages`, or `ranked-conversation-tree`. |
+| JSONL, one object per line | `jsonl` plus `record-map`, `dialogue-pair`, `chat-messages`, or `ranked-conversation-tree`. |
+| Parquet, one record per row | `parquet` plus `record-map`, `dialogue-pair`, or `chat-messages`. |
+| XML | `xml` plus `xml-record`. |
 
 Gzip and Zstandard compression are supported directly for JSONL and mbox.
 Top-level JSON arrays are not supported; publish those records as JSONL or
@@ -133,6 +138,9 @@ content-to = 2025-12-31
 fetcher = http
 url = https://example.invalid/linux-kernel-2025.mbox.gz
 estimated-size = 25G
+
+[input]
+format = mbox
 ```
 
 `content-from` and `content-to` are optional. Include them only when the
@@ -172,13 +180,20 @@ Multiple fetches use named sections such as `[fetch "2025-01"]`.
 In a multi-source corpus, every `[fetch "name"]` also requires `source`, whose
 value must match a named source ID. It is omitted for a single-source corpus.
 
+Every source also requires an `[input]` declaration. An unnamed declaration is
+the default for every source; a named declaration overrides one source.
+
+| Field | Meaning |
+| --- | --- |
+| `format` | Required physical format: `text`, `markdown`, `mbox`, `json`, `jsonl`, `parquet`, or `xml`. |
+| `type` | Logical profile required for structured records or bounded text. |
+
 For a single-source corpus, the source ID is the corpus ID. For a multi-source
 corpus, the quoted section name is the source ID and directory name. An
 additional `id` field is neither needed nor allowed.
 
-These are the only universally required fields. Fetcher-specific required
-fields are documented below. Unknown fields and missing conditional fields are
-errors.
+Fetcher-specific and profile-specific required fields are documented below.
+Unknown fields and missing conditional fields are errors.
 
 ## Optional source fields
 
@@ -305,18 +320,16 @@ the archive only after extraction succeeds.
 
 ## Input mappings
 
-Do not add an `[input]` section when WALDO can identify and interpret the raw
-format directly. This includes ordinary text, Markdown, mbox, and other
-general formats with automatic readers.
-
-Structured records add `[input]` for a single source or
-`[input "source-id"]` for a named source. `type` is always required when the
-section exists.
+Every source requires `[input]`. Use one unnamed section as the default for all
+sources, or `[input "source-id"]` to override a named source. `format` is always
+required. `type` and mapping fields are required only for structured records or
+bounded text.
 
 ### Record map
 
 ```ini
 [input]
+format = jsonl
 type = record-map
 text = text
 id = id
@@ -332,6 +345,7 @@ metadata mappings are optional.
 
 ```ini
 [input]
+format = jsonl
 type = dialogue-pair
 text = prompt
 response = response
@@ -345,6 +359,7 @@ optional.
 
 ```ini
 [input]
+format = jsonl
 type = chat-messages
 role = messages[].role
 content = messages[].content
@@ -357,6 +372,7 @@ optional.
 
 ```ini
 [input]
+format = jsonl
 type = ranked-conversation-tree
 replies = replies
 text = text
@@ -370,6 +386,7 @@ assistant-role, and missing-rank mappings are optional.
 
 ```ini
 [input]
+format = text
 type = bounded-text
 start-pattern = regular expression
 end-pattern = regular expression
@@ -381,6 +398,7 @@ Required fields: `type`, `start-pattern`, and `end-pattern`.
 
 ```ini
 [input]
+format = xml
 type = xml-record
 text = /article/body
 ```
@@ -422,6 +440,14 @@ fetcher = git
 url = https://github.com/example/code.git
 revision = 0123456789abcdef0123456789abcdef01234567
 estimated-size = 2G
+
+[input "documents"]
+format = jsonl
+type = record-map
+text = text
+
+[input "code"]
+format = text
 ```
 
 ## INI syntax and validation

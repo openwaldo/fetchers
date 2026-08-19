@@ -29,6 +29,11 @@ license-declaration = CC0 1.0
 fetcher = http
 url = https://example.test/data.jsonl.gz
 estimated-size = 1G
+
+[input]
+format = jsonl
+type = record-map
+text = text
 `))
 	if err != nil {
 		t.Fatal(err)
@@ -55,6 +60,55 @@ func TestCorpusCatalogParses(t *testing.T) {
 			defer file.Close()
 			if _, err := Parse(file); err != nil {
 				t.Fatal(err)
+			}
+		})
+	}
+}
+
+func TestCorpusCatalogDeclaresIngestibleOutput(t *testing.T) {
+	paths, err := filepath.Glob(filepath.Join("..", "..", "corpora", "*.ini"))
+	if err != nil {
+		t.Fatal(err)
+	}
+	for _, path := range paths {
+		t.Run(filepath.Base(path), func(t *testing.T) {
+			data, err := os.ReadFile(path)
+			if err != nil {
+				t.Fatal(err)
+			}
+			file, err := Parse(strings.NewReader(string(data)))
+			if err != nil {
+				t.Fatal(err)
+			}
+			fetchers := map[string][]Section{}
+			for _, fetch := range file.Fetches {
+				id := file.Corpus.One("id")
+				if len(file.Sources) > 1 {
+					id = fetch.One("source")
+				}
+				fetchers[id] = append(fetchers[id], fetch)
+			}
+			mboxFetchers := map[string]bool{"public-inbox": true, "monthly-mbox": true, "hyperkitty": true, "sourcehut": true, "http-set": true}
+			for _, source := range file.Sources {
+				id := file.SourceID(source)
+				input, ok := file.Input(id)
+				if !ok || input.One("format") == "" {
+					t.Fatalf("source %q has no physical input format", id)
+				}
+				allGit, allMbox := true, true
+				structuredGitPinned := true
+				for _, fetch := range fetchers[id] {
+					kind := fetch.One("fetcher")
+					allGit = allGit && kind == "git"
+					allMbox = allMbox && mboxFetchers[kind]
+					structuredGitPinned = structuredGitPinned && len(fetch.Values["pathspec"]) > 0
+				}
+				if allGit && input.One("format") != "text" && !structuredGitPinned {
+					t.Fatalf("structured Git source %q must restrict every fetch with pathspec", id)
+				}
+				if allMbox && input.One("format") != "mbox" {
+					t.Fatalf("mail source %q declares %q, want mbox", id, input.One("format"))
+				}
 			}
 		})
 	}

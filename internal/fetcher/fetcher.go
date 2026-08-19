@@ -7,6 +7,7 @@ package fetcher
 
 import (
 	"archive/tar"
+	"bufio"
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
@@ -26,11 +27,14 @@ import (
 	"strings"
 	"syscall"
 	"time"
+	"unicode/utf8"
 
 	"github.com/openwaldo/fetchers/internal/config"
 )
 
 const Version = "waldo-fetcher-1"
+
+const validationFailurePath = ".fetcher-work/validation-error.txt"
 
 type Runner struct {
 	Client *http.Client
@@ -55,68 +59,68 @@ func (runner Runner) Run(ctx context.Context, cfg config.File, output string) er
 	if runner.Stderr == nil {
 		runner.Stderr = io.Discard
 	}
-	multiple := len(cfg.Sources) > 1
-	for position, fetch := range cfg.Fetches {
-		sourceID := cfg.Corpus.One("id")
-		if multiple {
-			sourceID = fetch.One("source")
-		}
-		destination := root
-		if multiple {
-			destination = filepath.Join(root, sourceID)
-			if err := os.MkdirAll(destination, 0o755); err != nil {
+	retryValidation, err := validationRetryPending(root)
+	if err != nil {
+		return err
+	}
+	if retryValidation {
+		fmt.Fprintf(runner.Stderr, "fetcher: retrying validation against preserved data in %s\n", root)
+	} else {
+		multiple := len(cfg.Sources) > 1
+		for position, fetch := range cfg.Fetches {
+			sourceID := cfg.Corpus.One("id")
+			if multiple {
+				sourceID = fetch.One("source")
+			}
+			destination := root
+			if multiple {
+				destination = filepath.Join(root, sourceID)
+				if err := os.MkdirAll(destination, 0o755); err != nil {
+					return err
+				}
+			}
+			fmt.Fprintf(runner.Stderr, "fetcher: %s (%d/%d)\n", fetch.One("fetcher"), position+1, len(cfg.Fetches))
+			switch fetch.One("fetcher") {
+			case "http":
+				err = runner.fetchHTTP(ctx, fetch, destination, position)
+			case "git":
+				err = runner.fetchGit(ctx, fetch, destination, root, position)
+			case "huggingface":
+				err = runner.fetchHuggingFace(ctx, fetch, destination, position)
+			case "http-set":
+				err = runner.fetchHTTPSet(ctx, fetch, destination, position)
+			case "monthly-mbox":
+				err = runner.fetchMonthlyMbox(ctx, fetch, destination, position)
+			case "public-inbox":
+				err = runner.fetchPublicInbox(ctx, fetch, destination, root, position)
+			case "hyperkitty":
+				err = runner.fetchHyperKitty(ctx, fetch, destination, root, position)
+			case "sourcehut":
+				err = runner.fetchSourceHut(ctx, fetch, destination)
+			case "zip":
+				err = fetchZIP(fetch, destination)
+			case "gutenberg":
+				err = runner.fetchGutenberg(ctx, fetch, destination, position)
+			case "cap":
+				err = runner.fetchCAP(ctx, fetch, destination, root, position)
+			default:
+				err = fmt.Errorf("fetcher %q is validated but not implemented", fetch.One("fetcher"))
+			}
+			if err != nil {
 				return err
 			}
 		}
-		fmt.Fprintf(runner.Stderr, "fetcher: %s (%d/%d)\n", fetch.One("fetcher"), position+1, len(cfg.Fetches))
-		switch fetch.One("fetcher") {
-		case "http":
-			if err := runner.fetchHTTP(ctx, fetch, destination, position); err != nil {
-				return err
-			}
-		case "git":
-			if err := runner.fetchGit(ctx, fetch, destination, root, position); err != nil {
-				return err
-			}
-		case "huggingface":
-			if err := runner.fetchHuggingFace(ctx, fetch, destination, position); err != nil {
-				return err
-			}
-		case "http-set":
-			if err := runner.fetchHTTPSet(ctx, fetch, destination, position); err != nil {
-				return err
-			}
-		case "monthly-mbox":
-			if err := runner.fetchMonthlyMbox(ctx, fetch, destination, position); err != nil {
-				return err
-			}
-		case "public-inbox":
-			if err := runner.fetchPublicInbox(ctx, fetch, destination, root, position); err != nil {
-				return err
-			}
-		case "hyperkitty":
-			if err := runner.fetchHyperKitty(ctx, fetch, destination, root, position); err != nil {
-				return err
-			}
-		case "sourcehut":
-			if err := runner.fetchSourceHut(ctx, fetch, destination); err != nil {
-				return err
-			}
-		case "zip":
-			if err := fetchZIP(fetch, destination); err != nil {
-				return err
-			}
-		case "gutenberg":
-			if err := runner.fetchGutenberg(ctx, fetch, destination, position); err != nil {
-				return err
-			}
-		case "cap":
-			if err := runner.fetchCAP(ctx, fetch, destination, root, position); err != nil {
-				return err
-			}
-		default:
-			return fmt.Errorf("fetcher %q is validated but not implemented", fetch.One("fetcher"))
+	}
+	if !retryValidation {
+		if err := os.RemoveAll(filepath.Join(root, ".fetcher-work")); err != nil {
+			return err
 		}
+	}
+	if err := validateFetchedCorpus(cfg, root, runner.Stderr); err != nil {
+		if markerErr := writeValidationFailure(root, err); markerErr != nil {
+			return fmt.Errorf("post-fetch validation failed and retry state could not be written: %v; validation error: %w", markerErr, err)
+		}
+		return fmt.Errorf("post-fetch validation failed; downloaded data remains at %s: %w", root, err)
 	}
 	if err := os.RemoveAll(filepath.Join(root, ".fetcher-work")); err != nil {
 		return err
@@ -125,6 +129,28 @@ func (runner Runner) Run(ctx context.Context, cfg config.File, output string) er
 		return err
 	}
 	return nil
+}
+
+func validationRetryPending(root string) (bool, error) {
+	info, err := os.Lstat(filepath.Join(root, validationFailurePath))
+	if os.IsNotExist(err) {
+		return false, nil
+	}
+	if err != nil {
+		return false, err
+	}
+	if !info.Mode().IsRegular() || info.Mode()&os.ModeSymlink != 0 {
+		return false, fmt.Errorf("validation retry marker is not a regular file")
+	}
+	return true, nil
+}
+
+func writeValidationFailure(root string, validationErr error) error {
+	path := filepath.Join(root, validationFailurePath)
+	if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
+		return err
+	}
+	return os.WriteFile(path, []byte(validationErr.Error()+"\n"), 0o600)
 }
 
 func prepareOutput(output string) (string, error) {
@@ -380,7 +406,8 @@ func (runner Runner) fetchGit(ctx context.Context, fetch config.Section, destina
 	if err := archive.Start(); err != nil {
 		return err
 	}
-	if err := extractTar(pipe, partial); err != nil {
+	archiveStats, err := extractTar(pipe, partial)
+	if err != nil {
 		_ = archive.Process.Kill()
 		_ = archive.Wait()
 		return err
@@ -394,6 +421,7 @@ func (runner Runner) fetchGit(ctx context.Context, fetch config.Section, destina
 	if err := os.Rename(partial, final); err != nil {
 		return err
 	}
+	fmt.Fprintf(runner.Stderr, "fetcher: git retained %d non-empty UTF-8 files; skipped %d empty or binary files\n", archiveStats.Retained, archiveStats.Skipped)
 	return os.RemoveAll(work)
 }
 
@@ -403,47 +431,88 @@ func command(ctx context.Context, program string, arguments ...string) error {
 	return command.Run()
 }
 
-func extractTar(reader io.Reader, destination string) error {
+type textArchiveStats struct {
+	Retained int64
+	Skipped  int64
+}
+
+func extractTar(reader io.Reader, destination string) (textArchiveStats, error) {
+	var stats textArchiveStats
 	archive := tar.NewReader(reader)
 	for {
 		header, err := archive.Next()
 		if errors.Is(err, io.EOF) {
-			return nil
+			return stats, nil
 		}
 		if err != nil {
-			return err
+			return stats, err
 		}
 		clean := filepath.Clean(filepath.FromSlash(header.Name))
 		if clean == "." || filepath.IsAbs(clean) || clean == ".." || strings.HasPrefix(clean, ".."+string(filepath.Separator)) {
-			return fmt.Errorf("unsafe tar path %q", header.Name)
+			return stats, fmt.Errorf("unsafe tar path %q", header.Name)
 		}
 		path := filepath.Join(destination, clean)
 		switch header.Typeflag {
 		case tar.TypeDir:
 			if err := os.MkdirAll(path, 0o755); err != nil {
-				return err
+				return stats, err
 			}
 		case tar.TypeReg, tar.TypeRegA:
 			if err := os.MkdirAll(filepath.Dir(path), 0o755); err != nil {
-				return err
+				return stats, err
 			}
 			file, err := os.OpenFile(path, os.O_CREATE|os.O_EXCL|os.O_WRONLY, 0o644)
 			if err != nil {
-				return err
+				return stats, err
 			}
 			_, copyErr := io.CopyN(file, archive, header.Size)
 			closeErr := file.Close()
 			if copyErr != nil {
-				return copyErr
+				return stats, copyErr
 			}
 			if closeErr != nil {
-				return closeErr
+				return stats, closeErr
 			}
+			text, err := nonemptyUTF8File(path)
+			if err != nil {
+				return stats, err
+			}
+			if !text {
+				if err := os.Remove(path); err != nil {
+					return stats, err
+				}
+				stats.Skipped++
+				continue
+			}
+			stats.Retained++
 		case tar.TypeSymlink, tar.TypeLink:
 			continue
 		default:
-			return fmt.Errorf("unsupported tar entry %q", header.Name)
+			return stats, fmt.Errorf("unsupported tar entry %q", header.Name)
 		}
+	}
+}
+
+func nonemptyUTF8File(path string) (bool, error) {
+	file, err := os.Open(path)
+	if err != nil {
+		return false, err
+	}
+	defer file.Close()
+	reader := bufio.NewReader(file)
+	nonempty := false
+	for {
+		char, size, err := reader.ReadRune()
+		if errors.Is(err, io.EOF) {
+			return nonempty, nil
+		}
+		if err != nil {
+			return false, err
+		}
+		if char == 0 || char == utf8.RuneError && size == 1 {
+			return false, nil
+		}
+		nonempty = true
 	}
 }
 
@@ -548,21 +617,14 @@ func sourceManifest(cfg config.File, section config.Section) map[string]any {
 }
 
 func inputManifest(cfg config.File, sourceID string) map[string]any {
-	var section config.Section
-	for _, candidate := range cfg.Inputs {
-		id := cfg.Corpus.One("id")
-		if len(cfg.Sources) > 1 {
-			id = candidate.Name
-		}
-		if id == sourceID {
-			section = candidate
-			break
-		}
-	}
-	if section.Values == nil {
+	section, ok := cfg.Input(sourceID)
+	if !ok {
 		return nil
 	}
-	result := map[string]any{"type": section.One("type")}
+	result := map[string]any{"format": section.One("format")}
+	if value := section.One("type"); value != "" {
+		result["type"] = value
+	}
 	if value := section.One("on-empty"); value != "" {
 		result["on_empty"] = value
 	}
