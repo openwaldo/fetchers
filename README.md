@@ -1,147 +1,354 @@
-# WALDO fetchers
+# WALDO fetcher
 
-This repository contains small, reviewed shell scripts that acquire raw training
-corpora. There is exactly one script per corpus. Fetchers do not ingest,
-transform, shard, upload, schedule, or train anything.
+WALDO fetcher downloads raw corpus material into a local handoff directory.
+It does not ingest, transform, shard, upload, schedule, or train data.
 
-## Usage
+Each corpus is described by one reviewed INI file. The fetcher validates the
+entire configuration and available disk space before making a network request.
 
 ```sh
-./corpora/python-enhancement-proposals.sh /path/to/output
-# Later, as a separate process:
-waldo index ingest /path/to/output
+fetcher corpora/linux-kernel-mailing-list.ini /path/to/handoff
 ```
 
-A successful fetch creates this handoff:
+Ingestion is a separate operation:
+
+```sh
+waldo index ingest /path/to/handoff
+```
+
+## Handoff layout
+
+A corpus containing one source is written directly into the handoff directory:
 
 ```text
-output/
+handoff/
 ├── manifest.json
-└── raw/
-    └── ...upstream files...
+└── downloaded raw files...
 ```
 
-The fetcher stops after creating this handoff. It never invokes WALDO;
-ingestion is a separate operation run later by a person or another process.
+`manifest.json` contains the corpus and source metadata. It applies recursively
+to every non-manifest file beneath that directory.
 
-`raw/` contains only general formats understood by WALDO: text, Markdown,
-JSON, JSONL, compressed JSONL, Parquet, XML, and any other general format WALDO
-adds later. Fetchers may safely unpack archives, but must not perform
-corpus-specific extraction or conversation rendering. WALDO owns probing,
-field mapping, privacy processing, canonical Parquet, deduplication, sharding,
-publication, and index changes.
+A corpus containing several sources uses one child directory per source:
 
-Training-stage selection does not belong here. A model compose decides whether
-a corpus is used for pretraining, midtraining, post-training, fine-tuning, or
-evaluation.
-
-## Script contract
-
-Every script is POSIX shell, lives in `corpora/`, and reads like a declarative
-corpus header followed by one entry point:
-
-```sh
-#!/bin/sh
-set -eu
-
-CORPUS_ID=example
-CORPUS_TITLE='Example corpus'
-CORPUS_DESCRIPTION='Raw example records.'
-CORPUS_DESTINATION=core/example
-
-SOURCE_ID=example
-SOURCE_NAME='Example publisher'
-SOURCE_URL=https://example.org/data
-SOURCE_CATEGORY=public-dataset
-SOURCE_LICENSE=CC0-1.0
-SOURCE_LICENSE_DECLARATION=CC0-1.0
-SOURCE_LICENSE_URL=https://example.org/license
-
-INPUT_TYPE=record-map
-INPUT_TEXT_FIELDS=text
-
-FETCHER_OUTPUT=${1-}
-FETCHER_ARGUMENT_COUNT=$#
-FETCHER_SIZE=10G
-FETCH_METHOD=download
-FETCH_URL=https://example.org/data/records.jsonl.gz
-FETCH_PATH=records.jsonl.gz
-FETCH_SHA256=0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef
-
-script_dir=$(CDPATH='' cd -- "$(dirname -- "$0")" && pwd -P)
-. "$script_dir/../functions.sh"
-fetcher_main
+```text
+handoff/
+├── manifest.json
+├── source-one/
+│   ├── manifest.json
+│   └── downloaded raw files...
+└── source-two/
+    ├── manifest.json
+    └── downloaded raw files...
 ```
 
-`fetcher_main` takes no arguments. The script assigns its one positional
-argument to `FETCHER_OUTPUT`; `${1-}` allows the shared validation to report a
-clear missing-argument error under `set -u`. A second positional argument is an
-error. Required corpus variables are validated before the output directory is
-created or any network request starts.
+The root manifest contains the corpus identity and explicitly lists its source
+directories. Each child manifest contains one source, one effective/default
+license, and any input mapping. Every file beneath a source directory inherits
+that metadata.
 
-`FETCHER_SIZE` requires free space for twice the estimated raw size plus 1 GiB.
-This covers a partial download and ordinary ingestion buffers. Compressed
-archives or unusually expensive preparation may also set
-`FETCHER_REQUIRED_FREE` explicitly.
+Multiple downloads from the same source share one source directory. Different
+sources or licenses require different source directories. WALDO ignores the
+manifests as content, recursively probes the remaining regular files, and
+rejects undeclared directories, symlinks, special files, or conflicting
+manifest boundaries.
 
-All validation runs before network access. A fetcher must:
+Raw filenames have no semantic meaning. The fetcher derives safe, deterministic
+names from the response or assigns an artifact name. INI files do not specify
+output filenames.
 
-- write only beneath the supplied output directory;
-- use stable names and pinned upstream revisions where available;
-- download to partial files and publish them atomically;
-- verify upstream checksums when published;
-- be safe to resume, or stop with an error while preserving existing content;
-- reject conflicting files rather than deleting or silently replacing them;
-- use bounded retries and fail on incomplete or ambiguous acquisition;
-- never print, persist, or pass credentials as command arguments; and
-- write `manifest.json` last, only after the raw handoff validates.
+## Minimal INI file
 
-An existing valid artifact is reused after verification. A `.partial` artifact
-may be resumed only when the protocol and fetcher support it. Otherwise the
-fetcher reports the partial path and exits without cleaning it.
+```ini
+[corpus]
+id = linux-kernel-mailing-list
+title = Linux Kernel Mailing List
+description = Linux kernel development messages from 2025.
+destination = community/linux-kernel-mailing-list
 
-## Manifest
+[source]
+name = linux-kernel@vger.kernel.org
+url = https://lore.kernel.org/lkml/
+category = public-dataset
+license = LicenseRef-Publicly-Archived-Forum
+license-declaration = Publicly archived mailing-list messages; no blanket content license is asserted.
+license-url = https://www.kernel.org/doc/projects/korg/lore.html
+content-from = 2025-01-01
+content-to = 2025-12-31
 
-`manifest.json` is a compact acquisition record, not an index manifest or a
-raw-file inventory. It uses `kind: waldo-source-directory` and `schema: 1`.
-It records:
+[fetch]
+fetcher = http
+url = https://example.invalid/linux-kernel-2025.mbox.gz
+estimated-size = 25G
+```
 
-- corpus identity, description, and intended relative index destination;
-- each source's path beneath `raw/`, upstream identity, immutable revision,
-  license and evidence, content description, and acquisition basis;
-- the generalized WALDO input profile required to interpret raw records;
-- upstream artifact URLs and published checksums when available;
-- retrieval time, fetcher script identity, raw file count and byte count; and
-- one deterministic aggregate SHA-256 for the complete raw tree.
+`content-from` and `content-to` are optional. Include them only when the
+selected content period is known and meaningful.
 
-One corpus may contain several independently licensed sources. Such scripts use
-numbered `SOURCE_1_*`, `SOURCE_2_*`, and matching `FETCH_1_*` variables. Static
-corpus facts live as named shell variables in the script; `write_manifest`
-reads them and writes the formal JSON. Fetcher scripts never contain JSON
-heredocs. Secrets and machine-local paths are never recorded.
+## Required fields
 
-WALDO treats the manifest as source metadata, excludes it from raw record
-probing, independently hashes every raw file, and persists the relevant
-provenance in its corpus contribution.
+Every INI file requires exactly one `[corpus]` section.
 
-If no manifest exists, `waldo index ingest` accepts equivalent metadata flags
-and interactively requests missing required fields on a terminal. Missing
-metadata is an error in noninteractive use.
+| Field | Meaning |
+| --- | --- |
+| `id` | Stable lowercase corpus identifier. |
+| `title` | Human-readable corpus title. |
+| `description` | Concise description of the selected material. |
+| `destination` | Relative destination in the WALDO index. |
 
-## Updates
+Every corpus requires at least one source. A single-source corpus uses
+`[source]`; a multi-source corpus uses named sections such as
+`[source "kernel"]`.
 
-Fetchers currently produce complete pinned snapshots. Delta acquisition and
-incremental ingest are future work; they must preserve immutable prior corpus
-versions and explicitly describe the relationship between snapshots.
+| Field | Meaning |
+| --- | --- |
+| `name` | Human-readable upstream source name. |
+| `url` | Canonical upstream source or dataset page. |
+| `category` | WALDO source category. |
+| `license` | Effective/default license identifier for every record in this source directory. |
+| `license-declaration` | What the upstream declares, or an explicit statement that no blanket license is asserted. |
+
+Every corpus requires at least one fetch. A single fetch uses `[fetch]`.
+Multiple fetches use named sections such as `[fetch "2025-01"]`.
+
+| Field | Meaning |
+| --- | --- |
+| `fetcher` | Named acquisition implementation, such as `http` or `git`. |
+| `url` | Artifact, repository, or API URL used by that fetcher. |
+| `estimated-size` | Approximate local bytes, such as `500M`, `25G`, or `2TiB`. |
+
+In a multi-source corpus, every `[fetch "name"]` also requires `source`, whose
+value must match a named source ID. It is omitted for a single-source corpus.
+
+For a single-source corpus, the source ID is the corpus ID. For a multi-source
+corpus, the quoted section name is the source ID and directory name. An
+additional `id` field is neither needed nor allowed.
+
+These are the only universally required fields. Fetcher-specific required
+fields are documented below. Unknown fields and missing conditional fields are
+errors.
+
+## Optional source fields
+
+| Field | Meaning |
+| --- | --- |
+| `version` | Upstream release, snapshot, or revision label. |
+| `license-url` | URL supporting `license-declaration`. |
+| `content-from` | Earliest selected content date, when known. |
+| `content-to` | Latest selected content date, when known. |
+| `selection` | Human-readable subset or inclusion rule. |
+| `content-type` | Content type; may be repeated. |
+| `language` | Known language; may be repeated. |
+| `copyrighted` | `yes`, `no`, or `unknown`. |
+| `machine-generated` | `yes`, `no`, or `unknown`. |
+| `personal-data` | `yes`, `no`, or `unknown`. |
+| `acquisition-basis` | Why this acquisition is authoritative and reproducible. |
+
+The fetcher records retrieval time, its own version, raw file count, raw byte
+count, and a deterministic aggregate SHA-256 automatically.
+
+## Fetchers
+
+### HTTP
+
+```ini
+[fetch]
+fetcher = http
+url = https://example.org/archive.jsonl.gz
+estimated-size = 10G
+sha256 = optional-lowercase-64-character-checksum
+```
+
+Required fields: `fetcher`, `url`, and `estimated-size`.
+
+`sha256` is optional and is checked only when present. HTTP downloads resume
+when the server supports ranges. A partial download is preserved on failure.
+The fetcher uses a safe URL basename, a safe `Content-Disposition` filename,
+or a deterministic artifact name. Existing conflicting content is never
+silently replaced.
+
+### Git
+
+```ini
+[fetch]
+fetcher = git
+url = https://github.com/example/project.git
+revision = 0123456789abcdef0123456789abcdef01234567
+estimated-size = 2G
+```
+
+Required fields: `fetcher`, `url`, `revision`, and `estimated-size`.
+
+`revision` must resolve to the declared immutable commit. Optional reviewed Git
+selection fields may be added as named fields by the Git fetcher; positional
+argument arrays are not part of the INI format.
+
+Additional acquisition implementations follow the same rule: each has a named
+`fetcher` value and documented, named fields. Configurations never contain
+`ARG_1`, `ARG_2`, or other positional implementation details.
+
+## Input mappings
+
+Do not add an `[input]` section when WALDO can identify and interpret the raw
+format directly. This includes ordinary text, Markdown, mbox, and other
+general formats with automatic readers.
+
+Structured records add `[input]` for a single source or
+`[input "source-id"]` for a named source. `type` is always required when the
+section exists.
+
+### Record map
+
+```ini
+[input]
+type = record-map
+text = text
+id = id
+date = created
+license = metadata.license
+```
+
+Required fields: `type` and at least one `text`. `text` may be repeated in
+priority order. `id`, `date`, `language`, `license`, `source`, and named
+metadata mappings are optional.
+
+### Dialogue pair
+
+```ini
+[input]
+type = dialogue-pair
+text = prompt
+response = response
+context = context
+```
+
+Required fields: `type`, at least one `text`, and `response`. `context` is
+optional.
+
+### Chat messages
+
+```ini
+[input]
+type = chat-messages
+role = messages[].role
+content = messages[].content
+```
+
+Required fields: `type`, `role`, and `content`. Tool and role-alias mappings are
+optional.
+
+### Ranked conversation tree
+
+```ini
+[input]
+type = ranked-conversation-tree
+replies = replies
+text = text
+rank = rank
+```
+
+Required fields: `type`, `replies`, `text`, and `rank`. Root, role,
+assistant-role, and missing-rank mappings are optional.
+
+### Bounded text
+
+```ini
+[input]
+type = bounded-text
+start-pattern = regular expression
+end-pattern = regular expression
+```
+
+Required fields: `type`, `start-pattern`, and `end-pattern`.
+
+### XML records
+
+```ini
+[input]
+type = xml-record
+text = /article/body
+```
+
+Required fields: `type` and at least one `text` selector. Each physical XML
+file is one record. Exclusion and metadata selectors are optional.
+
+## Multi-source example
+
+```ini
+[corpus]
+id = example-suite
+title = Example Suite
+description = Two independently licensed sources.
+destination = core/example-suite
+
+[source "documents"]
+name = Example Documents
+url = https://example.org/documents
+category = public-dataset
+license = CC-BY-4.0
+license-declaration = Creative Commons Attribution 4.0
+
+[fetch "documents"]
+source = documents
+fetcher = http
+url = https://example.org/documents.jsonl.gz
+estimated-size = 5G
+
+[source "code"]
+name = Example Code
+url = https://github.com/example/code
+category = public-dataset
+license = Apache-2.0
+license-declaration = Apache License 2.0
+
+[fetch "code"]
+source = code
+fetcher = git
+url = https://github.com/example/code.git
+revision = 0123456789abcdef0123456789abcdef01234567
+estimated-size = 2G
+```
+
+## INI syntax and validation
+
+- Files are UTF-8 text.
+- Section and field names are lowercase.
+- Blank lines and lines beginning with `#` or `;` are ignored.
+- Values begin after the first `=` and are trimmed.
+- Unknown sections and fields are errors.
+- Duplicate scalar fields are errors.
+- Only documented list fields may be repeated.
+- Corpus and source IDs use lowercase letters, digits, `.`, `_`, and `-`.
+- Destinations and source IDs must be safe relative paths.
+- URLs must use a scheme accepted by the selected fetcher.
+- Secrets are never written directly into INI files. A fetcher that needs a
+  credential names an environment variable and fails before network access if
+  it is unavailable.
+- All configuration, executable, credential-presence, destination-safety, and
+  disk-space checks complete before acquisition starts.
+
+## Acquisition guarantees
+
+- Fetchers write only beneath the supplied handoff directory.
+- Raw upstream formats are retained; corpus-specific transformation is not
+  allowed.
+- Archives may be safely unpacked as general containers.
+- Downloads are resumable when the upstream protocol supports it.
+- Non-resumable partial state is preserved and reported, never deleted.
+- Published checksums and immutable revisions are verified when declared.
+- Manifests are written last, after acquisition and raw-tree validation.
+- Running a fetcher never invokes `waldo index ingest`.
+- Updating an existing corpus snapshot must be explicit; incremental update
+  semantics remain future work.
 
 ## Repository layout
 
 ```text
 README.md
-functions.sh
-corpora/<corpus>.sh
-tests/
+cmd/fetcher/
+corpora/<corpus>.ini
 ```
 
-Run the offline test suite before committing. Live source tests must be
-explicit and must never require committed credentials.
+The Go program owns INI parsing, validation, acquisition, resumability, disk
+checks, safe filenames, and manifest generation. Corpus INI files contain only
+human-readable facts and named fetcher settings.
