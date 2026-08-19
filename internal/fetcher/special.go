@@ -108,6 +108,13 @@ func (runner Runner) fetchHuggingFace(ctx context.Context, fetch config.Section,
 	revision := fetch.One("revision")
 	metadataURL := fmt.Sprintf("%s://%s/api/datasets/%s/revision/%s?blobs=true", datasetURL.Scheme, datasetURL.Host, dataset, revision)
 	request, _ := http.NewRequestWithContext(ctx, http.MethodGet, metadataURL, nil)
+	token := ""
+	if strings.EqualFold(datasetURL.Hostname(), "huggingface.co") {
+		token = strings.TrimSpace(os.Getenv("HF_TOKEN"))
+	}
+	if token != "" {
+		request.Header.Set("Authorization", "Bearer "+token)
+	}
 	response, err := runner.Client.Do(request)
 	if err != nil {
 		return err
@@ -171,7 +178,11 @@ func (runner Runner) fetchHuggingFace(ctx context.Context, fetch config.Section,
 			completedBytes: completedBytes,
 			totalBytes:     totalBytes,
 		}
-		if err := runner.fetchHTTPWithCollection(ctx, syntheticHTTP(rawURL, item.checksum, name), destination, position*10000+index, &collection); err != nil {
+		download := syntheticHTTP(rawURL, item.checksum, name)
+		if token != "" {
+			download.Values["_bearer"] = []string{token}
+		}
+		if err := runner.fetchHTTPWithCollection(ctx, download, destination, position*10000+index, &collection); err != nil {
 			return err
 		}
 		completedBytes += item.size

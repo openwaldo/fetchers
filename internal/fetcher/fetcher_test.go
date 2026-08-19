@@ -198,6 +198,16 @@ func TestPostFetchValidationExplainsIncorrectMapping(t *testing.T) {
 	}
 }
 
+func TestValidateJSONAcceptsTopLevelRecordArray(t *testing.T) {
+	input := config.Section{Values: map[string][]string{
+		"type": {"record-map"},
+		"text": {"text"},
+	}}
+	if err := validateJSON(strings.NewReader(`[{"text":"one"},{"text":"two"}]`), input); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func writeValidationFixture(t *testing.T, name, content string) string {
 	t.Helper()
 	path := filepath.Join(t.TempDir(), name)

@@ -244,21 +244,74 @@ func validateMbox(reader io.Reader) error {
 func validateJSON(reader io.Reader, input config.Section) error {
 	decoder := json.NewDecoder(reader)
 	decoder.UseNumber()
-	var record any
-	if err := decoder.Decode(&record); err != nil {
-		return fmt.Errorf("invalid JSON object: %w", err)
+	token, err := decoder.Token()
+	if err != nil {
+		return fmt.Errorf("invalid JSON: %w", err)
 	}
-	if _, ok := record.(map[string]any); !ok {
-		return fmt.Errorf("expected one top-level JSON object, got %T", record)
+	delimiter, ok := token.(json.Delim)
+	if !ok || (delimiter != '{' && delimiter != '[') {
+		return fmt.Errorf("expected a top-level object or array of objects")
+	}
+	var records []any
+	count := 0
+	appendRecord := func(record any) error {
+		count++
+		if _, ok := record.(map[string]any); !ok {
+			return fmt.Errorf("JSON record %d must contain an object, got %T", count, record)
+		}
+		if len(records) < validationRecordLimit {
+			records = append(records, record)
+		}
+		return nil
+	}
+	if delimiter == '{' {
+		object := map[string]any{}
+		for decoder.More() {
+			name, err := decoder.Token()
+			if err != nil {
+				return err
+			}
+			key, ok := name.(string)
+			if !ok {
+				return fmt.Errorf("JSON object key is not a string")
+			}
+			var value any
+			if err := decoder.Decode(&value); err != nil {
+				return err
+			}
+			object[key] = value
+		}
+		if _, err := decoder.Token(); err != nil {
+			return err
+		}
+		if err := appendRecord(object); err != nil {
+			return err
+		}
+	} else {
+		for decoder.More() {
+			var record any
+			if err := decoder.Decode(&record); err != nil {
+				return fmt.Errorf("invalid JSON record %d: %w", count+1, err)
+			}
+			if err := appendRecord(record); err != nil {
+				return err
+			}
+		}
+		if _, err := decoder.Token(); err != nil {
+			return err
+		}
+	}
+	if count == 0 {
+		return fmt.Errorf("JSON contains no records")
 	}
 	var extra any
 	if err := decoder.Decode(&extra); !errors.Is(err, io.EOF) {
 		if err == nil {
-			return fmt.Errorf("expected one JSON object but found another JSON value")
+			return fmt.Errorf("expected one JSON value but found another")
 		}
 		return fmt.Errorf("invalid trailing JSON: %w", err)
 	}
-	return validateMappedRecords([]any{record}, input)
+	return validateMappedRecords(records, input)
 }
 
 func validateJSONL(reader io.Reader, input config.Section) error {
@@ -321,7 +374,7 @@ func mappedPaths(input config.Section) []string {
 	for _, field := range []string{"text", "text-fallback"} {
 		result = append(result, input.Values[field]...)
 	}
-	for _, field := range []string{"id", "date", "language", "license", "source", "context", "response", "role", "content", "tools", "tree-root", "replies", "rank"} {
+	for _, field := range []string{"id", "date", "language", "license", "source", "context", "response", "role", "content", "system", "tools", "tree-root", "replies", "rank"} {
 		if value := input.One(field); value != "" {
 			result = append(result, value)
 		}

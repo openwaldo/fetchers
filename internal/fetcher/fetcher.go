@@ -277,6 +277,9 @@ func (runner Runner) fetchHTTPWithCollection(ctx context.Context, fetch config.S
 	if offset > 0 {
 		request.Header.Set("Range", fmt.Sprintf("bytes=%d-", offset))
 	}
+	if bearer := fetch.One("_bearer"); bearer != "" {
+		request.Header.Set("Authorization", "Bearer "+bearer)
+	}
 	response, err := runner.Client.Do(request)
 	if err != nil {
 		return fmt.Errorf("download failed; partial data remains at %s: %w", partial, err)
@@ -591,7 +594,7 @@ func sourceManifest(cfg config.File, section config.Section) map[string]any {
 		}
 	}
 	content := compactMap(map[string]any{
-		"types": section.Values["content-type"], "languages": section.Values["language"], "programming_languages": section.Values["programming-language"], "from": section.One("content-from"), "to": section.One("content-to"), "selection": section.One("selection"),
+		"types": sortedValues(section.Values["content-type"]), "languages": sortedValues(section.Values["language"]), "programming_languages": sortedValues(section.Values["programming-language"]), "from": section.One("content-from"), "to": section.One("content-to"), "selection": section.One("selection"),
 		"copyrighted": section.One("copyrighted"), "machine_generated": section.One("machine-generated"), "personal_data": section.One("personal-data"),
 	})
 	if len(content) > 0 {
@@ -620,6 +623,12 @@ func sourceManifest(cfg config.File, section config.Section) map[string]any {
 	if input := inputManifest(cfg, id); len(input) > 0 {
 		result["input"] = input
 	}
+	return result
+}
+
+func sortedValues(values []string) []string {
+	result := append([]string(nil), values...)
+	sort.Strings(result)
 	return result
 }
 
@@ -667,9 +676,14 @@ func inputManifest(cfg config.File, sourceID string) map[string]any {
 	}
 	switch section.One("type") {
 	case "chat-messages":
-		messages := compactMap(map[string]any{"role": section.One("role"), "content": section.One("content"), "tools": section.One("tools")})
+		messages := compactMap(map[string]any{"role": section.One("role"), "content": section.One("content"), "system": section.One("system"), "tools": section.One("tools")})
 		if len(messages) > 0 {
 			result["messages"] = messages
+		}
+	case "dialogue-pair":
+		if value := section.One("tools"); value != "" {
+			fields["tools"] = value
+			result["fields"] = fields
 		}
 	case "ranked-conversation-tree":
 		tree := compactMap(map[string]any{"root": section.One("tree-root"), "replies": section.One("replies"), "text": section.One("text"), "rank": section.One("rank"), "missing_rank": section.One("missing-rank"), "role": section.One("role"), "assistant_role": section.One("assistant-role")})

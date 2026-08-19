@@ -143,7 +143,7 @@ Available methods and their additional fields are:
 | --- | --- | --- |
 | `http` | none | `sha256` is strongly recommended; downloads resume when supported. |
 | `git` | `revision` | Full 40-character commit; optional `ref`; repeatable Git `pathspec`. |
-| `huggingface` | `revision`, `suffix` | Pinned dataset commit; optional path `prefix`; LFS hashes are verified. Multi-file downloads show file and overall byte progress with an ETA. |
+| `huggingface` | `revision`, `suffix` | Pinned dataset commit; optional path `prefix`; LFS hashes are verified. Multi-file downloads show file and overall byte progress with an ETA. Set `HF_TOKEN` for a gated dataset after accepting its access terms. |
 | `public-inbox` | `base-url`, `list`, `year`, repeated `epoch = NUMBER:COMMIT` | Produces raw RFC 822 messages. |
 | `monthly-mbox` | `base-url`, `list`, `year`, `style`, twelve monthly `checksum` values | `style` is `apache` or `gnu`. |
 | `hyperkitty` | `base-url`, `list`, `manifest`, `manifest-sha256` | Manifest is under `manifests/hyperkitty/`. |
@@ -179,13 +179,12 @@ Every source declares one physical format:
 | NUL-free UTF-8 text | `text` | none, or `bounded-text` |
 | Markdown | `markdown` | none, or `bounded-text` |
 | Unix mbox | `mbox` | none |
-| One JSON object per file | `json` | record profile |
+| One JSON object or one array of objects per file | `json` | record profile |
 | One JSON object per line | `jsonl` | record profile |
 | One record per Parquet row | `parquet` | record profile |
 | One XML record per file | `xml` | `xml-record` |
 
 Gzip and Zstandard compression are supported directly for JSONL and mbox.
-Top-level JSON arrays are not supported.
 
 Structured field paths use dotted traversal and `[]` array expansion:
 
@@ -205,8 +204,8 @@ Supported profiles are:
 | `type` | Required mappings | Purpose |
 | --- | --- | --- |
 | `record-map` | one or more `text` | General documents or records. |
-| `dialogue-pair` | `text`, `response` | Prompt, optional context, and response. |
-| `chat-messages` | `role`, `content` | Ordered message arrays; optional `tools`. |
+| `dialogue-pair` | `text`, `response` | Prompt, optional context, response, and `tools`. |
+| `chat-messages` | `role`, `content` | Ordered message arrays; optional separate `system` and `tools`. |
 | `ranked-conversation-tree` | `replies`, `text`, `rank` | Ranked reply trees; JSON/JSONL only. |
 | `bounded-text` | `start-pattern`, `end-pattern` | Content between first matching boundaries. |
 | `xml-record` | one or more absolute XPath `text` selectors | Ordered XML text extraction. |

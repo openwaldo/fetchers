@@ -186,7 +186,7 @@ func (file File) Validate() error {
 			return fmt.Errorf("duplicate input declaration %q", id)
 		}
 		seenInputs[id] = true
-		allowed := fields("format type on-empty nul id date language license source context response role content tools tree-root replies rank missing-rank assistant-role start-pattern end-pattern on-malformed source-prefix")
+		allowed := fields("format type on-empty nul id date language license source context response role content system tools tree-root replies rank missing-rank assistant-role start-pattern end-pattern on-malformed source-prefix")
 		lists := fields("text text-fallback meta exclude")
 		if err := validateFields(input, allowed, lists); err != nil {
 			return err
@@ -230,8 +230,8 @@ func validateInput(section Section) error {
 	typeName := section.One("type")
 	profileFields := map[string]string{
 		"record-map":               "format type on-empty nul text text-fallback id date language license source meta",
-		"dialogue-pair":            "format type on-empty nul text text-fallback id date language license source context response meta",
-		"chat-messages":            "format type on-empty nul id date language license source role content tools meta",
+		"dialogue-pair":            "format type on-empty nul text text-fallback id date language license source context response tools meta",
+		"chat-messages":            "format type on-empty nul id date language license source role content system tools meta",
 		"ranked-conversation-tree": "format type nul id date language license tree-root replies text rank missing-rank role assistant-role",
 		"bounded-text":             "format type on-empty start-pattern end-pattern",
 		"xml-record":               "format type text id date language license source meta exclude on-malformed source-prefix",
