@@ -13,7 +13,7 @@ fetcher corpora/linux-kernel-mailing-list.ini /path/to/handoff
 Ingestion is a separate operation:
 
 ```sh
-waldo index ingest /path/to/handoff
+waldo index ingest /path/to/handoff community/linux-kernel-mailing-list
 ```
 
 ## Handoff layout
@@ -64,7 +64,6 @@ output filenames.
 id = linux-kernel-mailing-list
 title = Linux Kernel Mailing List
 description = Linux kernel development messages from 2025.
-destination = community/linux-kernel-mailing-list
 
 [source]
 name = linux-kernel@vger.kernel.org
@@ -94,7 +93,6 @@ Every INI file requires exactly one `[corpus]` section.
 | `id` | Stable lowercase corpus identifier. |
 | `title` | Human-readable corpus title. |
 | `description` | Concise description of the selected material. |
-| `destination` | Relative destination in the WALDO index. |
 
 Every corpus requires at least one source. A single-source corpus uses
 `[source]`; a multi-source corpus uses named sections such as
@@ -279,7 +277,6 @@ file is one record. Exclusion and metadata selectors are optional.
 id = example-suite
 title = Example Suite
 description = Two independently licensed sources.
-destination = core/example-suite
 
 [source "documents"]
 name = Example Documents
@@ -324,7 +321,7 @@ estimated-size = 2G
 - Secrets are never written directly into INI files. A fetcher that needs a
   credential names an environment variable and fails before network access if
   it is unavailable.
-- All configuration, executable, credential-presence, destination-safety, and
+- All configuration, executable, credential-presence, handoff-safety, and
   disk-space checks complete before acquisition starts.
 
 ## Acquisition guarantees
