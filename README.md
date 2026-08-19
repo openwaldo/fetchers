@@ -213,7 +213,8 @@ repeatable `meta = NAME=PATH`. Map `license` only when records carry an
 upstream license value; otherwise the source-level license is the default.
 
 `on-empty = error|skip` applies to record-map, dialogue-pair, chat-messages,
-and bounded-text. `nul = error|space` applies to structured record profiles.
+and bounded-text. `nul = error|space` applies to structured record profiles;
+WALDO defaults to `space`, while `error` explicitly requests strict rejection.
 For ranked trees, `missing-rank = source-order` is the only explicit fallback.
 For XML, `on-malformed = error|skip` controls malformed documents.
 
