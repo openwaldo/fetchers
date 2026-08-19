@@ -8,6 +8,7 @@ transform, shard, upload, schedule, or train anything.
 
 ```sh
 ./corpora/pep.sh /path/to/output
+# Later, as a separate process:
 waldo index ingest /path/to/output /index/destination
 ```
 
@@ -19,6 +20,9 @@ output/
 └── raw/
     └── ...upstream files...
 ```
+
+The fetcher stops after creating this handoff. It never invokes WALDO;
+ingestion is a separate operation run later by a person or another process.
 
 `raw/` contains only general formats understood by WALDO: text, Markdown,
 JSON, JSONL, compressed JSONL, Parquet, XML, and any other general format WALDO
