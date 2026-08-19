@@ -98,7 +98,9 @@ GOCACHE="$task_cache" go build -o "$temporary/fetcher" "$repository/cmd/fetcher"
   cd "$waldo_repository"
   GOCACHE="$task_cache" go build -o "$temporary/waldo" ./cmd/waldo
 )
-"$temporary/fetcher" "$temporary/corpus.ini" "$temporary/handoff"
+"$temporary/fetcher" "$temporary/corpus.ini" "$temporary/handoff" \
+  2>"$temporary/fetch-progress.log"
+grep -q '100.0%.*complete' "$temporary/fetch-progress.log"
 
 cat >"$temporary/index/index.json" <<'EOF'
 {"kind":"index","schema":1,"path":"","entries":[]}
@@ -118,4 +120,7 @@ WALDO_CONFIG="$temporary/waldo-config.json" \
 grep -q '"retained_docs": 3' "$temporary/result.json"
 grep -q '"adapter": "mbox"' "$temporary/result.json"
 grep -q '"adapter": "jsonl"' "$temporary/result.json"
+grep -q '"phase":"ingest","status":"started".*"total_files":2' "$temporary/progress.jsonl"
+grep -q '"phase":"ingest","status":"records".*"docs":3.*"tokens":' "$temporary/progress.jsonl"
+grep -q '"phase":"ingest","status":"completed".*"files":2.*"docs":3.*"tokens":' "$temporary/progress.jsonl"
 printf 'fetcher e2e: passed (nested manifests, gzip JSONL, gzip mbox, Parquet, lookaside)\n'

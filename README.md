@@ -146,6 +146,12 @@ errors.
 The fetcher records retrieval time, its own version, raw file count, raw byte
 count, and a deterministic aggregate SHA-256 automatically.
 
+HTTP downloads report transferred bytes and rate on stderr. When the server
+provides a content length, progress also includes percentage and ETA. Terminal
+output updates in place; redirected output uses periodic newline-delimited
+status records suitable for logs. Resumed downloads include the retained
+partial bytes in their total progress.
+
 ## Fetchers
 
 ### HTTP

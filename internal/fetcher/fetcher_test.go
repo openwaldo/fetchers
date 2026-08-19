@@ -6,6 +6,7 @@
 package fetcher
 
 import (
+	"bytes"
 	"context"
 	"crypto/sha256"
 	"encoding/hex"
@@ -23,7 +24,7 @@ import (
 func TestHTTPFetcherWritesRawArtifactAndManifest(t *testing.T) {
 	content := []byte("raw upstream data\n")
 	client := &http.Client{Transport: roundTripFunc(func(request *http.Request) (*http.Response, error) {
-		return &http.Response{StatusCode: http.StatusOK, Status: "200 OK", Body: io.NopCloser(strings.NewReader(string(content))), Header: make(http.Header)}, nil
+		return &http.Response{StatusCode: http.StatusOK, Status: "200 OK", ContentLength: int64(len(content)), Body: io.NopCloser(strings.NewReader(string(content))), Header: make(http.Header)}, nil
 	})}
 	digest := sha256.Sum256(content)
 	configuration, err := config.Parse(strings.NewReader(`[corpus]
@@ -47,8 +48,12 @@ sha256 = ` + hex.EncodeToString(digest[:]) + "\n"))
 		t.Fatal(err)
 	}
 	output := filepath.Join(t.TempDir(), "handoff")
-	if err := (Runner{Client: client}).Run(context.Background(), configuration, output); err != nil {
+	var progress bytes.Buffer
+	if err := (Runner{Client: client, Stderr: &progress}).Run(context.Background(), configuration, output); err != nil {
 		t.Fatal(err)
+	}
+	if !strings.Contains(progress.String(), "download data.txt") || !strings.Contains(progress.String(), "100.0%") || !strings.Contains(progress.String(), "complete") {
+		t.Fatalf("progress = %q", progress.String())
 	}
 	got, err := os.ReadFile(filepath.Join(output, "data.txt"))
 	if err != nil {

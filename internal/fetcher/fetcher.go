@@ -266,7 +266,16 @@ func (runner Runner) fetchHTTP(ctx context.Context, fetch config.Section, destin
 	if err != nil {
 		return err
 	}
-	_, copyErr := io.Copy(file, response.Body)
+	total := int64(-1)
+	if response.ContentLength >= 0 {
+		total = offset + response.ContentLength
+	}
+	progress := newDownloadProgress(runner.Stderr, name, offset, total)
+	progress.Start()
+	_, copyErr := io.Copy(file, io.TeeReader(response.Body, progress))
+	if copyErr == nil {
+		progress.Finish()
+	}
 	syncErr := file.Sync()
 	closeErr := file.Close()
 	if copyErr != nil {
