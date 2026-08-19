@@ -105,11 +105,11 @@ Top-level JSON arrays are not supported; publish those records as JSONL or
 Parquet instead. A ranked conversation tree must use JSON or JSONL, not
 Parquet.
 
-WALDO can preserve some other textual or binary inputs through raw-text or
-base64 fallback behavior, but corpus configurations must not rely on those
-fallbacks as usable training data. Add a general WALDO adapter or make the
-upstream fetch produce one of the supported raw forms instead; do not add a
-corpus-specific transformation to the fetcher.
+WALDO rejects unsupported, ambiguous, or unmapped raw formats before
+conversion. It does not turn raw markup into text or binary bytes into base64
+training records. Add a general WALDO adapter or make the upstream fetch
+produce one of the supported raw forms instead; do not add a corpus-specific
+transformation to the fetcher.
 
 ## Minimal INI file
 
