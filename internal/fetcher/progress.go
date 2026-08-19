@@ -19,13 +19,27 @@ type downloadProgress struct {
 	initial      int64
 	written      int64
 	total        int64
+	collection   *downloadCollectionProgress
 	started      time.Time
 	lastRendered time.Time
 	interactive  bool
 }
 
+type downloadCollectionProgress struct {
+	fileIndex      int
+	fileCount      int
+	completedBytes int64
+	totalBytes     int64
+}
+
 func newDownloadProgress(output io.Writer, name string, initial, total int64) *downloadProgress {
 	return &downloadProgress{output: output, name: name, initial: initial, total: total, interactive: terminalWriter(output)}
+}
+
+func newCollectionDownloadProgress(output io.Writer, name string, initial, total int64, collection downloadCollectionProgress) *downloadProgress {
+	progress := newDownloadProgress(output, name, initial, total)
+	progress.collection = &collection
+	return progress
 }
 
 func (progress *downloadProgress) Start() {
@@ -69,21 +83,35 @@ func (progress *downloadProgress) render(now time.Time, final bool) {
 	}
 	if rate > 0 {
 		detail += "  " + humanTransferBytes(int64(rate)) + "/s"
-		if progress.total > current {
+		if progress.collection == nil && progress.total > current {
 			remaining := time.Duration(float64(progress.total-current)/rate) * time.Second
+			detail += "  ETA " + formatETA(remaining)
+		}
+	}
+	name := fmt.Sprintf("%-28s", truncateProgressName(progress.name, 28))
+	if progress.collection != nil {
+		name = fmt.Sprintf("file %d/%d %-28s", progress.collection.fileIndex, progress.collection.fileCount, truncateProgressName(progress.name, 28))
+		overall := progress.collection.completedBytes + current
+		if overall > progress.collection.totalBytes {
+			overall = progress.collection.totalBytes
+		}
+		percent := 100 * float64(overall) / float64(progress.collection.totalBytes)
+		detail += fmt.Sprintf("  | overall %s/%s %5.1f%%", humanTransferBytes(overall), humanTransferBytes(progress.collection.totalBytes), percent)
+		if rate > 0 && progress.collection.totalBytes > overall {
+			remaining := time.Duration(float64(progress.collection.totalBytes-overall)/rate) * time.Second
 			detail += "  ETA " + formatETA(remaining)
 		}
 	}
 	if final {
 		detail += "  complete"
 	}
-	line := fmt.Sprintf("fetcher: download %-28s %s", truncateProgressName(progress.name, 28), detail)
+	line := fmt.Sprintf("fetcher: download %s %s", name, detail)
 	if progress.interactive {
 		ending := "\r"
 		if final {
 			ending = "\n"
 		}
-		fmt.Fprintf(progress.output, "\r%-100s%s", line, ending)
+		fmt.Fprintf(progress.output, "\r%-160s%s", line, ending)
 	} else {
 		fmt.Fprintln(progress.output, line)
 	}

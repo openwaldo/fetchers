@@ -124,7 +124,12 @@ func (runner Runner) fetchHuggingFace(ctx context.Context, fetch config.Section,
 		return fmt.Errorf("Hugging Face revision resolved to %s, expected %s", metadata.SHA, revision)
 	}
 	suffix, prefix := "."+strings.TrimPrefix(fetch.One("suffix"), "."), fetch.One("prefix")
-	var selected []struct{ name, checksum string }
+	var selected []struct {
+		name     string
+		checksum string
+		size     int64
+	}
+	var totalBytes int64
 	for _, sibling := range metadata.Siblings {
 		if !strings.HasSuffix(sibling.Filename, suffix) || prefix != "" && !strings.HasPrefix(sibling.Filename, prefix) {
 			continue
@@ -132,13 +137,20 @@ func (runner Runner) fetchHuggingFace(ctx context.Context, fetch config.Section,
 		if sibling.Size <= 0 || sibling.LFS == nil || len(sibling.LFS.SHA256) != 64 {
 			return fmt.Errorf("Hugging Face file %q lacks pinned LFS evidence", sibling.Filename)
 		}
-		selected = append(selected, struct{ name, checksum string }{sibling.Filename, sibling.LFS.SHA256})
+		selected = append(selected, struct {
+			name     string
+			checksum string
+			size     int64
+		}{sibling.Filename, sibling.LFS.SHA256, sibling.Size})
+		totalBytes += sibling.Size
 	}
 	if len(selected) == 0 {
 		return fmt.Errorf("Hugging Face selection produced no files")
 	}
 	sort.Slice(selected, func(i, j int) bool { return selected[i].name < selected[j].name })
+	fmt.Fprintf(runner.Stderr, "fetcher: huggingface selected %d files (%s total)\n", len(selected), humanTransferBytes(totalBytes))
 	seen := map[string]bool{}
+	var completedBytes int64
 	for index, item := range selected {
 		name := safeFilename(filepath.Base(item.name))
 		if strings.HasSuffix(name, ".json.gz") {
@@ -153,9 +165,16 @@ func (runner Runner) fetchHuggingFace(ctx context.Context, fetch config.Section,
 			segments[index] = url.PathEscape(segments[index])
 		}
 		rawURL := fmt.Sprintf("%s://%s/datasets/%s/resolve/%s/%s?download=true", datasetURL.Scheme, datasetURL.Host, dataset, revision, strings.Join(segments, "/"))
-		if err := runner.fetchHTTP(ctx, syntheticHTTP(rawURL, item.checksum, name), destination, position*10000+index); err != nil {
+		collection := downloadCollectionProgress{
+			fileIndex:      index + 1,
+			fileCount:      len(selected),
+			completedBytes: completedBytes,
+			totalBytes:     totalBytes,
+		}
+		if err := runner.fetchHTTPWithCollection(ctx, syntheticHTTP(rawURL, item.checksum, name), destination, position*10000+index, &collection); err != nil {
 			return err
 		}
+		completedBytes += item.size
 	}
 	return nil
 }

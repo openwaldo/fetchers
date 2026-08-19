@@ -41,3 +41,22 @@ func TestDownloadProgressIncludesRateAndETAForKnownLength(t *testing.T) {
 		}
 	}
 }
+
+func TestDownloadProgressIncludesCollectionProgress(t *testing.T) {
+	var output bytes.Buffer
+	now := time.Now()
+	progress := &downloadProgress{
+		output: &output, name: "shard.parquet", written: 50 << 20, total: 100 << 20,
+		started: now.Add(-10 * time.Second),
+		collection: &downloadCollectionProgress{
+			fileIndex: 3, fileCount: 6, completedBytes: 200 << 20, totalBytes: 600 << 20,
+		},
+	}
+	progress.render(now, false)
+	text := output.String()
+	for _, expected := range []string{"file 3/6", "overall 250.0 MiB/600.0 MiB", "41.7%", "ETA"} {
+		if !strings.Contains(text, expected) {
+			t.Fatalf("collection progress lacks %q: %s", expected, text)
+		}
+	}
+}

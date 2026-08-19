@@ -233,6 +233,10 @@ func checkSpace(path string, required uint64) error {
 }
 
 func (runner Runner) fetchHTTP(ctx context.Context, fetch config.Section, destination string, position int) error {
+	return runner.fetchHTTPWithCollection(ctx, fetch, destination, position, nil)
+}
+
+func (runner Runner) fetchHTTPWithCollection(ctx context.Context, fetch config.Section, destination string, position int, collection *downloadCollectionProgress) error {
 	parsed, err := url.Parse(fetch.One("url"))
 	if err != nil || (parsed.Scheme != "http" && parsed.Scheme != "https") || parsed.Host == "" {
 		return fmt.Errorf("invalid HTTP URL %q", fetch.One("url"))
@@ -297,6 +301,9 @@ func (runner Runner) fetchHTTP(ctx context.Context, fetch config.Section, destin
 		total = offset + response.ContentLength
 	}
 	progress := newDownloadProgress(runner.Stderr, name, offset, total)
+	if collection != nil {
+		progress = newCollectionDownloadProgress(runner.Stderr, name, offset, total, *collection)
+	}
 	progress.Start()
 	_, copyErr := io.Copy(file, io.TeeReader(response.Body, progress))
 	if copyErr == nil {

@@ -142,7 +142,7 @@ Available methods and their additional fields are:
 | --- | --- | --- |
 | `http` | none | `sha256` is strongly recommended; downloads resume when supported. |
 | `git` | `revision` | Full 40-character commit; optional `ref`; repeatable Git `pathspec`. |
-| `huggingface` | `revision`, `suffix` | Pinned dataset commit; optional path `prefix`; LFS hashes are verified. |
+| `huggingface` | `revision`, `suffix` | Pinned dataset commit; optional path `prefix`; LFS hashes are verified. Multi-file downloads show file and overall byte progress with an ETA. |
 | `public-inbox` | `base-url`, `list`, `year`, repeated `epoch = NUMBER:COMMIT` | Produces raw RFC 822 messages. |
 | `monthly-mbox` | `base-url`, `list`, `year`, `style`, twelve monthly `checksum` values | `style` is `apache` or `gnu`. |
 | `hyperkitty` | `base-url`, `list`, `manifest`, `manifest-sha256` | Manifest is under `manifests/hyperkitty/`. |
