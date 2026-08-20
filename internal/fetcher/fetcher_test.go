@@ -208,6 +208,13 @@ func TestValidateJSONAcceptsTopLevelRecordArray(t *testing.T) {
 	}
 }
 
+func TestParquetPathMatchesTerminalRepeatedScalar(t *testing.T) {
+	physical := []string{"chat_template_kwargs", "xml_tools", "list", "element"}
+	if !parquetPathMatches("chat_template_kwargs.xml_tools[]", physical) {
+		t.Fatal("terminal repeated scalar did not match its Parquet LIST wrappers")
+	}
+}
+
 func writeValidationFixture(t *testing.T, name, content string) string {
 	t.Helper()
 	path := filepath.Join(t.TempDir(), name)

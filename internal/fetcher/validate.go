@@ -468,14 +468,14 @@ func lookupParquetField(schema *parquet.Schema, path string) (parquet.LeafColumn
 func parquetPathMatches(logical string, physical []string) bool {
 	segments := strings.Split(logical, ".")
 	position := 0
-	for index, raw := range segments {
+	for _, raw := range segments {
 		repeated := strings.HasSuffix(raw, "[]")
 		name := strings.TrimSuffix(raw, "[]")
 		if position >= len(physical) || physical[position] != name {
 			return false
 		}
 		position++
-		if repeated && index < len(segments)-1 {
+		if repeated {
 			for position < len(physical) && parquetListWrapper(physical[position]) {
 				position++
 			}
