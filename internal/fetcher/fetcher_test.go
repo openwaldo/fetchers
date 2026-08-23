@@ -13,6 +13,7 @@ import (
 	"encoding/hex"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"os"
@@ -241,6 +242,33 @@ func TestValidateXMLRejectsWhenNoTextSelectorMatches(t *testing.T) {
 	err := validateFetchedFile(writeValidationFixture(t, "article.xml", `<article><front/></article>`), input, false)
 	if err == nil || !strings.Contains(err.Error(), "none of the XML text selectors") || !strings.Contains(err.Error(), "correct the [input] mapping") {
 		t.Fatalf("error = %v", err)
+	}
+}
+
+func TestValidateXMLPreflightStopsAfterTextSelectorMatches(t *testing.T) {
+	input := config.Section{Values: map[string][]string{
+		"format": {"xml"},
+		"type":   {"xml-record"},
+		"text":   {"/article/front/title"},
+	}}
+	reader := strings.NewReader(`<article><front><title>Article</title></front><malformed`)
+	if err := validateXML(reader, input); err != nil {
+		t.Fatalf("XML preflight continued after establishing the mapping: %v", err)
+	}
+}
+
+func TestXMLValidationUsesRepresentativeSample(t *testing.T) {
+	files := make([]string, 250)
+	for index := range files {
+		files[index] = fmt.Sprintf("article-%03d.xml", index)
+	}
+	input := config.Section{Values: map[string][]string{"format": {"xml"}}}
+	candidates := validationCandidates(files, input)
+	if len(candidates) != validationRecordLimit {
+		t.Fatalf("sample contains %d files, want %d", len(candidates), validationRecordLimit)
+	}
+	if candidates[0] != files[0] || candidates[len(candidates)-1] != files[len(files)-1] {
+		t.Fatalf("sample does not span corpus: first=%q last=%q", candidates[0], candidates[len(candidates)-1])
 	}
 }
 

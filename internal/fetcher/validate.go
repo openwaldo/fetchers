@@ -53,9 +53,13 @@ func validateFetchedCorpus(cfg config.File, root string, stderr io.Writer) error
 		if len(files) == 0 {
 			return fmt.Errorf("source %q: fetch produced no regular files", id)
 		}
-		validationProgress := newFileProgress(stderr, "validate", id, len(files))
+		candidates := validationCandidates(files, input)
+		if len(candidates) < len(files) {
+			fmt.Fprintf(stderr, "fetcher: preflight %s  sampling %d of %d files; WALDO ingest performs full validation\n", id, len(candidates), len(files))
+		}
+		validationProgress := newFileProgress(stderr, "validate", id, len(candidates))
 		validationProgress.Start()
-		for _, path := range files {
+		for _, path := range candidates {
 			if err := validateFetchedFile(path, input, sourceCode); err != nil {
 				relative, _ := filepath.Rel(root, path)
 				return fmt.Errorf("source %q file %q declares format %q and profile %q: %w", id, filepath.ToSlash(relative), input.One("format"), input.One("type"), err)
@@ -63,13 +67,29 @@ func validateFetchedCorpus(cfg config.File, root string, stderr io.Writer) error
 			validationProgress.Advance()
 		}
 		validationProgress.Finish()
-		fmt.Fprintf(stderr, "fetcher: validated source %s: %d files as %s", id, len(files), input.One("format"))
+		fmt.Fprintf(stderr, "fetcher: validated source %s: %d", id, len(candidates))
+		if len(candidates) < len(files) {
+			fmt.Fprintf(stderr, " sampled of %d", len(files))
+		}
+		fmt.Fprintf(stderr, " files as %s", input.One("format"))
 		if input.One("type") != "" {
 			fmt.Fprintf(stderr, " with %s mapping", input.One("type"))
 		}
 		fmt.Fprintln(stderr)
 	}
 	return nil
+}
+
+func validationCandidates(files []string, input config.Section) []string {
+	if input.One("format") != "xml" || len(files) <= validationRecordLimit {
+		return files
+	}
+	result := make([]string, validationRecordLimit)
+	for index := range result {
+		position := index * (len(files) - 1) / (len(result) - 1)
+		result[index] = files[position]
+	}
+	return result
 }
 
 func validationFiles(root string, discovered func()) ([]string, error) {
@@ -506,7 +526,6 @@ func parquetListWrapper(name string) bool {
 func validateXML(reader io.Reader, input config.Section) error {
 	decoder := xml.NewDecoder(reader)
 	textPaths := input.Values["text"]
-	foundText := false
 	var stack []string
 	for {
 		token, err := decoder.Token()
@@ -521,7 +540,7 @@ func validateXML(reader io.Reader, input config.Section) error {
 			stack = append(stack, token.Name.Local)
 			for _, selector := range textPaths {
 				if xmlPathMatches(selector, stack) {
-					foundText = true
+					return nil
 				}
 			}
 		case xml.EndElement:
@@ -530,10 +549,7 @@ func validateXML(reader io.Reader, input config.Section) error {
 			}
 		}
 	}
-	if !foundText {
-		return fmt.Errorf("none of the XML text selectors %q matched an element; correct the [input] mapping", textPaths)
-	}
-	return nil
+	return fmt.Errorf("none of the XML text selectors %q matched an element; correct the [input] mapping", textPaths)
 }
 
 func xmlPathMatches(selector string, stack []string) bool {
