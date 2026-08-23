@@ -43,6 +43,79 @@ type fileProgress struct {
 	interactive  bool
 }
 
+type hashProgress struct {
+	output         io.Writer
+	name           string
+	completedFiles int
+	totalFiles     int
+	written        int64
+	totalBytes     int64
+	started        time.Time
+	lastRendered   time.Time
+	interactive    bool
+}
+
+func newHashProgress(output io.Writer, name string, totalFiles int, totalBytes int64) *hashProgress {
+	return &hashProgress{output: output, name: name, totalFiles: totalFiles, totalBytes: totalBytes, interactive: terminalWriter(output)}
+}
+
+func (progress *hashProgress) Start() {
+	progress.started = time.Now()
+	progress.render(progress.started, false)
+}
+
+func (progress *hashProgress) Write(data []byte) (int, error) {
+	progress.written += int64(len(data))
+	progress.renderIfDue(time.Now())
+	return len(data), nil
+}
+
+func (progress *hashProgress) CompleteFile() {
+	progress.completedFiles++
+	progress.renderIfDue(time.Now())
+}
+
+func (progress *hashProgress) Finish() {
+	progress.render(time.Now(), true)
+}
+
+func (progress *hashProgress) renderIfDue(now time.Time) {
+	interval := 5 * time.Second
+	if progress.interactive {
+		interval = 250 * time.Millisecond
+	}
+	if now.Sub(progress.lastRendered) >= interval {
+		progress.render(now, false)
+	}
+}
+
+func (progress *hashProgress) render(now time.Time, final bool) {
+	detail := fmt.Sprintf("%d/%d files  %s/%s", progress.completedFiles, progress.totalFiles, humanTransferBytes(progress.written), humanTransferBytes(progress.totalBytes))
+	elapsed := now.Sub(progress.started).Seconds()
+	if elapsed > 0 && progress.written > 0 {
+		rate := float64(progress.written) / elapsed
+		detail += "  " + humanTransferBytes(int64(rate)) + "/s"
+		if progress.totalBytes > progress.written {
+			remaining := time.Duration(float64(progress.totalBytes-progress.written)/rate) * time.Second
+			detail += "  ETA " + formatETA(remaining)
+		}
+	}
+	if final {
+		detail += "  complete"
+	}
+	line := fmt.Sprintf("fetcher: hash %s  %s", progress.name, detail)
+	if progress.interactive {
+		ending := "\r"
+		if final {
+			ending = "\n"
+		}
+		fmt.Fprintf(progress.output, "\r%-160s%s", line, ending)
+	} else {
+		fmt.Fprintln(progress.output, line)
+	}
+	progress.lastRendered = now
+}
+
 func newFileProgress(output io.Writer, action, name string, total int) *fileProgress {
 	return &fileProgress{output: output, action: action, name: name, total: total, interactive: terminalWriter(output)}
 }

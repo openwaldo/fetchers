@@ -76,3 +76,19 @@ func TestFileProgressIncludesCountRateAndETA(t *testing.T) {
 		}
 	}
 }
+
+func TestHashProgressIncludesFilesBytesRateAndETA(t *testing.T) {
+	var output bytes.Buffer
+	now := time.Now()
+	progress := &hashProgress{
+		output: &output, name: "plos", completedFiles: 250, totalFiles: 1000,
+		written: 50 << 20, totalBytes: 100 << 20, started: now.Add(-10 * time.Second),
+	}
+	progress.render(now, false)
+	text := output.String()
+	for _, expected := range []string{"hash plos", "250/1000 files", "50.0 MiB/100.0 MiB", "MiB/s", "ETA"} {
+		if !strings.Contains(text, expected) {
+			t.Fatalf("hash progress lacks %q: %s", expected, text)
+		}
+	}
+}

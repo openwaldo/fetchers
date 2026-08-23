@@ -122,10 +122,10 @@ func (runner Runner) Run(ctx context.Context, cfg config.File, output string) er
 		}
 		return fmt.Errorf("post-fetch validation failed; downloaded data remains at %s: %w", root, err)
 	}
-	if err := os.RemoveAll(filepath.Join(root, ".fetcher-work")); err != nil {
+	if err := writeManifests(cfg, root, runner.Stderr); err != nil {
 		return err
 	}
-	if err := writeManifests(cfg, root); err != nil {
+	if err := os.RemoveAll(filepath.Join(root, ".fetcher-work")); err != nil {
 		return err
 	}
 	return nil
@@ -539,7 +539,7 @@ func safeFilename(value string) string {
 	return strings.Trim(result.String(), ".-")
 }
 
-func writeManifests(cfg config.File, root string) error {
+func writeManifests(cfg config.File, root string, stderr io.Writer) error {
 	multiple := len(cfg.Sources) > 1
 	fetcherEvidence := map[string]any{"name": Version, "retrieved_at": time.Now().UTC().Format(time.RFC3339)}
 	if multiple {
@@ -555,7 +555,7 @@ func writeManifests(cfg config.File, root string) error {
 		for _, source := range cfg.Sources {
 			id := cfg.SourceID(source)
 			directory := filepath.Join(root, id)
-			raw, err := rawEvidence(directory)
+			raw, err := rawEvidence(directory, stderr, id)
 			if err != nil {
 				return err
 			}
@@ -567,7 +567,7 @@ func writeManifests(cfg config.File, root string) error {
 		return writeJSONAtomic(filepath.Join(root, "manifest.json"), rootManifest)
 	}
 	source := cfg.Sources[0]
-	raw, err := rawEvidence(root)
+	raw, err := rawEvidence(root, stderr, cfg.SourceID(source))
 	if err != nil {
 		return err
 	}
@@ -723,10 +723,10 @@ func compactMap(value map[string]any) map[string]any {
 	return value
 }
 
-func rawEvidence(root string) (map[string]any, error) {
+func rawEvidence(root string, stderr io.Writer, sourceID string) (map[string]any, error) {
 	type entry struct {
-		path, digest string
-		bytes        int64
+		absolute, path, digest string
+		bytes                  int64
 	}
 	var entries []entry
 	var total int64
@@ -753,22 +753,9 @@ func rawEvidence(root string) (map[string]any, error) {
 		if !info.Mode().IsRegular() || item.Name() == "manifest.json" {
 			return fmt.Errorf("invalid raw entry: %s", path)
 		}
-		file, err := os.Open(path)
-		if err != nil {
-			return err
-		}
-		hash := sha256.New()
-		written, copyErr := io.Copy(hash, file)
-		closeErr := file.Close()
-		if copyErr != nil {
-			return copyErr
-		}
-		if closeErr != nil {
-			return closeErr
-		}
 		relative, _ := filepath.Rel(root, path)
-		entries = append(entries, entry{filepath.ToSlash(relative), hex.EncodeToString(hash.Sum(nil)), written})
-		total += written
+		entries = append(entries, entry{absolute: path, path: filepath.ToSlash(relative), bytes: info.Size()})
+		total += info.Size()
 		return nil
 	})
 	if err != nil {
@@ -778,6 +765,29 @@ func rawEvidence(root string) (map[string]any, error) {
 		return nil, fmt.Errorf("source directory contains no raw files: %s", root)
 	}
 	sort.Slice(entries, func(i, j int) bool { return entries[i].path < entries[j].path })
+	progress := newHashProgress(stderr, sourceID, len(entries), total)
+	progress.Start()
+	for index := range entries {
+		file, err := os.Open(entries[index].absolute)
+		if err != nil {
+			return nil, err
+		}
+		hash := sha256.New()
+		written, copyErr := io.Copy(io.MultiWriter(hash, progress), file)
+		closeErr := file.Close()
+		if copyErr != nil {
+			return nil, copyErr
+		}
+		if closeErr != nil {
+			return nil, closeErr
+		}
+		if written != entries[index].bytes {
+			return nil, fmt.Errorf("raw file changed while hashing: %s", entries[index].absolute)
+		}
+		entries[index].digest = hex.EncodeToString(hash.Sum(nil))
+		progress.CompleteFile()
+	}
+	progress.Finish()
 	tree := sha256.New()
 	for _, entry := range entries {
 		fmt.Fprintf(tree, "%s\t%d\t%s\n", entry.digest, entry.bytes, entry.path)
