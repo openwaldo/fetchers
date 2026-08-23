@@ -275,6 +275,34 @@ func TestXMLValidationUsesRepresentativeSample(t *testing.T) {
 	}
 }
 
+func TestNestedManifestIsRawSourceContent(t *testing.T) {
+	root := t.TempDir()
+	nested := filepath.Join(root, "web", "public")
+	if err := os.MkdirAll(nested, 0o755); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(nested, "manifest.json"), []byte(`{"name":"source web app"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	if err := os.WriteFile(filepath.Join(root, "manifest.json"), []byte(`{"kind":"waldo-source-directory"}`), 0o644); err != nil {
+		t.Fatal(err)
+	}
+	files, err := validationFiles(root, nil)
+	if err != nil {
+		t.Fatal(err)
+	}
+	if len(files) != 1 || files[0] != filepath.Join(nested, "manifest.json") {
+		t.Fatalf("validation files = %q", files)
+	}
+	raw, err := rawEvidence(root, io.Discard, "fixture")
+	if err != nil {
+		t.Fatal(err)
+	}
+	if raw["file_count"] != 1 {
+		t.Fatalf("raw evidence = %+v", raw)
+	}
+}
+
 func writeValidationFixture(t *testing.T, name, content string) string {
 	t.Helper()
 	path := filepath.Join(t.TempDir(), name)

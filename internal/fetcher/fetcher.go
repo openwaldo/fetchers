@@ -760,7 +760,10 @@ func rawEvidence(root string, stderr io.Writer, sourceID string) (map[string]any
 		if err != nil {
 			return err
 		}
-		if !info.Mode().IsRegular() || item.Name() == "manifest.json" {
+		if path == filepath.Join(root, "manifest.json") {
+			return nil
+		}
+		if !info.Mode().IsRegular() {
 			return fmt.Errorf("invalid raw entry: %s", path)
 		}
 		relative, _ := filepath.Rel(root, path)

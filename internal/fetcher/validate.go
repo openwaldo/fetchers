@@ -117,7 +117,7 @@ func validationFiles(root string, discovered func()) ([]string, error) {
 		if !info.Mode().IsRegular() {
 			return fmt.Errorf("validation refuses special file %s", path)
 		}
-		if entry.Name() == "manifest.json" {
+		if path == filepath.Join(root, "manifest.json") {
 			return nil
 		}
 		if strings.HasSuffix(entry.Name(), ".partial") {
