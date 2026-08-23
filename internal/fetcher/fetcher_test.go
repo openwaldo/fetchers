@@ -27,6 +27,9 @@ import (
 func TestGitArchiveRetainsOnlyIngestibleText(t *testing.T) {
 	var archive bytes.Buffer
 	writer := tar.NewWriter(&archive)
+	if err := writer.WriteHeader(&tar.Header{Name: "pax_global_header", Typeflag: tar.TypeXGlobalHeader}); err != nil {
+		t.Fatal(err)
+	}
 	files := []struct {
 		name string
 		data []byte

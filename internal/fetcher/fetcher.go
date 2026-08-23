@@ -402,6 +402,11 @@ func (runner Runner) fetchGit(ctx context.Context, fetch config.Section, destina
 	if actual != fetch.One("revision") {
 		return fmt.Errorf("Git revision resolved to %s, expected %s", actual, fetch.One("revision"))
 	}
+	// A failed archive conversion may leave a partial tree. The bare repository is
+	// retained, so rebuild only the derived output without fetching again.
+	if err := os.RemoveAll(partial); err != nil {
+		return err
+	}
 	if err := os.MkdirAll(partial, 0o755); err != nil {
 		return err
 	}
@@ -456,6 +461,11 @@ func extractTar(reader io.Reader, destination string) (textArchiveStats, error) 
 		}
 		if err != nil {
 			return stats, err
+		}
+		switch header.Typeflag {
+		case tar.TypeXHeader, tar.TypeXGlobalHeader, tar.TypeGNULongName, tar.TypeGNULongLink:
+			// Archive metadata is interpreted by archive/tar and has no filesystem payload.
+			continue
 		}
 		clean := filepath.Clean(filepath.FromSlash(header.Name))
 		if clean == "." || filepath.IsAbs(clean) || clean == ".." || strings.HasPrefix(clean, ".."+string(filepath.Separator)) {
