@@ -495,8 +495,8 @@ func parquetListWrapper(name string) bool {
 
 func validateXML(reader io.Reader, input config.Section) error {
 	decoder := xml.NewDecoder(reader)
-	paths := mappedPaths(input)
-	found := make([]bool, len(paths))
+	textPaths := input.Values["text"]
+	foundText := false
 	var stack []string
 	for {
 		token, err := decoder.Token()
@@ -509,9 +509,9 @@ func validateXML(reader io.Reader, input config.Section) error {
 		switch token := token.(type) {
 		case xml.StartElement:
 			stack = append(stack, token.Name.Local)
-			for index, selector := range paths {
+			for _, selector := range textPaths {
 				if xmlPathMatches(selector, stack) {
-					found[index] = true
+					foundText = true
 				}
 			}
 		case xml.EndElement:
@@ -520,10 +520,8 @@ func validateXML(reader io.Reader, input config.Section) error {
 			}
 		}
 	}
-	for index, ok := range found {
-		if !ok {
-			return fmt.Errorf("XML selector %q did not match any element; correct the [input] mapping", paths[index])
-		}
+	if !foundText {
+		return fmt.Errorf("none of the XML text selectors %q matched an element; correct the [input] mapping", textPaths)
 	}
 	return nil
 }

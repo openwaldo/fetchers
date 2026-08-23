@@ -215,6 +215,35 @@ func TestParquetPathMatchesTerminalRepeatedScalar(t *testing.T) {
 	}
 }
 
+func TestValidateXMLAllowsOptionalMappedFields(t *testing.T) {
+	input := config.Section{Values: map[string][]string{
+		"format": {"xml"},
+		"type":   {"xml-record"},
+		"text": {
+			"/article/front/article-meta/title-group/article-title",
+			"/article/front/article-meta/abstract",
+			"/article/body",
+		},
+		"meta": {"journal=/article/front/journal-meta/journal-title-group/journal-title"},
+	}}
+	xml := `<article><front><article-meta><title-group><article-title>Early PLOS article</article-title></title-group></article-meta></front><body><p>Article text.</p></body></article>`
+	if err := validateFetchedFile(writeValidationFixture(t, "article.xml", xml), input, false); err != nil {
+		t.Fatalf("optional abstract should not be required: %v", err)
+	}
+}
+
+func TestValidateXMLRejectsWhenNoTextSelectorMatches(t *testing.T) {
+	input := config.Section{Values: map[string][]string{
+		"format": {"xml"},
+		"type":   {"xml-record"},
+		"text":   {"/article/body"},
+	}}
+	err := validateFetchedFile(writeValidationFixture(t, "article.xml", `<article><front/></article>`), input, false)
+	if err == nil || !strings.Contains(err.Error(), "none of the XML text selectors") || !strings.Contains(err.Error(), "correct the [input] mapping") {
+		t.Fatalf("error = %v", err)
+	}
+}
+
 func writeValidationFixture(t *testing.T, name, content string) string {
 	t.Helper()
 	path := filepath.Join(t.TempDir(), name)
