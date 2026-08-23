@@ -32,6 +32,72 @@ type downloadCollectionProgress struct {
 	totalBytes     int64
 }
 
+type fileProgress struct {
+	output       io.Writer
+	action       string
+	name         string
+	current      int
+	total        int
+	started      time.Time
+	lastRendered time.Time
+	interactive  bool
+}
+
+func newFileProgress(output io.Writer, action, name string, total int) *fileProgress {
+	return &fileProgress{output: output, action: action, name: name, total: total, interactive: terminalWriter(output)}
+}
+
+func (progress *fileProgress) Start() {
+	progress.started = time.Now()
+	progress.render(progress.started, false)
+}
+
+func (progress *fileProgress) Advance() {
+	progress.current++
+	now := time.Now()
+	interval := 5 * time.Second
+	if progress.interactive {
+		interval = 250 * time.Millisecond
+	}
+	if now.Sub(progress.lastRendered) >= interval {
+		progress.render(now, false)
+	}
+}
+
+func (progress *fileProgress) Finish() {
+	progress.render(time.Now(), true)
+}
+
+func (progress *fileProgress) render(now time.Time, final bool) {
+	detail := fmt.Sprintf("%d files", progress.current)
+	if progress.total > 0 {
+		detail = fmt.Sprintf("%d/%d files", progress.current, progress.total)
+	}
+	elapsed := now.Sub(progress.started).Seconds()
+	if elapsed > 0 && progress.current > 0 {
+		rate := float64(progress.current) / elapsed
+		detail += fmt.Sprintf("  %.1f files/s", rate)
+		if progress.total > progress.current {
+			remaining := time.Duration(float64(progress.total-progress.current)/rate) * time.Second
+			detail += "  ETA " + formatETA(remaining)
+		}
+	}
+	if final {
+		detail += "  complete"
+	}
+	line := fmt.Sprintf("fetcher: %s %s  %s", progress.action, progress.name, detail)
+	if progress.interactive {
+		ending := "\r"
+		if final {
+			ending = "\n"
+		}
+		fmt.Fprintf(progress.output, "\r%-160s%s", line, ending)
+	} else {
+		fmt.Fprintln(progress.output, line)
+	}
+	progress.lastRendered = now
+}
+
 func newDownloadProgress(output io.Writer, name string, initial, total int64) *downloadProgress {
 	return &downloadProgress{output: output, name: name, initial: initial, total: total, interactive: terminalWriter(output)}
 }

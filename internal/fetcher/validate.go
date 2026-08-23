@@ -43,19 +43,26 @@ func validateFetchedCorpus(cfg config.File, root string, stderr io.Writer) error
 		if len(cfg.Sources) > 1 {
 			directory = filepath.Join(root, id)
 		}
-		files, err := validationFiles(directory)
+		scanProgress := newFileProgress(stderr, "scan", id, 0)
+		scanProgress.Start()
+		files, err := validationFiles(directory, scanProgress.Advance)
 		if err != nil {
 			return fmt.Errorf("source %q: %w", id, err)
 		}
+		scanProgress.Finish()
 		if len(files) == 0 {
 			return fmt.Errorf("source %q: fetch produced no regular files", id)
 		}
+		validationProgress := newFileProgress(stderr, "validate", id, len(files))
+		validationProgress.Start()
 		for _, path := range files {
 			if err := validateFetchedFile(path, input, sourceCode); err != nil {
 				relative, _ := filepath.Rel(root, path)
 				return fmt.Errorf("source %q file %q declares format %q and profile %q: %w", id, filepath.ToSlash(relative), input.One("format"), input.One("type"), err)
 			}
+			validationProgress.Advance()
 		}
+		validationProgress.Finish()
 		fmt.Fprintf(stderr, "fetcher: validated source %s: %d files as %s", id, len(files), input.One("format"))
 		if input.One("type") != "" {
 			fmt.Fprintf(stderr, " with %s mapping", input.One("type"))
@@ -65,7 +72,7 @@ func validateFetchedCorpus(cfg config.File, root string, stderr io.Writer) error
 	return nil
 }
 
-func validationFiles(root string) ([]string, error) {
+func validationFiles(root string, discovered func()) ([]string, error) {
 	var result []string
 	err := filepath.WalkDir(root, func(path string, entry os.DirEntry, err error) error {
 		if err != nil {
@@ -97,6 +104,9 @@ func validationFiles(root string) ([]string, error) {
 			return fmt.Errorf("incomplete download remains at %s", path)
 		}
 		result = append(result, path)
+		if discovered != nil {
+			discovered()
+		}
 		return nil
 	})
 	sort.Strings(result)

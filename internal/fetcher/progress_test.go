@@ -60,3 +60,19 @@ func TestDownloadProgressIncludesCollectionProgress(t *testing.T) {
 		}
 	}
 }
+
+func TestFileProgressIncludesCountRateAndETA(t *testing.T) {
+	var output bytes.Buffer
+	now := time.Now()
+	progress := &fileProgress{
+		output: &output, action: "validate", name: "plos", current: 250, total: 1000,
+		started: now.Add(-10 * time.Second),
+	}
+	progress.render(now, false)
+	text := output.String()
+	for _, expected := range []string{"validate plos", "250/1000 files", "25.0 files/s", "ETA"} {
+		if !strings.Contains(text, expected) {
+			t.Fatalf("file progress lacks %q: %s", expected, text)
+		}
+	}
+}
