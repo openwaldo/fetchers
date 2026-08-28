@@ -1,5 +1,8 @@
 # WALDO fetcher
 
+Forward corpus priorities and source-review rules are maintained in
+[CORPUS-PLAN.md](CORPUS-PLAN.md).
+
 WALDO fetcher acquires raw corpus material and writes a validated handoff
 directory. It does not transform training content, ingest data, upload shards,
 choose an index destination, schedule work, or train models.
