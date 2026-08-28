@@ -135,6 +135,52 @@ review under OpenWALDO's redistribution and privacy standards.
 7. After the human and foundational additions are measured, define a separate
    verified-synthetic-data plan inspired by Nemotron's late-stage curriculum.
 
+## Fetcher compatibility audit
+
+The current fetcher supports pinned Git trees, HTTP artifacts, Hugging Face
+datasets, fixed HTTP sets, ZIP extraction, Gutenberg books, CAP, and several
+mail archive sources. WALDO currently ingests text, Markdown, mbox, JSON,
+JSONL, Parquet, and XML through generalized profiles.
+
+Create these INIs first:
+
+| INI | Acquisition | Input | Status |
+| --- | --- | --- | --- |
+| `taskmaster.ini` | Pinned Git paths containing TM-1 through TM-4 dialog JSON | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Supported now; select dialog data and exclude ontology, samples, instructions, and TM-4 reward records |
+| `ccpe.ini` | Pinned Git `data.json` | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Supported now; ideal first smoke test |
+
+Create these after small generalized improvements:
+
+| INI | Blocker |
+| --- | --- |
+| `schema-guided-dialogue.ini` | Source uses `SYSTEM` for assistant turns. WALDO supports role aliases, but the fetcher INI and generated manifest do not yet expose them. Add a repeatable alias mapping and use `system = assistant`. |
+| `multiwoz.ini` | MultiWOZ 2.2 has usable JSON turn arrays, but also needs `system = assistant`; confirm the selected release's data license before writing the INI. |
+| `topical-chat.ini` | Conversation files are JSON objects keyed by dynamic conversation IDs, and speakers are `agent_1` and `agent_2`. General JSON mapping needs a configurable record-root/object-values expansion plus role aliases. Complete the CDLA-Sharing review first. |
+| `multidogo.ini` | Raw data is TSV with one utterance per row. WALDO needs a generalized delimited-record adapter that can group ordered rows by `conversationId`; the fetcher must preflight the same declaration. |
+
+Do not create these yet:
+
+- `gutenberg-humor.ini`: it would duplicate books already in the index. The
+  existing Gutenberg acquisition also does not currently apply its declared
+  `selection`, `language`, or `ids` fields. Correct that behavior and design
+  per-book subject metadata before making humor selectable.
+- `gutenberg-dialogue.ini`: the published downloads use Mega, the extracted
+  dialogs overlap existing Gutenberg books, and rebuilding them would require
+  a corpus-specific transformation. Treat this as a derived-view question.
+- `youtube-conversations.ini`: update `youtube.ini` to retain title,
+  description, channel, and tags, then select those records in composes rather
+  than downloading and publishing duplicates.
+
+The minimal implementation order is therefore:
+
+1. write and smoke-test `ccpe.ini`;
+2. write and smoke-test `taskmaster.ini`;
+3. expose generalized chat role aliases in fetcher INIs and manifests;
+4. write Schema-Guided Dialogue and, after license confirmation, MultiWOZ;
+5. add generalized JSON record-root expansion for Topical-Chat;
+6. decide whether grouped delimited records justify a TSV adapter for
+   MultiDoGO.
+
 ## Acceptance gate
 
 Before adding any entry to the index, record:
