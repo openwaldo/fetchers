@@ -146,8 +146,8 @@ Create these INIs first:
 
 | INI | Acquisition | Input | Status |
 | --- | --- | --- | --- |
-| `taskmaster.ini` | Pinned Git paths containing TM-1 through TM-4 dialog JSON | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Supported now; select dialog data and exclude ontology, samples, instructions, and TM-4 reward records |
-| `ccpe.ini` | Pinned Git `data.json` | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Supported now; ingest the complete corpus |
+| `taskmaster.ini` | Pinned Git paths containing TM-1 through TM-4 dialog JSON | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Added; complete production fetch and ingest pending |
+| `ccpe.ini` | Pinned Git `data.json` | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Added and live-fetch validated; production ingest pending |
 
 Create these after small generalized improvements:
 
