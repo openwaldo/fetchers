@@ -72,6 +72,7 @@ url = http://127.0.0.1:$port/records.jsonl.gz
 category = public-dataset
 license = CC0-1.0
 license-declaration = Test fixture under CC0-1.0.
+language = en
 
 [source "mail"]
 name = Mbox fixture
@@ -79,6 +80,7 @@ url = http://127.0.0.1:$port/messages.mbox.gz
 category = public-dataset
 license = CC0-1.0
 license-declaration = Test fixture under CC0-1.0.
+language = en
 
 [fetch "records"]
 source = records
