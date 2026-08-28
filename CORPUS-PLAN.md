@@ -28,7 +28,7 @@ These fill the gap between technical community text and assistant-style SFT.
 | 1 | [Google Taskmaster](https://github.com/google-research-datasets/Taskmaster) | More than 55,000 written and spoken task-oriented dialogs; clarification, repair, and natural turns | Audit each Taskmaster release; TM-1 declares CC BY 4.0 | Conversational mid-training |
 | 2 | [MultiDoGO](https://github.com/awslabs/multi-domain-goal-oriented-dialogues-dataset) | More than 81,000 human-to-human service dialogs in six domains | CDLA-Permissive 2.0 | Conversational mid-training |
 | 3 | [Schema-Guided Dialogue](https://github.com/google-research-datasets/dstc8-schema-guided-dialogue) | Roughly 16,000 dialogs and 330,000 turns across everyday services | CC BY-SA 4.0; keep license-homogeneous shards | Conversational mid-training |
-| 4 | [CCPE](https://github.com/google-research-datasets/ccpe) | 502 natural human dialogs about movie preferences | CC BY 4.0 | Small quality and regression corpus |
+| 4 | [CCPE](https://github.com/google-research-datasets/ccpe) | 502 natural human dialogs about movie preferences | CC BY 4.0 | Small but valuable conversational corpus |
 | 5 | [Topical-Chat](https://www.amazon.science/code-and-datasets/topical-chat) | Human open-domain, knowledge-grounded conversation | Review CDLA-Sharing 1.0 obligations before acceptance | Conversational mid-training |
 | 6 | [MultiWOZ](https://github.com/budzianowski/multiwoz) | About 10,000 human multi-domain dialogs | Confirm that the selected release's MIT terms cover the data, not only code | Conversational mid-training |
 
@@ -122,8 +122,8 @@ review under OpenWALDO's redistribution and privacy standards.
 
 ## Execution order
 
-1. Build and smoke-test Taskmaster, MultiDoGO, Schema-Guided Dialogue, and CCPE
-   fetcher configurations.
+1. Build the CCPE and Taskmaster fetcher configurations and ingest their full
+   production corpora.
 2. Review Topical-Chat and MultiWOZ terms and either accept them with exact
    license metadata or record why they are excluded.
 3. Add OpenStax and Open Textbook Library license-qualified fetchers.
@@ -147,7 +147,7 @@ Create these INIs first:
 | INI | Acquisition | Input | Status |
 | --- | --- | --- | --- |
 | `taskmaster.ini` | Pinned Git paths containing TM-1 through TM-4 dialog JSON | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Supported now; select dialog data and exclude ontology, samples, instructions, and TM-4 reward records |
-| `ccpe.ini` | Pinned Git `data.json` | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Supported now; ideal first smoke test |
+| `ccpe.ini` | Pinned Git `data.json` | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Supported now; ingest the complete corpus |
 
 Create these after small generalized improvements:
 
@@ -173,8 +173,9 @@ Do not create these yet:
 
 The minimal implementation order is therefore:
 
-1. write and smoke-test `ccpe.ini`;
-2. write and smoke-test `taskmaster.ini`;
+1. write `ccpe.ini`, fetch the complete corpus, ingest it, and verify the index;
+2. write `taskmaster.ini`, fetch the complete corpus, ingest it, and verify the
+   index;
 3. expose generalized chat role aliases in fetcher INIs and manifests;
 4. write Schema-Guided Dialogue and, after license confirmation, MultiWOZ;
 5. add generalized JSON record-root expansion for Topical-Chat;
@@ -195,4 +196,4 @@ Before adding any entry to the index, record:
 - document, byte, and token estimates;
 - overlap with existing corpora;
 - intended training stage and initial compose weight;
-- successful fetch smoke test, WALDO ingest, and index verification.
+- successful complete fetch, WALDO ingest, and index verification.
