@@ -33,6 +33,10 @@ not mean writing a new program or shell script.
 
 Do not add corpus-specific parsing or conversation rendering. Fetchers retain
 general raw formats; WALDO performs declarative interpretation during ingest.
+The handoff is a recursive raw tree and may contain thousands of files. Raw
+files are not necessarily logical records: WALDO's selected adapter defines
+whether files become individual records, records within a container, or
+dependencies of a larger logical document.
 
 ## Complete JSONL example
 
@@ -223,6 +227,12 @@ For XML, `on-malformed = error|skip` controls malformed documents.
 The fetcher verifies every file after download. It samples the first 100
 JSON/JSONL records, checks Parquet schemas, and parses XML completely. WALDO
 then independently probes the files and performs full conversion validation.
+
+Tree-aware formats require a built-in WALDO adapter and a matching fetcher
+preflight. For example, a LaTeX input declaration should normally be only
+`format = latex`. WALDO recursively discovers document roots and resolves
+included files; the fetcher does not flatten the project, choose a root, or
+render it with an external converter.
 
 ## Multiple sources and downloads
 
