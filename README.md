@@ -3,6 +3,8 @@
 WALDO fetcher acquires raw corpus material and writes a validated handoff
 directory. It does not transform training content, ingest data, upload shards,
 choose an index destination, schedule work, or train models.
+The generated root manifest is WALDO's canonical ingestion input; it is not a
+fetcher-private format.
 
 Each corpus is one reviewed INI file under `corpora/`:
 
