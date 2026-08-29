@@ -29,10 +29,19 @@ decide which training phase consumes each corpus.
 | ---: | --- | --- | --- | --- |
 | 1 | Common Pile GitHub Archive filtered | `community/github-archive` | Technical language, debugging, review, collaboration, and informal problem solving | Fetcher ready; 19 gzip shards and approximately 15 GB compressed |
 | 2 | Common Pile Stack V2 Edu filtered | `code/stack-v2-edu` | Broad multilingual programming and technical-document pretraining | Fetcher ready; 95 gzip shards and approximately 83 GB compressed |
-| 3 | Creative Commons Common Crawl filtered | `core/common-pile/cccc` | Broad prose, everyday knowledge, tutorials, hobbies, and commonsense coverage | Blocked: the pinned release claims per-record licenses but its published schema does not contain them; do not collapse this into one mixed license |
-| 4 | Open Textbook Library redistributable subset | `core/books/open-textbook-library` | High-quality late pretraining and continued pretraining | Blocked: catalog records are CC0, but book files are externally hosted with per-book licenses and PDF/EPUB-heavy formats; needs deterministic catalog-driven acquisition and supported text-bearing formats |
-| 5 | OpenStax | `core/books/openstax` | Coherent foundational textbooks | Policy gate: current books are CC BY-NC-SA 4.0; ingest only if noncommercial/share-alike material is intentionally accepted and remains license-filterable. Source CNXML also needs a reviewed generalized tree mapping |
-| 6 | License-qualified bioRxiv | `science/biorxiv-open` | Recent life-science continued pretraining | Blocked: the bulk TDM repository forbids general re-hosting. Select only article versions with redistribution-compatible licenses, then check DOI overlap with existing `science/pubmed` and `science/pes2o` |
+| 3 | Common Pile Stack V2 HTML filtered | `code/stack-v2-html` | Repository-associated technical prose, documentation, tutorials, and project pages | Fetcher ready; 5 gzip shards, approximately 2.0 GB compressed, and 1.67 million records |
+
+## Blocked corpus TODO
+
+Keep blocked sources here until every listed gate is resolved. They are not
+ready to fetch or ingest merely because an upstream download exists.
+
+| Corpus | Intended index destination | Why it is blocked | Resolution needed |
+| --- | --- | --- | --- |
+| Creative Commons Common Crawl filtered | `core/common-pile/cccc` | The dataset card claims per-record licenses, but the published records omit the license field | Obtain a corrected immutable release or authoritative record/domain-to-license mapping from the Common Pile maintainers |
+| Open Textbook Library redistributable subset | `core/books/open-textbook-library` | Catalog metadata is CC0, book payloads are externally hosted with per-book licenses, and most payloads are PDF or EPUB | Add general PDF/EPUB ingestion, deterministic catalog-driven acquisition, and per-book license partitioning |
+| OpenStax | `core/books/openstax` | Current books are CC BY-NC-SA 4.0 and the source books use CNXML | Decide whether the public index accepts noncommercial/share-alike material and add a reviewed generalized CNXML mapping |
+| License-qualified bioRxiv | `science/biorxiv-open` | The bulk TDM repository does not permit general re-hosting | Acquire only article versions with redistribution-compatible licenses and check DOI overlap with `science/pubmed` and `science/pes2o` |
 
 Two previously proposed jobs are already satisfied and must not be duplicated:
 
@@ -41,11 +50,12 @@ Two previously proposed jobs are already satisfied and must not be duplicated:
 - CourtListener is already included in `law/caselaw`; the Common Pile caselaw
   source combines Caselaw Access Project and public-domain CourtListener cases.
 
-The missing Common Pile sources were also audited. GitHub Archive and Stack V2
-Edu are ready above. Creative Commons Common Crawl remains blocked on missing
-record-level license fields. Stack V2 HTML substantially overlaps Stack V2 Edu
-and should not be added until measured after ingest. All other Common Pile
-families are already represented in the index.
+The missing Common Pile sources were also audited. GitHub Archive, Stack V2
+Edu, and Stack V2 HTML are ready above. Stack V2 HTML is a distinct companion
+containing extracted text from repository HTML files; measure cross-corpus
+deduplication after ingest before assigning it substantial compose weight.
+Creative Commons Common Crawl remains blocked on missing record-level license
+fields. All other Common Pile families are already represented in the index.
 
 ## Immediate conversation plan
 
