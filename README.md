@@ -226,6 +226,17 @@ upstream license value; otherwise the source-level license is the default.
 `on-empty = error|skip` applies to record-map, dialogue-pair, chat-messages,
 and bounded-text. `nul = error|space` applies to structured record profiles;
 WALDO defaults to `space`, while `error` explicitly requests strict rejection.
+For chat messages, repeat `role-alias = SOURCE=TARGET` when upstream speaker
+labels differ from WALDO's canonical `system`, `user`, `assistant`, and `tool`
+roles. Matching is case-insensitive. For example:
+
+```ini
+role-alias = USER=user
+role-alias = SYSTEM=assistant
+```
+
+Here `SYSTEM` means the responding service agent, not a model-level system
+instruction.
 For ranked trees, `missing-rank = source-order` is the only explicit fallback.
 For XML, `on-malformed = error|skip` controls malformed documents.
 

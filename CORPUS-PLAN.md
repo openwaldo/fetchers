@@ -146,14 +146,14 @@ Create these INIs first:
 
 | INI | Acquisition | Input | Status |
 | --- | --- | --- | --- |
-| `taskmaster.ini` | Pinned Git paths containing TM-1 through TM-4 dialog JSON | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Added; complete production fetch and ingest pending |
-| `ccpe.ini` | Pinned Git `data.json` | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Added and live-fetch validated; production ingest pending |
+| `taskmaster.ini` | Pinned Git paths containing TM-1 through TM-4 dialog JSON | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Added; production ingest in progress |
+| `ccpe.ini` | Pinned Git `data.json` | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Added and live-fetch validated; production ingest in progress |
+| `schema-guided-dialogue.ini` | Pinned original train, development, and test dialogue JSON | `format = json`, `type = chat-messages`, `role = turns[].speaker`, `content = turns[].utterance`, with `USER` and `SYSTEM` role aliases | Added; production fetch and ingest pending |
 
 Create these after small generalized improvements:
 
 | INI | Blocker |
 | --- | --- |
-| `schema-guided-dialogue.ini` | Source uses `SYSTEM` for assistant turns. WALDO supports role aliases, but the fetcher INI and generated manifest do not yet expose them. Add a repeatable alias mapping and use `system = assistant`. |
 | `multiwoz.ini` | MultiWOZ 2.2 has usable JSON turn arrays, but also needs `system = assistant`; confirm the selected release's data license before writing the INI. |
 | `topical-chat.ini` | Conversation files are JSON objects keyed by dynamic conversation IDs, and speakers are `agent_1` and `agent_2`. General JSON mapping needs a configurable record-root/object-values expansion plus role aliases. Complete the CDLA-Sharing review first. |
 | `multidogo.ini` | Raw data is TSV with one utterance per row. WALDO needs a generalized delimited-record adapter that can group ordered rows by `conversationId`; the fetcher must preflight the same declaration. |
@@ -176,8 +176,8 @@ The minimal implementation order is therefore:
 1. write `ccpe.ini`, fetch the complete corpus, ingest it, and verify the index;
 2. write `taskmaster.ini`, fetch the complete corpus, ingest it, and verify the
    index;
-3. expose generalized chat role aliases in fetcher INIs and manifests;
-4. write Schema-Guided Dialogue and, after license confirmation, MultiWOZ;
+3. fetch, ingest, and verify Schema-Guided Dialogue using generalized chat role aliases;
+4. after license confirmation, write MultiWOZ;
 5. add generalized JSON record-root expansion for Topical-Chat;
 6. decide whether grouped delimited records justify a TSV adapter for
    MultiDoGO.

@@ -138,6 +138,44 @@ format = text
 	}
 }
 
+func TestInputManifestWritesNormalizedChatRoleAliases(t *testing.T) {
+	configuration, err := config.Parse(strings.NewReader(`[corpus]
+id = example
+title = Example
+description = Example corpus.
+
+[source]
+name = Example
+url = https://example.test/source
+category = public-dataset
+license = CC-BY-4.0
+license-declaration = Creative Commons Attribution 4.0
+language = en
+
+[fetch]
+fetcher = http
+url = https://example.test/data.json
+estimated-size = 1M
+
+[input]
+format = json
+type = chat-messages
+role = turns[].speaker
+content = turns[].utterance
+role-alias = USER=user
+role-alias = SYSTEM=assistant
+`))
+	if err != nil {
+		t.Fatal(err)
+	}
+	input := inputManifest(configuration, "example")
+	messages := input["messages"].(map[string]any)
+	aliases := messages["role_aliases"].(map[string]string)
+	if aliases["user"] != "user" || aliases["system"] != "assistant" {
+		t.Fatalf("role aliases = %+v", aliases)
+	}
+}
+
 func TestPostFetchValidationPreservesMismatchedData(t *testing.T) {
 	content := []byte("not jsonl\n")
 	client := &http.Client{Transport: roundTripFunc(func(request *http.Request) (*http.Response, error) {

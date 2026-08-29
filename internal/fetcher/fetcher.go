@@ -687,6 +687,14 @@ func inputManifest(cfg config.File, sourceID string) map[string]any {
 	switch section.One("type") {
 	case "chat-messages":
 		messages := compactMap(map[string]any{"role": section.One("role"), "content": section.One("content"), "system": section.One("system"), "tools": section.One("tools")})
+		if values := section.Values["role-alias"]; len(values) > 0 {
+			aliases := map[string]string{}
+			for _, value := range values {
+				source, target, _ := strings.Cut(value, "=")
+				aliases[strings.ToLower(strings.TrimSpace(source))] = strings.ToLower(strings.TrimSpace(target))
+			}
+			messages["role_aliases"] = aliases
+		}
 		if len(messages) > 0 {
 			result["messages"] = messages
 		}

@@ -187,7 +187,7 @@ func (file File) Validate() error {
 		}
 		seenInputs[id] = true
 		allowed := fields("format type on-empty nul id date language license source context response role content system tools tree-root replies rank missing-rank assistant-role start-pattern end-pattern on-malformed source-prefix")
-		lists := fields("text text-fallback meta exclude")
+		lists := fields("text text-fallback meta exclude role-alias")
 		if err := validateFields(input, allowed, lists); err != nil {
 			return err
 		}
@@ -231,7 +231,7 @@ func validateInput(section Section) error {
 	profileFields := map[string]string{
 		"record-map":               "format type on-empty nul text text-fallback id date language license source meta",
 		"dialogue-pair":            "format type on-empty nul text text-fallback id date language license source context response tools meta",
-		"chat-messages":            "format type on-empty nul id date language license source role content system tools meta",
+		"chat-messages":            "format type on-empty nul id date language license source role content system tools meta role-alias",
 		"ranked-conversation-tree": "format type nul id date language license tree-root replies text rank missing-rank role assistant-role",
 		"bounded-text":             "format type on-empty start-pattern end-pattern",
 		"xml-record":               "format type text id date language license source meta exclude on-malformed source-prefix",
@@ -240,7 +240,7 @@ func validateInput(section Section) error {
 	if !knownType {
 		return fmt.Errorf("unsupported type %q; omit type and mapping fields for text, Markdown, or mbox", typeName)
 	}
-	if err := validateFields(section, fields(allowed), fields("text text-fallback meta exclude")); err != nil {
+	if err := validateFields(section, fields(allowed), fields("text text-fallback meta exclude role-alias")); err != nil {
 		return err
 	}
 	if value := section.One("on-empty"); value != "" && value != "error" && value != "skip" {
@@ -254,6 +254,23 @@ func validateInput(section Section) error {
 	}
 	if value := section.One("on-malformed"); value != "" && value != "error" && value != "skip" {
 		return fmt.Errorf("on-malformed must be error or skip")
+	}
+	if aliases := section.Values["role-alias"]; len(aliases) > 0 {
+		if typeName != "chat-messages" {
+			return fmt.Errorf("role-alias is supported only for type chat-messages")
+		}
+		seen := map[string]bool{}
+		for _, value := range aliases {
+			source, target, found := strings.Cut(value, "=")
+			source, target = strings.ToLower(strings.TrimSpace(source)), strings.ToLower(strings.TrimSpace(target))
+			if !found || source == "" || !fields("system user assistant tool")[target] {
+				return fmt.Errorf("role-alias must be SOURCE=system|user|assistant|tool")
+			}
+			if seen[source] {
+				return fmt.Errorf("duplicate role-alias source %q", source)
+			}
+			seen[source] = true
+		}
 	}
 	if typeName == "bounded-text" && format != "text" && format != "markdown" {
 		return fmt.Errorf("type bounded-text requires format text or markdown")

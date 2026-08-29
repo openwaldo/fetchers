@@ -6,6 +6,7 @@
 package config
 
 import (
+	"fmt"
 	"os"
 	"path/filepath"
 	"strings"
@@ -41,6 +42,75 @@ text = text
 	}
 	if file.Corpus.One("id") != "example" || len(file.Sources) != 1 || len(file.Fetches) != 1 {
 		t.Fatalf("file = %+v", file)
+	}
+}
+
+func TestParseChatRoleAliases(t *testing.T) {
+	file, err := Parse(strings.NewReader(`[corpus]
+id = example
+title = Example
+description = Example corpus.
+
+[source]
+name = Example
+url = https://example.test/source
+category = public-dataset
+license = CC-BY-4.0
+license-declaration = Creative Commons Attribution 4.0
+language = en
+
+[fetch]
+fetcher = http
+url = https://example.test/data.json
+estimated-size = 1M
+
+[input]
+format = json
+type = chat-messages
+role = turns[].speaker
+content = turns[].utterance
+role-alias = USER=user
+role-alias = SYSTEM=assistant
+`))
+	if err != nil {
+		t.Fatal(err)
+	}
+	input, _ := file.Input("example")
+	if got := input.Values["role-alias"]; len(got) != 2 {
+		t.Fatalf("role aliases = %+v", got)
+	}
+}
+
+func TestParseRejectsInvalidChatRoleAliases(t *testing.T) {
+	const configuration = `[corpus]
+id = example
+title = Example
+description = Example corpus.
+
+[source]
+name = Example
+url = https://example.test/source
+category = public-dataset
+license = CC-BY-4.0
+license-declaration = Creative Commons Attribution 4.0
+language = en
+
+[fetch]
+fetcher = http
+url = https://example.test/data.json
+estimated-size = 1M
+
+[input]
+format = json
+type = chat-messages
+role = turns[].speaker
+content = turns[].utterance
+role-alias = %s
+`
+	for _, alias := range []string{"SYSTEM=bot", "=assistant", "SYSTEM"} {
+		if _, err := Parse(strings.NewReader(fmt.Sprintf(configuration, alias))); err == nil {
+			t.Fatalf("role alias %q was accepted", alias)
+		}
 	}
 }
 
