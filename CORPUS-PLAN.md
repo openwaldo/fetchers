@@ -19,6 +19,34 @@ fetcher configuration, and destination have been reviewed.
 6. Avoid duplicating content already in the index. Add metadata-driven
    selections or compose weights when the underlying documents already exist.
 
+## Foundational pretraining execution order
+
+This is the definitive forward ingestion order for broad pretraining and
+continued pretraining. Index paths describe subject and provenance; composes
+decide which training phase consumes each corpus.
+
+| Order | Corpus | Index destination | Training use | Status or gate |
+| ---: | --- | --- | --- | --- |
+| 1 | Common Pile GitHub Archive filtered | `community/github-archive` | Technical language, debugging, review, collaboration, and informal problem solving | Fetcher ready; 19 gzip shards and approximately 15 GB compressed |
+| 2 | Common Pile Stack V2 Edu filtered | `code/stack-v2-edu` | Broad multilingual programming and technical-document pretraining | Fetcher ready; 95 gzip shards and approximately 83 GB compressed |
+| 3 | Creative Commons Common Crawl filtered | `core/common-pile/cccc` | Broad prose, everyday knowledge, tutorials, hobbies, and commonsense coverage | Blocked: the pinned release claims per-record licenses but its published schema does not contain them; do not collapse this into one mixed license |
+| 4 | Open Textbook Library redistributable subset | `core/books/open-textbook-library` | High-quality late pretraining and continued pretraining | Blocked: catalog records are CC0, but book files are externally hosted with per-book licenses and PDF/EPUB-heavy formats; needs deterministic catalog-driven acquisition and supported text-bearing formats |
+| 5 | OpenStax | `core/books/openstax` | Coherent foundational textbooks | Policy gate: current books are CC BY-NC-SA 4.0; ingest only if noncommercial/share-alike material is intentionally accepted and remains license-filterable. Source CNXML also needs a reviewed generalized tree mapping |
+| 6 | License-qualified bioRxiv | `science/biorxiv-open` | Recent life-science continued pretraining | Blocked: the bulk TDM repository forbids general re-hosting. Select only article versions with redistribution-compatible licenses, then check DOI overlap with existing `science/pubmed` and `science/pes2o` |
+
+Two previously proposed jobs are already satisfied and must not be duplicated:
+
+- PMC Open Access full text is already represented by `science/pubmed`, with
+  approximately 3.8 million license-qualified records and per-record licenses.
+- CourtListener is already included in `law/caselaw`; the Common Pile caselaw
+  source combines Caselaw Access Project and public-domain CourtListener cases.
+
+The missing Common Pile sources were also audited. GitHub Archive and Stack V2
+Edu are ready above. Creative Commons Common Crawl remains blocked on missing
+record-level license fields. Stack V2 HTML substantially overlaps Stack V2 Edu
+and should not be added until measured after ingest. All other Common Pile
+families are already represented in the index.
+
 ## Immediate conversation plan
 
 These fill the gap between technical community text and assistant-style SFT.
