@@ -176,6 +176,50 @@ role-alias = SYSTEM=assistant
 	}
 }
 
+func TestInputManifestWritesDelimitedChatMapping(t *testing.T) {
+	configuration, err := config.Parse(strings.NewReader(`[corpus]
+id = example
+title = Example
+description = Example corpus.
+
+[source]
+name = Example
+url = https://example.test/source
+category = public-dataset
+license = CDLA-Permissive-1.0
+license-declaration = CDLA Permissive 1.0
+language = en
+
+[fetch]
+fetcher = git
+url = https://example.test/source.git
+revision = aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+estimated-size = 1M
+pathspec = data.csv
+
+[input]
+format = delimited
+type = delimited-chat
+id = conversation
+role = speaker
+content = utterance
+order = turn
+delimiter = comma
+role-alias = agent=assistant
+`))
+	if err != nil {
+		t.Fatal(err)
+	}
+	input := inputManifest(configuration, "example")
+	delimited := input["delimited"].(map[string]any)
+	if delimited["delimiter"] != "comma" || delimited["order"] != "turn" {
+		t.Fatalf("delimited mapping = %+v", delimited)
+	}
+	if input["fields"].(map[string]any)["id"] != "conversation" {
+		t.Fatalf("input = %+v", input)
+	}
+}
+
 func TestPostFetchValidationPreservesMismatchedData(t *testing.T) {
 	content := []byte("not jsonl\n")
 	client := &http.Client{Transport: roundTripFunc(func(request *http.Request) (*http.Response, error) {

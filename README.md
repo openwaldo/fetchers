@@ -191,6 +191,7 @@ Every source declares one physical format:
 | One JSON object or one array of objects per file | `json` | record profile |
 | One JSON object per line | `jsonl` | record profile |
 | One record per Parquet row | `parquet` | record profile |
+| Header-bearing CSV/TSV-style turn rows | `delimited` | `delimited-chat` |
 | One XML record per file | `xml` | `xml-record` |
 
 Gzip and Zstandard compression are supported directly for JSONL and mbox.
@@ -215,6 +216,7 @@ Supported profiles are:
 | `record-map` | one or more `text` | General documents or records. |
 | `dialogue-pair` | `text`, `response` | Prompt, optional context, response, and `tools`. |
 | `chat-messages` | `role`, `content` | Ordered message arrays; optional separate `system` and `tools`. |
+| `delimited-chat` | `id`, `role`, `content`, `order`, `delimiter` | Adjacent ordered turn rows grouped into conversations. |
 | `ranked-conversation-tree` | `replies`, `text`, `rank` | Ranked reply trees; JSON/JSONL only. |
 | `bounded-text` | `start-pattern`, `end-pattern` | Content between first matching boundaries. |
 | `xml-record` | one or more absolute XPath `text` selectors | Ordered XML text extraction. |
@@ -224,8 +226,9 @@ repeatable `meta = NAME=PATH`. Map `license` only when records carry an
 upstream license value; otherwise the source-level license is the default.
 
 `on-empty = error|skip` applies to record-map, dialogue-pair, chat-messages,
-and bounded-text. `nul = error|space` applies to structured record profiles;
-WALDO defaults to `space`, while `error` explicitly requests strict rejection.
+delimited-chat, and bounded-text. `nul = error|space` applies to structured
+record profiles; WALDO defaults to `space`, while `error` explicitly requests
+strict rejection.
 For chat messages, repeat `role-alias = SOURCE=TARGET` when upstream speaker
 labels differ from WALDO's canonical `system`, `user`, `assistant`, and `tool`
 roles. Matching is case-insensitive. For example:
@@ -237,6 +240,12 @@ role-alias = SYSTEM=assistant
 
 Here `SYSTEM` means the responding service agent, not a model-level system
 instruction.
+
+For `delimited-chat`, the first row must contain unique column names. Set
+`delimiter = comma|tab|semicolon|pipe`; `id` groups adjacent rows, and `order`
+must be a strictly increasing integer within each conversation. Use
+`role-alias` to map the source speakers to canonical roles. The fetcher checks
+the header and a bounded sample; WALDO validates every row and conversation.
 For ranked trees, `missing-rank = source-order` is the only explicit fallback.
 For XML, `on-malformed = error|skip` controls malformed documents.
 

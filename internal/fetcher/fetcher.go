@@ -685,7 +685,7 @@ func inputManifest(cfg config.File, sourceID string) map[string]any {
 		result["fields"] = fields
 	}
 	switch section.One("type") {
-	case "chat-messages":
+	case "chat-messages", "delimited-chat":
 		messages := compactMap(map[string]any{"role": section.One("role"), "content": section.One("content"), "system": section.One("system"), "tools": section.One("tools")})
 		if values := section.Values["role-alias"]; len(values) > 0 {
 			aliases := map[string]string{}
@@ -697,6 +697,9 @@ func inputManifest(cfg config.File, sourceID string) map[string]any {
 		}
 		if len(messages) > 0 {
 			result["messages"] = messages
+		}
+		if section.One("type") == "delimited-chat" {
+			result["delimited"] = map[string]any{"delimiter": section.One("delimiter"), "order": section.One("order")}
 		}
 	case "dialogue-pair":
 		if value := section.One("tools"); value != "" {

@@ -64,11 +64,11 @@ These fill the gap between technical community text and assistant-style SFT.
 | Order | Corpus | What it contributes | Rights gate | Intended use |
 | ---: | --- | --- | --- | --- |
 | 1 | [Google Taskmaster](https://github.com/google-research-datasets/Taskmaster) | More than 55,000 written and spoken task-oriented dialogs; clarification, repair, and natural turns | Audit each Taskmaster release; TM-1 declares CC BY 4.0 | Conversational mid-training |
-| 2 | [MultiDoGO](https://github.com/awslabs/multi-domain-goal-oriented-dialogues-dataset) | More than 81,000 human-to-human service dialogs in six domains | CDLA-Permissive 2.0 | Conversational mid-training |
+| 2 | [MultiDoGO](https://github.com/awslabs/multi-domain-goal-oriented-dialogues-dataset) | More than 81,000 human-to-human service dialogs in six domains | CDLA-Permissive 1.0 | Conversational mid-training |
 | 3 | [Schema-Guided Dialogue](https://github.com/google-research-datasets/dstc8-schema-guided-dialogue) | Roughly 16,000 dialogs and 330,000 turns across everyday services | CC BY-SA 4.0; keep license-homogeneous shards | Conversational mid-training |
 | 4 | [CCPE](https://github.com/google-research-datasets/ccpe) | 502 natural human dialogs about movie preferences | CC BY 4.0 | Small but valuable conversational corpus |
 | 5 | [Topical-Chat](https://www.amazon.science/code-and-datasets/topical-chat) | Human open-domain, knowledge-grounded conversation | Review CDLA-Sharing 1.0 obligations before acceptance | Conversational mid-training |
-| 6 | [MultiWOZ](https://github.com/budzianowski/multiwoz) | About 10,000 human multi-domain dialogs | Confirm that the selected release's MIT terms cover the data, not only code | Conversational mid-training |
+| 6 | [MultiWOZ](https://github.com/budzianowski/multiwoz) | 10,437 human multi-domain dialogs | MultiWOZ 2.2 is distributed in the MIT-licensed project repository | Conversational mid-training |
 
 Task-oriented dialogue teaches turn-taking and clarification, but it can also
 overproduce a call-center voice. It should remain a minority of the language
@@ -162,8 +162,8 @@ review under OpenWALDO's redistribution and privacy standards.
 
 1. Build the CCPE and Taskmaster fetcher configurations and ingest their full
    production corpora.
-2. Review Topical-Chat and MultiWOZ terms and either accept them with exact
-   license metadata or record why they are excluded.
+2. Fetch and ingest MultiDoGO and MultiWOZ 2.2 using their reviewed native
+   delimited and JSON mappings.
 3. Add OpenStax and Open Textbook Library license-qualified fetchers.
 4. Make existing Gutenberg humor and YouTube conversational material
    selectable without duplicating physical content.
@@ -178,7 +178,8 @@ review under OpenWALDO's redistribution and privacy standards.
 The current fetcher supports pinned Git trees, HTTP artifacts, Hugging Face
 datasets, fixed HTTP sets, ZIP extraction, Gutenberg books, CAP, and several
 mail archive sources. WALDO currently ingests text, Markdown, mbox, JSON,
-JSONL, Parquet, and XML through generalized profiles.
+JSONL, Parquet, delimited text, XML, PDF, and EPUB through generalized
+profiles.
 
 Create these INIs first:
 
@@ -187,14 +188,14 @@ Create these INIs first:
 | `taskmaster.ini` | Pinned Git paths containing TM-1 through TM-4 dialog JSON | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Added; production ingest in progress |
 | `ccpe.ini` | Pinned Git `data.json` | `format = json`, `type = chat-messages`, `role = utterances[].speaker`, `content = utterances[].text` | Added and live-fetch validated; production ingest in progress |
 | `schema-guided-dialogue.ini` | Pinned original train, development, and test dialogue JSON | `format = json`, `type = chat-messages`, `role = turns[].speaker`, `content = turns[].utterance`, with `USER` and `SYSTEM` role aliases | Added; production fetch and ingest pending |
+| `multiwoz-2.2.ini` | Pinned official version 2.2 train, development, and test dialogue JSON | `format = json`, `type = chat-messages`, with `USER` and `SYSTEM` role aliases | Added; ready for production fetch and ingest |
+| `multidogo.ini` | Pinned native unannotated turn files for all six domains | `format = delimited`, `type = delimited-chat`, comma delimiter, ordered by `turnNumber`, grouped by `conversationId` | Added; ready after deploying the matching WALDO binary |
 
 Create these after small generalized improvements:
 
 | INI | Blocker |
 | --- | --- |
-| `multiwoz.ini` | MultiWOZ 2.2 has usable JSON turn arrays, but also needs `system = assistant`; confirm the selected release's data license before writing the INI. |
 | `topical-chat.ini` | Conversation files are JSON objects keyed by dynamic conversation IDs, and speakers are `agent_1` and `agent_2`. General JSON mapping needs a configurable record-root/object-values expansion plus role aliases. Complete the CDLA-Sharing review first. |
-| `multidogo.ini` | Raw data is TSV with one utterance per row. WALDO needs a generalized delimited-record adapter that can group ordered rows by `conversationId`; the fetcher must preflight the same declaration. |
 
 Do not create these yet:
 
@@ -215,10 +216,10 @@ The minimal implementation order is therefore:
 2. write `taskmaster.ini`, fetch the complete corpus, ingest it, and verify the
    index;
 3. fetch, ingest, and verify Schema-Guided Dialogue using generalized chat role aliases;
-4. after license confirmation, write MultiWOZ;
-5. add generalized JSON record-root expansion for Topical-Chat;
-6. decide whether grouped delimited records justify a TSV adapter for
-   MultiDoGO.
+4. fetch and ingest MultiWOZ 2.2;
+5. deploy the generalized delimited-chat adapter, then fetch and ingest
+   MultiDoGO;
+6. add generalized JSON record-root expansion for Topical-Chat.
 
 ## Acceptance gate
 

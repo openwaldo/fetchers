@@ -9,6 +9,7 @@ import (
 	"bufio"
 	"bytes"
 	"compress/gzip"
+	"encoding/csv"
 	"encoding/json"
 	"encoding/xml"
 	"errors"
@@ -18,6 +19,7 @@ import (
 	"path/filepath"
 	"regexp"
 	"sort"
+	"strconv"
 	"strings"
 	"unicode/utf8"
 
@@ -155,11 +157,94 @@ func validateFetchedFile(path string, input config.Section, sourceCode bool) err
 		return validateJSON(reader, input)
 	case "jsonl":
 		return validateJSONL(reader, input)
+	case "delimited":
+		return validateDelimited(reader, input)
 	case "xml":
 		return validateXML(reader, input)
 	default:
 		return fmt.Errorf("unsupported validation format %q", format)
 	}
+}
+
+func validateDelimited(stream io.Reader, input config.Section) error {
+	reader := csv.NewReader(stream)
+	switch input.One("delimiter") {
+	case "comma":
+		reader.Comma = ','
+	case "tab":
+		reader.Comma = '\t'
+	case "semicolon":
+		reader.Comma = ';'
+	case "pipe":
+		reader.Comma = '|'
+	default:
+		return fmt.Errorf("unsupported delimiter %q", input.One("delimiter"))
+	}
+	header, err := reader.Read()
+	if err != nil {
+		return fmt.Errorf("read delimited header: %w", err)
+	}
+	columns := map[string]int{}
+	for position, raw := range header {
+		name := strings.TrimSpace(raw)
+		if name == "" {
+			return fmt.Errorf("delimited header column %d is empty", position+1)
+		}
+		if _, exists := columns[name]; exists {
+			return fmt.Errorf("delimited header contains duplicate column %q", name)
+		}
+		columns[name] = position
+	}
+	required := []string{input.One("id"), input.One("role"), input.One("content"), input.One("order")}
+	for _, name := range []string{"date", "language", "license", "source"} {
+		if value := input.One(name); value != "" {
+			required = append(required, value)
+		}
+	}
+	for _, value := range input.Values["meta"] {
+		_, path, found := strings.Cut(value, "=")
+		if found {
+			required = append(required, strings.TrimSpace(path))
+		}
+	}
+	for _, name := range required {
+		if _, ok := columns[name]; !ok {
+			return fmt.Errorf("mapped delimited column %q is absent", name)
+		}
+	}
+	aliases := map[string]string{}
+	for _, value := range input.Values["role-alias"] {
+		source, target, _ := strings.Cut(value, "=")
+		aliases[strings.ToLower(strings.TrimSpace(source))] = strings.ToLower(strings.TrimSpace(target))
+	}
+	rows := 0
+	for rows < validationRecordLimit {
+		row, err := reader.Read()
+		if errors.Is(err, io.EOF) {
+			break
+		}
+		if err != nil {
+			return fmt.Errorf("delimited row %d: %w", rows+2, err)
+		}
+		if strings.TrimSpace(row[columns[input.One("id")]]) == "" || strings.TrimSpace(row[columns[input.One("content")]]) == "" {
+			return fmt.Errorf("delimited row %d has empty conversation ID or content", rows+2)
+		}
+		if _, err := strconv.ParseInt(strings.TrimSpace(row[columns[input.One("order")]]), 10, 64); err != nil {
+			return fmt.Errorf("delimited row %d order is not an integer", rows+2)
+		}
+		role := strings.ToLower(strings.TrimSpace(row[columns[input.One("role")]]))
+		if alias, ok := aliases[role]; ok {
+			role = alias
+		}
+		if role != "system" && role != "user" && role != "assistant" && role != "tool" {
+			return fmt.Errorf("delimited row %d has unsupported role %q", rows+2, role)
+		}
+		rows++
+	}
+	if rows == 0 {
+		return fmt.Errorf("delimited input contains a header but no records")
+	}
+	return nil
 }
 
 func openValidationReader(path string) (io.Reader, bool, func() error, error) {

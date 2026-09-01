@@ -186,7 +186,7 @@ func (file File) Validate() error {
 			return fmt.Errorf("duplicate input declaration %q", id)
 		}
 		seenInputs[id] = true
-		allowed := fields("format type on-empty nul id date language license source context response role content system tools tree-root replies rank missing-rank assistant-role start-pattern end-pattern on-malformed source-prefix")
+		allowed := fields("format type on-empty nul id date language license source context response role content system tools delimiter order tree-root replies rank missing-rank assistant-role start-pattern end-pattern on-malformed source-prefix")
 		lists := fields("text text-fallback meta exclude role-alias")
 		if err := validateFields(input, allowed, lists); err != nil {
 			return err
@@ -214,12 +214,12 @@ func validateInput(section Section) error {
 	}
 	switch format {
 	case "text", "markdown", "mbox":
-	case "json", "jsonl", "parquet", "xml":
+	case "json", "jsonl", "parquet", "delimited", "xml":
 		if section.One("type") == "" {
 			return fmt.Errorf("format %s requires type", format)
 		}
 	default:
-		return fmt.Errorf("unsupported format %q; use text, markdown, mbox, json, jsonl, parquet, or xml", format)
+		return fmt.Errorf("unsupported format %q; use text, markdown, mbox, json, jsonl, parquet, delimited, or xml", format)
 	}
 	if section.One("type") == "" {
 		if err := validateFields(section, fields("format"), nil); err != nil {
@@ -232,6 +232,7 @@ func validateInput(section Section) error {
 		"record-map":               "format type on-empty nul text text-fallback id date language license source meta",
 		"dialogue-pair":            "format type on-empty nul text text-fallback id date language license source context response tools meta",
 		"chat-messages":            "format type on-empty nul id date language license source role content system tools meta role-alias",
+		"delimited-chat":           "format type on-empty nul id date language license source role content delimiter order meta role-alias",
 		"ranked-conversation-tree": "format type nul id date language license tree-root replies text rank missing-rank role assistant-role",
 		"bounded-text":             "format type on-empty start-pattern end-pattern",
 		"xml-record":               "format type text id date language license source meta exclude on-malformed source-prefix",
@@ -256,8 +257,8 @@ func validateInput(section Section) error {
 		return fmt.Errorf("on-malformed must be error or skip")
 	}
 	if aliases := section.Values["role-alias"]; len(aliases) > 0 {
-		if typeName != "chat-messages" {
-			return fmt.Errorf("role-alias is supported only for type chat-messages")
+		if typeName != "chat-messages" && typeName != "delimited-chat" {
+			return fmt.Errorf("role-alias is supported only for type chat-messages or delimited-chat")
 		}
 		seen := map[string]bool{}
 		for _, value := range aliases {
@@ -278,7 +279,10 @@ func validateInput(section Section) error {
 	if typeName == "xml-record" && format != "xml" {
 		return fmt.Errorf("type xml-record requires format xml")
 	}
-	if typeName != "bounded-text" && typeName != "xml-record" && format != "json" && format != "jsonl" && format != "parquet" {
+	if typeName == "delimited-chat" && format != "delimited" {
+		return fmt.Errorf("type delimited-chat requires format delimited")
+	}
+	if typeName != "bounded-text" && typeName != "xml-record" && typeName != "delimited-chat" && format != "json" && format != "jsonl" && format != "parquet" {
 		return fmt.Errorf("type %s requires format json, jsonl, or parquet", typeName)
 	}
 	require := func(names ...string) error {
@@ -305,6 +309,11 @@ func validateInput(section Section) error {
 		return require("response")
 	case "chat-messages":
 		return require("role", "content")
+	case "delimited-chat":
+		if value := section.One("delimiter"); value != "comma" && value != "tab" && value != "semicolon" && value != "pipe" {
+			return fmt.Errorf("type delimited-chat delimiter must be comma, tab, semicolon, or pipe")
+		}
+		return require("id", "role", "content", "order")
 	case "ranked-conversation-tree":
 		if err := requireText(); err != nil {
 			return err
