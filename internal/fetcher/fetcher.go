@@ -610,8 +610,14 @@ func sourceManifest(cfg config.File, section config.Section) map[string]any {
 	if len(content) > 0 {
 		upstream["content"] = content
 	}
-	if basis := section.One("acquisition-basis"); basis != "" {
-		upstream["acquisition"] = map[string]any{"basis": basis}
+	acquisition := compactMap(map[string]any{"basis": section.One("acquisition-basis")})
+	if model := section.One("generator-model"); model != "" {
+		acquisition["synthetic"] = compactMap(map[string]any{
+			"model": model, "version": section.One("generator-version"), "summary_url": section.One("generator-summary-url"), "description": section.One("generator-description"),
+		})
+	}
+	if len(acquisition) > 0 {
+		upstream["acquisition"] = acquisition
 	}
 	result := map[string]any{"id": id, "license": section.One("license"), "source": upstream}
 	var artifacts []map[string]any

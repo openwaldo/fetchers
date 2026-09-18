@@ -45,6 +45,40 @@ text = text
 	}
 }
 
+func TestSyntheticSourceRequiresGeneratorIdentity(t *testing.T) {
+	configuration := `[corpus]
+id = synthetic-example
+title = Synthetic Example
+description = Synthetic example corpus.
+
+[source]
+name = Synthetic Example
+url = https://example.test/source
+category = synthetic
+license = Apache-2.0
+license-declaration = Apache License 2.0
+language = en
+%s
+
+[fetch]
+fetcher = http
+url = https://example.test/data.jsonl
+estimated-size = 1M
+
+[input]
+format = jsonl
+type = dialogue-pair
+text = prompt
+response = response
+`
+	if _, err := Parse(strings.NewReader(fmt.Sprintf(configuration, ""))); err == nil || !strings.Contains(err.Error(), "requires generator-model") {
+		t.Fatalf("missing generator identity error = %v", err)
+	}
+	if _, err := Parse(strings.NewReader(fmt.Sprintf(configuration, "generator-model = Example Generator"))); err != nil {
+		t.Fatal(err)
+	}
+}
+
 func TestParseChatRoleAliases(t *testing.T) {
 	file, err := Parse(strings.NewReader(`[corpus]
 id = example

@@ -138,6 +138,47 @@ format = text
 	}
 }
 
+func TestSourceManifestPreservesSyntheticGenerator(t *testing.T) {
+	configuration, err := config.Parse(strings.NewReader(`[corpus]
+id = synthetic-example
+title = Synthetic Example
+description = Synthetic example corpus.
+
+[source]
+name = Synthetic Example
+url = https://example.test/source
+category = synthetic
+license = Apache-2.0
+license-declaration = Apache License 2.0
+language = en
+generator-model = Example Generator
+generator-version = 1.2.3
+generator-summary-url = https://example.test/generator
+generator-description = Generated from reviewed templates.
+
+[fetch]
+fetcher = http
+url = https://example.test/data.jsonl
+estimated-size = 1M
+
+[input]
+format = jsonl
+type = dialogue-pair
+text = prompt
+response = response
+`))
+	if err != nil {
+		t.Fatal(err)
+	}
+	manifest := sourceManifest(configuration, configuration.Sources[0])
+	upstream := manifest["source"].(map[string]any)
+	acquisition := upstream["acquisition"].(map[string]any)
+	synthetic := acquisition["synthetic"].(map[string]any)
+	if synthetic["model"] != "Example Generator" || synthetic["version"] != "1.2.3" || synthetic["summary_url"] != "https://example.test/generator" || synthetic["description"] != "Generated from reviewed templates." {
+		t.Fatalf("synthetic generator = %+v", synthetic)
+	}
+}
+
 func TestInputManifestWritesNormalizedChatRoleAliases(t *testing.T) {
 	configuration, err := config.Parse(strings.NewReader(`[corpus]
 id = example

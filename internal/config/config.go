@@ -127,7 +127,7 @@ func (file File) Validate() error {
 			return fmt.Errorf("invalid or duplicate source id %q", id)
 		}
 		sources[id] = true
-		allowed := fields("name url category license license-declaration version license-url content-from content-to selection copyrighted machine-generated personal-data acquisition-basis")
+		allowed := fields("name url category license license-declaration version license-url content-from content-to selection copyrighted machine-generated personal-data acquisition-basis generator-model generator-version generator-summary-url generator-description")
 		lists := fields("content-type language programming-language")
 		if err := validateFields(source, allowed, lists); err != nil {
 			return err
@@ -147,6 +147,17 @@ func (file File) Validate() error {
 		}
 		if !fields("public-dataset commercially-licensed private-third-party web-crawl user-data synthetic other")[source.One("category")] {
 			return fmt.Errorf("source %q has unsupported category %q", id, source.One("category"))
+		}
+		if source.One("category") == "synthetic" {
+			if source.One("generator-model") == "" {
+				return fmt.Errorf("source %q category synthetic requires generator-model", id)
+			}
+		} else {
+			for _, field := range []string{"generator-model", "generator-version", "generator-summary-url", "generator-description"} {
+				if source.One(field) != "" {
+					return fmt.Errorf("source %q %s requires category synthetic", id, field)
+				}
+			}
 		}
 		for _, field := range []string{"copyrighted", "machine-generated", "personal-data"} {
 			value := source.One(field)

@@ -124,6 +124,10 @@ Every INI requires one `[corpus]`, at least one `[source]`, at least one
 | `machine-generated` | no | `yes`, `no`, or `unknown`. |
 | `personal-data` | no | `yes`, `no`, or `unknown`. |
 | `acquisition-basis` | no | Why acquisition is authoritative and reproducible. |
+| `generator-model` | for `synthetic` | Identity of the model that generated or materially assisted the source. |
+| `generator-version` | no | Generator model version or dated release when known. |
+| `generator-summary-url` | no | Public description of the generator when available. |
+| `generator-description` | no | Concise description of generation and human review. |
 
 `category` must be one of:
 
